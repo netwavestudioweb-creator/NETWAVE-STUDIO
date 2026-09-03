@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,17 +13,12 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 15);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on page transition
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
@@ -38,103 +33,130 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full bg-white transition-shadow duration-300 ${
-        isScrolled ? "shadow-md shadow-[#281450]/6" : "border-b border-[#F5F5F7]"
-      }`}
-      style={{ minHeight: "72px" }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
-        {/* Logo NetWave Studio (taille réelle, jamais recoloré) */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative h-10 w-44 flex items-center">
-            <Image
-              src="/logo.jpg"
-              alt="NetWave Studio"
-              width={176}
-              height={42}
-              className="object-contain object-left"
-              priority
-            />
+    <>
+      {/* Micro-barre supérieure de statut studio */}
+      <div className="bg-[#1E0F3D] text-white text-[11px] font-medium py-1.5 px-4 hidden sm:block border-b border-white/5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0fb894] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A9678]"></span>
+            </span>
+            <span className="text-gray-300 font-mono tracking-wide">
+              Studio disponible pour nouveaux projets • Cotonou & International
+            </span>
           </div>
-        </Link>
-
-        {/* Navigation Desktop */}
-        <nav className="hidden md:flex items-center space-x-7" aria-label="Navigation principale">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`text-[15px] font-medium transition-colors duration-200 ${
-                  isActive
-                    ? "text-[#0A9678] font-semibold"
-                    : "text-[#1F2937] hover:text-[#0A9678]"
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* CTA Desktop */}
-        <div className="hidden md:flex items-center">
           <Link
             href="/contact"
-            id="nav-cta-quote"
-            className="inline-flex items-center justify-center px-5 py-2.5 text-[14px] font-semibold text-white bg-[#281450] hover:bg-[#462882] rounded-[8px] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[#281450]/20 active:scale-[0.98]"
+            className="text-gray-300 hover:text-white flex items-center gap-1 transition-colors group"
           >
-            Demander un devis
+            <span>Démarrer une étude de cadrage</span>
+            <ArrowRight className="w-3 h-3 text-[#0fb894] group-hover:translate-x-0.5 transition-transform" />
           </Link>
-        </div>
-
-        {/* Bouton Menu Mobile */}
-        <div className="flex md:hidden items-center">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-[#1F2937] hover:text-[#0A9678] hover:bg-[#F5F5F7] transition-colors focus:outline-none"
-            aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
       </div>
 
-      {/* Menu Déroulant Mobile */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#F5F5F7] bg-white px-4 pt-3 pb-6 shadow-xl animate-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col space-y-3">
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/90 backdrop-blur-xl shadow-sm border-b border-black/[0.06]"
+            : "bg-white border-b border-[#E5E7EB]"
+        }`}
+        style={{ minHeight: "72px" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
+          {/* Logo NetWave Studio */}
+          <Link href="/" className="flex items-center gap-3 group focus:outline-none">
+            <div className="relative h-10 w-44 flex items-center">
+              <Image
+                src="/logo.jpg"
+                alt="NetWave Studio — Ingénierie & Design"
+                width={176}
+                height={42}
+                className="object-contain object-left transition-opacity group-hover:opacity-90"
+                priority
+              />
+            </div>
+          </Link>
+
+          {/* Navigation Desktop */}
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2" aria-label="Navigation principale">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-2.5 rounded-md text-[15px] font-medium transition-colors ${
+                  className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "bg-[#F5F5F7] text-[#0A9678] font-semibold"
-                      : "text-[#1F2937] hover:bg-[#F5F5F7] hover:text-[#0A9678]"
+                      ? "text-[#281450] bg-[#281450]/[0.06] font-semibold"
+                      : "text-gray-600 hover:text-[#281450] hover:bg-gray-100/70"
                   }`}
                 >
                   {link.name}
                 </Link>
               );
             })}
-            <div className="pt-2">
+          </nav>
+
+          {/* CTA Desktop */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] active:scale-[0.98] text-white text-xs font-semibold tracking-wide uppercase font-mono transition-all shadow-sm shadow-[#0A9678]/20"
+            >
+              <span>Demander un devis</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Bouton Menu Mobile */}
+          <div className="flex md:hidden items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2.5 rounded-xl text-gray-700 hover:text-[#281450] hover:bg-gray-100 focus:outline-none transition-colors"
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Menu Mobile déroulant */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white/95 backdrop-blur-2xl border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="space-y-1">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                      isActive
+                        ? "bg-[#281450]/10 text-[#281450] font-semibold"
+                        : "text-gray-700 hover:bg-gray-100 hover:text-[#281450]"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="pt-4 border-t border-gray-100">
               <Link
                 href="/contact"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-[15px] font-semibold text-white bg-[#281450] hover:bg-[#462882] rounded-[8px] transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#0A9678] text-white text-sm font-semibold shadow-md active:scale-[0.98] transition-transform"
               >
-                Demander un devis
+                <span>Demander un devis</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
-        </div>
-      )}
-    </header>
+        )}
+      </header>
+    </>
   );
 }

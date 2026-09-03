@@ -1,10 +1,11 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, FileCode, GitBranch, Cpu, Rocket } from "lucide-react";
 
 export const metadata = {
   title: "Méthodologie d'Ingénierie — NetWave Studio",
-  description: "Notre processus de développement en 4 étapes pour délivrer des applications web ultra-performantes, sans dette technique.",
+  description:
+    "Notre processus de développement en 4 étapes pour délivrer des applications web ultra-performantes, sans dette technique.",
 };
 
 export default function MethodologiePage() {
@@ -17,8 +18,8 @@ export default function MethodologiePage() {
       details: [
         "Audit des besoins métier et contraintes d'utilisabilité",
         "Cartographie des dépendances et flux de données",
-        "Cahier des charges technique et définition du scope MVP/V1",
-        "Calendrier de livraison avec jalons stricts",
+        "Cahier des charges technique et définition du scope MVP / V1",
+        "Calendrier de livraison clair avec jalons stricts",
       ],
     },
     {
@@ -29,7 +30,7 @@ export default function MethodologiePage() {
       details: [
         "Sélection rigoureuse des technologies et bibliothèques (zero-bloat)",
         "Modélisation des schémas de bases de données et interfaces d'API",
-        "Définition de la stratégie de rendu (SSR, SSG, ISR, Edge)",
+        "Définition de la stratégie de rendu (SSR, SSG, Edge)",
         "Plan de sécurité, gestion des identités et conformité",
       ],
     },
@@ -39,10 +40,10 @@ export default function MethodologiePage() {
       title: "Développement & Intégration",
       summary: "Une exécution rythmée avec intégration continue et revue de code rigoureuse.",
       details: [
-        "Développement avec typage TypeScript strict",
-        "Mise en place d'un environnement de staging accessible au client",
-        "Revue systématique des pull requests et linting automatisé",
-        "Tests unitaires, tests d'intégration et profiling des performances",
+        "Développement avec typage TypeScript strict à 100%",
+        "Mise en place d'un environnement de prévisualisation accessible au client",
+        "Revue systématique du code et linting automatisé",
+        "Tests d'intégration, profilage des performances et Core Web Vitals",
       ],
     },
     {
@@ -51,7 +52,7 @@ export default function MethodologiePage() {
       title: "Mise en Ligne & Suivi",
       summary: "Déploiement serein et accompagnement technique dans la durée.",
       details: [
-        "Déploiement zéro-downtime sur infrastructure CDN mondiale",
+        "Déploiement zéro downtime sur infrastructure Edge mondiale",
         "Monitoring télémétrique et alertes de latence en temps réel",
         "Passation technique complète et documentation de l'architecture",
         "Accompagnement post-lancement et maintenance évolutive",
@@ -60,7 +61,7 @@ export default function MethodologiePage() {
   ];
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white font-inter">
       {/* En-tête */}
       <section className="bg-[#F5F5F7] py-16 md:py-24 border-b border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
@@ -70,27 +71,28 @@ export default function MethodologiePage() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#281450] font-poppins">
             Notre Méthodologie
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-inter">
-            Une approche d&apos;ingénierie prévisible et transparente, pensée pour supprimer les imprévus et maximiser la qualité finale.
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-inter leading-relaxed">
+            Une approche d&apos;ingénierie prévisible et transparente, pensée pour supprimer les
+            imprévus et maximiser la qualité finale.
           </p>
         </div>
       </section>
 
       {/* Détail des 4 étapes */}
-      <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-12">
+      <section className="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="space-y-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div
                 key={index}
-                className="relative rounded-2xl border border-[#E5E7EB] bg-white p-8 sm:p-10 card-elevation-hover flex flex-col md:flex-row gap-8 items-start"
+                className="relative rounded-3xl border border-[#E5E7EB] bg-white p-8 sm:p-10 card-elevation-hover flex flex-col md:flex-row gap-8 items-start shadow-xs"
               >
-                <div className="flex-shrink-0 flex items-center md:flex-col gap-4">
-                  <span className="text-4xl sm:text-5xl font-extrabold text-[#462882] font-poppins bg-[#462882]/10 px-4 py-2 rounded-xl">
+                <div className="shrink-0 flex items-center md:flex-col gap-4">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-[#462882] font-poppins bg-[#462882]/10 px-4 py-2 rounded-2xl">
                     {step.num}
                   </span>
-                  <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678]">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0A9678]/10 flex items-center justify-center text-[#0A9678]">
                     <Icon className="w-6 h-6 stroke-[1.75]" />
                   </div>
                 </div>
@@ -105,10 +107,10 @@ export default function MethodologiePage() {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-gray-100">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 border-t border-gray-100">
                     {step.details.map((detail, dIdx) => (
-                      <div key={dIdx} className="flex items-start gap-2.5 text-xs text-gray-700">
-                        <CheckCircle2 className="w-4 h-4 text-[#0A9678] mt-0.5 flex-shrink-0" />
+                      <div key={dIdx} className="flex items-start gap-2.5 text-xs text-gray-700 leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-[#0A9678] mt-0.5 shrink-0" />
                         <span>{detail}</span>
                       </div>
                     ))}
@@ -122,9 +124,9 @@ export default function MethodologiePage() {
         <div className="mt-16 text-center">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-[8px] bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold transition-all shadow-md"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold transition-all shadow-md active:scale-[0.98]"
           >
-            Lancer un projet avec notre méthodologie
+            <span>Lancer un projet avec notre méthodologie</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
