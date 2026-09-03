@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -86,7 +86,7 @@ export default function AlkareemMockup() {
                 {/* Écran avec capture réelle */}
                 <div className="relative rounded-[38px] overflow-hidden bg-white aspect-[9/19.5] border border-neutral-800">
                   <Image
-                    src="/assets/alkareem/mobile-boutique-iphone16.jpg"
+                    src="/assets/alkareem/mobile-boutique-iphone16.png"
                     alt="Catalogue Mobile Al Kareem Parfumerie"
                     fill
                     sizes="(max-width: 768px) 280px, 320px"
