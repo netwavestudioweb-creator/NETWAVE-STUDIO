@@ -33,6 +33,11 @@ export const metadata: Metadata = {
     "NetWave Studio",
   ],
   authors: [{ name: "NetWave Studio" }],
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

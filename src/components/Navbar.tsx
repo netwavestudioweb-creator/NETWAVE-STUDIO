@@ -67,14 +67,14 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
           {/* Logo NetWave Studio */}
           <Link href="/" className="flex items-center gap-3 group focus:outline-none">
-            <div className="relative h-10 w-44 flex items-center">
+            <div className="relative h-10 w-44 flex items-center overflow-hidden">
               <Image
                 src="/logo.jpg"
                 alt="NetWave Studio — Ingénierie & Design"
                 width={176}
-                height={42}
-                style={{ width: "auto" }}
-                className="object-contain object-left transition-opacity group-hover:opacity-90"
+                height={40}
+                style={{ width: "auto", maxHeight: "40px" }}
+                className="object-contain object-left max-h-10 transition-opacity group-hover:opacity-90"
                 priority
               />
             </div>
