@@ -425,7 +425,7 @@ export default function HomePage() {
             </h2>
             <p className="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto font-inter">
               Que vous lanciez un nouveau produit ou souhaitiez moderniser une infrastructure
-              existante, nos ingénieurs étudient votre besoin avec précision.
+              existante, l&apos;ingénieur qui portera votre projet étudie votre besoin avec précision.
             </p>
           </div>
 

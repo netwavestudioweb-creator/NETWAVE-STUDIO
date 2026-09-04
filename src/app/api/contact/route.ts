@@ -121,7 +121,7 @@ export async function POST(req: Request) {
                 </div>
               </div>
               <div class="footer">
-                Notification automatique générée depuis netwavestudio.com pour netwave.studio.web@gmail.com
+                Notification automatique générée pour netwave.studio.web@gmail.com
               </div>
             </div>
           </body>

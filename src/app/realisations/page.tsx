@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, TrendingDown, Zap, Clock, ShieldCheck, ExternalLink, Sparkles } from "lucide-react";
 import AlkareemMockup from "@/components/AlkareemMockup";
@@ -109,11 +109,11 @@ export default function RealisationsPage() {
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
                   <div className="flex items-start gap-2.5 text-sm text-gray-200">
                     <TrendingDown className="w-4 h-4 text-[#0fb894] mt-0.5 shrink-0" />
-                    <span>TTFB divisé par 4 sur réseau mobile 3G/4G (&lt; 800ms).</span>
+                    <span>TTFB réduit de 3-6s à ~1s sur réseau 3G (-75%).</span>
                   </div>
                   <div className="flex items-start gap-2.5 text-sm text-gray-200">
                     <CheckCircle2 className="w-4 h-4 text-[#0fb894] mt-0.5 shrink-0" />
-                    <span>0% de rage clicks enregistré sur Microsoft Clarity.</span>
+                    <span>Catalogue tactile 2 colonnes fluide et commande WhatsApp directe.</span>
                   </div>
                 </div>
               </div>
@@ -140,7 +140,7 @@ export default function RealisationsPage() {
               href="/contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#281450] hover:bg-[#3A1F6E] text-white text-sm font-semibold transition-all active:scale-[0.98] shadow-sm"
             >
-              <span>Soumettre votre projet à l&apos;équipe</span>
+              <span>Soumettre votre projet au studio</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

@@ -116,8 +116,8 @@ export default function AlkareemMockup() {
 
               <div className="grid grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="text-2xl font-extrabold text-[#0fb894] font-poppins">&lt; 850 ms</div>
-                  <div className="text-xs text-gray-300 mt-0.5">Temps de premier affichage (LCP)</div>
+                  <div className="text-2xl font-extrabold text-[#0fb894] font-poppins">-75%</div>
+                  <div className="text-xs text-gray-300 mt-0.5">TTFB réduit de 3-6s à ~1s sur réseau 3G</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                   <div className="text-2xl font-extrabold text-white font-poppins">2 Colonnes</div>
@@ -275,23 +275,15 @@ export default function AlkareemMockup() {
         )}
       </div>
 
-      {/* Barre de badges de réassurance et métriques globales */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+      {/* Barre de badges de réassurance et métriques réelles */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
         <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
-          <div className="text-xl sm:text-2xl font-extrabold text-[#0fb894] font-poppins">98/100</div>
-          <div className="text-xs text-gray-300 mt-1">Score Mobile Performance</div>
+          <div className="text-xl sm:text-2xl font-extrabold text-[#0fb894] font-poppins">-75%</div>
+          <div className="text-xs text-gray-300 mt-1">TTFB réduit de 3-6s à ~1s sur réseau 3G</div>
         </div>
         <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
-          <div className="text-xl sm:text-2xl font-extrabold text-white font-poppins">&lt; 800 ms</div>
-          <div className="text-xs text-gray-300 mt-1">TTFB sur réseau mobile</div>
-        </div>
-        <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
-          <div className="text-xl sm:text-2xl font-extrabold text-[#0fb894] font-poppins">500+</div>
+          <div className="text-xl sm:text-2xl font-extrabold text-white font-poppins">500+</div>
           <div className="text-xs text-gray-300 mt-1">Parfums gérés en temps réel</div>
-        </div>
-        <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
-          <div className="text-xl sm:text-2xl font-extrabold text-white font-poppins">0%</div>
-          <div className="text-xs text-gray-300 mt-1">Rage clicks (Clarity)</div>
         </div>
       </div>
     </div>

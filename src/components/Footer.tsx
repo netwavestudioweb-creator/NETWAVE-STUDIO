@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { Mail, MapPin, Phone, ArrowUpRight, ShieldCheck, Heart } from "lucide-react";
 
@@ -124,8 +124,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#0A9678] shrink-0" />
-                <a href="mailto:contact@netwavestudio.com" className="hover:text-white transition-colors">
-                  contact@netwavestudio.com
+                <a href="mailto:netwave.studio.web@gmail.com" className="hover:text-white transition-colors">
+                  netwave.studio.web@gmail.com
                 </a>
               </li>
               <li className="pt-2">

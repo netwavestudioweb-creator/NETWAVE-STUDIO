@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import {
   ShoppingCart,
@@ -162,7 +162,7 @@ export default function ServicesPage() {
             Un projet en vue ?
           </h3>
           <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            Contactez notre équipe pour échanger sur vos besoins et planifier une étude de cadrage
+            Contactez NetWave Studio pour échanger sur vos besoins et planifier une étude de cadrage
             technique détaillée.
           </p>
           <div>

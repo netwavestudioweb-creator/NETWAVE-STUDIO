@@ -140,10 +140,10 @@ export default function LogoGeometricWave() {
           </div>
           <div className="p-1.5 sm:p-2 rounded-lg bg-[#F5F5F7]">
             <p className="text-[9px] sm:text-[10px] text-gray-500 font-medium truncate">
-              CORE VITALS
+              RÉSEAUX
             </p>
             <p className="text-[11px] sm:text-xs font-bold text-[#0A9678] font-poppins truncate">
-              Score 100/100
+              Mobile 3G/4G
             </p>
           </div>
           <div className="p-1.5 sm:p-2 rounded-lg bg-[#F5F5F7]">
