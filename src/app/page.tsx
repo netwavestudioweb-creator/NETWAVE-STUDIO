@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -14,6 +14,12 @@ import {
 } from "lucide-react";
 import LogoGeometricWave from "@/components/LogoGeometricWave";
 import AlkareemMockup from "@/components/AlkareemMockup";
+
+export const metadata = {
+  title: "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite",
+  description:
+    "NetWave Studio allie rigueur architecturale, performances web extrêmes et conception sur-mesure pour propulser les entreprises en Afrique de l'Ouest et à l'international.",
+};
 
 export default function HomePage() {
   return (

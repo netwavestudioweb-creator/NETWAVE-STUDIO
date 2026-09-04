@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -73,6 +73,7 @@ export default function Navbar() {
                 alt="NetWave Studio — Ingénierie & Design"
                 width={176}
                 height={42}
+                style={{ width: "auto" }}
                 className="object-contain object-left transition-opacity group-hover:opacity-90"
                 priority
               />
