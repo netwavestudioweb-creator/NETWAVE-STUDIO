@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
+import LogoNetWave from "@/components/LogoNetWave";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,19 +42,9 @@ export default function Navbar() {
       style={{ minHeight: "68px" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center justify-between">
-        {/* Logo NetWave Studio */}
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 group focus:outline-none shrink-0">
-          <div className="relative h-9 sm:h-10 w-36 sm:w-44 flex items-center overflow-hidden">
-            <Image
-              src="/logo.jpg"
-              alt="NetWave Studio — Ingénierie & Design"
-              width={176}
-              height={40}
-              style={{ width: "auto", maxHeight: "40px" }}
-              className="object-contain object-left max-h-9 sm:max-h-10 transition-opacity group-hover:opacity-90"
-              priority
-            />
-          </div>
+        {/* Logo NetWave Studio vectoriel réactif */}
+        <Link href="/" className="flex items-center group focus:outline-none shrink-0 transition-opacity hover:opacity-95">
+          <LogoNetWave />
         </Link>
 
         {/* Navigation Desktop */}

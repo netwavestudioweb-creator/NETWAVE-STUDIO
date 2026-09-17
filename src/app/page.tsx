@@ -12,7 +12,7 @@ import {
   Zap,
   TrendingDown,
 } from "lucide-react";
-import LogoGeometricWave from "@/components/LogoGeometricWave";
+import HeroAppVisual from "@/components/HeroAppVisual";
 import AlkareemMockup from "@/components/AlkareemMockup";
 
 import type { Metadata } from "next";
@@ -107,9 +107,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Colonne droite : Animation géométrique */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <LogoGeometricWave />
+            {/* Colonne droite : Visuel immersif Smartphone & Ecosysteme Apps */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
+              <HeroAppVisual />
             </div>
           </div>
         </div>
