@@ -10,10 +10,28 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-export const metadata = {
-  title: "À Propos & Vision — NetWave Studio",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "À Propos, Vision & Fondateur",
   description:
-    "Rendre la technologie de pointe accessible aux entreprises et institutions d'Afrique de l'Ouest — avec la même rigueur qu'ailleurs, pensée pour les réalités du terrain.",
+    "Découvrez la vision, l'histoire et les valeurs de NetWave Studio : apporter la rigueur d'ingénierie et former les talents aux standards mondiaux.",
+  alternates: {
+    canonical: "/a-propos",
+  },
+  openGraph: {
+    title: "À Propos & Vision — NetWave Studio",
+    description:
+      "Histoire, valeurs d'ingénierie et engagement d'excellence pour l'Afrique de l'Ouest et l'international.",
+    url: "https://www.netwave-studio.company/a-propos",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "À Propos NetWave Studio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "À Propos & Vision — NetWave Studio",
+    description: "Ingénierie web, logiciels et formation d'excellence.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function AProposPage() {

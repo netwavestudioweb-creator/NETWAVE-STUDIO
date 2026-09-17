@@ -2,10 +2,28 @@ import React from "react";
 import { Mail, MapPin, Clock, ShieldCheck, MessageSquare } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
-export const metadata = {
-  title: "Contact & Devis — NetWave Studio",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact & Demande de Devis",
   description:
-    "Échangez directement avec un architecte logiciel de NetWave Studio. Demandez un devis précis et sans engagement sous 24-48h pour vos projets web, logiciels, réseaux ou IA.",
+    "Échangez directement avec NetWave Studio. Demandez un devis gratuit et précis pour vos projets d'applications web, logiciels sur-mesure ou formations tech.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact & Demande de Devis — NetWave Studio",
+    description:
+      "Formulaire d'étude de cadrage et contact direct par email ou WhatsApp Business.",
+    url: "https://www.netwave-studio.company/contact",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Contact NetWave Studio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact & Demande de Devis — NetWave Studio",
+    description: "Échangez directement avec un ingénieur logiciel NetWave Studio.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function ContactPage() {

@@ -15,10 +15,29 @@ import {
 import LogoGeometricWave from "@/components/LogoGeometricWave";
 import AlkareemMockup from "@/components/AlkareemMockup";
 
-export const metadata = {
-  title: "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "NetWave Studio — Studio d'Ingénierie Web, Logicielle & Académie Tech d'Élite",
   description:
-    "NetWave Studio allie rigueur architecturale, performances web extrêmes et conception sur-mesure pour propulser les entreprises en Afrique de l'Ouest et à l'international.",
+    "NetWave Studio allie rigueur architecturale, performances web extrêmes, conception sur-mesure et académie tech pour propulser les entreprises et talents en Afrique de l'Ouest et à l'international.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite",
+    description:
+      "Solutions numériques sur-mesure, applications web ultra-rapides, logiciels métiers & académie tech d'excellence.",
+    url: "https://www.netwave-studio.company",
+    siteName: "NetWave Studio",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "NetWave Studio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite",
+    description: "Ingénierie web, logiciels sur-mesure & académie tech.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function HomePage() {
@@ -44,7 +63,7 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <h1 className="text-[40px] sm:text-[48px] lg:text-[56px] font-extrabold text-[#281450] tracking-tight leading-[1.1] font-poppins">
+              <h1 className="text-[28px] sm:text-[44px] lg:text-[56px] font-extrabold text-[#281450] tracking-tight leading-[1.15] font-poppins">
                 L&apos;ingénierie web d&apos;élite pour vos projets digitaux les plus ambitieux.
               </h1>
 

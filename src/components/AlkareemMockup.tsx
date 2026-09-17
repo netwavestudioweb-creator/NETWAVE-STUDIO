@@ -19,42 +19,42 @@ export default function AlkareemMockup() {
   return (
     <div className="w-full space-y-6">
       {/* Sélecteur d'angle de vue immersif */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-md">
-        <div className="flex items-center gap-1.5 sm:gap-2">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white/5 p-2 rounded-2xl border border-white/10">
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full pb-1 sm:pb-0">
           <button
             onClick={() => setActiveTab("boutique")}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium shrink-0 transition-all duration-200 ${
               activeTab === "boutique"
                 ? "bg-[#0A9678] text-white shadow-md shadow-[#0A9678]/30 font-semibold"
                 : "text-gray-300 hover:text-white hover:bg-white/5"
             }`}
           >
-            <Smartphone className="w-4 h-4" />
-            <span>Catalogue Mobile 2 colonnes</span>
+            <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span>Catalogue Mobile</span>
           </button>
 
           <button
             onClick={() => setActiveTab("produit")}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium shrink-0 transition-all duration-200 ${
               activeTab === "produit"
                 ? "bg-[#0A9678] text-white shadow-md shadow-[#0A9678]/30 font-semibold"
                 : "text-gray-300 hover:text-white hover:bg-white/5"
             }`}
           >
-            <ShoppingBag className="w-4 h-4" />
-            <span>Fiche Produit & Sticky CTA</span>
+            <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span>Fiche Produit</span>
           </button>
 
           <button
             onClick={() => setActiveTab("physique")}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium shrink-0 transition-all duration-200 ${
               activeTab === "physique"
                 ? "bg-[#0A9678] text-white shadow-md shadow-[#0A9678]/30 font-semibold"
                 : "text-gray-300 hover:text-white hover:bg-white/5"
             }`}
           >
-            <Store className="w-4 h-4" />
-            <span>Boutique Physique Cotonou</span>
+            <Store className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span>Boutique Physique</span>
           </button>
         </div>
 
@@ -62,9 +62,9 @@ export default function AlkareemMockup() {
           href="https://al-kareem-parfurmerie.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/15 text-white transition-all border border-white/15 group"
+          className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/15 text-white transition-all border border-white/15 group shrink-0"
         >
-          <span>Visiter le site en production</span>
+          <span>Visiter le site</span>
           <ExternalLink className="w-3.5 h-3.5 text-[#0fb894] group-hover:translate-x-0.5 transition-transform" />
         </a>
       </div>

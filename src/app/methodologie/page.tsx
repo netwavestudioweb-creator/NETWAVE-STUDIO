@@ -1,11 +1,29 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, FileCode, GitBranch, Cpu, Rocket } from "lucide-react";
 
-export const metadata = {
-  title: "Méthodologie d'Ingénierie — NetWave Studio",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Méthodologie d'Ingénierie",
   description:
-    "Notre processus de développement en 4 étapes pour délivrer des applications web ultra-performantes, sans dette technique.",
+    "Notre processus de développement rigoureux en 4 étapes pour délivrer des applications web ultra-performantes, résilientes et sans dette technique.",
+  alternates: {
+    canonical: "/methodologie",
+  },
+  openGraph: {
+    title: "Méthodologie d'Ingénierie — NetWave Studio",
+    description:
+      "Méthode d'exécution rigoureuse : Cadrage, Architecture Zero-Bloat, Développement & Déploiement.",
+    url: "https://www.netwave-studio.company/methodologie",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Méthodologie NetWave Studio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Méthodologie d'Ingénierie — NetWave Studio",
+    description: "Conception web et logicielle sans dette technique.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function MethodologiePage() {

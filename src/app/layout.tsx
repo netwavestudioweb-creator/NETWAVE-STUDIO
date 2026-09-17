@@ -20,23 +20,75 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.netwave-studio.company";
+
 export const metadata: Metadata = {
-  title: "NetWave Studio — Agence de Développement Web & Logiciel d'Élite",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite",
+    template: "%s | NetWave Studio",
+  },
   description:
-    "NetWave Studio conçoit et déploie des applications web sur-mesure, robustes et ultra-performantes pour les entreprises exigeantes.",
+    "NetWave Studio conçoit et déploie des applications web sur-mesure, des logiciels métiers ultra-performants et forme les futurs talents tech en Afrique de l'Ouest et à l'international.",
   keywords: [
     "développement web",
     "agence web",
+    "studio d'ingénierie",
+    "académie tech",
+    "formation développement web",
     "Next.js",
     "architecture logicielle",
     "performance web",
+    "Cotonou",
+    "Bénin",
     "NetWave Studio",
   ],
-  authors: [{ name: "NetWave Studio" }],
+  authors: [{ name: "NetWave Studio", url: siteUrl }],
+  creator: "NetWave Studio",
+  publisher: "NetWave Studio",
+  alternates: {
+    canonical: "./",
+  },
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
     apple: "/icon.svg",
+  },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: siteUrl,
+    siteName: "NetWave Studio",
+    title: "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite",
+    description:
+      "NetWave Studio conçoit et déploie des applications web sur-mesure, des logiciels métiers ultra-performants et propose une académie d'excellence tech.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite",
+    description:
+      "Conception web sur-mesure, logiciels métiers & académie tech d'excellence.",
+    images: ["/twitter-image"],
+    creator: "@netwavestudio",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -45,12 +97,58 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "NetWave Studio",
+        url: siteUrl,
+        logo: `${siteUrl}/icon.svg`,
+        email: "netwave.studio.web@gmail.com",
+        telephone: "+2290150884670",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Cotonou",
+          addressCountry: "BJ",
+        },
+        description:
+          "Studio d'ingénierie web, logicielle, télécoms et académie de formation tech de référence.",
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "NetWave Studio",
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        inLanguage: "fr-FR",
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": `${siteUrl}/#academy`,
+        name: "NetWave Studio Academy",
+        url: siteUrl,
+        description:
+          "Académie de formation pratique et d'apprentissage des métiers du web, du développement logiciel et des technologies numériques.",
+      },
+    ],
+  };
+
   return (
     <html
       lang="fr"
       data-scroll-behavior="smooth"
       className={`${poppins.variable} ${inter.variable} h-full antialiased scroll-smooth`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-[#1F2937] selection:bg-[#0A9678]/20 selection:text-[#281450]">
         <Navbar />
         <main className="flex-1">{children}</main>

@@ -10,10 +10,28 @@ import {
   Sparkles,
 } from "lucide-react";
 
-export const metadata = {
-  title: "Services & Domaines d'Intervention — NetWave Studio",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services & Domaines d'Intervention",
   description:
-    "Découvrez les 4 domaines d'intervention de NetWave Studio : Développement Web & E-commerce, Logiciels sur mesure, Réseaux & Télécoms, IA conversationnelle & Automatisation.",
+    "Découvrez les domaines d'expertise de NetWave Studio : Développement Web & E-commerce, Logiciels sur mesure, Réseaux & Télécoms, IA conversationnelle & Automatisation.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Services & Expertises — NetWave Studio",
+    description:
+      "Applications Web, E-commerce, Logiciels métier sur-mesure, Réseaux & Automatisation IA.",
+    url: "https://www.netwave-studio.company/services",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Services NetWave Studio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services & Expertises — NetWave Studio",
+    description: "Développement Web, Logiciels sur mesure & Infrastructures.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function ServicesPage() {
@@ -165,10 +183,10 @@ export default function ServicesPage() {
             Contactez NetWave Studio pour échanger sur vos besoins et planifier une étude de cadrage
             technique détaillée.
           </p>
-          <div>
+          <div className="flex justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold transition-all shadow-lg active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold text-sm sm:text-base transition-all shadow-lg active:scale-[0.98] w-full sm:w-auto"
             >
               <span>Prendre contact</span>
               <ArrowRight className="w-4 h-4" />

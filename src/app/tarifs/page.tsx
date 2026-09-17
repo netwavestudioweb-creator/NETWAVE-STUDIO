@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import {
   ShoppingCart,
@@ -15,10 +15,28 @@ import {
   Clock,
 } from "lucide-react";
 
-export const metadata = {
-  title: "Tarifs — NetWave Studio",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tarifs & Transparence",
   description:
-    "Un tarif de base clair pour démarrer, un devis sur mesure dès que le projet se complexifie. Pas de grille figée, pas de mauvaise surprise.",
+    "Grille tarifaire transparente et devis sur-mesure pour vos projets web, e-commerce, logiciels et formations.",
+  alternates: {
+    canonical: "/tarifs",
+  },
+  openGraph: {
+    title: "Tarifs & Transparence — NetWave Studio",
+    description:
+      "Des tarifs de base clairs (dès 100 000 FCFA) et une estimation transparente pour vos projets numériques.",
+    url: "https://www.netwave-studio.company/tarifs",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tarifs NetWave Studio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tarifs & Transparence — NetWave Studio",
+    description: "Tarifications claires et devis sur-mesure sans frais cachés.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function TarifsPage() {
@@ -371,13 +389,13 @@ export default function TarifsPage() {
             Décrivez-nous votre besoin pour obtenir une proposition tarifaire précise et adaptée à
             vos objectifs.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 flex justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-[8px] bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold transition-all shadow-lg hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold text-xs sm:text-base text-center transition-all shadow-lg active:scale-[0.98] w-full sm:w-auto max-w-md"
             >
               <span>Demander un devis détaillé, réponse sous 24-48h</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </Link>
           </div>
         </div>

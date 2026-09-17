@@ -3,10 +3,28 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, TrendingDown, Zap, Clock, ShieldCheck, ExternalLink, Sparkles } from "lucide-react";
 import AlkareemMockup from "@/components/AlkareemMockup";
 
-export const metadata = {
-  title: "Réalisations & Cas Clients — NetWave Studio",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Réalisations & Cas Clients",
   description:
-    "Découvrez comment NetWave Studio conçoit et optimise des plateformes web performantes, illustrées par le cas d'étude Alkareem Parfumerie.",
+    "Découvrez les projets réels déployés par NetWave Studio, illustrés par l'étude de cas e-commerce Alkareem Parfumerie.",
+  alternates: {
+    canonical: "/realisations",
+  },
+  openGraph: {
+    title: "Réalisations & Cas Clients — NetWave Studio",
+    description:
+      "Études de cas réelles et projets web déployés avec succès par NetWave Studio.",
+    url: "https://www.netwave-studio.company/realisations",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Réalisations NetWave Studio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Réalisations & Cas Clients — NetWave Studio",
+    description: "Projets web et logiciels déployés avec impact mesurable.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function RealisationsPage() {
