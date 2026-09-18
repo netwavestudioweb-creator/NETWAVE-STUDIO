@@ -59,7 +59,7 @@ export default function AlkareemMockup() {
         </div>
 
         <a
-          href="https://al-kareem-parfurmerie.vercel.app/"
+          href="https://www.al-kareemparfurmerie.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/15 text-white transition-all border border-white/15 group shrink-0"
@@ -220,7 +220,7 @@ export default function AlkareemMockup() {
                   </div>
                   <div className="flex-1 max-w-sm mx-auto bg-neutral-900/90 px-3 py-1 rounded-md text-[11px] text-gray-300 font-mono flex items-center justify-center gap-1.5 border border-white/10">
                     <Lock className="w-3 h-3 text-[#0fb894]" />
-                    <span>al-kareem-parfurmerie.vercel.app/a-propos</span>
+                    <span>www.al-kareemparfurmerie.com/a-propos</span>
                   </div>
                 </div>
 

@@ -68,7 +68,7 @@ export default function RealisationsPage() {
 
               <div className="flex items-center gap-3">
                 <a
-                  href="https://al-kareem-parfurmerie.vercel.app/"
+                  href="https://www.al-kareemparfurmerie.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white text-xs font-semibold font-mono tracking-wide transition-all shadow-md active:scale-[0.98]"
