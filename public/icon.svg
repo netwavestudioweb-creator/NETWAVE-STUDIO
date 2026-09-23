@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <!-- Fond Obsidienne Profonde / Espace Quantique -->
+    <linearGradient id="nwBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#241047" />
+      <stop offset="60%" stop-color="#16082E" />
+      <stop offset="100%" stop-color="#0B0318" />
+    </linearGradient>
+
+    <!-- Faisceau Antigravité : Émeraude Lévitante Haute Énergie -->
+    <linearGradient id="agEmerald" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A9678" />
+      <stop offset="40%" stop-color="#00E5A3" />
+      <stop offset="100%" stop-color="#6EE7B7" />
+    </linearGradient>
+
+    <!-- Faisceau Onde Ouest-Africaine : Violet Spatial -->
+    <linearGradient id="nwViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C084FC" />
+      <stop offset="50%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#4C1D95" />
+    </linearGradient>
+
+    <!-- Particule Zenitale Pur Blanc -->
+    <radialGradient id="agCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="45%" stop-color="#A7F3D0" />
+      <stop offset="100%" stop-color="#00E5A3" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Halo gravitationnel -->
+    <filter id="agGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- SQUIRCLE MAÎTRE : Lisibilité chirurgicale sur onglets Chrome / Safari / Edge (dark & light) -->
+  <rect x="2" y="2" width="124" height="124" rx="32" fill="url(#nwBg)" />
+  <rect x="2" y="2" width="124" height="124" rx="32" fill="none" stroke="#00E5A3" stroke-opacity="0.3" stroke-width="2" />
+
+  <!-- CHAMP DE FORCE GRAVITATIONNEL -->
+  <circle cx="64" cy="64" r="32" fill="#00E5A3" opacity="0.1" filter="url(#agGlow)" />
+
+  <!-- GLYPHE MONOGRAMME « ANTIGRAVITY × NETWAVE » -->
+  <g filter="url(#agGlow)">
+    <!-- 1. Flanc gauche ascendant (Aile d'accélération violette) -->
+    <polygon points="26,98 42,98 64,48 48,48" fill="url(#nwViolet)" />
+
+    <!-- 2. Prisme central Antigravité (Flèche delta ascendante défiant la pesanteur) -->
+    <!-- Forme le « A » d'Antigravity et le nœud central du « W » de NetWave -->
+    <polygon points="40,98 64,36 88,98 72,98 64,74 56,98" fill="url(#agEmerald)" />
+
+    <!-- 3. Flanc droit descendant (Vecteur de propulsion indigo/violet) -->
+    <polygon points="86,48 102,48 86,98 70,98" fill="url(#nwViolet)" opacity="0.92" />
+
+    <!-- 4. Pont de lévitation quantique (Barre horizontale du A suspendue dans le vide) -->
+    <polygon points="48,72 80,72 75,64 53,64" fill="#FFFFFF" opacity="0.95" />
+
+    <!-- 5. Point Zénithal Antigravité (L'Étincelle d'intelligence et de gravité zéro) -->
+    <circle cx="64" cy="24" r="8" fill="url(#agCore)" />
+    <!-- Étoile d'inflexion -->
+    <polygon points="64,15 66.5,21.5 73,24 66.5,26.5 64,33 61.5,26.5 55,24 61.5,21.5" fill="#FFFFFF" />
+  </g>
+</svg>
