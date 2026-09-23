@@ -2,13 +2,14 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, TrendingDown, Zap, Clock, ShieldCheck, ExternalLink, Sparkles } from "lucide-react";
 import AlkareemMockup from "@/components/AlkareemMockup";
+import InteractiveBrochure from "@/components/InteractiveBrochure";
 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Réalisations & Cas Clients",
+  title: "Réalisations & Cas Clients — NetWave Studio",
   description:
-    "Découvrez les projets réels déployés par NetWave Studio, illustrés par l'étude de cas e-commerce Alkareem Parfumerie.",
+    "Découvrez les projets réels déployés par NetWave Studio, illustrés par l'étude de cas e-commerce Alkareem Parfumerie et notre catalogue interactif.",
   alternates: {
     canonical: "/realisations",
   },
@@ -46,6 +47,22 @@ export default function RealisationsPage() {
         </div>
       </section>
 
+      {/* Section Dépliant Portfolio Interactif */}
+      <section className="py-12 border-b border-[#E5E7EB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="text-center space-y-2">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#0A9678] font-mono">
+              Catalogue de projets interactif
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold font-poppins text-[#281450]">
+              Dépliez le portfolio pour explorer nos créations
+            </h2>
+          </div>
+
+          <InteractiveBrochure />
+        </div>
+      </section>
+
       {/* Étude de cas détaillée : Alkareem Parfumerie */}
       <section className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-[#1E0F3D] text-white p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-2xl">
@@ -71,7 +88,7 @@ export default function RealisationsPage() {
                   href="https://www.al-kareemparfurmerie.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white text-xs font-semibold font-mono tracking-wide transition-all shadow-md active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white text-xs font-bold font-mono tracking-wide transition-all shadow-md active:scale-[0.98]"
                 >
                   <span>Voir le site en direct</span>
                   <ExternalLink className="w-3.5 h-3.5" />

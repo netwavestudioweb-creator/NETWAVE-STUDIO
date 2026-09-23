@@ -10,10 +10,13 @@ import {
   Sparkles,
   CheckCircle2,
   Zap,
-  TrendingDown,
+  Calculator,
 } from "lucide-react";
 import HeroAppVisual from "@/components/HeroAppVisual";
-import AlkareemMockup from "@/components/AlkareemMockup";
+import InteractiveBrochure from "@/components/InteractiveBrochure";
+import BentoMethodology from "@/components/BentoMethodology";
+import ComparisonMatrix from "@/components/ComparisonMatrix";
+import FaqSection from "@/components/FaqSection";
 
 import type { Metadata } from "next";
 
@@ -44,7 +47,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full overflow-hidden font-inter">
       {/* ============================================================
-          SECTION 1 : HERO
+          SECTION 1 : HERO MODERNISÉ (Pill Design & Green Pulse)
          ============================================================ */}
       <section className="relative w-full bg-white pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden border-b border-[#F5F5F7]">
         <div
@@ -56,38 +59,44 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Colonne gauche : Contenu rédactionnel */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F5F7] border border-[#E5E7EB]">
-                <span className="w-2 h-2 rounded-full bg-[#0A9678]" />
-                <span className="text-xs font-semibold text-[#281450] tracking-wide uppercase font-mono">
-                  Studio d&apos;ingénierie web &amp; logicielle
+              {/* Badge vert avec impulsion lumineuse (Green Pulse) */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#F5F5F7] border border-[#E5E7EB] shadow-xs">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0A9678] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0A9678] shadow-[0_0_8px_2px_rgba(10,150,120,0.4)]" />
+                </span>
+                <span className="text-xs font-semibold text-[#281450] tracking-wide font-mono">
+                  Disponible pour nouveaux projets • Cotonou &amp; International
                 </span>
               </div>
 
-              <h1 className="text-[28px] sm:text-[44px] lg:text-[56px] font-extrabold text-[#281450] tracking-tight leading-[1.15] font-poppins">
-                L&apos;ingénierie web d&apos;élite pour vos projets digitaux les plus ambitieux.
+              {/* Accroche Hybride (Ingénierie + Conversion) */}
+              <h1 className="text-[30px] sm:text-[46px] lg:text-[58px] font-extrabold text-[#281450] tracking-tight leading-[1.12] font-poppins">
+                Des sites &amp; logiciels qui convertissent. Bâtis sur une ingénierie d&apos;élite.
               </h1>
 
               <p className="text-[17px] sm:text-[18px] text-[#1F2937]/80 leading-relaxed max-w-2xl font-inter">
-                NetWave Studio allie rigueur architecturale, performances web extrêmes et conception
-                sur-mesure pour propulser les entreprises en quête d&apos;excellence.
+                Design sur-mesure, code ultra-rapide (3G/4G), SEO &amp; Mobile Money intégrés. Votre prochaine plateforme numérique ne sera pas un template — elle sera votre meilleur actif commercial.
               </p>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              {/* Boutons CTA Pill Shape */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                 <Link
                   href="/contact"
                   id="hero-cta-contact"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold text-[15px] shadow-sm hover:shadow-lg hover:shadow-[#0A9678]/25 transition-all duration-200 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-[15px] shadow-md shadow-[#0A9678]/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
                 >
-                  Démarrer un projet
+                  <span>Démarrer un projet</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
                 <Link
-                  href="/realisations"
-                  id="hero-cta-portfolio"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border-2 border-[#281450] bg-transparent text-[#281450] hover:bg-[#281450] hover:text-white font-semibold text-[15px] transition-all duration-200 active:scale-[0.98]"
+                  href="/#estimateur"
+                  id="hero-cta-estimator"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border-2 border-[#281450] bg-transparent text-[#281450] hover:bg-[#281450] hover:text-white font-bold text-[15px] hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
                 >
-                  Voir nos réalisations
+                  <Calculator className="w-4 h-4 text-[#0A9678]" />
+                  <span>Simuler mon devis</span>
                 </Link>
               </div>
 
@@ -116,63 +125,105 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          SECTION 2 : BANDEAU PREUVE SOCIALE & VRAI LOGO
+          SECTION 2 : BANDEAU PREUVE SOCIALE & CIBLES (Sociétés & Particuliers)
          ============================================================ */}
       <section className="w-full bg-[#F5F5F7] py-10 border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest font-mono">
-                Ils nous font confiance
-              </p>
-              <p className="text-xs text-gray-400 mt-0.5">
-                Des collaborations fondées sur la haute exigence technique
-              </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="text-center max-w-2xl mx-auto space-y-1">
+            <p className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
+              Accompagnement Sur-Mesure
+            </p>
+            <h3 className="text-base sm:text-lg font-bold text-[#281450] font-poppins">
+              Des solutions adaptées aux Sociétés comme aux Particuliers
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+            {/* Cible 1 : Sociétés & Entreprises */}
+            <div className="p-4 rounded-2xl bg-white border border-[#E5E7EB] flex items-center gap-3.5 shadow-xs card-hover-glow">
+              <div className="w-10 h-10 rounded-xl bg-[#281450]/10 text-[#281450] flex items-center justify-center font-bold shrink-0">
+                <LayoutDashboard className="w-5 h-5 text-[#281450]" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-[#281450] font-poppins">Sociétés &amp; Entreprises</h4>
+                <p className="text-xs text-gray-500 font-inter">Logiciels métiers &amp; plateformes scalables</p>
+              </div>
             </div>
 
-            {/* Vrai logo client : Alkareem Parfumerie */}
-            <div className="flex items-center justify-center">
-              <Link
-                href="/realisations"
-                className="group flex items-center gap-3.5 px-5 py-2.5 rounded-2xl bg-white border border-[#E5E7EB] hover:border-[#0A9678]/50 transition-all duration-300 shadow-xs"
-              >
-                <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-gray-100 shrink-0">
+            {/* Cible 2 : Particuliers & Indépendants */}
+            <div className="p-4 rounded-2xl bg-white border border-[#E5E7EB] flex items-center gap-3.5 shadow-xs card-hover-glow">
+              <div className="w-10 h-10 rounded-xl bg-[#0A9678]/10 text-[#0A9678] flex items-center justify-center font-bold shrink-0">
+                <Sparkles className="w-5 h-5 text-[#0A9678]" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-[#281450] font-poppins">Particuliers &amp; Porteurs de Projets</h4>
+                <p className="text-xs text-gray-500 font-inter">Sites vitrines &amp; solutions personnalisées</p>
+              </div>
+            </div>
+
+            {/* Cible 3 : Client Réel (Al Kareem Parfumerie) */}
+            <Link
+              href="/realisations"
+              className="group p-4 rounded-2xl bg-white border border-[#E5E7EB] hover:border-[#0A9678]/50 transition-all duration-300 flex items-center justify-between shadow-xs card-hover-glow"
+            >
+              <div className="flex items-center gap-3 shrink-0">
+                <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-gray-100 shrink-0">
                   <Image
                     src="/assets/alkareem/logo.jpg"
                     alt="Al Kareem Parfumerie Cotonou"
                     fill
-                    sizes="36px"
+                    sizes="40px"
                     className="object-cover"
                   />
                 </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-sm font-bold text-[#281450] tracking-wider font-poppins">
-                    AL KAREEM PARFUMERIE
-                  </span>
-                  <span className="text-[11px] text-gray-500 group-hover:text-[#0A9678] transition-colors font-mono">
-                    Haute Parfumerie &amp; E-commerce
-                  </span>
+                <div>
+                  <h4 className="text-xs font-bold text-[#281450] tracking-wider font-poppins">AL KAREEM PARFUMERIE</h4>
+                  <p className="text-[11px] text-gray-500 group-hover:text-[#0A9678] transition-colors font-mono">E-commerce &amp; Luxe</p>
                 </div>
-              </Link>
-            </div>
-
-            <div className="text-center md:text-right">
-              <Link
-                href="/realisations"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0A9678] hover:text-[#281450] transition-colors"
-              >
-                <span>Découvrir l&apos;étude de cas complète</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+              </div>
+              <ArrowRight className="w-4 h-4 text-[#0A9678] group-hover:translate-x-1 transition-transform shrink-0 ml-2" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ============================================================
-          SECTION 3 : SERVICES CLÉS
+          SECTION 3 : DÉPLIANT PORTFOLIO INTERACTIF (Le Catalogue qui se déplie)
          ============================================================ */}
-      <section className="w-full bg-white py-20 md:py-28 border-b border-[#F5F5F7]">
+      <section className="w-full bg-white py-20 md:py-28 border-b border-[#E5E7EB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 mb-8">
+          <span className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
+            Projets &amp; Portfolio interactif
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#281450] font-poppins">
+            Explorez nos réalisations déployées en production
+          </h2>
+          <p className="text-base text-gray-600 font-inter max-w-2xl mx-auto">
+            Dépliez notre catalogue interactif ci-dessous et cliquez sur un projet pour accéder à ses détails complets.
+          </p>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Nouveau dépliant interactif qui s'ouvre au clic */}
+          <InteractiveBrochure />
+
+          <div className="pt-8 text-center">
+            <Link
+              href="/realisations"
+              id="case-study-cta"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-base shadow-lg shadow-[#0A9678]/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
+            >
+              <span>Voir la page d&apos;études de cas complète</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          SECTION 4 : EXPERTISES CLÉS (Les 4 Pôles d'Ingénierie)
+         ============================================================ */}
+      <section className="w-full bg-[#F5F5F7] py-20 md:py-28 border-b border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <span className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
@@ -282,54 +333,51 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          SECTION 4 : ÉTUDE DE CAS MISE EN AVANT (Mockup Authentique)
+          SECTION 5 : INVITATION ESTIMATEUR DE BUDGET & TARIFS
          ============================================================ */}
-      <section className="w-full bg-[#1E0F3D] text-white py-20 md:py-28 overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#462882]/40 rounded-full blur-3xl -z-0 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#0A9678]/15 rounded-full blur-3xl -z-0 pointer-events-none" />
+      <section className="w-full bg-white py-16 md:py-24 border-b border-[#E5E7EB]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-gradient-to-br from-[#1E0F3D] via-[#281450] to-[#0B0318] p-8 sm:p-12 text-white text-center space-y-6 shadow-2xl relative overflow-hidden">
+            {/* Effet de fond lumineux */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#0A9678]/20 rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#462882]/40 rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 space-y-12">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-mono font-medium text-[#0fb894]">
-              <Sparkles className="w-3.5 h-3.5" />
-              ÉTUDE DE CAS EN PRODUCTION
+            <div className="relative z-10 space-y-4 max-w-2xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-[#0fb894] text-xs font-mono font-semibold uppercase tracking-wider">
+                <Calculator className="w-4 h-4" />
+                <span>Simulation de Budget &amp; Délais</span>
+              </div>
+
+              <h2 className="text-2xl sm:text-4xl font-extrabold font-poppins text-white leading-tight">
+                Estimez le budget et le délai de votre projet en quelques clics.
+              </h2>
+
+              <p className="text-sm sm:text-base text-gray-300 font-inter leading-relaxed">
+                Que vous soyez une <strong>société</strong> ou un <strong>particulier</strong>, découvrez notre grille tarifaire transparente et simulez votre devis en direct sur notre page Tarifs.
+              </p>
+
+              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href="/tarifs"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl cta-shimmer text-white font-bold font-poppins shadow-lg shadow-[#0A9678]/30 hover:scale-105 transition-all duration-300"
+                >
+                  <span>Accéder au simulateur de tarif</span>
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
-
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-poppins text-white leading-tight">
-              Alkareem Parfumerie : Diviser les temps d&apos;accès par 4 pour une marque de luxe.
-            </h2>
-
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-inter">
-              Face à une boutique en ligne pénalisée par des lenteurs serveur, NetWave Studio a
-              repensé l&apos;architecture e-commerce sur une pile moderne avec Edge Caching et tunnel
-              de commande WhatsApp instantané.
-            </p>
-          </div>
-
-          {/* Composant Showcase avec vraies photos et captures */}
-          <AlkareemMockup />
-
-          <div className="pt-4 text-center">
-            <Link
-              href="/realisations"
-              id="case-study-cta"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold text-base shadow-lg shadow-[#0A9678]/30 transition-all duration-200 active:scale-[0.98]"
-            >
-              <span>Lire le rapport d&apos;étude de cas complet</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>
 
       {/* ============================================================
-          SECTION 5 : MÉTHODOLOGIE (Aperçu, 4 étapes)
+          SECTION 6 : MÉTHODOLOGIE BENTO GRID INTERACTIVE
          ============================================================ */}
       <section className="w-full bg-[#F5F5F7] py-20 md:py-28 border-b border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <span className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
-              Processus d&apos;Excellence
+              Un processus clair, zéro surprise
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#281450] font-poppins">
               Une démarche rigoureuse, du cadrage au déploiement.
@@ -340,98 +388,31 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Étape 1 */}
-            <div className="bg-white rounded-2xl p-6 border border-[#E5E7EB] shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="inline-block text-2xl font-extrabold text-[#462882] font-poppins bg-[#462882]/10 px-3 py-1 rounded-xl mb-4">
-                  01
-                </span>
-                <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2">
-                  Découverte &amp; Cadrage
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Analyse exhaustive de vos besoins métier, de votre écosystème technique et
-                  formalisation du cahier des charges.
-                </p>
-              </div>
-              <div className="mt-4 pt-4 border-t border-gray-100 text-xs font-medium text-gray-500 font-mono">
-                Spécifications validées
-              </div>
-            </div>
-
-            {/* Étape 2 */}
-            <div className="bg-white rounded-2xl p-6 border border-[#E5E7EB] shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="inline-block text-2xl font-extrabold text-[#462882] font-poppins bg-[#462882]/10 px-3 py-1 rounded-xl mb-4">
-                  02
-                </span>
-                <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2">
-                  Architecture Technique
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Choix des technologies, conception des modèles de données, stratégie de cache et
-                  maquettage des flux d&apos;interfaces.
-                </p>
-              </div>
-              <div className="mt-4 pt-4 border-t border-gray-100 text-xs font-medium text-gray-500 font-mono">
-                Blueprint &amp; Sécurité
-              </div>
-            </div>
-
-            {/* Étape 3 */}
-            <div className="bg-white rounded-2xl p-6 border border-[#E5E7EB] shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="inline-block text-2xl font-extrabold text-[#462882] font-poppins bg-[#462882]/10 px-3 py-1 rounded-xl mb-4">
-                  03
-                </span>
-                <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2">
-                  Développement &amp; Intégration
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Développement itératif avec typage strict, tests de charge, intégration continue et
-                  points d&apos;étape réguliers.
-                </p>
-              </div>
-              <div className="mt-4 pt-4 border-t border-gray-100 text-xs font-medium text-gray-500 font-mono">
-                Code typé &amp; révisé
-              </div>
-            </div>
-
-            {/* Étape 4 */}
-            <div className="bg-white rounded-2xl p-6 border border-[#E5E7EB] shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="inline-block text-2xl font-extrabold text-[#462882] font-poppins bg-[#462882]/10 px-3 py-1 rounded-xl mb-4">
-                  04
-                </span>
-                <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2">
-                  Mise en Ligne &amp; Suivi
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Déploiement zéro downtime sur infrastructure Edge, monitoring en temps réel,
-                  formation et maintenance évolutive.
-                </p>
-              </div>
-              <div className="mt-4 pt-4 border-t border-gray-100 text-xs font-medium text-gray-500 font-mono">
-                Performance pérenne
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/methodologie"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#281450] hover:text-[#0A9678] transition-colors"
-            >
-              En savoir plus sur notre méthodologie de livraison
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          {/* Grille Bento interactives pour la méthode */}
+          <BentoMethodology />
         </div>
       </section>
 
       {/* ============================================================
-          SECTION 6 : CTA FINAL
+          SECTION 7 : MATRICE COMPARATIVE NETWAVE VS AGENCES
+         ============================================================ */}
+      <section className="w-full bg-white py-20 md:py-28 border-b border-[#E5E7EB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ComparisonMatrix />
+        </div>
+      </section>
+
+      {/* ============================================================
+          SECTION 8 : FOIRE AUX QUESTIONS & RÉASSURANCE
+         ============================================================ */}
+      <section className="w-full bg-[#F5F5F7] py-20 md:py-28 border-b border-[#E5E7EB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FaqSection />
+        </div>
+      </section>
+
+      {/* ============================================================
+          SECTION 9 : CTA FINAL DE CONVERSION
          ============================================================ */}
       <section className="w-full cta-gradient text-white py-20 md:py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
@@ -452,9 +433,9 @@ export default function HomePage() {
             <Link
               href="/contact"
               id="final-cta-btn"
-              className="inline-flex items-center justify-center gap-3 px-9 py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold text-base shadow-xl shadow-black/20 hover:shadow-2xl transition-all duration-200 active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-base shadow-xl shadow-black/20 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
             >
-              <span>Demander un cadrage gratuit</span>
+              <span>Démarrer une étude de cadrage</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

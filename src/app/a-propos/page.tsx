@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   ShieldCheck,
@@ -152,18 +153,18 @@ export default function AProposPage() {
               {/* Portrait / Mention personnelle */}
               <div className="md:col-span-4 flex flex-col items-start sm:items-center md:items-start space-y-4">
                 <div className="relative">
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-[#281450] to-[#0A9678] p-0.5 shadow-lg flex items-center justify-center">
-                    <div className="w-full h-full bg-[#1E0F3D] rounded-2xl flex flex-col items-center justify-center text-center p-2">
-                      <span className="text-2xl sm:text-3xl font-extrabold text-white font-poppins tracking-wider">
-                        DA
-                      </span>
-                      <span className="text-[10px] text-[#0fb894] font-mono uppercase tracking-wider mt-0.5">
-                        Lead Dev
-                      </span>
-                    </div>
+                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-[#0A9678]/50 shadow-xl shadow-[#0A9678]/20 bg-[#1E0F3D]">
+                    <Image
+                      src="/dodi_portrait.webp"
+                      alt="DODO Albéric Mantey Adriano - Fondateur NetWave Studio"
+                      fill
+                      sizes="160px"
+                      className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                      priority
+                    />
                   </div>
-                  <span className="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#0A9678] border-2 border-[#1E0F3D] flex items-center justify-center text-white">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span className="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-[#0A9678] border-2 border-[#1E0F3D] flex items-center justify-center text-white shadow-md">
+                    <CheckCircle2 className="w-4 h-4" />
                   </span>
                 </div>
 

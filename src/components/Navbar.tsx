@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Calculator } from "lucide-react";
 import LogoNetWave from "@/components/LogoNetWave";
 
 export default function Navbar() {
@@ -48,17 +48,17 @@ export default function Navbar() {
         </Link>
 
         {/* Navigation Desktop */}
-        <nav className="hidden md:flex items-center space-x-1 lg:space-x-2" aria-label="Navigation principale">
+        <nav className="hidden md:flex items-center space-x-1 lg:space-x-1.5 bg-[#F5F5F7] p-1 rounded-full border border-[#E5E7EB]" aria-label="Navigation principale">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
                   isActive
-                    ? "text-[#281450] bg-[#281450]/[0.06] font-semibold"
-                    : "text-gray-600 hover:text-[#281450] hover:bg-gray-100/80"
+                    ? "text-white bg-[#281450] shadow-sm"
+                    : "text-gray-600 hover:text-[#281450] hover:bg-white/80"
                 }`}
               >
                 {link.name}
@@ -68,12 +68,20 @@ export default function Navbar() {
         </nav>
 
         {/* CTA Desktop */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-2.5">
+          <Link
+            href="/tarifs#estimateur"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#281450]/20 bg-[#F5F5F7] hover:bg-[#281450] hover:text-white text-xs font-semibold text-[#281450] transition-all duration-200"
+          >
+            <Calculator className="w-3.5 h-3.5 text-[#0A9678]" />
+            <span>Simuler mon devis</span>
+          </Link>
+
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-4 lg:px-5 py-2.5 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] active:scale-[0.98] text-white text-xs font-semibold tracking-wide uppercase font-mono transition-all shadow-xs shadow-[#0A9678]/20"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0A9678] hover:bg-[#0fb894] active:scale-[0.98] text-white text-xs font-bold tracking-wide transition-all duration-200 shadow-md shadow-[#0A9678]/20 hover:shadow-lg hover:-translate-y-0.5"
           >
-            <span>Demander un devis</span>
+            <span>Démarrer un projet</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -82,7 +90,7 @@ export default function Navbar() {
         <div className="flex md:hidden items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl text-gray-700 hover:text-[#281450] hover:bg-gray-100 focus:outline-none transition-colors"
+            className="p-2.5 rounded-full text-gray-700 hover:text-[#281450] hover:bg-gray-100 focus:outline-none transition-colors"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
@@ -93,7 +101,7 @@ export default function Navbar() {
 
       {/* Menu Mobile déroulant */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3 shadow-lg">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3 shadow-lg">
           <div className="space-y-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -101,9 +109,9 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                  className={`block px-4 py-3 rounded-full text-base font-medium transition-colors ${
                     isActive
-                      ? "bg-[#281450]/10 text-[#281450] font-semibold"
+                      ? "bg-[#281450] text-white font-semibold shadow-sm"
                       : "text-gray-700 hover:bg-gray-100 hover:text-[#281450]"
                   }`}
                 >
@@ -113,12 +121,20 @@ export default function Navbar() {
             })}
           </div>
 
-          <div className="pt-3 border-t border-gray-100">
+          <div className="pt-3 border-t border-gray-100 space-y-2">
+            <Link
+              href="/tarifs#estimateur"
+              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#F5F5F7] border border-[#E5E7EB] text-[#281450] text-sm font-semibold transition-colors"
+            >
+              <Calculator className="w-4 h-4 text-[#0A9678]" />
+              <span>Simuler mon devis</span>
+            </Link>
+
             <Link
               href="/contact"
-              className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#0A9678] text-white text-sm font-semibold shadow-xs active:scale-[0.98] transition-transform"
+              className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#0A9678] text-white text-sm font-semibold shadow-md active:scale-[0.98] transition-transform"
             >
-              <span>Demander un devis</span>
+              <span>Démarrer un projet</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

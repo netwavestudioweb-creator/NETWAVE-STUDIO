@@ -71,3 +71,100 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 16px 32px -8px rgba(40, 20, 80, 0.09), 0 4px 12px -2px rgba(40, 20, 80, 0.04);
   border-color: rgba(10, 150, 120, 0.4);
 }
+
+/* ============================================================
+   ANIMATIONS SUR-MESURE NETWAVE STUDIO
+   ============================================================ */
+
+/* 1. Flottement 3D Zéro-Gravité pour les badges du Hero */
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: floatAnimation 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatAnimation 4.5s ease-in-out 1.5s infinite;
+}
+
+/* 2. Pulsation douce des halos d'ambiance en arrière-plan */
+@keyframes pulseGlowAnimation {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.06);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseGlowAnimation 6s ease-in-out infinite;
+}
+
+/* 3. Émergence progressive vers le haut lors de l'arrivée */
+@keyframes fadeUpAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUpAnimation 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 4. Reflet balayant Shimmer sur les boutons CTA */
+@keyframes shimmerAnimation {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.cta-shimmer {
+  background: linear-gradient(90deg, #0A9678 0%, #0fb894 35%, #6EE7B7 50%, #0fb894 65%, #0A9678 100%);
+  background-size: 200% 100%;
+  animation: shimmerAnimation 4s linear infinite;
+}
+
+/* 5. Respiration lumineuse pour icônes centrales */
+@keyframes iconBreatheAnimation {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px -5px rgba(10, 150, 120, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px 0px rgba(15, 184, 148, 0.6);
+  }
+}
+
+.icon-breathe {
+  animation: iconBreatheAnimation 3s ease-in-out infinite;
+}
+
+/* 6. Survol lumineux des cartes avec réactivité néon */
+.card-hover-glow {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-glow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -15px rgba(40, 20, 80, 0.12), 0 0 20px 0px rgba(10, 150, 120, 0.25);
+  border-color: rgba(10, 150, 120, 0.5);
+}

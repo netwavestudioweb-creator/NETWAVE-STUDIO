@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     canonical: "./",
   },
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/logo.jpg",
+    shortcut: "/logo.jpg",
+    apple: "/logo.jpg",
   },
   openGraph: {
     type: "website",
@@ -105,7 +105,7 @@ export default function RootLayout({
         "@id": `${siteUrl}/#organization`,
         name: "NetWave Studio",
         url: siteUrl,
-        logo: `${siteUrl}/icon.svg`,
+        logo: `${siteUrl}/logo.jpg`,
         email: "netwave.studio.web@gmail.com",
         telephone: "+2290150884670",
         address: {

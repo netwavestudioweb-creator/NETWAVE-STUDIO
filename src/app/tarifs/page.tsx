@@ -13,12 +13,14 @@ import {
   CreditCard,
   FileText,
   Clock,
+  Calculator,
 } from "lucide-react";
+import ProjectEstimator from "@/components/ProjectEstimator";
 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tarifs & Transparence",
+  title: "Tarifs & Transparence — NetWave Studio",
   description:
     "Grille tarifaire transparente et devis sur-mesure pour vos projets web, e-commerce, logiciels et formations.",
   alternates: {
@@ -46,7 +48,7 @@ export default function TarifsPage() {
       <section className="bg-[#F5F5F7] py-16 md:py-24 border-b border-[#E5E7EB]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-semibold text-[#0A9678] tracking-widest uppercase font-mono">
-            GRILLE & MODALITÉS TARIFAIRES
+            GRILLE &amp; MODALITÉS TARIFAIRES
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#281450] font-poppins tracking-tight">
             Des tarifs lisibles, adaptés à vos projets
@@ -55,6 +57,22 @@ export default function TarifsPage() {
             Un tarif de base clair pour démarrer, un devis sur mesure dès que le projet se
             complexifie. Pas de grille figée, pas de mauvaise surprise.
           </p>
+        </div>
+      </section>
+
+      {/* 1.B ESTIMATEUR ET SIMULATEUR DE DEVIS */}
+      <section className="py-12 bg-white border-b border-[#E5E7EB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          <div className="text-center space-y-2">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#0A9678] font-mono">
+              Calculateur en direct
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold font-poppins text-[#281450]">
+              Simulez votre budget &amp; votre délai de réalisation
+            </h2>
+          </div>
+
+          <ProjectEstimator />
         </div>
       </section>
 
@@ -392,9 +410,9 @@ export default function TarifsPage() {
           <div className="pt-2 flex justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold text-xs sm:text-base text-center transition-all shadow-lg active:scale-[0.98] w-full sm:w-auto max-w-md"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-xs sm:text-base text-center transition-all shadow-lg active:scale-[0.98] w-full sm:w-auto max-w-md"
             >
-              <span>Demander un devis détaillé, réponse sous 24-48h</span>
+              <span>Demander un devis détaillé, réponse sous 24h</span>
               <ArrowRight className="w-4 h-4 shrink-0" />
             </Link>
           </div>

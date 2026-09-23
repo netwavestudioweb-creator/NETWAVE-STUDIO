@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Mail, MapPin, Phone, ArrowUpRight, ShieldCheck, Heart } from "lucide-react";
+import LogoNetWave from "@/components/LogoNetWave";
 
 export default function Footer() {
   return (
@@ -10,35 +11,7 @@ export default function Footer() {
           {/* Colonne 1 : Marque & Identité */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="flex items-center gap-3">
-                <svg
-                  className="w-10 h-10 flex-shrink-0"
-                  viewBox="0 0 160 140"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M38 120 L10 120 L58 20 L84 20 L50 90 L68 90 L88 48 L102 48 L68 120 Z"
-                    fill="#6A46B0"
-                  />
-                  <path
-                    d="M60 120 L35 120 L82 20 L108 20 L76 86 L96 86 L118 42 L132 42 L94 120 Z"
-                    fill="#0A9678"
-                  />
-                  <path
-                    d="M106 120 L86 120 L118 55 L134 55 L120 85 L136 85 L152 55 L166 55 L136 120 Z"
-                    fill="#8E65D8"
-                  />
-                </svg>
-                <div className="flex flex-col leading-none">
-                  <span className="font-extrabold text-[22px] tracking-tight text-white font-poppins">
-                    NetWave
-                  </span>
-                  <span className="font-semibold text-[15px] tracking-wide text-[#0A9678] font-poppins">
-                    Studio
-                  </span>
-                </div>
-              </div>
+              <LogoNetWave variant="light" />
             </Link>
 
             <p className="text-gray-300 text-[14px] leading-relaxed max-w-sm pt-2">

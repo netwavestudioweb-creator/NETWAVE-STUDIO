@@ -183,13 +183,20 @@ export default function ServicesPage() {
             Contactez NetWave Studio pour échanger sur vos besoins et planifier une étude de cadrage
             technique détaillée.
           </p>
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold text-sm sm:text-base transition-all shadow-lg active:scale-[0.98] w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-sm sm:text-base transition-all shadow-lg active:scale-[0.98] w-full sm:w-auto"
             >
               <span>Prendre contact</span>
               <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/#estimateur"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base transition-all w-full sm:w-auto"
+            >
+              <span>Simuler mon tarif</span>
             </Link>
           </div>
         </div>
