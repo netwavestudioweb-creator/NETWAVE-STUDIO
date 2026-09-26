@@ -67,8 +67,13 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* CTA Desktop */}
+        {/* CTA Desktop & Devise Internationale */}
         <div className="hidden md:flex items-center space-x-2.5">
+          <div className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full bg-gray-100 text-[11px] font-mono font-medium text-gray-600 border border-gray-200">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>🌍 EUR € • USD $ • FCFA</span>
+          </div>
+
           <Link
             href="/tarifs#estimateur"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#281450]/20 bg-[#F5F5F7] hover:bg-[#281450] hover:text-white text-xs font-semibold text-[#281450] transition-all duration-200"

@@ -106,6 +106,7 @@ export default function ProjectEstimator() {
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>(["momo", "whatsapp"]);
   const [isExpress, setIsExpress] = useState<boolean>(false);
   const [activeSuggestion, setActiveSuggestion] = useState<string | null>(null);
+  const [currency, setCurrency] = useState<"FCFA" | "EUR" | "USD">("FCFA");
 
   const currentType = PROJECT_TYPES.find((t) => t.id === selectedType) || PROJECT_TYPES[0];
 
@@ -419,14 +420,50 @@ export default function ProjectEstimator() {
 
             <div className="p-5 rounded-2xl bg-white border border-[#E5E7EB] space-y-4 shadow-xs">
               <div>
-                <p className="text-xs text-gray-400 uppercase tracking-widest font-mono">
-                  Investissement estimé
-                </p>
-                <div className="flex items-baseline gap-1.5 mt-1">
+                <div className="flex items-center justify-between gap-2">
+                  <p className="text-xs text-gray-400 uppercase tracking-widest font-mono">
+                    Investissement estimé
+                  </p>
+                  {/* Sélecteur de Devise Internationale */}
+                  <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl border border-gray-200">
+                    <button
+                      type="button"
+                      onClick={() => setCurrency("FCFA")}
+                      className={`px-2 py-0.5 rounded-lg text-[10px] font-mono font-bold transition-all ${
+                        currency === "FCFA" ? "bg-[#281450] text-white shadow-xs" : "text-gray-500 hover:text-gray-900"
+                      }`}
+                    >
+                      FCFA
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCurrency("EUR")}
+                      className={`px-2 py-0.5 rounded-lg text-[10px] font-mono font-bold transition-all ${
+                        currency === "EUR" ? "bg-[#281450] text-white shadow-xs" : "text-gray-500 hover:text-gray-900"
+                      }`}
+                    >
+                      EUR €
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCurrency("USD")}
+                      className={`px-2 py-0.5 rounded-lg text-[10px] font-mono font-bold transition-all ${
+                        currency === "USD" ? "bg-[#281450] text-white shadow-xs" : "text-gray-500 hover:text-gray-900"
+                      }`}
+                    >
+                      USD $
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-baseline gap-1.5 mt-2">
                   <span className="text-3xl sm:text-4xl font-extrabold text-[#281450] font-poppins">
-                    ~{totalPrice.toLocaleString("fr-FR")}
+                    {currency === "EUR"
+                      ? `~${Math.round(totalPrice / 655.957).toLocaleString("fr-FR")} €`
+                      : currency === "USD"
+                      ? `~$${Math.round(totalPrice / 600).toLocaleString("en-US")}`
+                      : `~${totalPrice.toLocaleString("fr-FR")} FCFA`}
                   </span>
-                  <span className="text-sm font-bold text-[#0A9678] font-mono">FCFA</span>
                 </div>
               </div>
 

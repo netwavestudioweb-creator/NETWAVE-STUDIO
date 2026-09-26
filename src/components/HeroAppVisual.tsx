@@ -27,52 +27,52 @@ export default function HeroAppVisual() {
 
         {/* Badge supérieur en verre dépoli */}
         <div className="absolute top-4 left-4 flex items-center gap-2">
-          <div className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-mono font-medium flex items-center gap-2 shadow-lg">
+          <div className="px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-emerald-500/30 text-white text-xs font-mono font-medium flex items-center gap-2 shadow-lg">
             <span className="w-2 h-2 rounded-full bg-[#0fb894] animate-pulse" />
-            <span className="tracking-wide">SOCIÉTÉS &amp; PARTICULIERS</span>
+            <span className="tracking-wide">ACCÉLÉRATEUR DE NOTORIÉTÉ</span>
           </div>
         </div>
 
         {/* Panneau inférieur immergé dans l'image */}
-        <div className="absolute bottom-4 left-4 right-4 p-3.5 sm:p-4 rounded-2xl bg-[#1E0F3D]/85 backdrop-blur-xl border border-white/15 text-white flex items-center justify-between shadow-2xl">
+        <div className="absolute bottom-4 left-4 right-4 p-3.5 sm:p-4 rounded-2xl bg-[#1E0F3D]/90 backdrop-blur-xl border border-white/15 text-white flex items-center justify-between shadow-2xl">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#0A9678] flex items-center justify-center text-white shrink-0 shadow-md">
-              <Smartphone className="w-5 h-5" />
+              <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="text-[11px] font-semibold tracking-wide text-gray-300 uppercase font-mono">
-                Solutions Web &amp; Logiciels
+              <p className="text-[11px] font-semibold tracking-wide text-emerald-400 uppercase font-mono">
+                Visibilité &amp; Acquisition Client
               </p>
               <p className="text-xs sm:text-sm font-bold text-white font-poppins">
-                Projets Métiers &amp; Sur-Mesure
+                Moteur de Croissance &amp; Ventes
               </p>
             </div>
           </div>
-          <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/10 text-[11px] font-mono font-semibold text-[#0fb894] border border-[#0fb894]/30">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Multi-Langages</span>
+          <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-xs font-mono font-semibold text-[#0fb894] border border-[#0fb894]/30">
+            <Zap className="w-3.5 h-3.5" />
+            <span>+340% Trafic</span>
           </div>
         </div>
       </div>
 
-      {/* 3. Badges flottants en 3D autour de l'image (effet d'intégration naturelle) */}
+      {/* 3. Badges flottants en 3D autour de l'image */}
       <div className="absolute -top-3 -right-2 sm:-right-4 bg-white/95 backdrop-blur-xl text-[#281450] px-4 py-2.5 rounded-2xl border border-gray-100 shadow-xl flex items-center gap-2.5 text-xs font-bold font-poppins transition-transform duration-300 hover:scale-105 animate-float">
-        <div className="w-7 h-7 rounded-lg bg-[#0A9678]/15 text-[#0A9678] flex items-center justify-center">
-          <Zap className="w-4 h-4" />
+        <div className="w-8 h-8 rounded-xl bg-[#0A9678]/15 text-[#0A9678] flex items-center justify-center">
+          <Zap className="w-4 h-4 text-[#0A9678]" />
         </div>
         <div>
-          <span className="block text-[10px] text-gray-400 font-normal uppercase font-mono">Performance Web</span>
-          <span>Ultra Réactive</span>
+          <span className="block text-[10px] text-gray-400 font-normal uppercase font-mono">Notoriété &amp; Ventes</span>
+          <span className="text-[#0A9678]">+340% Prospects</span>
         </div>
       </div>
 
       <div className="absolute -bottom-3 -left-2 sm:-left-4 bg-[#1E0F3D]/95 backdrop-blur-xl text-white px-4 py-2.5 rounded-2xl border border-white/20 shadow-2xl flex items-center gap-2.5 text-xs font-bold font-poppins transition-transform duration-300 hover:scale-105 animate-float-delayed">
-        <div className="w-7 h-7 rounded-lg bg-[#462882] text-white flex items-center justify-center">
-          <Cpu className="w-4 h-4 text-[#0fb894]" />
+        <div className="w-8 h-8 rounded-xl bg-[#462882] text-white flex items-center justify-center">
+          <Smartphone className="w-4 h-4 text-[#0fb894]" />
         </div>
         <div>
-          <span className="block text-[10px] text-gray-400 font-normal uppercase font-mono">Ingénierie</span>
-          <span>Tous Langages</span>
+          <span className="block text-[10px] text-gray-400 font-normal uppercase font-mono">Conversion Client</span>
+          <span className="text-[#0fb894]">Zero Visiteur Perdu</span>
         </div>
       </div>
     </div>

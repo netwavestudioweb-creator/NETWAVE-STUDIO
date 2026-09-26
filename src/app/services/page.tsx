@@ -13,23 +13,23 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services & Domaines d'Intervention",
+  title: "Les Leviers de Visibilité & d'Acquisition — NetWave Studio",
   description:
-    "Découvrez les domaines d'expertise de NetWave Studio : Développement Web & E-commerce, Logiciels sur mesure, Réseaux & Télécoms, IA conversationnelle & Automatisation.",
+    "Découvrez les leviers d'attraction et de croissance de NetWave Studio : Notoriété E-commerce, Dispositifs d'Autorité, Infrastructures de Croissance et Relance Client Automatisée.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
-    title: "Services & Expertises — NetWave Studio",
+    title: "Services & Leviers d'Acquisition — NetWave Studio",
     description:
-      "Applications Web, E-commerce, Logiciels métier sur-mesure, Réseaux & Automatisation IA.",
+      "Propulsez votre marque. Visibilité maximale, captation de prospects qualifiés & augmentation des ventes.",
     url: "https://www.netwave-studio.company/services",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Services NetWave Studio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Services & Expertises — NetWave Studio",
-    description: "Développement Web, Logiciels sur mesure & Infrastructures.",
+    title: "Services & Leviers d'Acquisition — NetWave Studio",
+    description: "Plus de visibilité, plus de clients au courant, plus de ventes.",
     images: ["/twitter-image"],
   },
 };
@@ -38,54 +38,54 @@ export default function ServicesPage() {
   const services = [
     {
       icon: ShoppingCart,
-      title: "Développement Web & E-commerce",
-      badge: "À partir de 100 000 FCFA",
+      title: "Attraction & Ventes E-Commerce",
+      badge: "Dispositif dès 100 000 FCFA",
       description:
-        "Un site qui met dix secondes à charger, c'est un client qui referme l'onglet avant d'avoir vu l'offre. Nous concevons des sites vitrines et boutiques en ligne pensés pour les conditions réelles du terrain : connexions mobiles parfois instables, habitudes de paiement locales (Mobile Money), parcours d'achat simplifié — y compris via WhatsApp quand c'est pertinent pour l'activité du client.",
+        "Un site que personne ne voit ou qui prend dix secondes à charger, c'est un client perdu d'avance. Nous déployons des vitrines hypnotiques et boutiques en ligne conçues pour capturer l'attention, rassurer immédiatement et convertir chaque visiteur grâce au paiement Mobile Money (MTN, Moov, Wave) et la commande WhatsApp directe.",
       points: [
-        "Sites vitrines et boutiques e-commerce performantes",
-        "Optimisation des performances sur réseaux 3G/4G",
-        "Intégration de paiement Mobile Money et Cartes Bancaires",
-        "Panels d'administration sur mesure et sécurisés",
+        "Vitrines de notoriété & boutiques e-commerce à fort taux de conversion",
+        "Performance instantanée sur réseaux 3G/4G (Zéro prospect perdu)",
+        "Intégration fluide Mobile Money & paiement local",
+        "Panels de suivi du chiffre d'affaires et des ventes en temps réel",
       ],
     },
     {
       icon: LayoutDashboard,
-      title: "Logiciels & Outils de gestion sur mesure",
-      badge: "À partir de 150 000 FCFA",
+      title: "Plateformes d'Autorité & Notoriété",
+      badge: "Dispositif dès 150 000 FCFA",
       description:
-        "Les outils génériques ne collent jamais exactement aux besoins d'une structure. Nous développons des applications de gestion, tableaux de bord et systèmes de génération automatisée de rapports, construits autour des processus réels du client plutôt que l'inverse.",
+        "Positionnez votre entreprise comme le leader incontesté de votre secteur. Nous concevons des plateformes de marque et tableaux de bord d'autorité qui imposent le respect, rassurent vos partenaires et font connaître vos offres au plus grand nombre.",
       points: [
-        "Tableaux de bord opérationnels et applications métier",
-        "Génération automatisée de rapports (exports PDF / Excel)",
-        "Bases de données relationnelles et intégrité des données",
-        "Automatisation de tâches récurrentes chronophages",
+        "Plateformes de marque haut de gamme & vitrines d'autorité",
+        "Design System exclusif reflétant le prestige de votre entreprise",
+        "Génération de rapports d'impact & tableaux de suivi commercial",
+        "Positionnement stratégique captant des prospects qualifiés",
       ],
     },
     {
       icon: Network,
-      title: "Infrastructures Réseaux & Télécoms",
-      badge: "Sur devis",
+      title: "Infrastructures de Croissance",
+      badge: "Sur mesure",
       description:
-        "Une infrastructure réseau ne se voit pas quand elle fonctionne — elle se remarque seulement le jour où elle manque. Nous intervenons sur la conception, l'installation et la sécurisation de réseaux d'entreprise, la téléphonie VoIP et le câblage structuré, avec la même rigueur que sur nos projets logiciels.",
+        "Lorsque votre visibilité augmente, votre infrastructure doit absorber des milliers de visites simultanées sans faiblir. Nous sécurisons et optimisons la vitesse d'accès de votre écosystème pour garantir 100% de disponibilité et une expérience client d'exception.",
       points: [
-        "Architecture et déploiement réseau LAN / WAN",
-        "Téléphonie VoIP et serveurs Asterisk",
-        "Sécurisation des accès (VPN, pare-feu, segmentation)",
-        "Supervision et maintenance préventive des équipements",
+        "Disponibilité 99.9% et serveurs ultra-rapides Edge",
+        "Chargement sous 1.5s pour maximiser le maintien des prospects",
+        "Sécurisation complète des données clients et transactions",
+        "Supervision proactive des pics de trafic commercial",
       ],
     },
     {
       icon: MessageSquareCode,
-      title: "IA conversationnelle & Automatisation",
-      badge: "Sur devis",
+      title: "Relance Client & Bots WhatsApp",
+      badge: "Sur mesure",
       description:
-        "Un agent conversationnel ou un assistant automatisé bien conçu absorbe une charge de travail que personne n'a le temps de traiter manuellement. Nous développons des agents intelligents connectés à vos API et vos bases de connaissances, documentés avec honnêteté et rigueur technique.",
+        "Un prospect intéressé doit être contacté et converti dans la minute. Nos assistants virtuels et automatisations WhatsApp prennent le relais 24h/24 pour informer vos clients, répondre à leurs questions et clore des ventes automatiquement.",
       points: [
-        "Agents intelligents et assistants conversationnels sur mesure",
-        "Intégration WhatsApp Business et automatisation de flux clients",
-        "Connexion à des API tierces et orchestration multi-outils",
-        "Protection des données d'entreprise et confidentialité",
+        "Bots WhatsApp Business & réponses automatiques intelligentes",
+        "Prise de rendez-vous et qualification de prospects en direct",
+        "Relance automatique des paniers et demandes de devis",
+        "Intégration directe avec vos canaux de vente existants",
       ],
     },
   ];
@@ -96,14 +96,13 @@ export default function ServicesPage() {
       <section className="bg-[#F5F5F7] py-16 md:py-24 border-b border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-semibold text-[#0A9678] tracking-widest uppercase font-mono">
-            NOTRE SAVOIR-FAIRE
+            VOTRE MOTEUR DE NOTORIÉTÉ
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#281450] font-poppins">
-            Nos Domaines d'Intervention
+            Nos Leviers de Visibilité &amp; Ventes
           </h1>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Une ingénierie rigoureuse articulée autour de 4 expertises clés pour répondre aux besoins
-            concrets et mesurables de votre activité.
+            Un dispositif complet axé sur ce qui compte vraiment : faire connaître vos offres, attirer des prospects qualifiés et faire exploser votre chiffre d&apos;affaires.
           </p>
         </div>
       </section>
