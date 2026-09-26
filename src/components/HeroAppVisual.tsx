@@ -56,23 +56,23 @@ export default function HeroAppVisual() {
       </div>
 
       {/* 3. Badges flottants en 3D autour de l'image */}
-      <div className="absolute -top-3 -right-2 sm:-right-4 bg-white/95 backdrop-blur-xl text-[#281450] px-4 py-2.5 rounded-2xl border border-gray-100 shadow-xl flex items-center gap-2.5 text-xs font-bold font-poppins transition-transform duration-300 hover:scale-105 animate-float">
-        <div className="w-8 h-8 rounded-xl bg-[#0A9678]/15 text-[#0A9678] flex items-center justify-center">
-          <Zap className="w-4 h-4 text-[#0A9678]" />
+      <div className="absolute top-2 right-2 sm:-top-3 sm:-right-4 bg-white/95 backdrop-blur-xl text-[#281450] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl border border-gray-100 shadow-xl flex items-center gap-2 sm:gap-2.5 text-xs font-bold font-poppins transition-transform duration-300 hover:scale-105 animate-float z-20">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0A9678]/15 text-[#0A9678] flex items-center justify-center shrink-0">
+          <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0A9678]" />
         </div>
         <div>
-          <span className="block text-[10px] text-gray-400 font-normal uppercase font-mono">Notoriété &amp; Ventes</span>
-          <span className="text-[#0A9678]">+340% Prospects</span>
+          <span className="block text-[9px] sm:text-[10px] text-gray-400 font-normal uppercase font-mono">Notoriété &amp; Ventes</span>
+          <span className="text-[#0A9678] text-xs sm:text-xs">+340% Prospects</span>
         </div>
       </div>
 
-      <div className="absolute -bottom-3 -left-2 sm:-left-4 bg-[#1E0F3D]/95 backdrop-blur-xl text-white px-4 py-2.5 rounded-2xl border border-white/20 shadow-2xl flex items-center gap-2.5 text-xs font-bold font-poppins transition-transform duration-300 hover:scale-105 animate-float-delayed">
-        <div className="w-8 h-8 rounded-xl bg-[#462882] text-white flex items-center justify-center">
-          <Smartphone className="w-4 h-4 text-[#0fb894]" />
+      <div className="absolute bottom-2 left-2 sm:-bottom-3 sm:-left-4 bg-[#1E0F3D]/95 backdrop-blur-xl text-white px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl border border-white/20 shadow-2xl flex items-center gap-2 sm:gap-2.5 text-xs font-bold font-poppins transition-transform duration-300 hover:scale-105 animate-float-delayed z-20">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#462882] text-white flex items-center justify-center shrink-0">
+          <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0fb894]" />
         </div>
         <div>
-          <span className="block text-[10px] text-gray-400 font-normal uppercase font-mono">Conversion Client</span>
-          <span className="text-[#0fb894]">Zero Visiteur Perdu</span>
+          <span className="block text-[9px] sm:text-[10px] text-gray-400 font-normal uppercase font-mono">Conversion Client</span>
+          <span className="text-[#0fb894] text-xs sm:text-xs">Zero Visiteur Perdu</span>
         </div>
       </div>
     </div>
