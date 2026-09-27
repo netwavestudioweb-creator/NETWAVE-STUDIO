@@ -100,13 +100,35 @@ const BUSINESS_SUGGESTIONS = [
   },
 ];
 
-export default function ProjectEstimator() {
+interface ProjectEstimatorProps {
+  selectedCurrency?: "FCFA" | "USD" | "EUR";
+}
+
+export default function ProjectEstimator({ selectedCurrency }: ProjectEstimatorProps) {
   const [businessPrompt, setBusinessPrompt] = useState<string>("");
   const [selectedType, setSelectedType] = useState<string>("web-ecommerce");
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>(["momo", "whatsapp"]);
   const [isExpress, setIsExpress] = useState<boolean>(false);
   const [activeSuggestion, setActiveSuggestion] = useState<string | null>(null);
-  const [currency, setCurrency] = useState<"FCFA" | "EUR" | "USD">("FCFA");
+  const [currency, setCurrency] = useState<"FCFA" | "EUR" | "USD">(selectedCurrency || "FCFA");
+
+  React.useEffect(() => {
+    if (selectedCurrency) {
+      setCurrency(selectedCurrency);
+    }
+  }, [selectedCurrency]);
+
+  const formatPrice = (fcfaAmount: number) => {
+    if (currency === "USD") {
+      const usd = Math.round((fcfaAmount / 100000) * 165);
+      return `${usd.toLocaleString("en-US")} $`;
+    }
+    if (currency === "EUR") {
+      const eur = Math.round(fcfaAmount / 655.957);
+      return `${eur.toLocaleString("fr-FR")} €`;
+    }
+    return `${fcfaAmount.toLocaleString("fr-FR")} FCFA`;
+  };
 
   const currentType = PROJECT_TYPES.find((t) => t.id === selectedType) || PROJECT_TYPES[0];
 
@@ -196,9 +218,9 @@ export default function ProjectEstimator() {
       businessPrompt || "Non spécifié"
     }\n- Formule : ${currentType.name}\n- Options : ${
       featureNames || "Aucune"
-    }\n- Délai : ${isExpress ? "Express 🔥" : "Standard ⏱️"}\n- Estimation : ~${totalPrice.toLocaleString(
-      "fr-FR"
-    )} FCFA (${totalDays} jours)\nJe souhaite échanger sur ce projet.`
+    }\n- Délai : ${isExpress ? "Express 🔥" : "Standard ⏱️"}\n- Estimation : ~${formatPrice(
+      totalPrice
+    )} (${totalDays} jours)\nJe souhaite échanger sur ce projet.`
   );
 
   return (
@@ -328,7 +350,7 @@ export default function ProjectEstimator() {
                       </p>
                     </div>
                     <span className="text-xs font-bold text-[#0A9678] font-mono mt-3 block">
-                      Dès {type.basePrice.toLocaleString("fr-FR")} FCFA
+                      Dès {formatPrice(type.basePrice)}
                     </span>
                   </button>
                 );
@@ -368,7 +390,7 @@ export default function ProjectEstimator() {
                       <span className="text-xs sm:text-sm font-semibold truncate">{feat.name}</span>
                     </div>
                     <span className="text-xs font-mono font-bold text-[#0A9678] bg-[#0A9678]/10 px-2.5 py-1 rounded-lg shrink-0">
-                      +{feat.price.toLocaleString("fr-FR")} FCFA
+                      +{formatPrice(feat.price)}
                     </span>
                   </button>
                 );
@@ -458,11 +480,7 @@ export default function ProjectEstimator() {
 
                 <div className="flex items-baseline gap-1.5 mt-2">
                   <span className="text-3xl sm:text-4xl font-extrabold text-[#281450] font-poppins">
-                    {currency === "EUR"
-                      ? `~${Math.round(totalPrice / 655.957).toLocaleString("fr-FR")} €`
-                      : currency === "USD"
-                      ? `~$${Math.round(totalPrice / 600).toLocaleString("en-US")}`
-                      : `~${totalPrice.toLocaleString("fr-FR")} FCFA`}
+                    ~{formatPrice(totalPrice)}
                   </span>
                 </div>
               </div>

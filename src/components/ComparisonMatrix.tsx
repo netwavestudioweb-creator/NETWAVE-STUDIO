@@ -69,9 +69,9 @@ export default function ComparisonMatrix() {
         <span className="text-xs font-semibold uppercase tracking-widest text-[#0A9678] font-mono">
           Pourquoi faire le choix de l&apos;ingénierie ?
         </span>
-        <h3 className="text-2xl sm:text-4xl font-bold font-poppins text-[#281450]">
+        <h2 className="text-2xl sm:text-4xl font-bold font-poppins text-[#281450]">
           NetWave Studio vs Les solutions traditionnelles
-        </h3>
+        </h2>
         <p className="text-sm text-gray-600 max-w-2xl mx-auto font-inter">
           Comparez les critères d&apos;ingénierie, de vitesse et de fiabilité pour faire le choix le plus rentable pour votre entreprise.
         </p>

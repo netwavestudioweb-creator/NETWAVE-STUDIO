@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, TrendingDown, Zap, Clock, ShieldCheck, ExternalLink, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import AlkareemMockup from "@/components/AlkareemMockup";
 import InteractiveBrochure from "@/components/InteractiveBrochure";
 
@@ -64,97 +64,20 @@ export default function RealisationsPage() {
       </section>
 
       {/* Étude de cas détaillée : Alkareem Parfumerie */}
-      <section className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-[#1E0F3D] text-white p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#462882]/50 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0A9678]/15 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 space-y-10">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
-              <div>
-                <span className="text-xs font-mono font-semibold text-[#0fb894] uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">
-                  ÉTUDE DE CAS EN VEDETTE
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold font-poppins text-white mt-3">
-                  Alkareem Parfumerie
-                </h2>
-                <p className="text-sm text-gray-300 font-mono mt-1">
-                  E-Commerce Haute Parfumerie &amp; Parfums de Niche — Cotonou, Bénin
-                </p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://www.al-kareemparfurmerie.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white text-xs font-bold font-mono tracking-wide transition-all shadow-md active:scale-[0.98]"
-                >
-                  <span>Voir le site en direct</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Visualisation Mockup Interactive avec vraies photos */}
-            <div className="w-full">
-              <AlkareemMockup />
-            </div>
-
-            {/* Détails techniques du projet */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8 border-t border-white/10">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#0fb894] uppercase">
-                  <span className="w-2 h-2 rounded-full bg-[#0A9678]" />
-                  Contexte
-                </div>
-                <h3 className="text-lg font-bold text-white font-poppins">
-                  Le Défi Initial
-                </h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  Une boutique physique renommée à Cotonou disposant de plus de 500 références, mais
-                  sans canal de commande en ligne réactif. Les clients perdaient du temps en
-                  échanges de messages non structurés et le taux d'abandon était élevé.
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#0fb894] uppercase">
-                  <span className="w-2 h-2 rounded-full bg-[#0A9678]" />
-                  Solution
-                </div>
-                <h3 className="text-lg font-bold text-white font-poppins">
-                  L&apos;Ingénierie NetWave
-                </h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  Création d'une application web ultra-légère (SSR + Edge Caching), grille mobile
-                  tactile 2 colonnes adaptée à tous les smartphones (iPhone et Android), et panier
-                  intelligent convertissant la commande en message WhatsApp pré-formaté en 2 clics.
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#0fb894] uppercase">
-                  <span className="w-2 h-2 rounded-full bg-[#0A9678]" />
-                  Résultats
-                </div>
-                <h3 className="text-lg font-bold text-white font-poppins">
-                  Impact Mesuré
-                </h3>
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-                  <div className="flex items-start gap-2.5 text-sm text-gray-200">
-                    <TrendingDown className="w-4 h-4 text-[#0fb894] mt-0.5 shrink-0" />
-                    <span>TTFB réduit de 3-6s à ~1s sur réseau 3G (-75%).</span>
-                  </div>
-                  <div className="flex items-start gap-2.5 text-sm text-gray-200">
-                    <CheckCircle2 className="w-4 h-4 text-[#0fb894] mt-0.5 shrink-0" />
-                    <span>Catalogue tactile 2 colonnes fluide et commande WhatsApp directe.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="text-center space-y-2 mb-8">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#0A9678] font-mono">
+            Étude de cas en vedette
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-bold font-poppins text-[#281450]">
+            Al Kareem Parfumerie — Présence E-Commerce &amp; WhatsApp
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+            Focus sur le périmètre livré, l&apos;intégration WhatsApp et la vitesse d&apos;exécution technique.
+          </p>
         </div>
+
+        <AlkareemMockup />
       </section>
 
       {/* Cadre d'accompagnement */}

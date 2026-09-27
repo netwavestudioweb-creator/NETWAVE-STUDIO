@@ -50,9 +50,9 @@ export default function FaqSection() {
         <span className="text-xs font-semibold uppercase tracking-widest text-[#0A9678] font-mono">
           Des réponses claires à vos questions
         </span>
-        <h3 className="text-2xl sm:text-4xl font-bold font-poppins text-[#281450]">
+        <h2 className="text-2xl sm:text-4xl font-bold font-poppins text-[#281450]">
           Foire aux Questions &amp; Réassurance
-        </h3>
+        </h2>
         <p className="text-sm text-gray-600 max-w-lg mx-auto font-inter">
           Tout ce que vous devez savoir avant de nous confier votre projet numérique.
         </p>

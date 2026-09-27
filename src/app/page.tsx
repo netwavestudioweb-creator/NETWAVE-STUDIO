@@ -16,6 +16,7 @@ import HeroAppVisual from "@/components/HeroAppVisual";
 import InteractiveBrochure from "@/components/InteractiveBrochure";
 import BentoMethodology from "@/components/BentoMethodology";
 import ComparisonMatrix from "@/components/ComparisonMatrix";
+import MeasuredPerformance from "@/components/MeasuredPerformance";
 import FaqSection from "@/components/FaqSection";
 
 import type { Metadata } from "next";
@@ -133,9 +134,9 @@ export default function HomePage() {
             <p className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
               Accélération de Marque &amp; Confiance
             </p>
-            <h3 className="text-base sm:text-lg font-bold text-[#281450] font-poppins">
+            <h2 className="text-base sm:text-lg font-bold text-[#281450] font-poppins">
               Une présence digitale conçue pour capturer l&apos;attention de votre marché
-            </h3>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
@@ -178,7 +179,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#281450] tracking-wider font-poppins">AL KAREEM PARFUMERIE</h4>
-                  <p className="text-[11px] text-[#0A9678] group-hover:text-[#0fb894] transition-colors font-mono">+280% Notoriété Client</p>
+                  <p className="text-[11px] text-[#0A9678] group-hover:text-[#0fb894] transition-colors font-mono">Site E-Commerce &amp; WhatsApp</p>
                 </div>
               </div>
               <ArrowRight className="w-4 h-4 text-[#0A9678] group-hover:translate-x-1 transition-transform shrink-0 ml-2" />
@@ -326,6 +327,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ============================================================
+          SECTION 4.5 : PERFORMANCE MESURÉE & GOOGLE PAGESPEED
+         ============================================================ */}
+      <MeasuredPerformance />
 
       {/* ============================================================
           SECTION 5 : INVITATION ESTIMATEUR DE BUDGET & TARIFS

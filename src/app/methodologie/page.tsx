@@ -139,7 +139,18 @@ export default function MethodologiePage() {
           })}
         </div>
 
-        <div className="mt-16 text-center">
+        {/* Badge de garantie Accessibilité WCAG */}
+        <div className="max-w-3xl mx-auto mt-12 p-4 sm:p-5 rounded-2xl bg-[#F5F5F7] border border-[#0A9678]/30 shadow-xs flex items-center gap-3.5 text-xs sm:text-sm text-[#281450]">
+          <div className="w-9 h-9 rounded-xl bg-[#0A9678]/10 text-[#0A9678] flex items-center justify-center shrink-0">
+            <CheckCircle2 className="w-5 h-5 text-[#0A9678]" />
+          </div>
+          <p className="font-medium leading-relaxed">
+            <strong className="font-bold text-[#281450]">Accessibilité incluse dans chaque livraison :</strong>{" "}
+            contraste conforme WCAG, navigation clavier complète, textes alternatifs sur toutes les images.
+          </p>
+        </div>
+
+        <div className="mt-10 text-center">
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold transition-all shadow-md active:scale-[0.98]"
