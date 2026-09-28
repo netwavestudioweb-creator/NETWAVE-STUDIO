@@ -67,21 +67,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* CTA Desktop & Devise Internationale */}
+        {/* CTA Desktop */}
         <div className="hidden md:flex items-center space-x-2.5">
-          <div className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full bg-gray-100 text-[11px] font-mono font-medium text-gray-600 border border-gray-200">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>🌍 EUR € • USD $ • FCFA</span>
-          </div>
-
-          <Link
-            href="/tarifs#estimateur"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#281450]/20 bg-[#F5F5F7] hover:bg-[#281450] hover:text-white text-xs font-semibold text-[#281450] transition-all duration-200"
-          >
-            <Calculator className="w-3.5 h-3.5 text-[#0A9678]" />
-            <span>Simuler mon devis</span>
-          </Link>
-
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0A9678] hover:bg-[#0fb894] active:scale-[0.98] text-white text-xs font-bold tracking-wide transition-all duration-200 shadow-md shadow-[#0A9678]/20 hover:shadow-lg hover:-translate-y-0.5"
@@ -127,14 +114,6 @@ export default function Navbar() {
           </div>
 
           <div className="pt-3 border-t border-gray-100 space-y-2">
-            <Link
-              href="/tarifs#estimateur"
-              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#F5F5F7] border border-[#E5E7EB] text-[#281450] text-sm font-semibold transition-colors"
-            >
-              <Calculator className="w-4 h-4 text-[#0A9678]" />
-              <span>Simuler mon devis</span>
-            </Link>
-
             <Link
               href="/contact"
               className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#0A9678] text-white text-sm font-semibold shadow-md active:scale-[0.98] transition-transform"

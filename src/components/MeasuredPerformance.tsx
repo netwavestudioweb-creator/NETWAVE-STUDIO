@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Gauge, ExternalLink, Globe, Smartphone, CheckCircle2, Info } from "lucide-react";
+import { Gauge, ExternalLink, Globe, Smartphone, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 export interface PageSpeedMetric {
   label: string;
@@ -159,7 +159,7 @@ export default function MeasuredPerformance() {
                     <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 font-bold border border-amber-200">
                       Avant: {item.beforeScoreText}
                     </span>
-                    <span className="text-gray-400 font-sans">➔</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-gray-400 shrink-0" />
                     <span className="px-2.5 py-1 rounded-lg bg-[#0A9678]/15 text-[#0A9678] font-bold border border-[#0A9678]/30">
                       Après: {item.afterScoreText}
                     </span>

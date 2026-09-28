@@ -52,13 +52,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg?v=4", type: "image/svg+xml" },
+      { url: "/icon.png?v=4", type: "image/png" },
+      { url: "/favicon.ico?v=4", type: "image/x-icon" },
     ],
-    shortcut: "/icon.png",
+    shortcut: "/icon.svg?v=4",
     apple: [
-      { url: "/apple-icon.png", sizes: "512x512", type: "image/png" },
+      { url: "/apple-icon.png?v=4", sizes: "512x512", type: "image/png" },
     ],
   },
   openGraph: {
@@ -112,18 +112,24 @@ export default function RootLayout({
         "@id": `${siteUrl}/#organization`,
         name: "NetWave Studio",
         legalName: "NetWave Studio",
-        alternateName: ["NetWave", "NetWave Studio Cotonou", "NetWave Studio Bénin"],
+        alternateName: [
+          "NetWave Studio — Site Officiel",
+          "NetWave Studio Cotonou",
+          "NetWave Studio Bénin",
+          "NetWave Studio Web",
+        ],
         url: siteUrl,
         logo: {
           "@type": "ImageObject",
           url: `${siteUrl}/icon-512.png`,
           width: "512",
           height: "512",
+          caption: "Logo Officiel NetWave Studio",
         },
-        image: `${siteUrl}/icon-512.png`,
+        image: [`${siteUrl}/icon-512.png`, `${siteUrl}/logo.jpg`],
         email: "netwave.studio.web@gmail.com",
         telephone: "+2290150884670",
-        priceRange: "$$",
+        priceRange: "149€ - 990€",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Cotonou",
@@ -144,6 +150,10 @@ export default function RootLayout({
             "@type": "AdministrativeArea",
             name: "Afrique de l'Ouest",
           },
+          {
+            "@type": "Country",
+            name: "France",
+          },
         ],
         contactPoint: {
           "@type": "ContactPoint",
@@ -156,13 +166,50 @@ export default function RootLayout({
           "https://github.com/netwavestudioweb-creator",
         ],
         description:
-          "Studio d'ingénierie web, logicielle, télécoms et académie de formation tech de référence basé à Cotonou au Bénin.",
+          "Site Officiel du Studio d'ingénierie web, développement d'applications sur-mesure, logiciels métiers & académie tech basé à Cotonou au Bénin.",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Offres d'Ingénierie & Tarifs NetWave Studio",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Kickstart Essential",
+                description: "Site Vitrine Ultra-Rapide & Formulaire WhatsApp",
+              },
+              price: "149.00",
+              priceCurrency: "EUR",
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Business Scale & Automation",
+                description: "Site complet, Paiement automatique & Assistant IA WhatsApp 24/7",
+              },
+              price: "449.00",
+              priceCurrency: "EUR",
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Enterprise Domination 360°",
+                description: "Application Métier Sur-Mesure, Cybersécurité & Maintenance VIP",
+              },
+              price: "990.00",
+              priceCurrency: "EUR",
+            },
+          ],
+        },
       },
       {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
         name: "NetWave Studio — Site Officiel",
+        alternateName: ["NetWave Studio", "NetWave Studio Official"],
         publisher: {
           "@id": `${siteUrl}/#organization`,
         },
@@ -186,6 +233,11 @@ export default function RootLayout({
       className={`${poppins.variable} ${inter.variable} h-full antialiased scroll-smooth`}
     >
       <head>
+        <link rel="icon" href="/favicon.ico?v=5" sizes="any" />
+        <link rel="icon" href="/icon.svg?v=5" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=5" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#281450" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

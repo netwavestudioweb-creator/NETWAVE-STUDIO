@@ -39,7 +39,7 @@ export default function ServicesPage() {
     {
       icon: ShoppingCart,
       title: "Attraction & Ventes E-Commerce",
-      badge: "Dispositif dès 100 000 FCFA",
+      badge: "Dispositif dès 149 €",
       description:
         "Un site que personne ne voit ou qui prend dix secondes à charger, c'est un client perdu d'avance. Nous déployons des vitrines hypnotiques et boutiques en ligne conçues pour capturer l'attention, rassurer immédiatement et convertir chaque visiteur grâce au paiement Mobile Money (MTN, Moov, Wave) et la commande WhatsApp directe.",
       points: [
@@ -52,7 +52,7 @@ export default function ServicesPage() {
     {
       icon: LayoutDashboard,
       title: "Plateformes d'Autorité & Notoriété",
-      badge: "Dispositif dès 150 000 FCFA",
+      badge: "Dispositif dès 290 €",
       description:
         "Positionnez votre entreprise comme le leader incontesté de votre secteur. Nous concevons des plateformes de marque et tableaux de bord d'autorité qui imposent le respect, rassurent vos partenaires et font connaître vos offres au plus grand nombre.",
       points: [
@@ -192,7 +192,7 @@ export default function ServicesPage() {
             </Link>
 
             <Link
-              href="/#estimateur"
+              href="/tarifs"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base transition-all w-full sm:w-auto"
             >
               <span>Simuler mon tarif</span>

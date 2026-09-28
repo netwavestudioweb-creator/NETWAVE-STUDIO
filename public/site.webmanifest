@@ -1,0 +1,23 @@
+{
+  "name": "NetWave Studio — Site Officiel",
+  "short_name": "NetWave Studio",
+  "description": "Studio d'ingénierie web, développement d'applications sur-mesure & logiciels métiers d'élite.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#281450",
+  "theme_color": "#0A9678",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

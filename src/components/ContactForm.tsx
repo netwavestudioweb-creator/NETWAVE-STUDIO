@@ -254,8 +254,8 @@ export default function ContactForm() {
               disabled={isLoading}
               className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-[#F5F5F7] text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#0A9678] focus:bg-white transition-all disabled:opacity-50"
             >
-              <option value="web">Développement Web &amp; E-commerce (dès 100k FCFA)</option>
-              <option value="logiciel">Logiciels &amp; Outils de gestion (dès 150k FCFA)</option>
+              <option value="web">Développement Web &amp; E-commerce (dès 149 €)</option>
+              <option value="logiciel">Logiciels &amp; Outils de gestion (dès 290 €)</option>
               <option value="reseaux">Infrastructures Réseaux &amp; Télécoms (Sur devis)</option>
               <option value="ia">IA conversationnelle &amp; Automatisation (Sur devis)</option>
               <option value="audit">Audit de performance &amp; Sécurité</option>
@@ -277,10 +277,10 @@ export default function ContactForm() {
               disabled={isLoading}
               className="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-[#F5F5F7] text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#0A9678] focus:bg-white transition-all disabled:opacity-50"
             >
-              <option value="base">100 000 — 300 000 FCFA</option>
-              <option value="intermediaire">300 000 — 800 000 FCFA</option>
-              <option value="avance">800 000 — 2 500 000 FCFA</option>
-              <option value="surmesure">&gt; 2 500 000 FCFA / Projet d&apos;envergure</option>
+              <option value="base">149 € — 449 € (Kickstart Essential)</option>
+              <option value="intermediaire">449 € — 990 € (Business Scale)</option>
+              <option value="avance">990 € — 2 500 € (Enterprise)</option>
+              <option value="surmesure">&gt; 2 500 € / Projet d&apos;envergure</option>
               <option value="undetermined">À cadrer ensemble</option>
             </select>
           </div>

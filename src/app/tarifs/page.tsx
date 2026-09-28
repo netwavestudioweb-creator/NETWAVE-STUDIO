@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tarifs & Transparence — NetWave Studio",
     description:
-      "Des tarifs de base clairs (dès 100 000 FCFA / 165 $) et une estimation transparente pour vos projets numériques.",
+      "Des tarifs clairs (dès 149 €) et une estimation transparente pour vos projets numériques.",
     url: "https://www.netwave-studio.company/tarifs",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tarifs NetWave Studio" }],
   },

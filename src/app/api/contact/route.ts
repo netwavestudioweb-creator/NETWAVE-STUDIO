@@ -2,18 +2,18 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const serviceLabels: Record<string, string> = {
-  web: "Développement Web & E-commerce (dès 100k FCFA)",
-  logiciel: "Logiciels & Outils de gestion (dès 150k FCFA)",
+  web: "Développement Web & E-commerce (dès 149 €)",
+  logiciel: "Logiciels & Outils de gestion (dès 245 €)",
   reseaux: "Infrastructures Réseaux & Télécoms (Sur devis)",
   ia: "IA conversationnelle & Automatisation (Sur devis)",
   audit: "Audit de performance & Sécurité",
 };
 
 const budgetLabels: Record<string, string> = {
-  base: "100 000 — 300 000 FCFA",
-  intermediaire: "300 000 — 800 000 FCFA",
-  avance: "800 000 — 2 500 000 FCFA",
-  surmesure: "> 2 500 000 FCFA / Projet d'envergure",
+  base: "149 € — 449 € (Kickstart Essential)",
+  intermediaire: "449 € — 990 € (Business Scale)",
+  avance: "990 € — 2 500 € (Enterprise)",
+  surmesure: "> 2 500 € / Projet d'envergure",
   undetermined: "À cadrer ensemble",
 };
 

@@ -32,71 +32,72 @@ interface FeatureOption {
 
 const PROJECT_TYPES: ProjectType[] = [
   {
-    id: "web-ecommerce",
-    name: "Site Web & E-Commerce",
-    basePrice: 100000,
-    baseDays: 7,
-    description: "Site vitrine ou boutique en ligne rapide optimisée pour les conversions et paiements locaux.",
+    id: "kickstart-starter",
+    name: "Kickstart Essential",
+    basePrice: 99000,
+    baseDays: 5,
+    description: "Site vitrine rapide (1-3 p), responsive, WhatsApp direct & SEO de base.",
   },
   {
-    id: "saas-app",
-    name: "Logiciel Métier & Application",
-    basePrice: 150000,
-    baseDays: 14,
-    description: "Application de gestion sur-mesure, tableau de bord automatisé et gestion de stock.",
+    id: "scale-pro",
+    name: "Business Scale & Automation (Formule Recommandée)",
+    basePrice: 297000,
+    baseDays: 8,
+    description: "Site complet / E-commerce, paiement Mobile Money, Bot IA WhatsApp & 3 bonus inclus.",
   },
   {
-    id: "telecom-infra",
-    name: "Infrastructure Réseau & VoIP",
-    basePrice: 200000,
-    baseDays: 10,
-    description: "Câblage structuré, téléphonie IP d'entreprise et sécurisation d'infrastructure.",
+    id: "enterprise-domination",
+    name: "Enterprise Domination 360°",
+    basePrice: 697000,
+    baseDays: 15,
+    description: "Solution complète d'ingénierie sur-mesure, IA fine-tunée, infra réseau & support 24/7.",
   },
   {
-    id: "ai-agent",
-    name: "Agent IA & Automatisation",
-    basePrice: 180000,
-    baseDays: 7,
-    description: "Chatbot intelligent WhatsApp, assistant IA connecté à vos bases de données.",
+    id: "custom-infra",
+    name: "Projet Sur-Mesure & Infra Réseau",
+    basePrice: 490000,
+    baseDays: 12,
+    description: "Logiciel métier complexe, télécoms, câblage et architecture haute disponibilité.",
   },
 ];
 
 const EXTRA_FEATURES: FeatureOption[] = [
-  { id: "momo", name: "Paiement Mobile Money (MTN / Moov)", price: 25000, days: 2 },
-  { id: "whatsapp", name: "Tunnel de Commande WhatsApp Direct", price: 15000, days: 1 },
-  { id: "seo", name: "SEO Premium & Indexation Google", price: 20000, days: 2 },
-  { id: "admin", name: "Tableau de Bord Admin Avancé", price: 30000, days: 3 },
-  { id: "multilingual", name: "Version Bilingue (Français / Anglais)", price: 25000, days: 2 },
+  { id: "express_48h", name: "Livraison Accélérée 48h (-50% sur le délai)", price: 49000, days: -3 },
+  { id: "ai_bot", name: "Assistant IA WhatsApp & Web Omnicanal 24/7", price: 79000, days: 2 },
+  { id: "branding", name: "Kit Identité Visuelle & Logo Pro Vectoriel", price: 45000, days: 2 },
+  { id: "ads_setup", name: "Setup Publicités Ads (Google & Meta)", price: 65000, days: 2 },
+  { id: "vip_support", name: "Support VIP H24 & Maintenance SLA 2h (1 an)", price: 59000, days: 0 },
+  { id: "security_shield", name: "Shield Cybersécurité & SSL Wildcard", price: 55000, days: 1 },
 ];
 
 const BUSINESS_SUGGESTIONS = [
   {
-    title: "Boutique en ligne & WhatsApp",
-    badge: "E-Commerce",
-    typeId: "web-ecommerce",
-    features: ["momo", "whatsapp", "seo"],
-    prompt: "Je veux une boutique de vente en ligne avec paiement Mobile Money et commande WhatsApp.",
+    title: "Formule Business Scale",
+    badge: "Formule Recommandée",
+    typeId: "scale-pro",
+    features: ["express_48h", "branding"],
+    prompt: "Je souhaite la formule Business Scale & Automation avec livraison accélérée 48h et branding kit.",
   },
   {
-    title: "Logiciel de Gestion & Stock",
-    badge: "Gestion",
-    typeId: "saas-app",
-    features: ["admin", "multilingual"],
-    prompt: "J'ai besoin d'une application de gestion de stock et de facturation pour mon entreprise.",
+    title: "Boutique E-Commerce & IA Bot 24/7",
+    badge: "E-Commerce + IA",
+    typeId: "scale-pro",
+    features: ["ai_bot", "ads_setup"],
+    prompt: "Je cherche une boutique e-commerce automatique avec paiement Mobile Money et Assistant IA WhatsApp.",
   },
   {
-    title: "Assistant IA WhatsApp 24/7",
-    badge: "Agent IA",
-    typeId: "ai-agent",
-    features: ["whatsapp", "admin"],
-    prompt: "Je veux un bot WhatsApp intelligent avec IA pour répondre à mes clients 24/7.",
+    title: "Kickstart Essential",
+    badge: "Démarrage Rapide",
+    typeId: "kickstart-starter",
+    features: ["branding"],
+    prompt: "Je veux lancer mon site web au prix le plus accessible avec un kit branding pro.",
   },
   {
-    title: "Site Vitrine & SEO Google",
-    badge: "Vitrine",
-    typeId: "web-ecommerce",
-    features: ["seo", "multilingual"],
-    prompt: "Je cherche un site vitrine professionnel rapide et bien référencé sur Google.",
+    title: "Enterprise Domination 360°",
+    badge: "Offre Sur-Mesure",
+    typeId: "enterprise-domination",
+    features: ["ai_bot", "vip_support", "security_shield"],
+    prompt: "Je veux la solution Enterprise sur-mesure avec IA custom, infrastructure réseau et accompagnement VIP.",
   },
 ];
 
@@ -110,7 +111,7 @@ export default function ProjectEstimator({ selectedCurrency }: ProjectEstimatorP
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>(["momo", "whatsapp"]);
   const [isExpress, setIsExpress] = useState<boolean>(false);
   const [activeSuggestion, setActiveSuggestion] = useState<string | null>(null);
-  const [currency, setCurrency] = useState<"FCFA" | "EUR" | "USD">(selectedCurrency || "FCFA");
+  const [currency, setCurrency] = useState<"EUR" | "FCFA" | "USD">(selectedCurrency || "EUR");
 
   React.useEffect(() => {
     if (selectedCurrency) {
@@ -218,7 +219,7 @@ export default function ProjectEstimator({ selectedCurrency }: ProjectEstimatorP
       businessPrompt || "Non spécifié"
     }\n- Formule : ${currentType.name}\n- Options : ${
       featureNames || "Aucune"
-    }\n- Délai : ${isExpress ? "Express 🔥" : "Standard ⏱️"}\n- Estimation : ~${formatPrice(
+    }\n- Délai : ${isExpress ? "Express (Prioritaire)" : "Standard"}\n- Estimation : ~${formatPrice(
       totalPrice
     )} (${totalDays} jours)\nJe souhaite échanger sur ce projet.`
   );
@@ -255,11 +256,10 @@ export default function ProjectEstimator({ selectedCurrency }: ProjectEstimatorP
             <Wand2 className="w-4 h-4 text-[#0A9678]" />
             <span>Décrivez votre projet en quelques mots</span>
           </label>
-          {activeSuggestion && (
-            <span className="text-xs font-mono font-semibold text-[#0A9678] bg-[#0A9678]/15 px-3 py-1 rounded-full animate-pulse border border-[#0A9678]/30">
-              Formule ajustée : {activeSuggestion} ✨
+            <span className="text-xs font-mono font-semibold text-[#0A9678] bg-[#0A9678]/15 px-3 py-1 rounded-full animate-pulse border border-[#0A9678]/30 flex items-center gap-1.5">
+              <span>Formule ajustée : {activeSuggestion}</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#0A9678]" />
             </span>
-          )}
         </div>
 
         <div className="relative">

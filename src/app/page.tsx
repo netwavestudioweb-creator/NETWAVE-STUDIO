@@ -92,7 +92,7 @@ export default function HomePage() {
                 </Link>
 
                 <Link
-                  href="/#estimateur"
+                  href="/tarifs"
                   id="hero-cta-estimator"
                   className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border-2 border-[#281450] bg-transparent text-[#281450] hover:bg-[#281450] hover:text-white font-bold text-[15px] hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
                 >
@@ -253,7 +253,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
-                <span>Dispositif dès 100 000 FCFA</span>
+                <span>Dispositif dès 149 €</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </div>
@@ -272,7 +272,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
-                <span>Dispositif dès 150 000 FCFA</span>
+                <span>Dispositif dès 290 €</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </div>

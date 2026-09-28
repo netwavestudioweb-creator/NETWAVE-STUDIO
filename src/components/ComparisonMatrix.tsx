@@ -52,7 +52,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
   },
   {
     feature: "Transparence Tarifaire & Délais",
-    netwave: "Budget fixe transparent dès 100k FCFA & Résultats mesurables au jour près",
+    netwave: "Budget fixe transparent dès 149 € & Résultats mesurables au jour près",
     netwaveStatus: "success",
     wordpressAgencies: "Abonnements annuels cachés et facturation prohibitive",
     wordpressStatus: "error",
