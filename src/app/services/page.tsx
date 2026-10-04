@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import {
-  ShoppingCart,
+  Globe,
   LayoutDashboard,
   Network,
-  MessageSquareCode,
+  Bot,
   ArrowRight,
   CheckCircle2,
   Sparkles,
@@ -13,23 +13,23 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Les Leviers de Visibilité & d'Acquisition — NetWave Studio",
+  title: "Nos Services & Expertises — NetWave Studio | Web, Logiciels, Réseaux & IA",
   description:
-    "Découvrez les leviers d'attraction et de croissance de NetWave Studio : Notoriété E-commerce, Dispositifs d'Autorité, Infrastructures de Croissance et Relance Client Automatisée.",
+    "Découvrez les services concrets de NetWave Studio : Création de sites web & e-commerce, développement d'applications et logiciels métiers sur-mesure, infrastructures réseaux & télécoms, et automatisation IA WhatsApp.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
-    title: "Services & Leviers d'Acquisition — NetWave Studio",
+    title: "Nos Services & Expertises — NetWave Studio",
     description:
-      "Propulsez votre marque. Visibilité maximale, captation de prospects qualifiés & augmentation des ventes.",
+      "Des solutions concrètes pour votre entreprise : Sites web, e-commerce, logiciels métiers, réseaux d'entreprise et assistants IA WhatsApp.",
     url: "https://www.netwave-studio.company/services",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Services NetWave Studio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Services & Leviers d'Acquisition — NetWave Studio",
-    description: "Plus de visibilité, plus de clients au courant, plus de ventes.",
+    title: "Nos Services & Expertises — NetWave Studio",
+    description: "Sites web, e-commerce, logiciels métiers, infrastructures réseaux et bots WhatsApp.",
     images: ["/twitter-image"],
   },
 };
@@ -37,55 +37,55 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   const services = [
     {
-      icon: ShoppingCart,
-      title: "Attraction & Ventes E-Commerce",
-      badge: "Dispositif dès 149 €",
+      icon: Globe,
+      title: "Création de Sites Web & E-Commerce",
+      badge: "Dès 149 €",
       description:
-        "Un site que personne ne voit ou qui prend dix secondes à charger, c'est un client perdu d'avance. Nous déployons des vitrines hypnotiques et boutiques en ligne conçues pour capturer l'attention, rassurer immédiatement et convertir chaque visiteur grâce au paiement Mobile Money (MTN, Moov, Wave) et la commande WhatsApp directe.",
+        "Nous concevons des sites vitrines modernes et des boutiques en ligne ultra-rapides, spécialement optimisés pour les connexions mobiles (3G/4G). Vos clients découvrent votre offre sans temps d'attente, commandent en un clic et règlent facilement par Mobile Money ou carte bancaire.",
       points: [
-        "Vitrines de notoriété & boutiques e-commerce à fort taux de conversion",
-        "Performance instantanée sur réseaux 3G/4G (Zéro prospect perdu)",
-        "Intégration fluide Mobile Money & paiement local",
-        "Panels de suivi du chiffre d'affaires et des ventes en temps réel",
+        "Sites vitrines professionnels & boutiques e-commerce complètes",
+        "Paiement Mobile Money (MTN, Moov, Wave) et carte bancaire intégrés",
+        "Bouton de commande & discussion WhatsApp en direct",
+        "Chargement ultra-rapide (< 1.2s) & référencement Google SEO soigné",
       ],
     },
     {
       icon: LayoutDashboard,
-      title: "Plateformes d'Autorité & Notoriété",
-      badge: "Dispositif dès 290 €",
+      title: "Développement d'Applications & Logiciels Métiers",
+      badge: "Dès 290 €",
       description:
-        "Positionnez votre entreprise comme le leader incontesté de votre secteur. Nous concevons des plateformes de marque et tableaux de bord d'autorité qui imposent le respect, rassurent vos partenaires et font connaître vos offres au plus grand nombre.",
+        "Fini les feuilles de calcul éparpillées ou les outils inadaptés. Nous développons des logiciels de gestion sur-mesure, portails clients et plateformes web conçus exactement pour vos opérations quotidiennes (gestion des stocks, facturation, suivi des commandes et reporting).",
       points: [
-        "Plateformes de marque haut de gamme & vitrines d'autorité",
-        "Design System exclusif reflétant le prestige de votre entreprise",
-        "Génération de rapports d'impact & tableaux de suivi commercial",
-        "Positionnement stratégique captant des prospects qualifiés",
+        "Applications web personnalisées & outils internes sur-mesure (ERP, CRM)",
+        "Tableaux de bord de suivi d'activité et statistiques en temps réel",
+        "Gestion sécurisée des utilisateurs, des accès et des rôles",
+        "Code propriétaire complet, évolutif et sans abonnement bloquant",
       ],
     },
     {
       icon: Network,
-      title: "Infrastructures de Croissance",
-      badge: "Sur mesure",
+      title: "Infrastructures Réseaux, Télécoms & Sécurité",
+      badge: "Sur devis",
       description:
-        "Lorsque votre visibilité augmente, votre infrastructure doit absorber des milliers de visites simultanées sans faiblir. Nous sécurisons et optimisons la vitesse d'accès de votre écosystème pour garantir 100% de disponibilité et une expérience client d'exception.",
+        "Bénéficiez de la double compétence ingénierie logicielle et réseaux. Nous installons, sécurisons et optimisons les infrastructures informatiques d'entreprises : câblage structuré, interconnexion d'agences par VPN, serveurs locaux ou Cloud et téléphonie VoIP.",
       points: [
-        "Disponibilité 99.9% et serveurs ultra-rapides Edge",
-        "Chargement sous 1.5s pour maximiser le maintien des prospects",
-        "Sécurisation complète des données clients et transactions",
-        "Supervision proactive des pics de trafic commercial",
+        "Audit réseau, câblage structuré et routeurs d'entreprise",
+        "Interconnexion d'agences distantes et accès VPN hautement sécurisés",
+        "Déploiement et maintenance de serveurs locaux ou Cloud (disponibilité 99.9%)",
+        "Téléphonie d'entreprise sur IP (VoIP) & sécurisation contre les pannes",
       ],
     },
     {
-      icon: MessageSquareCode,
-      title: "Relance Client & Bots WhatsApp",
-      badge: "Sur mesure",
+      icon: Bot,
+      title: "Automatisation Métier & Assistants IA / WhatsApp",
+      badge: "Sur devis",
       description:
-        "Un prospect intéressé doit être contacté et converti dans la minute. Nos assistants virtuels et automatisations WhatsApp prennent le relais 24h/24 pour informer vos clients, répondre à leurs questions et clore des ventes automatiquement.",
+        "Ne manquez plus aucun prospect. Nous créons des assistants intelligents et des bots WhatsApp connectés à vos systèmes pour répondre instantanément à vos clients 24h/24, automatiser la prise de rendez-vous, qualifier les demandes et relancer les devis en attente.",
       points: [
-        "Bots WhatsApp Business & réponses automatiques intelligentes",
-        "Prise de rendez-vous et qualification de prospects en direct",
-        "Relance automatique des paniers et demandes de devis",
-        "Intégration directe avec vos canaux de vente existants",
+        "Assistants WhatsApp Business intelligents opérationnels 24h/24 et 7j/7",
+        "Prise de commandes, réservations et réponses FAQ instantanées",
+        "Relance automatique des paniers d'achat et des demandes de devis",
+        "Connexion directe avec vos outils (Google Sheets, CRM, emails)",
       ],
     },
   ];
@@ -96,13 +96,13 @@ export default function ServicesPage() {
       <section className="bg-[#F5F5F7] py-16 md:py-24 border-b border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-semibold text-[#0A9678] tracking-widest uppercase font-mono">
-            VOTRE MOTEUR DE NOTORIÉTÉ
+            NOS EXPERTISES &amp; SERVICES
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#281450] font-poppins">
-            Nos Leviers de Visibilité &amp; Ventes
+            Ce que nous concevons pour votre entreprise
           </h1>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Un dispositif complet axé sur ce qui compte vraiment : faire connaître vos offres, attirer des prospects qualifiés et faire exploser votre chiffre d&apos;affaires.
+            De la création de votre site web jusqu&apos;à vos logiciels de gestion sur-mesure, vos réseaux informatiques et vos assistants WhatsApp : découvrez des services clairs, concrets et adaptés aux réalités du terrain.
           </p>
         </div>
       </section>
@@ -137,7 +137,7 @@ export default function ServicesPage() {
 
                   <div className="pt-3 border-t border-gray-100">
                     <p className="text-xs font-semibold text-[#281450] uppercase tracking-wider mb-3 font-mono">
-                      Points clés :
+                      Ce qui est inclus concrètement :
                     </p>
                     <ul className="space-y-2.5">
                       {service.points.map((point, pIdx) => (
@@ -155,7 +155,7 @@ export default function ServicesPage() {
                     href="/contact"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-[#281450] hover:text-[#0A9678] transition-colors"
                   >
-                    <span>Discuter de ce besoin</span>
+                    <span>Discuter de ce service</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
 
@@ -176,18 +176,17 @@ export default function ServicesPage() {
       <section className="bg-[#1E0F3D] text-white py-16 md:py-20 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-poppins text-white">
-            Un projet en vue ?
+            Un projet précis en tête ?
           </h3>
           <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            Contactez NetWave Studio pour échanger sur vos besoins et planifier une étude de cadrage
-            technique détaillée.
+            Expliquez-nous votre besoin. Nous étudions votre projet sous 24h ouvrées et vous fournissons une recommandation technique et un devis clair.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-sm sm:text-base transition-all shadow-lg active:scale-[0.98] w-full sm:w-auto"
             >
-              <span>Prendre contact</span>
+              <span>Demander une étude gratuite</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
@@ -195,7 +194,7 @@ export default function ServicesPage() {
               href="/tarifs"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base transition-all w-full sm:w-auto"
             >
-              <span>Simuler mon tarif</span>
+              <span>Consulter les tarifs &amp; forfaits</span>
             </Link>
           </div>
         </div>

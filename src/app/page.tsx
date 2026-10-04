@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  ShoppingCart,
+  Globe,
   LayoutDashboard,
   Network,
-  MessageSquareCode,
+  Bot,
   Sparkles,
   CheckCircle2,
   Zap,
@@ -22,24 +22,24 @@ import FaqSection from "@/components/FaqSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "NetWave Studio — Accélérateur de Notoriété, Visibilité & Croissance Ventes",
+  title: "NetWave Studio — Studio d'Ingénierie Web, Logicielle & Réseaux (Cotonou, Bénin)",
   description:
-    "NetWave Studio transforme votre entreprise en une machine d'attraction client. Multipliez votre visibilité, faites connaître votre marque et convertissez la curiosité en chiffre d'affaires.",
+    "NetWave Studio conçoit des sites web & e-commerce ultra-rapides, des logiciels métiers sur-mesure, des infrastructures réseaux résilientes et des assistants WhatsApp automatisés.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "NetWave Studio — Moteur de Notoriété & d'Acquisition Client",
+    title: "NetWave Studio — Studio d'Ingénierie Web, Logicielle & Réseaux",
     description:
-      "Positionnez votre marque au sommet. Plus de visibilité, plus de prospects qualifiés au courant de vos offres, plus de ventes.",
+      "Des solutions concrètes pour votre entreprise : Sites web, e-commerce, logiciels métiers, réseaux d'entreprise et assistants IA WhatsApp.",
     url: "https://www.netwave-studio.company",
     siteName: "NetWave Studio",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "NetWave Studio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NetWave Studio — Moteur de Notoriété & d'Acquisition Client",
-    description: "Visibilité maximale, captation de prospects qualifiés & augmentation des ventes.",
+    title: "NetWave Studio — Studio d'Ingénierie Web, Logicielle & Réseaux",
+    description: "Sites web, e-commerce, logiciels métiers, infrastructures réseaux et bots WhatsApp.",
     images: ["/twitter-image"],
   },
 };
@@ -67,17 +67,17 @@ export default function HomePage() {
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0A9678] shadow-[0_0_8px_2px_rgba(10,150,120,0.4)]" />
                 </span>
                 <span className="text-xs font-semibold text-[#281450] tracking-wide font-mono">
-                  Moteur d&apos;Acquisition Client &amp; Notoriété • Cotonou &amp; International
+                  Studio d&apos;Ingénierie Web, Logicielle &amp; Réseaux • Cotonou &amp; International
                 </span>
               </div>
 
-              {/* Accroche Principale (Visibilité & Croissance Ventes) */}
-              <h1 className="text-[32px] sm:text-[48px] lg:text-[58px] font-extrabold text-[#281450] tracking-tight leading-[1.12] font-poppins">
-                Soyez vu. Soyez choisi. Multipliez vos ventes.
+              {/* Accroche Principale */}
+              <h1 className="text-[32px] sm:text-[48px] lg:text-[56px] font-extrabold text-[#281450] tracking-tight leading-[1.12] font-poppins">
+                Des sites web, logiciels métiers &amp; systèmes taillés pour votre croissance.
               </h1>
 
               <p className="text-[17px] sm:text-[18px] text-[#1F2937]/80 leading-relaxed max-w-2xl font-inter">
-                Nous transformons votre entreprise en une machine d&apos;attraction client. Faites connaître votre marque auprès de milliers de prospects qualifiés et convertissez chaque visiteur en chiffre d&apos;affaires réel.
+                Nous concevons des sites vitrines &amp; e-commerce ultra-rapides, des applications de gestion sur-mesure, des infrastructures réseaux sécurisées et des assistants WhatsApp automatisés.
               </p>
 
               {/* Boutons CTA Pill Shape */}
@@ -87,7 +87,7 @@ export default function HomePage() {
                   id="hero-cta-contact"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-[15px] shadow-md shadow-[#0A9678]/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98] cta-shimmer"
                 >
-                  <span>Propulser ma visibilité</span>
+                  <span>Démarrer un projet</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
@@ -97,22 +97,22 @@ export default function HomePage() {
                   className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border-2 border-[#281450] bg-transparent text-[#281450] hover:bg-[#281450] hover:text-white font-bold text-[15px] hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
                 >
                   <Calculator className="w-4 h-4 text-[#0A9678]" />
-                  <span>Calculer mon potentiel d&apos;acquisition</span>
+                  <span>Estimer mon budget</span>
                 </Link>
               </div>
 
               <div className="pt-4 flex flex-wrap items-center gap-6 text-xs text-gray-500 font-medium">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#0A9678]" />
-                  Impact visuel immédiat
+                  Web &amp; E-Commerce ultra-rapides
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#0A9678]" />
-                  Flux de prospects au courant
+                  Logiciels de gestion sur-mesure
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#0A9678]" />
-                  Conversion d&apos;audience max
+                  Réseaux, Sécurité &amp; IA WhatsApp
                 </span>
               </div>
             </div>
@@ -222,72 +222,72 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          SECTION 4 : LES 4 LEVIERS DE VISIBILITÉ & DE VENTES
+          SECTION 4 : NOS 4 PÔLES D'EXPERTISE & SERVICES
          ============================================================ */}
       <section className="w-full bg-[#F5F5F7] py-20 md:py-28 border-b border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <span className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
-              Les 4 Leviers de Notoriété
+              NOS 4 PÔLES D&apos;EXPERTISE &amp; SERVICES
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#281450] font-poppins">
-              Un dispositif complet pour attirer, impacter et convertir.
+              Des solutions concrètes pour digitaliser et accélérer votre activité.
             </h2>
             <p className="text-base text-gray-600 font-inter">
-              De la mise en avant de votre image à la fermeture des ventes, nous activons les piliers digitaux qui rendent votre entreprise incontournable.
+              Que vous ayez besoin d&apos;un site web percutant, d&apos;un outil de gestion sur-mesure, d&apos;un réseau informatique sécurisé ou d&apos;automatiser vos échanges clients sur WhatsApp.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Bloc 1 */}
+            {/* Bloc 1 : Web & E-Commerce */}
             <div className="card-elevation-hover p-6 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678] mb-5">
-                  <ShoppingCart className="w-6 h-6 stroke-[1.75]" />
+                  <Globe className="w-6 h-6 stroke-[1.75]" />
                 </div>
                 <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2.5">
-                  Attraction &amp; Ventes E-Commerce
+                  Création Web &amp; E-Commerce
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Transformez la curiosité en paniers validés : vitrines hypnotiques, expérience Mobile Money instantanée (MTN, Moov, Wave) et zéro friction d&apos;achat.
+                  Sites vitrines professionnels et boutiques e-commerce ultra-rapides (3G/4G), avec paiement Mobile Money (MTN, Moov, Wave) et commandes directes sur WhatsApp.
                 </p>
               </div>
               <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
-                <span>Dispositif dès 149 €</span>
+                <span>Dès 149 €</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </div>
 
-            {/* Bloc 2 */}
+            {/* Bloc 2 : Logiciels & Applications */}
             <div className="card-elevation-hover p-6 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678] mb-5">
                   <LayoutDashboard className="w-6 h-6 stroke-[1.75]" />
                 </div>
                 <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2.5">
-                  Plateformes d&apos;Autorité &amp; Notoriété
+                  Logiciels &amp; Applications Sur-Mesure
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Affirmez votre statut de leader de marché avec un positionnement haut de gamme, des rapports dynamiques et une image de marque irréprochable.
+                  Développement d&apos;outils de gestion personnalisés (ERP, CRM) : stocks, facturation, suivi des commandes et tableaux de bord de pilotage en direct.
                 </p>
               </div>
               <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
-                <span>Dispositif dès 290 €</span>
+                <span>Dès 290 €</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </div>
 
-            {/* Bloc 3 */}
+            {/* Bloc 3 : Réseaux & Télécoms */}
             <div className="card-elevation-hover p-6 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678] mb-5">
                   <Network className="w-6 h-6 stroke-[1.75]" />
                 </div>
                 <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2.5">
-                  Infrastructures de Croissance
+                  Infrastructures Réseaux &amp; Télécoms
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Supportez des flux massifs de visiteurs sans ralentissement. Disponibilité 99.9% et réponse réseau ultrarapide sur mobile 3G/4G.
+                  Câblage structuré, interconnexion d&apos;agences par VPN, serveurs locaux ou Cloud, téléphonie VoIP et sécurisation proactive de vos données.
                 </p>
               </div>
               <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
@@ -296,17 +296,17 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Bloc 4 */}
+            {/* Bloc 4 : IA & Automatisation WhatsApp */}
             <div className="card-elevation-hover p-6 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678] mb-5">
-                  <MessageSquareCode className="w-6 h-6 stroke-[1.75]" />
+                  <Bot className="w-6 h-6 stroke-[1.75]" />
                 </div>
                 <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2.5">
-                  Relance Client &amp; Bots WhatsApp
+                  Automatisation &amp; Assistants IA WhatsApp
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Automatisez la prise de rendez-vous et le support WhatsApp pour ne plus jamais manquer une opportunité commerciale, 24/7.
+                  Assistants virtuels WhatsApp Business disponibles 24/7 pour accueillir vos clients, enregistrer les commandes, répondre aux FAQ et relancer les devis.
                 </p>
               </div>
               <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
@@ -321,7 +321,7 @@ export default function HomePage() {
               href="/services"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[#281450] hover:text-[#0A9678] transition-colors"
             >
-              Découvrir comment nos leviers propulsent vos ventes
+              Consulter le détail complet de nos 4 pôles de services
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
