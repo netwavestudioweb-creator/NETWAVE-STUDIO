@@ -1,23 +1,13 @@
 {
-  "name": "NetWave Studio — Site Officiel",
-  "short_name": "NetWave Studio",
-  "description": "Studio d'ingénierie web, développement d'applications sur-mesure & logiciels métiers d'élite.",
+  "name": "NetWave Studio",
+  "short_name": "NetWave",
+  "description": "Studio web et logiciel à Cotonou : sites, boutiques, logiciels métiers, réseaux et assistants WhatsApp.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#281450",
-  "theme_color": "#0A9678",
+  "background_color": "#FFFFFF",
+  "theme_color": "#140B26",
   "icons": [
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }

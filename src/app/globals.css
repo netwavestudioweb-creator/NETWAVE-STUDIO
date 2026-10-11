@@ -1,177 +1,91 @@
 @import "tailwindcss";
 
+/* Charte NetWave Studio — refonte v2.
+   L'émeraude du logo (#0A9678) est réservée au graphisme : sous un texte blanc,
+   les boutons utilisent emerald (#08745D, contraste 5,4:1). */
 @theme {
-  --color-indigo-primary: #281450;
-  --color-violet-secondary: #462882;
-  --color-teal-accent: #0A9678;
-  --color-teal-light: #0fb894;
-  --color-teal-subtle: #e6f7f3;
-  --color-neutral-dark: #1F2937;
-  --color-neutral-light: #F5F5F7;
-  --color-neutral-border: #E5E7EB;
-  --color-neutral-muted: #6B7280;
+  --color-ink: #140B26;
+  --color-ink-2: #3A3448;
+  --color-body: #4A4458;
+  --color-muted: #5A5468;
+  --color-faint: #6E687C;
+  --color-on-dark: #CFC9DC;
+  --color-on-dark-faint: #8A8497;
 
-  --font-poppins: var(--font-poppins), sans-serif;
-  --font-inter: var(--font-inter), sans-serif;
-}
+  --color-emerald: #08745D;
+  --color-emerald-hover: #065E4B;
+  --color-emerald-logo: #0A9678;
+  --color-emerald-soft: #E6F4F0;
+  --color-mint: #3DDBB0;
 
-:root {
-  --color-indigo: #281450;
-  --color-violet: #462882;
-  --color-teal: #0A9678;
-  --color-light: #F5F5F7;
-  --color-dark: #1F2937;
+  --color-violet: #5B3BB3;
+  --color-violet-deep: #281450;
+  --color-violet-mid: #3B2370;
+  --color-violet-soft: #EEEAF7;
+  --color-violet-light: #8E65D8;
+
+  --color-mist: #F5F4F8;
+  --color-line: #E7E4EE;
+  --color-line-strong: #D9D5E3;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100vw;
 }
 
 body {
-  font-family: var(--font-inter), sans-serif;
-  color: #1F2937;
-  background-color: #FFFFFF;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  max-width: 100vw;
+  background: #FFFFFF;
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-poppins), sans-serif;
-}
-
-/* Accessibilité : Indicateur de focus visible pour la navigation au clavier (Touche Tab) */
 :focus-visible {
-  outline: 2px solid #0A9678 !important;
-  outline-offset: 3px !important;
+  outline: 2px solid var(--color-emerald);
+  outline-offset: 3px;
   border-radius: 6px;
 }
 
-/* Utilitaires de masquage de barre de défilement */
-.no-scrollbar::-webkit-scrollbar {
+/* Petit libellé technique en majuscules ("01 — Étude de cas"). */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Titres de section. */
+@utility h-display {
+  font-family: var(--font-display);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
   display: none;
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+details[open] .faq-plus {
+  transform: rotate(45deg);
 }
 
-.hero-gradient-overlay {
-  background: linear-gradient(135deg, rgba(40, 20, 80, 0.05) 0%, rgba(70, 40, 130, 0.07) 100%);
-}
-
-.cta-gradient {
-  background: linear-gradient(135deg, #1E0F3D 0%, #281450 50%, #3A1F6E 100%);
-}
-
-.card-elevation-hover {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-}
-
-.card-elevation-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -8px rgba(40, 20, 80, 0.09), 0 4px 12px -2px rgba(40, 20, 80, 0.04);
-  border-color: rgba(10, 150, 120, 0.4);
-}
-
-/* ============================================================
-   ANIMATIONS SUR-MESURE NETWAVE STUDIO
-   ============================================================ */
-
-/* 1. Flottement 3D Zéro-Gravité pour les badges du Hero */
-@keyframes floatAnimation {
-  0%, 100% {
-    transform: translateY(0px);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  50% {
-    transform: translateY(-8px);
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
-}
-
-.animate-float {
-  animation: floatAnimation 4s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: floatAnimation 4.5s ease-in-out 1.5s infinite;
-}
-
-/* 2. Pulsation douce des halos d'ambiance en arrière-plan */
-@keyframes pulseGlowAnimation {
-  0%, 100% {
-    opacity: 0.25;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.06);
-  }
-}
-
-.animate-pulse-slow {
-  animation: pulseGlowAnimation 6s ease-in-out infinite;
-}
-
-/* 3. Émergence progressive vers le haut lors de l'arrivée */
-@keyframes fadeUpAnimation {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fadeUpAnimation 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* 4. Reflet balayant Shimmer sur les boutons CTA */
-@keyframes shimmerAnimation {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.cta-shimmer {
-  background: linear-gradient(90deg, #0A9678 0%, #0fb894 35%, #6EE7B7 50%, #0fb894 65%, #0A9678 100%);
-  background-size: 200% 100%;
-  animation: shimmerAnimation 4s linear infinite;
-}
-
-/* 5. Respiration lumineuse pour icônes centrales */
-@keyframes iconBreatheAnimation {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 10px 25px -5px rgba(10, 150, 120, 0.4);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px 0px rgba(15, 184, 148, 0.6);
-  }
-}
-
-.icon-breathe {
-  animation: iconBreatheAnimation 3s ease-in-out infinite;
-}
-
-/* 6. Survol lumineux des cartes avec réactivité néon */
-.card-hover-glow {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-hover-glow:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -15px rgba(40, 20, 80, 0.12), 0 0 20px 0px rgba(10, 150, 120, 0.25);
-  border-color: rgba(10, 150, 120, 0.5);
 }

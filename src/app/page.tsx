@@ -1,449 +1,296 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import {
-  ArrowRight,
-  Globe,
-  LayoutDashboard,
-  Network,
-  Bot,
-  Sparkles,
-  CheckCircle2,
-  Zap,
-  Calculator,
-} from "lucide-react";
-import HeroAppVisual from "@/components/HeroAppVisual";
-import InteractiveBrochure from "@/components/InteractiveBrochure";
-import BentoMethodology from "@/components/BentoMethodology";
-import ComparisonMatrix from "@/components/ComparisonMatrix";
-import MeasuredPerformance from "@/components/MeasuredPerformance";
-import FaqSection from "@/components/FaqSection";
-
 import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  ALKAREEM,
+  CONTACT,
+  HOME_FAQ,
+  METHOD_STEPS,
+  PACKS,
+  PROJECTS,
+  SERVICES,
+  formatEur,
+} from "@/data/site";
+import {
+  ArrowIcon,
+  ButtonLink,
+  CheckIcon,
+  Container,
+  Eyebrow,
+  Faq,
+  PhoneFrame,
+  PriceTag,
+  Stripes,
+} from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "NetWave Studio — Studio d'Ingénierie Web, Logicielle & Réseaux (Cotonou, Bénin)",
-  description:
-    "NetWave Studio conçoit des sites web & e-commerce ultra-rapides, des logiciels métiers sur-mesure, des infrastructures réseaux résilientes et des assistants WhatsApp automatisés.",
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "NetWave Studio — Studio d'Ingénierie Web, Logicielle & Réseaux",
-    description:
-      "Des solutions concrètes pour votre entreprise : Sites web, e-commerce, logiciels métiers, réseaux d'entreprise et assistants IA WhatsApp.",
-    url: "https://www.netwave-studio.company",
-    siteName: "NetWave Studio",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "NetWave Studio" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "NetWave Studio — Studio d'Ingénierie Web, Logicielle & Réseaux",
-    description: "Sites web, e-commerce, logiciels métiers, infrastructures réseaux et bots WhatsApp.",
-    images: ["/twitter-image"],
-  },
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col w-full overflow-hidden font-inter">
-      {/* ============================================================
-          SECTION 1 : HERO MODERNISÉ (Attraction Client & Visibilité)
-         ============================================================ */}
-      <section className="relative w-full bg-white pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden border-b border-[#F5F5F7]">
-        <div
-          className="absolute inset-0 pointer-events-none hero-gradient-overlay"
-          aria-hidden="true"
-        />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Colonne gauche : Contenu rédactionnel */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              {/* Badge vert avec impulsion lumineuse (Green Pulse) */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#F5F5F7] border border-[#E5E7EB] shadow-xs">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0A9678] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0A9678] shadow-[0_0_8px_2px_rgba(10,150,120,0.4)]" />
-                </span>
-                <span className="text-xs font-semibold text-[#281450] tracking-wide font-mono">
-                  Studio d&apos;Ingénierie Web, Logicielle &amp; Réseaux • Cotonou &amp; International
-                </span>
-              </div>
-
-              {/* Accroche Principale */}
-              <h1 className="text-[32px] sm:text-[48px] lg:text-[56px] font-extrabold text-[#281450] tracking-tight leading-[1.12] font-poppins">
-                Des sites web, logiciels métiers &amp; systèmes taillés pour votre croissance.
-              </h1>
-
-              <p className="text-[17px] sm:text-[18px] text-[#1F2937]/80 leading-relaxed max-w-2xl font-inter">
-                Nous concevons des sites vitrines &amp; e-commerce ultra-rapides, des applications de gestion sur-mesure, des infrastructures réseaux sécurisées et des assistants WhatsApp automatisés.
-              </p>
-
-              {/* Boutons CTA Pill Shape */}
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-                <Link
-                  href="/contact"
-                  id="hero-cta-contact"
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-[15px] shadow-md shadow-[#0A9678]/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98] cta-shimmer"
-                >
-                  <span>Démarrer un projet</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <Link
-                  href="/tarifs"
-                  id="hero-cta-estimator"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border-2 border-[#281450] bg-transparent text-[#281450] hover:bg-[#281450] hover:text-white font-bold text-[15px] hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
-                >
-                  <Calculator className="w-4 h-4 text-[#0A9678]" />
-                  <span>Estimer mon budget</span>
-                </Link>
-              </div>
-
-              <div className="pt-4 flex flex-wrap items-center gap-6 text-xs text-gray-500 font-medium">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0A9678]" />
-                  Web &amp; E-Commerce ultra-rapides
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0A9678]" />
-                  Logiciels de gestion sur-mesure
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0A9678]" />
-                  Réseaux, Sécurité &amp; IA WhatsApp
-                </span>
-              </div>
-            </div>
-
-            {/* Colonne droite : Visuel immersif Smartphone & Ecosysteme Apps */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
-              <HeroAppVisual />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          SECTION 2 : BANDEAU PREUVE SOCIALE & MOTEUR D'ACQUISITION
-         ============================================================ */}
-      <section className="w-full bg-[#F5F5F7] py-10 border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="text-center max-w-2xl mx-auto space-y-1">
-            <p className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
-              Accélération de Marque &amp; Confiance
+    <>
+      {/* HERO */}
+      <section className="border-b border-line">
+        <Container className="flex flex-wrap items-center gap-14 py-16 md:py-24">
+          <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-7">
+            <Eyebrow className="flex items-start gap-2.5">
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-logo" aria-hidden="true" />
+              Studio web &amp; logiciel · Cotonou → international
+            </Eyebrow>
+            <h1 className="font-display text-[clamp(40px,5.6vw,76px)] font-[750] leading-[1.02] tracking-[-0.035em]">
+              Des sites et des logiciels qui font tourner votre activité.{" "}
+              <span className="text-emerald">Même en 3G.</span>
+            </h1>
+            <p className="max-w-[560px] text-lg leading-relaxed text-body sm:text-[19px]">
+              NetWave Studio conçoit des sites vitrines, des boutiques en ligne, des logiciels de gestion et
+              des assistants WhatsApp pour les entreprises d&apos;Afrique de l&apos;Ouest et d&apos;ailleurs.
+              Rapides, mesurés, livrés à la date prévue.
             </p>
-            <h2 className="text-base sm:text-lg font-bold text-[#281450] font-poppins">
-              Une présence digitale conçue pour capturer l&apos;attention de votre marché
-            </h2>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href="/contact">
+                Démarrer un projet <ArrowIcon />
+              </ButtonLink>
+              <ButtonLink href="/tarifs" variant="secondary">
+                Voir les tarifs
+              </ButtonLink>
+            </div>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-muted">
+              {["Devis gratuit", "Paiement en 3 fois sans frais", "Mobile Money accepté"].map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <CheckIcon className="h-4 w-4 text-emerald" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-            {/* Cible 1 : Sociétés & Entreprises */}
-            <div className="p-4 rounded-2xl bg-white border border-[#E5E7EB] flex items-center gap-3.5 shadow-xs card-hover-glow">
-              <div className="w-10 h-10 rounded-xl bg-[#281450]/10 text-[#281450] flex items-center justify-center font-bold shrink-0">
-                <LayoutDashboard className="w-5 h-5 text-[#281450]" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#281450] font-poppins">Sociétés &amp; Entreprises</h4>
-                <p className="text-xs text-gray-500 font-inter">Notoriété institutionnelle &amp; plateformes captivantes</p>
-              </div>
+          <div className="relative h-[520px] min-w-0 flex-[1_1_420px] overflow-hidden rounded-[28px] bg-ink sm:h-[600px]">
+            <Stripes />
+            <div className="absolute left-1/2 top-10 -translate-x-1/2 sm:top-[52px]">
+              <PhoneFrame
+                src={ALKAREEM.screens.home}
+                alt="Boutique mobile Al Kareem Parfumerie conçue par NetWave Studio"
+                className="w-[220px] sm:w-[262px]"
+                sizes="262px"
+                priority
+              />
             </div>
-
-            {/* Cible 2 : Particuliers & Indépendants */}
-            <div className="p-4 rounded-2xl bg-white border border-[#E5E7EB] flex items-center gap-3.5 shadow-xs card-hover-glow">
-              <div className="w-10 h-10 rounded-xl bg-[#0A9678]/10 text-[#0A9678] flex items-center justify-center font-bold shrink-0">
-                <Sparkles className="w-5 h-5 text-[#0A9678]" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#281450] font-poppins">Marques &amp; Porteurs de Projets</h4>
-                <p className="text-xs text-gray-500 font-inter">Positionnement premium &amp; acquisition directe</p>
-              </div>
+            <div className="absolute bottom-6 left-4 flex w-[220px] flex-col gap-2 rounded-2xl bg-white px-5 py-4 shadow-[0_18px_40px_rgba(0,0,0,0.3)] sm:bottom-8 sm:left-6">
+              <p className="eyebrow text-[11px] text-muted">PageSpeed mobile</p>
+              <p className="flex items-baseline gap-2.5 font-display font-[750] tracking-[-0.03em]">
+                <span className="text-[26px] text-faint line-through">{ALKAREEM.scoreBefore}</span>
+                <span className="text-lg text-faint" aria-hidden="true">→</span>
+                <span className="text-[44px] text-emerald">{ALKAREEM.scoreAfter}</span>
+              </p>
+              <p className="text-[13px] text-body">Al Kareem Parfumerie, mesure vérifiable</p>
             </div>
-
-            {/* Cible 3 : Client Réel (Al Kareem Parfumerie) */}
-            <Link
-              href="/realisations"
-              className="group p-4 rounded-2xl bg-white border border-[#E5E7EB] hover:border-[#0A9678]/50 transition-all duration-300 flex items-center justify-between shadow-xs card-hover-glow"
-            >
-              <div className="flex items-center gap-3 shrink-0">
-                <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-gray-100 shrink-0">
-                  <Image
-                    src="/assets/alkareem/logo.jpg"
-                    alt="Al Kareem Parfumerie Cotonou"
-                    fill
-                    sizes="40px"
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-[#281450] tracking-wider font-poppins">AL KAREEM PARFUMERIE</h4>
-                  <p className="text-[11px] text-[#0A9678] group-hover:text-[#0fb894] transition-colors font-mono">Site E-Commerce &amp; WhatsApp</p>
-                </div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#0A9678] group-hover:translate-x-1 transition-transform shrink-0 ml-2" />
-            </Link>
+            <p className="absolute right-4 top-5 hidden rounded-full border border-white/20 bg-white/10 px-3.5 py-2 font-mono text-xs font-semibold text-white sm:block">
+              {ALKAREEM.loadGain} de temps de chargement
+            </p>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* ============================================================
-          SECTION 3 : DÉPLIANT PORTFOLIO INTERACTIF (Vitrine de Notoriété)
-         ============================================================ */}
-      <section className="w-full bg-white py-20 md:py-28 border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 mb-8">
-          <span className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
-            Systèmes d&apos;Acquisition &amp; De Visibilité
+      {/* PROJETS */}
+      <section aria-label="Projets récents" className="border-b border-line bg-mist">
+        <Container className="flex flex-wrap items-center justify-between gap-x-10 gap-y-5 py-8">
+          <Eyebrow tone="muted">Projets récents</Eyebrow>
+          <ul className="flex flex-wrap gap-x-12 gap-y-4 font-display text-[22px] font-bold tracking-[-0.02em] text-ink-2">
+            <li>{ALKAREEM.name}</li>
+            {PROJECTS.map((p) => (
+              <li key={p.title}>{p.title}</li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      {/* SERVICES */}
+      <Container className="py-20 md:py-30">
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+          <div className="flex max-w-[680px] flex-col gap-4">
+            <Eyebrow>01 — Ce que nous faisons</Eyebrow>
+            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Quatre métiers, un seul interlocuteur.</h2>
+          </div>
+          <Link href="/services" className="font-semibold text-ink underline-offset-4 hover:underline">
+            Tous les services →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {SERVICES.map((service, i) => (
+            <article key={service.id} className="flex flex-col gap-4.5 rounded-[20px] border border-line p-7 sm:px-7 sm:py-8">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[13px] font-semibold text-faint">/0{i + 1}</span>
+                <PriceTag price={service.fromPrice} tone={service.tone} />
+              </div>
+              <h3 className="font-display text-2xl font-bold leading-tight tracking-[-0.02em]">{service.title}</h3>
+              <p className="text-[15px] leading-relaxed text-body">{service.summary}</p>
+              <ul className="mt-auto flex flex-col gap-2 border-t border-[#EFEDF3] pt-4.5 text-sm text-ink-2">
+                {service.points.slice(0, 3).map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </Container>
+
+      {/* ÉTUDE DE CAS */}
+      <section className="bg-ink text-white">
+        <Container className="flex flex-wrap items-center gap-16 py-20 md:py-30">
+          <div className="flex min-w-0 flex-[1_1_480px] flex-col gap-7">
+            <Eyebrow tone="mint">02 — Étude de cas</Eyebrow>
+            <h2 className="h-display text-[clamp(32px,4vw,52px)]">
+              Al Kareem Parfumerie : une boutique qui reste rapide sur un réseau mobile instable.
+            </h2>
+            <p className="text-[17px] leading-relaxed text-on-dark">
+              Refonte complète de la boutique en ligne d&apos;une parfumerie de Cotonou : recherche, catalogue
+              filtrable, fiche produit avec ajout au panier toujours visible, commande WhatsApp et paiement à
+              la livraison.
+            </p>
+            <dl className="grid grid-cols-2 gap-4">
+              <div className="rounded-[18px] border border-white/16 p-6">
+                <dt className="sr-only">Score PageSpeed mobile</dt>
+                <dd className="font-display text-[clamp(32px,4vw,44px)] font-[750] tracking-[-0.03em] text-mint">
+                  {ALKAREEM.scoreBefore} → {ALKAREEM.scoreAfter}
+                </dd>
+                <dd className="mt-1.5 text-sm text-on-dark">Score PageSpeed mobile</dd>
+              </div>
+              <div className="rounded-[18px] border border-white/16 p-6">
+                <dt className="sr-only">Temps de chargement</dt>
+                <dd className="font-display text-[clamp(32px,4vw,44px)] font-[750] tracking-[-0.03em] text-mint">
+                  {ALKAREEM.loadGain}
+                </dd>
+                <dd className="mt-1.5 text-sm text-on-dark">Temps de chargement</dd>
+              </div>
+            </dl>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <ButtonLink href="/realisations" variant="mint" size="md" className="min-h-[50px]">
+                Lire l&apos;étude de cas
+              </ButtonLink>
+              <a
+                href={ALKAREEM.pageSpeedUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-white underline underline-offset-4 hover:text-mint"
+              >
+                Vérifier le score sur PageSpeed ↗
+              </a>
+            </div>
+          </div>
+          <div className="flex min-w-0 flex-[1_1_440px] items-start justify-center gap-5">
+            <PhoneFrame
+              src={ALKAREEM.screens.product}
+              alt="Fiche produit mobile Al Kareem"
+              className="mt-12 w-[45%] max-w-[220px]"
+              sizes="220px"
+            />
+            <PhoneFrame
+              src={ALKAREEM.screens.shop}
+              alt="Boutique mobile Al Kareem avec filtres"
+              className="w-[45%] max-w-[220px]"
+              sizes="220px"
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* MÉTHODE */}
+      <Container className="py-20 md:py-30">
+        <div className="mb-14 flex max-w-[720px] flex-col gap-4">
+          <Eyebrow>03 — Notre méthode</Eyebrow>
+          <h2 className="h-display text-[clamp(32px,4vw,52px)]">Un calendrier fixé avant la première ligne de code.</h2>
+        </div>
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 border-t-2 border-ink">
+          {METHOD_STEPS.map((step, i) => (
+            <li key={step.key} className="flex flex-col gap-3 pr-7 pt-7">
+              <span className="font-mono text-[13px] font-semibold text-emerald">ÉTAPE {i + 1}</span>
+              <h3 className="font-display text-2xl font-bold tracking-[-0.02em]">{step.key}</h3>
+              <p className="text-[15px] leading-relaxed text-body">{step.short}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 text-[15px] text-ink-2">
+          <span>
+            <strong className="text-ink">7 à 14 jours ouvrés</strong> pour un site ou une boutique
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#281450] font-poppins">
-            Explorez des marques qui captent l&apos;attention et génèrent des ventes
-          </h2>
-          <p className="text-base text-gray-600 font-inter max-w-2xl mx-auto">
-            Dépliez notre catalogue interactif ci-dessous et découvrez comment nous propulsons nos partenaires au centre de leur marché.
-          </p>
+          <span>
+            <strong className="text-ink">2 à 4 semaines</strong> pour un logiciel métier
+          </span>
         </div>
+      </Container>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Dépliant interactif */}
-          <InteractiveBrochure />
-
-          <div className="pt-8 text-center">
-            <Link
-              href="/realisations"
-              id="case-study-cta"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-base shadow-lg shadow-[#0A9678]/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
-            >
-              <span>Voir les réussites et histoires de croissance</span>
-              <ArrowRight className="w-4 h-4" />
+      {/* TARIFS */}
+      <section className="border-y border-line bg-mist">
+        <Container className="py-20 md:py-30">
+          <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+            <div className="flex max-w-[680px] flex-col gap-4">
+              <Eyebrow>04 — Tarifs</Eyebrow>
+              <h2 className="h-display text-[clamp(32px,4vw,52px)]">Des prix affichés. Payables en trois fois.</h2>
+            </div>
+            <Link href="/tarifs" className="font-semibold text-ink underline-offset-4 hover:underline">
+              Comparer les formules →
             </Link>
           </div>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {PACKS.map((pack) => (
+              <Link
+                key={pack.id}
+                href="/tarifs"
+                className={`flex flex-col gap-4 rounded-[22px] p-8 transition-transform hover:-translate-y-1 sm:p-9 ${
+                  pack.featured ? "bg-ink text-white" : "border border-line bg-white"
+                }`}
+              >
+                <span className="flex items-center justify-between gap-3">
+                  <span className="font-display text-[22px] font-bold">{pack.name}</span>
+                  {pack.featured && (
+                    <span className="eyebrow rounded-full bg-mint px-2.5 py-1 text-[11px] text-ink">Recommandée</span>
+                  )}
+                </span>
+                <span className={`text-[15px] ${pack.featured ? "text-on-dark" : "text-body"}`}>{pack.tagline}</span>
+                <span className="font-display text-[52px] font-[750] tracking-[-0.03em]">
+                  {pack.fromPrefix && <span className="text-xl font-semibold tracking-normal">dès </span>}
+                  {formatEur(pack.price)}
+                </span>
+                <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
+                  ou 3 × {formatEur(pack.installment)}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </Container>
       </section>
 
-      {/* ============================================================
-          SECTION 4 : NOS 4 PÔLES D'EXPERTISE & SERVICES
-         ============================================================ */}
-      <section className="w-full bg-[#F5F5F7] py-20 md:py-28 border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-            <span className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
-              NOS 4 PÔLES D&apos;EXPERTISE &amp; SERVICES
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#281450] font-poppins">
-              Des solutions concrètes pour digitaliser et accélérer votre activité.
-            </h2>
-            <p className="text-base text-gray-600 font-inter">
-              Que vous ayez besoin d&apos;un site web percutant, d&apos;un outil de gestion sur-mesure, d&apos;un réseau informatique sécurisé ou d&apos;automatiser vos échanges clients sur WhatsApp.
+      {/* FAQ */}
+      <Container className="flex flex-wrap gap-12 py-20 md:py-30">
+        <div className="flex flex-[1_1_320px] flex-col gap-4">
+          <Eyebrow>05 — Questions fréquentes</Eyebrow>
+          <h2 className="h-display text-[clamp(32px,4vw,48px)]">Ce qu&apos;on nous demande avant de signer.</h2>
+        </div>
+        <div className="min-w-0 flex-[2_1_560px]">
+          <Faq items={HOME_FAQ} />
+        </div>
+      </Container>
+
+      {/* CTA */}
+      <section className="px-4 pb-20 sm:px-6 md:pb-30">
+        <div className="relative mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-8 overflow-hidden rounded-[32px] bg-emerald px-7 py-14 text-white sm:px-14 sm:py-18">
+          <Stripes variant="cta" />
+          <div className="relative flex max-w-[620px] flex-col gap-3.5">
+            <h2 className="h-display text-[clamp(34px,4.4vw,56px)]">Parlons de votre projet.</h2>
+            <p className="text-lg leading-relaxed text-[#E3F5F0]">
+              Décrivez votre besoin en quelques lignes : vous recevez un devis clair, sans engagement.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Bloc 1 : Web & E-Commerce */}
-            <div className="card-elevation-hover p-6 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678] mb-5">
-                  <Globe className="w-6 h-6 stroke-[1.75]" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2.5">
-                  Création Web &amp; E-Commerce
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Sites vitrines professionnels et boutiques e-commerce ultra-rapides (3G/4G), avec paiement Mobile Money (MTN, Moov, Wave) et commandes directes sur WhatsApp.
-                </p>
-              </div>
-              <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
-                <span>Dès 149 €</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-
-            {/* Bloc 2 : Logiciels & Applications */}
-            <div className="card-elevation-hover p-6 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678] mb-5">
-                  <LayoutDashboard className="w-6 h-6 stroke-[1.75]" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2.5">
-                  Logiciels &amp; Applications Sur-Mesure
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Développement d&apos;outils de gestion personnalisés (ERP, CRM) : stocks, facturation, suivi des commandes et tableaux de bord de pilotage en direct.
-                </p>
-              </div>
-              <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
-                <span>Dès 290 €</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-
-            {/* Bloc 3 : Réseaux & Télécoms */}
-            <div className="card-elevation-hover p-6 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678] mb-5">
-                  <Network className="w-6 h-6 stroke-[1.75]" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2.5">
-                  Infrastructures Réseaux &amp; Télécoms
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Câblage structuré, interconnexion d&apos;agences par VPN, serveurs locaux ou Cloud, téléphonie VoIP et sécurisation proactive de vos données.
-                </p>
-              </div>
-              <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
-                <span>Sur mesure</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-
-            {/* Bloc 4 : IA & Automatisation WhatsApp */}
-            <div className="card-elevation-hover p-6 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-[#F5F5F7] border border-[#E5E7EB] flex items-center justify-center text-[#0A9678] mb-5">
-                  <Bot className="w-6 h-6 stroke-[1.75]" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#281450] font-poppins mb-2.5">
-                  Automatisation &amp; Assistants IA WhatsApp
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Assistants virtuels WhatsApp Business disponibles 24/7 pour accueillir vos clients, enregistrer les commandes, répondre aux FAQ et relancer les devis.
-                </p>
-              </div>
-              <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#0A9678]">
-                <span>Sur mesure</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#281450] hover:text-[#0A9678] transition-colors"
-            >
-              Consulter le détail complet de nos 4 pôles de services
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          <div className="relative flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/contact" variant="light">
+              Demander un devis
+            </ButtonLink>
+            <ButtonLink href={CONTACT.whatsappUrl} variant="outline-light">
+              WhatsApp
+            </ButtonLink>
           </div>
         </div>
       </section>
-
-      {/* ============================================================
-          SECTION 4.5 : PERFORMANCE MESURÉE & GOOGLE PAGESPEED
-         ============================================================ */}
-      <MeasuredPerformance />
-
-      {/* ============================================================
-          SECTION 5 : INVITATION ESTIMATEUR DE BUDGET & TARIFS
-         ============================================================ */}
-      <section className="w-full bg-white py-16 md:py-24 border-b border-[#E5E7EB]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-gradient-to-br from-[#1E0F3D] via-[#281450] to-[#0B0318] p-8 sm:p-12 text-white text-center space-y-6 shadow-2xl relative overflow-hidden">
-            {/* Effet de fond lumineux */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#0A9678]/20 rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#462882]/40 rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
-
-            <div className="relative z-10 space-y-4 max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-[#0fb894] text-xs font-mono font-semibold uppercase tracking-wider">
-                <Calculator className="w-4 h-4" />
-                <span>Plan d&apos;Acquisition &amp; Devis Transparent</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-4xl font-extrabold font-poppins text-white leading-tight">
-                Calculez le potentiel de visibilité de votre entreprise.
-              </h2>
-
-              <p className="text-sm sm:text-base text-gray-300 font-inter leading-relaxed">
-                Que vous soyez une <strong>entreprise établie</strong> ou un <strong>créateur ambitieux</strong>, simulez votre dispositif d&apos;acquisition client et découvrez votre plan d&apos;action sur-mesure.
-              </p>
-
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  href="/tarifs"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl cta-shimmer text-white font-bold font-poppins shadow-lg shadow-[#0A9678]/30 hover:scale-105 transition-all duration-300"
-                >
-                  <span>Simuler mon plan d&apos;acquisition</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          SECTION 6 : MÉTHODOLOGIE BENTO GRID INTERACTIVE
-         ============================================================ */}
-      <section className="w-full bg-[#F5F5F7] py-20 md:py-28 border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-            <span className="text-xs font-semibold text-[#0A9678] uppercase tracking-widest font-mono">
-              Le Système d&apos;Accélération NETWAVE
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#281450] font-poppins">
-              Une stratégie d&apos;impact guidée par la performance.
-            </h2>
-            <p className="text-base text-gray-600 font-inter">
-              Notre méthode élimine l&apos;improvisation et garantit une prise de parole percutante, captivante et rentable.
-            </p>
-          </div>
-
-          {/* Grille Bento interactives pour la méthode */}
-          <BentoMethodology />
-        </div>
-      </section>
-
-      {/* ============================================================
-          SECTION 7 : MATRICE COMPARATIVE NETWAVE VS AGENCES
-         ============================================================ */}
-      <section className="w-full bg-white py-20 md:py-28 border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ComparisonMatrix />
-        </div>
-      </section>
-
-      {/* ============================================================
-          SECTION 8 : FOIRE AUX QUESTIONS & RÉASSURANCE
-         ============================================================ */}
-      <section className="w-full bg-[#F5F5F7] py-20 md:py-28 border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FaqSection />
-        </div>
-      </section>
-
-      {/* ============================================================
-          SECTION 9 : CTA FINAL DE CONVERSION
-         ============================================================ */}
-      <section className="w-full cta-gradient text-white py-20 md:py-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="space-y-4">
-            <span className="inline-block text-xs font-semibold tracking-widest text-[#0A9678] uppercase bg-white/10 px-3.5 py-1.5 rounded-full font-mono">
-              STRATÉGIE &amp; ACCÉLÉRATION
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-poppins tracking-tight">
-              Prêt à faire passer votre marque à la vitesse supérieure ?
-            </h2>
-            <p className="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto font-inter">
-              Faites connaître vos produits et services à un flux ininterrompu de nouveaux clients. Échangez directement avec notre équipe pour construire votre dispositif de visibilité.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <Link
-              href="/contact"
-              id="final-cta-btn"
-              className="inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full bg-[#0A9678] hover:bg-[#0fb894] text-white font-bold text-base shadow-xl shadow-black/20 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 active:scale-[0.98]"
-            >
-              <span>Activer ma visibilité &amp; mes ventes</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-
-          <p className="text-xs text-gray-300 font-mono">
-            Réponse sous 24h ouvrées • Diagnostic d&apos;acquisition offert
-          </p>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }

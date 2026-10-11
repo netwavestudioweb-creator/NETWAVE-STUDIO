@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NetWave Studio — site vitrine
 
-## Getting Started
+Site du studio NetWave (Cotonou, Bénin) : Next.js 16 (App Router), React 19, Tailwind CSS 4, Resend pour le formulaire de devis. Déployé sur Vercel.
 
-First, run the development server:
+## Démarrer
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+En local, sans `RESEND_API_KEY`, l'envoi du formulaire est simulé.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variables d'environnement
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Rôle |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | URL publique (canonical, sitemap, Open Graph) |
+| `RESEND_API_KEY` | **Obligatoire en production.** Sans elle, le formulaire répond par une erreur et propose WhatsApp |
+| `RESEND_FROM` | Expéditeur des emails, sur un domaine vérifié dans Resend |
+| `CONTACT_NOTIFICATION_EMAIL` | Adresse qui reçoit les demandes |
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/                 pages (accueil, services, realisations, tarifs, a-propos, contact)
+    api/contact/       envoi des demandes (validation, anti-spam, limite par IP)
+  components/          Navbar, Footer, Logo, PricingCards, ContactForm, ui (primitives)
+  data/site.ts         source unique : coordonnées, services, formules, projets, FAQ
+docs/                  audit et guide SEO
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Les prix, services et coordonnées se modifient uniquement dans `src/data/site.ts` : les pages, l'API de contact et les données structurées SEO s'y alimentent.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Charte
 
-## Deploy on Vercel
+- Couleurs (tokens Tailwind dans `globals.css`) : `ink` #140B26, `emerald` #08745D (boutons), `mint` #3DDBB0 (accent sur fond sombre), `violet` #5B3BB3.
+- Polices : Bricolage Grotesque (titres), Instrument Sans (texte), JetBrains Mono (repères techniques).
+- `/methodologie` redirige vers `/services#methode`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Vérifications
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```

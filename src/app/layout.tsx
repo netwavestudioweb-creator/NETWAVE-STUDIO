@@ -1,251 +1,148 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { CONTACT, PACKS, SITE_URL } from "@/data/site";
 import "./globals.css";
 
-const poppins = Poppins({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  variable: "--font-bricolage",
   display: "swap",
 });
 
-const inter = Inter({
+const instrument = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
+  variable: "--font-instrument",
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.netwave-studio.company";
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
+const DESCRIPTION =
+  "NetWave Studio, studio web et logiciel à Cotonou (Bénin) : sites vitrines, boutiques en ligne, logiciels métiers, réseaux et assistants WhatsApp. Rapides même en 3G, prix affichés dès 149 €.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "NetWave Studio — Site Officiel | Studio d'Ingénierie Web & Logicielle (Cotonou, Bénin)",
-    template: "%s | NetWave Studio — Site Officiel",
+    default: "NetWave Studio — Sites web et logiciels à Cotonou, Bénin",
+    template: "%s | NetWave Studio",
   },
-  description:
-    "Site Officiel de NetWave Studio à Cotonou (Bénin). Studio d'ingénierie web, développement d'applications sur-mesure & logiciels métiers d'élite. Contact direct : +229 01 50 88 46 70 / netwave.studio.web@gmail.com.",
-  keywords: [
-    "NetWave Studio",
-    "NetWave Studio Cotonou",
-    "NetWave Studio Bénin",
-    "Site officiel NetWave Studio",
-    "développement web Cotonou",
-    "agence web Bénin",
-    "studio d'ingénierie",
-    "académie tech",
-    "formation développement web",
-    "Next.js",
-    "architecture logicielle",
-    "performance web",
-  ],
-  authors: [{ name: "NetWave Studio", url: siteUrl }],
+  description: DESCRIPTION,
+  authors: [{ name: "NetWave Studio", url: SITE_URL }],
   creator: "NetWave Studio",
   publisher: "NetWave Studio",
-  alternates: {
-    canonical: "./",
-  },
-  icons: {
-    icon: [
-      { url: "/icon.svg?v=4", type: "image/svg+xml" },
-      { url: "/icon.png?v=4", type: "image/png" },
-      { url: "/favicon.ico?v=4", type: "image/x-icon" },
-    ],
-    shortcut: "/icon.svg?v=4",
-    apple: [
-      { url: "/apple-icon.png?v=4", sizes: "512x512", type: "image/png" },
-    ],
-  },
+  alternates: { canonical: "/" },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: siteUrl,
-    siteName: "NetWave Studio — Site Officiel",
-    title: "NetWave Studio — Site Officiel | Studio d'Ingénierie Web & Logicielle d'Élite",
-    description:
-      "Site Officiel de NetWave Studio à Cotonou, Bénin. Conception web sur-mesure, logiciels métiers & académie tech d'excellence. Tél : +229 01 50 88 46 70",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "NetWave Studio — Site Officiel | Studio d'Ingénierie Web & Logicielle",
-      },
-    ],
+    url: SITE_URL,
+    siteName: "NetWave Studio",
+    title: "NetWave Studio — Sites web et logiciels à Cotonou, Bénin",
+    description: DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "NetWave Studio — Site Officiel | Studio d'Ingénierie Web & Logicielle",
-    description:
-      "Conception web sur-mesure, logiciels métiers & académie tech d'excellence à Cotonou, Bénin. Tél : +229 01 50 88 46 70",
-    images: ["/twitter-image"],
-    creator: "@netwavestudio",
+    title: "NetWave Studio — Sites web et logiciels à Cotonou, Bénin",
+    description: DESCRIPTION,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
-        "@id": `${siteUrl}/#organization`,
-        name: "NetWave Studio",
-        legalName: "NetWave Studio",
-        alternateName: [
-          "NetWave Studio — Site Officiel",
-          "NetWave Studio Cotonou",
-          "NetWave Studio Bénin",
-          "NetWave Studio Web",
-        ],
-        url: siteUrl,
-        logo: {
-          "@type": "ImageObject",
-          url: `${siteUrl}/icon-512.png`,
-          width: "512",
-          height: "512",
-          caption: "Logo Officiel NetWave Studio",
-        },
-        image: [`${siteUrl}/icon-512.png`, `${siteUrl}/logo.jpg`],
-        email: "netwave.studio.web@gmail.com",
-        telephone: "+2290150884670",
-        priceRange: "149€ - 990€",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Cotonou",
-          addressRegion: "Littoral",
-          addressCountry: "BJ",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 6.3654,
-          longitude: 2.4183,
-        },
-        areaServed: [
-          {
-            "@type": "Country",
-            name: "Bénin",
-          },
-          {
-            "@type": "AdministrativeArea",
-            name: "Afrique de l'Ouest",
-          },
-          {
-            "@type": "Country",
-            name: "France",
-          },
-        ],
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+2290150884670",
-          contactType: "customer service",
-          availableLanguage: ["French", "English"],
-        },
-        sameAs: [
-          "https://www.linkedin.com/in/alb%C3%A9ric-adrianododo",
-          "https://github.com/netwavestudioweb-creator",
-        ],
-        description:
-          "Site Officiel du Studio d'ingénierie web, développement d'applications sur-mesure, logiciels métiers & académie tech basé à Cotonou au Bénin.",
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Offres d'Ingénierie & Tarifs NetWave Studio",
-          itemListElement: [
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "Kickstart Essential",
-                description: "Site Vitrine Ultra-Rapide & Formulaire WhatsApp",
-              },
-              price: "149.00",
-              priceCurrency: "EUR",
-            },
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "Business Scale & Automation",
-                description: "Site complet, Paiement automatique & Assistant IA WhatsApp 24/7",
-              },
-              price: "449.00",
-              priceCurrency: "EUR",
-            },
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "Enterprise Domination 360°",
-                description: "Application Métier Sur-Mesure, Cybersécurité & Maintenance VIP",
-              },
-              price: "990.00",
-              priceCurrency: "EUR",
-            },
-          ],
-        },
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${siteUrl}/#website`,
-        url: siteUrl,
-        name: "NetWave Studio — Site Officiel",
-        alternateName: ["NetWave Studio", "NetWave Studio Official"],
-        publisher: {
-          "@id": `${siteUrl}/#organization`,
-        },
-        inLanguage: "fr-FR",
-      },
-      {
-        "@type": "EducationalOrganization",
-        "@id": `${siteUrl}/#academy`,
-        name: "NetWave Studio Academy",
-        url: siteUrl,
-        description:
-          "Académie de formation pratique et d'apprentissage des métiers du web, du développement logiciel et des technologies numériques.",
-      },
-    ],
-  };
+export const viewport = {
+  themeColor: "#140B26",
+};
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": `${SITE_URL}/#organization`,
+      name: "NetWave Studio",
+      url: SITE_URL,
+      logo: `${SITE_URL}/icon-512.png`,
+      image: `${SITE_URL}/icon-512.png`,
+      email: CONTACT.email,
+      telephone: CONTACT.phoneE164,
+      priceRange: "€€",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Cotonou",
+        addressRegion: "Littoral",
+        addressCountry: "BJ",
+      },
+      areaServed: [
+        { "@type": "Country", name: "Bénin" },
+        { "@type": "AdministrativeArea", name: "Afrique de l'Ouest" },
+        { "@type": "Country", name: "France" },
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: CONTACT.phoneE164,
+        contactType: "customer service",
+        availableLanguage: ["French", "English"],
+      },
+      sameAs: [CONTACT.linkedin, CONTACT.github],
+      founder: { "@type": "Person", name: "DODO Albéric Mantey Adriano" },
+      foundingDate: "2023",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Formules NetWave Studio",
+        itemListElement: PACKS.map((pack) => ({
+          "@type": "Offer",
+          name: pack.name,
+          description: pack.tagline,
+          price: pack.price.toFixed(2),
+          priceCurrency: "EUR",
+        })),
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "NetWave Studio",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "fr-FR",
+    },
+  ],
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="fr"
       data-scroll-behavior="smooth"
-      className={`${poppins.variable} ${inter.variable} h-full antialiased scroll-smooth`}
+      className={`${bricolage.variable} ${instrument.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <head>
-        <link rel="icon" href="/favicon.ico?v=5" sizes="any" />
-        <link rel="icon" href="/icon.svg?v=5" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-icon.png?v=5" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#281450" />
+      <body className="flex min-h-full flex-col bg-white font-sans text-ink selection:bg-mint/40">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
-      </head>
-      <body className="min-h-full flex flex-col bg-white text-[#1F2937] selection:bg-[#0A9678]/20 selection:text-[#281450]">
+        <a
+          href="#contenu"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-ink focus:px-4 focus:py-3 focus:text-white"
+        >
+          Aller au contenu
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="contenu" className="flex-1">
+          {children}
+        </main>
         <Footer />
         <Analytics />
         <SpeedInsights />

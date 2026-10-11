@@ -1,240 +1,115 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import {
-  ArrowRight,
-  ShieldCheck,
-  Cpu,
-  TrendingDown,
-  Layers,
-  ExternalLink,
-  CheckCircle2,
-} from "lucide-react";
-
 import type { Metadata } from "next";
+import Image from "next/image";
+import { CONTACT } from "@/data/site";
+import { ButtonLink, Container, Eyebrow } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "À Propos, Vision & Fondateur",
+  title: "Le studio : fondateur, histoire et engagements",
   description:
-    "Découvrez la vision, l'histoire et les valeurs de NetWave Studio : apporter la rigueur d'ingénierie et former les talents aux standards mondiaux.",
-  alternates: {
-    canonical: "/a-propos",
-  },
-  openGraph: {
-    title: "À Propos & Vision — NetWave Studio",
-    description:
-      "Histoire, valeurs d'ingénierie et engagement d'excellence pour l'Afrique de l'Ouest et l'international.",
-    url: "https://www.netwave-studio.company/a-propos",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "À Propos NetWave Studio" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "À Propos & Vision — NetWave Studio",
-    description: "Ingénierie web, logiciels et formation d'excellence.",
-    images: ["/twitter-image"],
-  },
+    "NetWave Studio, fondé en 2023 à Cotonou par DODO Albéric Mantey Adriano, technicien réseaux & télécoms et développeur full-stack. Un seul interlocuteur du cadrage à la livraison.",
+  alternates: { canonical: "/a-propos" },
 };
 
-export default function AProposPage() {
-  const values = [
-    {
-      icon: ShieldCheck,
-      title: "Transparence",
-      desc: "Des devis clairs, pas de grille cachée, une communication honnête sur ce qui est acquis et ce qui est en cours de développement.",
-    },
-    {
-      icon: Cpu,
-      title: "Rigueur technique",
-      desc: "Une double expertise réseau et développement, rare sur le marché local.",
-    },
-    {
-      icon: TrendingDown,
-      title: "Performance mesurable",
-      desc: "Des résultats chiffrés plutôt que des promesses — par exemple, -75% de temps de chargement sur un projet e-commerce réel.",
-    },
-    {
-      icon: Layers,
-      title: "Adaptation au terrain",
-      desc: "Des solutions pensées pour les conditions réelles d'usage, pas des templates génériques.",
-    },
-  ];
+const VALUES = [
+  {
+    title: "Transparence",
+    text: "Des devis clairs, et une communication honnête sur ce qui est livré et ce qui reste à faire.",
+  },
+  {
+    title: "Double expertise",
+    text: "Réseau et développement dans la même tête : rare sur le marché local, précieux pour vos projets.",
+  },
+  {
+    title: "Des chiffres, pas des promesses",
+    text: "Comme les −75 % de temps de chargement mesurés sur Al Kareem, vérifiables par tous.",
+  },
+  {
+    title: "Conçu pour le terrain",
+    text: "Des solutions adaptées à vos conditions réelles d'usage, jamais des modèles génériques.",
+  },
+];
 
+export default function StudioPage() {
   return (
-    <div className="w-full bg-white font-inter">
-      {/* 1. VISION */}
-      <section className="bg-[#F5F5F7] py-16 md:py-24 border-b border-[#E5E7EB]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-xs font-semibold text-[#0A9678] tracking-widest uppercase font-mono">
-            VISION
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#281450] font-poppins leading-tight">
-            Rendre la technologie de pointe accessible aux entreprises et institutions d&apos;Afrique de l&apos;Ouest
-          </h1>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-inter leading-relaxed">
-            — avec la même rigueur qu&apos;ailleurs, pensée pour les réalités du terrain.
-          </p>
-        </div>
+    <>
+      <Container className="flex flex-col gap-7 pb-24 pt-16 md:pt-26">
+        <Eyebrow>Le studio · Cotonou, depuis 2023</Eyebrow>
+        <h1 className="max-w-[1040px] font-display text-[clamp(36px,5vw,68px)] font-[750] leading-[1.05] tracking-[-0.035em]">
+          Les entreprises d&apos;ici méritent des outils aussi solides que ceux des grandes agences.{" "}
+          <span className="text-faint">Pensés pour le réseau mobile, le Mobile Money et la réalité du terrain.</span>
+        </h1>
+      </Container>
+
+      <section className="border-y border-line bg-mist">
+        <Container className="flex flex-wrap items-center gap-14 py-24">
+          <div className="relative min-w-0 flex-[0_1_420px]">
+            <div aria-hidden="true" className="absolute -left-4.5 top-10 h-[380px] w-14 -skew-x-[22deg] bg-emerald-logo" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-line">
+              <Image
+                src="/dodi_portrait.webp"
+                alt="Portrait de DODO Albéric Mantey Adriano, fondateur de NetWave Studio"
+                fill
+                sizes="(max-width: 768px) 100vw, 420px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="flex min-w-0 flex-[1_1_460px] flex-col gap-6">
+            <Eyebrow>Le fondateur</Eyebrow>
+            <h2 className="h-display text-[clamp(32px,3.8vw,48px)]">Un seul interlocuteur, du premier échange à la livraison.</h2>
+            <p className="text-lg leading-relaxed text-ink-2">
+              NetWave Studio est porté par <strong>DODO Albéric Mantey Adriano</strong>, technicien réseaux &amp;
+              télécoms et développeur full-stack. Pas de transfert de dossier, pas d&apos;information perdue en
+              route : la personne qui cadre votre projet est celle qui le code et le met en ligne.
+            </p>
+            <ul className="flex flex-wrap gap-2.5">
+              {["Réseaux & télécoms", "Développement full-stack", "Basé à Cotonou"].map((tag) => (
+                <li key={tag} className="rounded-full border border-line bg-white px-3.5 py-2 text-sm font-semibold">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-x-7 gap-y-3">
+              <a href={CONTACT.portfolio} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 hover:text-emerald">
+                Portfolio personnel ↗
+              </a>
+              <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 hover:text-emerald">
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+        </Container>
       </section>
 
-      {/* 2. NOTRE HISTOIRE */}
-      <section className="py-16 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-white border border-[#E5E7EB] p-8 sm:p-12 shadow-sm relative overflow-hidden">
-          <div className="space-y-4">
-            <span className="text-xs font-semibold text-[#0A9678] tracking-widest uppercase font-mono">
-              NOTRE HISTOIRE
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#281450] font-poppins">
-              Notre histoire
-            </h2>
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-inter">
-              NetWave Studio est né en 2023 à Cotonou, porté par une conviction simple : les entreprises locales méritent des solutions numériques aussi robustes que celles des grandes agences internationales, conçues pour les réalités du marché ouest-africain — connexions mobiles parfois instables, paiement Mobile Money, contraintes de terrain.
+      <Container className="py-20 md:py-30">
+        <div className="mb-14 flex flex-col gap-4">
+          <Eyebrow>Nos engagements</Eyebrow>
+          <h2 className="h-display text-[clamp(32px,4vw,52px)]">Ce sur quoi vous pouvez nous juger.</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t-2 border-ink">
+          {VALUES.map((v, i) => (
+            <div key={v.title} className="flex flex-col gap-3 border-b border-line py-8 pr-8">
+              <span className="font-display text-[40px] font-[750] tracking-[-0.03em] text-emerald-logo">0{i + 1}</span>
+              <h3 className="font-display text-2xl font-bold">{v.title}</h3>
+              <p className="text-base leading-relaxed text-body">{v.text}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+
+      <section className="px-4 pb-20 sm:px-6 md:pb-30">
+        <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-8 rounded-[32px] bg-ink px-7 py-14 text-white sm:px-14 sm:py-18">
+          <div className="flex max-w-[640px] flex-col gap-3.5">
+            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Envie de travailler ensemble ?</h2>
+            <p className="text-lg leading-relaxed text-on-dark">
+              Parlez-nous de vos défis et de vos ambitions. Réponse sous 24 h ouvrées.
             </p>
           </div>
+          <ButtonLink href="/contact" variant="mint">
+            Prendre contact
+          </ButtonLink>
         </div>
       </section>
-
-      {/* 3. NOS VALEURS */}
-      <section className="bg-[#F5F5F7] border-y border-[#E5E7EB] py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0A9678] font-mono">
-              NOS VALEURS
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#281450] font-poppins">
-              Nos valeurs
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {values.map((v, idx) => {
-              const Icon = v.icon;
-              return (
-                <div
-                  key={idx}
-                  className="rounded-xl bg-white p-5 border border-[#E5E7EB] shadow-xs flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-[#0A9678]/10 text-[#0A9678] flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <h3 className="font-semibold text-sm text-[#281450]">
-                        {v.title}
-                      </h3>
-                    </div>
-                    <p className="text-xs text-gray-600 leading-relaxed">
-                      {v.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. LE FONDATEUR */}
-      <section className="py-16 md:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-[#1E0F3D] text-white p-8 sm:p-12 lg:p-14 relative overflow-hidden shadow-xl border border-white/10">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#462882]/40 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0A9678]/15 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 space-y-8">
-            <div>
-              <span className="text-xs font-mono font-semibold text-[#0fb894] uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">
-                LE FONDATEUR
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-poppins text-white mt-4">
-                Le fondateur
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              {/* Portrait / Mention personnelle */}
-              <div className="md:col-span-4 flex flex-col items-start sm:items-center md:items-start space-y-4">
-                <div className="relative">
-                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-[#0A9678]/50 shadow-xl shadow-[#0A9678]/20 bg-[#1E0F3D]">
-                    <Image
-                      src="/dodi_portrait.webp"
-                      alt="DODO Albéric Mantey Adriano - Fondateur NetWave Studio"
-                      fill
-                      sizes="160px"
-                      className="object-cover object-top hover:scale-105 transition-transform duration-500"
-                      priority
-                    />
-                  </div>
-                  <span className="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-[#0A9678] border-2 border-[#1E0F3D] flex items-center justify-center text-white shadow-md">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-bold text-white font-poppins">
-                    DODO Albéric Mantey Adriano
-                  </h3>
-                  <p className="text-xs text-[#0fb894] font-mono mt-0.5">
-                    Technicien Réseaux &amp; Télécoms • Développeur Full-Stack
-                  </p>
-                  <p className="text-xs text-gray-300 mt-1">
-                    Basé à Cotonou, Bénin
-                  </p>
-                </div>
-              </div>
-
-              {/* Texte de présentation & Lien Portfolio cliquable */}
-              <div className="md:col-span-8 space-y-6 md:border-l md:border-white/10 md:pl-8">
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed font-inter">
-                  NetWave Studio est porté par DODO Albéric Mantey Adriano, technicien réseaux &amp; télécoms et développeur full-stack basé à Cotonou. Un interlocuteur unique du premier échange jusqu&apos;à la livraison — pas de transfert de dossier, pas de perte d&apos;information en cours de route.
-                </p>
-
-                <div className="pt-2 space-y-2">
-                  <a
-                    href="https://dodo-adriano-alb-ric-m-portfolio-ne.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white text-sm font-semibold transition-all shadow-md active:scale-[0.98] group"
-                  >
-                    <span>Consulter le portfolio personnel</span>
-                    <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                  </a>
-                  <div>
-                    <a
-                      href="https://dodo-adriano-alb-ric-m-portfolio-ne.vercel.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-gray-400 hover:text-gray-200 underline underline-offset-4 font-mono transition-colors"
-                    >
-                      dodo-adriano-alb-ric-m-portfolio-ne.vercel.app
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA CONTACT */}
-      <section className="py-16 md:py-20 text-center">
-        <div className="max-w-2xl mx-auto px-4 space-y-6">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#281450] font-poppins">
-            Envie de collaborer avec notre studio ?
-          </h3>
-          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-            Parlez-nous de vos défis techniques et vos ambitions produit. Nous vous répondons sous
-            24h ouvrées.
-          </p>
-          <div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0A9678] hover:bg-[#0fb894] text-white font-semibold transition-all shadow-md active:scale-[0.98]"
-            >
-              <span>Initier le contact</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }

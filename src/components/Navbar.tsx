@@ -1,128 +1,88 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, Calculator } from "lucide-react";
-import LogoNetWave from "@/components/LogoNetWave";
+import { useState } from "react";
+import Logo from "@/components/Logo";
+import { NAV_LINKS } from "@/data/site";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
-
-  const navLinks = [
-    { name: "Services", href: "/services" },
-    { name: "Réalisations", href: "/realisations" },
-    { name: "Méthodologie", href: "/methodologie" },
-    { name: "À propos", href: "/a-propos" },
-    { name: "Tarifs", href: "/tarifs" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full bg-white transition-shadow duration-200 border-b ${
-        isScrolled
-          ? "border-gray-200 shadow-md shadow-black/[0.03]"
-          : "border-[#E5E7EB]"
-      }`}
-      style={{ minHeight: "68px" }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center justify-between">
-        {/* Logo NetWave Studio vectoriel réactif */}
-        <Link href="/" className="flex items-center group focus:outline-none shrink-0 transition-opacity hover:opacity-95">
-          <LogoNetWave />
+    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-6 px-4 py-3 sm:px-6">
+        <Link href="/" aria-label="NetWave Studio — accueil" onClick={close}>
+          <Logo />
         </Link>
 
-        {/* Navigation Desktop */}
-        <nav className="hidden md:flex items-center space-x-1 lg:space-x-1.5 bg-[#F5F5F7] p-1 rounded-full border border-[#E5E7EB]" aria-label="Navigation principale">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+        <nav aria-label="Navigation principale" className="hidden items-center gap-7 text-[15px] font-medium md:flex">
+          {NAV_LINKS.map((link) => {
+            const active = pathname === link.href;
             return (
               <Link
-                key={link.name}
+                key={link.href}
                 href={link.href}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
-                  isActive
-                    ? "text-white bg-[#281450] shadow-sm"
-                    : "text-gray-600 hover:text-[#281450] hover:bg-white/80"
-                }`}
+                aria-current={active ? "page" : undefined}
+                className={
+                  active
+                    ? "text-emerald underline decoration-2 underline-offset-[6px]"
+                    : "text-ink-2 transition-colors hover:text-emerald"
+                }
               >
-                {link.name}
+                {link.label}
               </Link>
             );
           })}
         </nav>
 
-        {/* CTA Desktop */}
-        <div className="hidden md:flex items-center space-x-2.5">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0A9678] hover:bg-[#0fb894] active:scale-[0.98] text-white text-xs font-bold tracking-wide transition-all duration-200 shadow-md shadow-[#0A9678]/20 hover:shadow-lg hover:-translate-y-0.5"
-          >
-            <span>Démarrer un projet</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
+        <Link
+          href="/contact"
+          className="hidden min-h-11 items-center rounded-[10px] bg-emerald px-5 text-[15px] font-semibold text-white transition-colors hover:bg-emerald-hover md:inline-flex"
+        >
+          Démarrer un projet
+        </Link>
 
-        {/* Bouton Menu Mobile */}
-        <div className="flex md:hidden items-center">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-full text-gray-700 hover:text-[#281450] hover:bg-gray-100 focus:outline-none transition-colors"
-            aria-expanded={mobileMenuOpen}
-            aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-line md:hidden"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" className="h-5 w-5" aria-hidden="true">
+            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h10" />}
+          </svg>
+        </button>
       </div>
 
-      {/* Menu Mobile déroulant */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3 shadow-lg">
-          <div className="space-y-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
+      {open && (
+        <nav id="mobile-menu" aria-label="Navigation mobile" className="border-t border-line bg-white px-4 pb-6 pt-2 md:hidden">
+          <ul className="flex flex-col">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
                 <Link
-                  key={link.name}
                   href={link.href}
-                  className={`block px-4 py-3 rounded-full text-base font-medium transition-colors ${
-                    isActive
-                      ? "bg-[#281450] text-white font-semibold shadow-sm"
-                      : "text-gray-700 hover:bg-gray-100 hover:text-[#281450]"
-                  }`}
+                  onClick={close}
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  className="flex min-h-14 items-center border-b border-line font-display text-xl font-semibold text-ink"
                 >
-                  {link.name}
+                  {link.label}
                 </Link>
-              );
-            })}
-          </div>
-
-          <div className="pt-3 border-t border-gray-100 space-y-2">
-            <Link
-              href="/contact"
-              className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#0A9678] text-white text-sm font-semibold shadow-md active:scale-[0.98] transition-transform"
-            >
-              <span>Démarrer un projet</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/contact"
+            onClick={close}
+            className="mt-5 flex min-h-[52px] items-center justify-center rounded-xl bg-emerald font-semibold text-white"
+          >
+            Démarrer un projet
+          </Link>
+        </nav>
       )}
     </header>
   );

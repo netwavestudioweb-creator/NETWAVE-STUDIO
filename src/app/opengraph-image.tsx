@@ -1,10 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "NetWave Studio — Studio d'Ingénierie Web & Logicielle d'Élite";
-export const size = {
-  width: 1200,
-  height: 630,
-};
+export const alt = "NetWave Studio — Sites web et logiciels qui restent rapides, même en 3G";
+export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
@@ -17,185 +14,47 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          alignItems: "flex-start",
-          background: "linear-gradient(135deg, #1E0F3D 0%, #0F0726 60%, #050210 100%)",
-          padding: "60px 80px",
+          background: "#140B26",
+          padding: "64px 72px",
           color: "#FFFFFF",
-          fontFamily: "sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Glow Effects */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-150px",
-            right: "-150px",
-            width: "500px",
-            height: "500px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(10,150,120,0.25) 0%, rgba(0,0,0,0) 70%)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-100px",
-            left: "-100px",
-            width: "400px",
-            height: "400px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(142,101,216,0.25) 0%, rgba(0,0,0,0) 70%)",
-          }}
-        />
+        {/* Bandes obliques du monogramme */}
+        <div style={{ position: "absolute", top: -60, right: 260, width: 90, height: 800, background: "#281450", transform: "skewX(-22deg)" }} />
+        <div style={{ position: "absolute", top: -60, right: 120, width: 90, height: 800, background: "#0A9678", transform: "skewX(22deg)" }} />
+        <div style={{ position: "absolute", top: -60, right: -20, width: 90, height: 800, background: "#3B2370", transform: "skewX(-22deg)" }} />
 
-        {/* Header / Brand Badge */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "16px",
-          }}
-        >
-          {/* Logo Mark Icon */}
-          <div
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "14px",
-              background: "linear-gradient(135deg, #0A9678 0%, #8E65D8 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 8px 24px rgba(10,150,120,0.4)",
-            }}
-          >
-            <div
-              style={{
-                width: "22px",
-                height: "22px",
-                borderTop: "4px solid #FFFFFF",
-                borderRight: "4px solid #FFFFFF",
-                transform: "rotate(45deg)",
-              }}
-            />
-          </div>
-          <span
-            style={{
-              fontSize: "32px",
-              fontWeight: 800,
-              letterSpacing: "-0.5px",
-              color: "#FFFFFF",
-            }}
-          >
-            NetWave<span style={{ color: "#0A9678" }}>Studio</span>
-          </span>
-          <span
-            style={{
-              fontSize: "14px",
-              fontWeight: 600,
-              letterSpacing: "1px",
-              textTransform: "uppercase",
-              padding: "6px 14px",
-              borderRadius: "20px",
-              background: "rgba(10, 150, 120, 0.15)",
-              color: "#0A9678",
-              border: "1px solid rgba(10, 150, 120, 0.3)",
-              marginLeft: "12px",
-            }}
-          >
-            Officiel
-          </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <svg width="66" height="36" viewBox="0 20 230 125">
+            <polygon points="10,140 40,140 85,25 55,25" fill="#8E65D8" />
+            <polygon points="55,25 85,25 130,140 100,140" fill="#3DDBB0" />
+            <polygon points="100,140 130,140 175,25 145,25" fill="#3DDBB0" />
+            <polygon points="115,25 145,25 100,140 70,140" fill="#8E65D8" />
+            <polygon points="145,25 175,25 220,140 190,140" fill="#8E65D8" />
+          </svg>
+          <span style={{ fontSize: 32, fontWeight: 700 }}>NetWave Studio</span>
         </div>
 
-        {/* Main Title & Subtitle */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-            maxWidth: "960px",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "52px",
-              fontWeight: 900,
-              lineHeight: 1.15,
-              letterSpacing: "-1.5px",
-              background: "linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            Studio d'Ingénierie Web & Logicielle d'Élite
+        <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 820 }}>
+          <div style={{ fontSize: 68, fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em" }}>
+            Des sites et des logiciels qui font tourner votre activité.
           </div>
-
-          <div
-            style={{
-              fontSize: "24px",
-              color: "#94A3B8",
-              lineHeight: 1.4,
-              fontWeight: 400,
-            }}
-          >
-            Conception sur-mesure de plateformes web ultra-performantes, logiciels métiers résilients &amp; formation d'excellence.
+          <div style={{ fontSize: 68, fontWeight: 800, lineHeight: 1.05, color: "#3DDBB0", letterSpacing: "-0.03em" }}>
+            Même en 3G.
           </div>
         </div>
 
-        {/* Footer Bar */}
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            paddingTop: "24px",
-            borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "24px",
-              fontSize: "16px",
-              fontWeight: 600,
-              color: "#CBD5E1",
-            }}
-          >
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#0A9678" }} />
-              Web &amp; E-commerce
-            </span>
-            <span style={{ color: "rgba(255,255,255,0.2)" }}>•</span>
-            <span>Logiciels Sur-mesure</span>
-            <span style={{ color: "rgba(255,255,255,0.2)" }}>•</span>
-            <span>Réseaux &amp; Télécoms</span>
-            <span style={{ color: "rgba(255,255,255,0.2)" }}>•</span>
-            <span>IA &amp; Automatisation</span>
-          </div>
-
-          <div
-            style={{
-              fontSize: "18px",
-              fontWeight: 700,
-              color: "#0A9678",
-              fontFamily: "monospace",
-              background: "rgba(10, 150, 120, 0.1)",
-              padding: "8px 16px",
-              borderRadius: "8px",
-              border: "1px solid rgba(10, 150, 120, 0.2)",
-            }}
-          >
-            netwave-studio.company
-          </div>
+        <div style={{ display: "flex", gap: 32, fontSize: 24, color: "#CFC9DC" }}>
+          <span>Cotonou, Bénin</span>
+          <span>·</span>
+          <span>Dès 149 €</span>
+          <span>·</span>
+          <span>netwave-studio.company</span>
         </div>
       </div>
     ),
-    {
-      ...size,
-    }
+    size
   );
 }
