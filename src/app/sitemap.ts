@@ -4,6 +4,7 @@ import { SITE_URL } from "@/data/site";
 const ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "monthly" }[] = [
   { path: "", priority: 1, changeFrequency: "weekly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/boutique-en-ligne", priority: 0.9, changeFrequency: "monthly" },
   { path: "/realisations", priority: 0.9, changeFrequency: "monthly" },
   { path: "/tarifs", priority: 0.9, changeFrequency: "monthly" },
   { path: "/a-propos", priority: 0.7, changeFrequency: "monthly" },

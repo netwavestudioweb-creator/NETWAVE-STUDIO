@@ -18,7 +18,7 @@ export default function Navbar() {
           <Logo />
         </Link>
 
-        <nav aria-label="Navigation principale" className="hidden items-center gap-7 text-[15px] font-medium md:flex">
+        <nav aria-label="Navigation principale" className="hidden items-center gap-6 text-[15px] font-medium lg:flex">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href;
             return (
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         <Link
           href="/contact"
-          className="hidden min-h-11 items-center rounded-[10px] bg-emerald px-5 text-[15px] font-semibold text-white transition-colors hover:bg-emerald-hover md:inline-flex"
+          className="hidden min-h-11 items-center rounded-[10px] bg-emerald px-5 text-[15px] font-semibold text-white transition-colors hover:bg-emerald-hover lg:inline-flex"
         >
           Démarrer un projet
         </Link>
@@ -51,7 +51,7 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-line md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-line lg:hidden"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" className="h-5 w-5" aria-hidden="true">
             {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h10" />}
@@ -60,7 +60,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav id="mobile-menu" aria-label="Navigation mobile" className="border-t border-line bg-white px-4 pb-6 pt-2 md:hidden">
+        <nav id="mobile-menu" aria-label="Navigation mobile" className="border-t border-line bg-white px-4 pb-6 pt-2 lg:hidden">
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>

@@ -3,12 +3,16 @@ import Link from "next/link";
 import {
   ALKAREEM,
   CONTACT,
+  FLAGSHIP,
   HOME_FAQ,
   METHOD_STEPS,
   PACKS,
   PROJECTS,
   SERVICES,
+  TARGET_MARKETS,
+  TESTIMONIALS,
   formatEur,
+  formatFcfa,
 } from "@/data/site";
 import {
   ArrowIcon,
@@ -35,16 +39,16 @@ export default function HomePage() {
           <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-7">
             <Eyebrow className="flex items-start gap-2.5">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-logo" aria-hidden="true" />
-              Studio web &amp; logiciel · Cotonou → international
+              Studio web &amp; logiciel · Afrique francophone &amp; Europe
             </Eyebrow>
             <h1 className="font-display text-[clamp(40px,5.6vw,76px)] font-[750] leading-[1.02] tracking-[-0.035em]">
               Des sites et des logiciels qui font tourner votre activité.{" "}
               <span className="text-emerald">Même en 3G.</span>
             </h1>
             <p className="max-w-[560px] text-lg leading-relaxed text-body sm:text-[19px]">
-              NetWave Studio conçoit des sites vitrines, des boutiques en ligne, des logiciels de gestion et
-              des assistants WhatsApp pour les entreprises d&apos;Afrique de l&apos;Ouest et d&apos;ailleurs.
-              Rapides, mesurés, livrés à la date prévue.
+              Boutiques en ligne, sites, logiciels de gestion, assistants WhatsApp et visibilité Google pour les
+              entreprises de Côte d&apos;Ivoire, du Gabon, du Cameroun, du Sénégal et d&apos;ailleurs. À distance,
+              rapides, livrés à la date prévue.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact">
@@ -55,7 +59,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-muted">
-              {["Devis gratuit", "Paiement en 3 fois sans frais", "Mobile Money accepté"].map((item) => (
+              {["Délai garanti par écrit", "Paiement en 3 fois sans frais", "Mobile Money, carte ou virement"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckIcon className="h-4 w-4 text-emerald" />
                   {item}
@@ -104,18 +108,40 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* OFFRE PHARE */}
+      <section className="px-4 pt-16 sm:px-6 md:pt-24">
+        <div className="relative mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-8 overflow-hidden rounded-[32px] border border-line bg-emerald-soft px-7 py-12 sm:px-14 sm:py-14">
+          <div className="flex min-w-0 max-w-[700px] flex-col gap-4">
+            <Eyebrow>Offre phare</Eyebrow>
+            <h2 className="h-display text-[clamp(30px,3.8vw,48px)]">
+              Votre boutique en ligne en {FLAGSHIP.days} jours.{" "}
+              <span className="text-emerald">Ou {FLAGSHIP.refundPercent} % remboursés.</span>
+            </h2>
+            <p className="text-[17px] leading-relaxed text-body">
+              Catalogue, commandes sur WhatsApp, Mobile Money ou paiement à la livraison.{" "}
+              <strong className="text-ink">
+                {formatEur(FLAGSHIP.price)} · ≈ {formatFcfa(FLAGSHIP.price)}
+              </strong>
+            </p>
+          </div>
+          <ButtonLink href="/boutique-en-ligne">
+            Voir l&apos;offre <ArrowIcon />
+          </ButtonLink>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <Container className="py-20 md:py-30">
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div className="flex max-w-[680px] flex-col gap-4">
             <Eyebrow>01 — Ce que nous faisons</Eyebrow>
-            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Quatre métiers, un seul interlocuteur.</h2>
+            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Bien plus que des sites. Un seul interlocuteur.</h2>
           </div>
           <Link href="/services" className="font-semibold text-ink underline-offset-4 hover:underline">
             Tous les services →
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, i) => (
             <article key={service.id} className="flex flex-col gap-4.5 rounded-[20px] border border-line p-7 sm:px-7 sm:py-8">
               <div className="flex items-center justify-between">
@@ -194,6 +220,27 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* TÉMOIGNAGES — affichés dès qu'un témoignage réel est ajouté dans src/data/site.ts */}
+      {TESTIMONIALS.length > 0 && (
+        <Container className="pt-20 md:pt-30">
+          <div className="mb-12 flex flex-col gap-4">
+            <Eyebrow>Ils en parlent</Eyebrow>
+            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Ce que disent nos clients.</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {TESTIMONIALS.map((t) => (
+              <figure key={t.name} className="flex flex-col justify-between gap-6 rounded-[20px] border border-line p-8">
+                <blockquote className="font-display text-xl font-semibold leading-snug">« {t.quote} »</blockquote>
+                <figcaption className="text-sm text-muted">
+                  <strong className="block text-base text-ink">{t.name}</strong>
+                  {t.role} · {t.country}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </Container>
+      )}
+
       {/* MÉTHODE */}
       <Container className="py-20 md:py-30">
         <div className="mb-14 flex max-w-[720px] flex-col gap-4">
@@ -211,13 +258,40 @@ export default function HomePage() {
         </ol>
         <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 text-[15px] text-ink-2">
           <span>
-            <strong className="text-ink">7 à 14 jours ouvrés</strong> pour un site ou une boutique
+            <strong className="text-ink">10 jours ouvrés garantis</strong> pour une boutique en ligne
+          </span>
+          <span>
+            <strong className="text-ink">7 à 14 jours</strong> pour un site vitrine
           </span>
           <span>
             <strong className="text-ink">2 à 4 semaines</strong> pour un logiciel métier
           </span>
         </div>
       </Container>
+
+      {/* PAYS */}
+      <section className="bg-ink text-white">
+        <Container className="flex flex-wrap gap-12 py-20 md:py-28">
+          <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-5">
+            <Eyebrow tone="mint">Où nous travaillons</Eyebrow>
+            <h2 className="h-display text-[clamp(32px,4vw,48px)]">De Cotonou à toute l&apos;Afrique francophone.</h2>
+            <p className="text-[17px] leading-relaxed text-on-dark">
+              Tout se fait à distance : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre votre projet,
+              et le moyen de paiement de votre pays.
+            </p>
+          </div>
+          <ul className="grid min-w-0 flex-[1.4_1_520px] grid-cols-1 gap-3 sm:grid-cols-2">
+            {TARGET_MARKETS.map((m) => (
+              <li key={m.country} className="flex flex-col gap-1 rounded-2xl border border-white/14 px-5 py-4">
+                <span className="font-display text-lg font-bold">{m.country}</span>
+                <span className="text-sm text-on-dark">
+                  {m.city} · <span className="text-mint">{m.payments}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
       {/* TARIFS */}
       <section className="border-y border-line bg-mist">
@@ -252,7 +326,7 @@ export default function HomePage() {
                   {formatEur(pack.price)}
                 </span>
                 <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
-                  ou 3 × {formatEur(pack.installment)}
+                  ≈ {formatFcfa(pack.price)} · ou 3 × {formatEur(pack.installment)}
                 </span>
               </Link>
             ))}

@@ -21,7 +21,7 @@ export default function ServicesPage() {
             </h1>
           </div>
           <p className="flex-[0_1_380px] text-lg leading-relaxed text-body">
-            Web, logiciel, réseau, automatisation : quatre métiers qui se parlent, pour éviter de multiplier les
+            Web, logiciel, réseau, automatisation, visibilité, maintenance : des métiers qui se parlent, pour éviter de multiplier les
             prestataires.
           </p>
         </Container>

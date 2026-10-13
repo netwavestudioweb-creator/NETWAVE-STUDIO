@@ -47,9 +47,9 @@ export default async function Image() {
         </div>
 
         <div style={{ display: "flex", gap: 32, fontSize: 24, color: "#CFC9DC" }}>
-          <span>Cotonou, Bénin</span>
+          <span>Afrique francophone</span>
           <span>·</span>
-          <span>Dès 149 €</span>
+          <span>Boutique en 10 jours</span>
           <span>·</span>
           <span>netwave-studio.company</span>
         </div>

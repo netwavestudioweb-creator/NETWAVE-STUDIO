@@ -17,12 +17,70 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { href: "/services", label: "Services" },
+  { href: "/boutique-en-ligne", label: "Boutique en 10 jours" },
   { href: "/realisations", label: "Réalisations" },
   { href: "/tarifs", label: "Tarifs" },
   { href: "/a-propos", label: "Le studio" },
 ] as const;
 
-export type ServiceId = "web" | "logiciel" | "reseaux" | "ia";
+/** Parité fixe de l'euro avec le franc CFA (XOF et XAF). */
+export const EUR_TO_FCFA = 655.957;
+
+export const formatFcfa = (eur: number) =>
+  `${(Math.round((eur * EUR_TO_FCFA) / 100) * 100).toLocaleString("fr-FR")} FCFA`;
+
+/** Pays visés en priorité (voir docs/marches-cibles.md pour la justification). */
+export const TARGET_MARKETS = [
+  { country: "Côte d'Ivoire", city: "Abidjan", payments: "Orange Money · Wave · MTN" },
+  { country: "Gabon", city: "Libreville", payments: "Airtel Money · Moov Money" },
+  { country: "Cameroun", city: "Douala · Yaoundé", payments: "Orange Money · MTN MoMo" },
+  { country: "Sénégal", city: "Dakar", payments: "Wave · Orange Money" },
+  { country: "Congo", city: "Brazzaville · Pointe-Noire", payments: "MTN MoMo · Airtel Money" },
+  { country: "Maroc", city: "Casablanca", payments: "Carte · virement" },
+] as const;
+
+export const COUNTRY_CHOICES = [
+  ...TARGET_MARKETS.map((m) => m.country),
+  "Bénin",
+  "France / Europe",
+  "Autre pays",
+] as const;
+
+export const FLAGSHIP = {
+  name: "Boutique en ligne en 10 jours",
+  price: 449,
+  days: 10,
+  refundPercent: 20,
+  promise:
+    "Votre boutique en ligne prête en 10 jours ouvrés : vos clients choisissent, commandent sur WhatsApp et paient comme ils veulent.",
+  conditions: [
+    "Le délai court à partir de la réception de vos contenus complets (logo, photos, textes, liste des produits) et de la validation de la maquette.",
+    "Chaque jour ouvré de retard de notre fait au-delà du 10e jour déclenche le remboursement de 20 % du prix, une seule fois.",
+    "Les modifications demandées après validation de la maquette peuvent décaler la date de livraison, avec votre accord écrit.",
+  ],
+  included: [
+    "Catalogue produits avec recherche et filtres",
+    "Commande en un clic vers votre WhatsApp",
+    "Paiement Mobile Money, carte ou à la livraison",
+    "Espace d'administration : produits, stock, commandes",
+    "Version mobile rapide, testée sur PageSpeed",
+    "Hébergement, nom de domaine et SSL la première année",
+  ],
+  timeline: [
+    { day: "J1", title: "Cadrage", text: "Appel visio ou WhatsApp : vos produits, vos clients, vos moyens de paiement." },
+    { day: "J2–3", title: "Maquette", text: "Vous validez l'apparence de l'accueil et d'une fiche produit." },
+    { day: "J4–8", title: "Construction", text: "Catalogue, commande WhatsApp, paiements. Lien de suivi privé." },
+    { day: "J9", title: "Tests", text: "Vous testez une vraie commande ; nous corrigeons." },
+    { day: "J10", title: "Mise en ligne", text: "Votre boutique est publique, avec une formation vidéo à la prise en main." },
+  ],
+} as const;
+
+export type Testimonial = { quote: string; name: string; role: string; country: string };
+
+/** Ajouter ici les témoignages réels reçus des clients : la section s'affiche dès qu'il y en a un. */
+export const TESTIMONIALS: Testimonial[] = [];
+
+export type ServiceId = "web" | "logiciel" | "reseaux" | "ia" | "visibilite" | "maintenance";
 
 export type Service = {
   id: ServiceId;
@@ -47,7 +105,7 @@ export const SERVICES: Service[] = [
       "Des sites vitrines et des boutiques en ligne pensés pour le mobile et les connexions 3G/4G. Vos clients découvrent votre offre sans attendre, commandent en un clic et paient comme ils en ont l'habitude.",
     points: [
       "Sites vitrines et boutiques complètes",
-      "Paiement MTN, Moov, Wave et carte bancaire",
+      "Paiement Orange Money, MTN, Wave, Moov et carte",
       "Commande et discussion WhatsApp",
       "Chargement sous 1,5 s, référencement Google",
     ],
@@ -100,6 +158,38 @@ export const SERVICES: Service[] = [
       "Connexion Google Sheets, CRM, emails",
     ],
   },
+  {
+    id: "visibilite",
+    title: "Visibilité Google & réseaux",
+    fromPrice: null,
+    tone: "emerald",
+    summary:
+      "Être trouvé quand un client cherche votre métier dans sa ville : Google, fiche d'établissement, campagnes ciblées.",
+    description:
+      "Un site que personne ne voit ne vend pas. Nous travaillons votre présence sur Google et sur les réseaux de vos clients, avec des campagnes ciblées par ville et un suivi des demandes reçues.",
+    points: [
+      "Référencement Google et fiche d'établissement",
+      "Campagnes Facebook, Instagram et Google ciblées par ville",
+      "Suivi des visites, appels et messages WhatsApp",
+      "Rapport mensuel clair",
+    ],
+  },
+  {
+    id: "maintenance",
+    title: "Maintenance & suivi",
+    fromPrice: null,
+    tone: "violet",
+    summary:
+      "Un site toujours à jour, sauvegardé et rapide, avec un interlocuteur qui répond quand vous avez besoin d'une modification.",
+    description:
+      "Après la mise en ligne, nous restons là : mises à jour, sauvegardes, petites modifications, surveillance de la vitesse et de la disponibilité. Vous vous occupez de vos clients, nous du reste.",
+    points: [
+      "Hébergement, nom de domaine et SSL renouvelés",
+      "Sauvegardes et mises à jour de sécurité",
+      "Modifications de contenu incluses chaque mois",
+      "Surveillance de la vitesse et de la disponibilité",
+    ],
+  },
 ];
 
 export type Pack = {
@@ -145,6 +235,7 @@ export const PACKS: Pack[] = [
     features: [
       "Tout Essentiel, plus :",
       "Site multi-pages ou boutique en ligne",
+      "Boutique livrée en 10 jours ou 20 % remboursés",
       "Paiement Mobile Money et carte",
       "Assistant WhatsApp 24 h/24 (RDV, questions)",
       "Espace d'administration (stock, commandes)",
@@ -260,12 +351,16 @@ export const PROJECTS = [
 
 export const HOME_FAQ = [
   {
+    q: "Vous travaillez avec des entreprises hors du Bénin ?",
+    a: "Oui : Côte d'Ivoire, Gabon, Cameroun, Sénégal, Congo, Maroc, Europe. Tout se fait à distance, par visio et WhatsApp, avec un lien de suivi privé pour voir votre projet avancer, et un paiement par Mobile Money, carte ou virement.",
+  },
+  {
     q: "Combien de temps prend un projet ?",
-    a: "7 à 14 jours ouvrés pour un site ou une boutique, 2 à 4 semaines pour un logiciel métier. Le calendrier est fixé dès la validation du cahier des charges.",
+    a: "10 jours ouvrés garantis pour une boutique en ligne, 7 à 14 jours pour un site vitrine, 2 à 4 semaines pour un logiciel métier. Le calendrier est fixé dès la validation de la maquette.",
   },
   {
     q: "Comment se passe le paiement ?",
-    a: "50 % au démarrage, 50 % à la livraison après vos tests. Virement ou Mobile Money (MTN, Moov). Les formules peuvent aussi se payer en 3 fois sans frais.",
+    a: "50 % au démarrage, 50 % à la livraison après vos tests, ou en 3 fois sans frais. Virement, carte ou Mobile Money. Prix affichés en euros, devis en FCFA sur demande.",
   },
   {
     q: "Mon site sera-t-il rapide en 3G/4G ?",
@@ -288,7 +383,7 @@ export const PRICING_FAQ = [
   },
   {
     q: "Puis-je payer en FCFA ?",
-    a: "Oui. Les prix sont affichés en euros ; nous établissons le devis en FCFA sur demande.",
+    a: "Oui. Les prix sont affichés en euros avec leur équivalent en FCFA (parité fixe : 1 € = 655,957 FCFA) ; le devis peut être établi en FCFA, en zone UEMOA comme CEMAC.",
   },
 ];
 

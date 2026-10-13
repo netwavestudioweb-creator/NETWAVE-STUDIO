@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { BUDGETS, CONTACT, SERVICE_CHOICES } from "@/data/site";
+import { BUDGETS, CONTACT, COUNTRY_CHOICES, SERVICE_CHOICES } from "@/data/site";
 import { ArrowIcon } from "@/components/ui";
 
 const FIELD =
@@ -91,9 +91,17 @@ export default function ContactForm() {
           <label htmlFor="phone" className="text-sm font-semibold">
             WhatsApp <span className="font-medium text-muted">(facultatif)</span>
           </label>
-          <input id="phone" name="phone" type="tel" maxLength={40} autoComplete="tel" placeholder="+229 …" className={FIELD} />
+          <input id="phone" name="phone" type="tel" maxLength={40} autoComplete="tel" placeholder="+225 …" className={FIELD} />
         </div>
         <div className="flex flex-col gap-2">
+          <label htmlFor="country" className="text-sm font-semibold">Pays</label>
+          <select id="country" name="country" defaultValue={COUNTRY_CHOICES[0]} className={FIELD}>
+            {COUNTRY_CHOICES.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </div>
+        <div className="flex flex-col gap-2 sm:col-span-2">
           <label htmlFor="budget" className="text-sm font-semibold">Budget envisagé</label>
           <select id="budget" name="budget" defaultValue="undetermined" className={FIELD}>
             {BUDGETS.map((b) => (

@@ -50,7 +50,7 @@ export default function ContactPage() {
           </div>
           <div className="flex flex-wrap justify-between gap-x-4 gap-y-2 border-b border-line py-4.5">
             <dt className="text-[15px] text-muted">Clients</dt>
-            <dd className="text-[15px] font-semibold">Bénin, Afrique de l&apos;Ouest, France</dd>
+            <dd className="text-[15px] font-semibold">Côte d&apos;Ivoire, Gabon, Cameroun, Sénégal, Congo, Maroc, Europe</dd>
           </div>
         </dl>
       </div>

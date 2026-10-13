@@ -72,8 +72,12 @@ export function Eyebrow({
   return <p className={`eyebrow ${color} ${className}`}>{children}</p>;
 }
 
-export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-[1200px] px-4 sm:px-6 ${className}`}>{children}</div>;
+export function Container({ children, className = "", id }: { children: ReactNode; className?: string; id?: string }) {
+  return (
+    <div id={id} className={`mx-auto w-full max-w-[1200px] px-4 sm:px-6 ${className}`}>
+      {children}
+    </div>
+  );
 }
 
 /** Cadre de smartphone contenant une capture d'écran réelle. */

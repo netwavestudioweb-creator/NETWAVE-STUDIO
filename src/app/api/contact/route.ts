@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { BUDGETS, CONTACT, SERVICE_CHOICES } from "@/data/site";
+import { BUDGETS, CONTACT, COUNTRY_CHOICES, SERVICE_CHOICES } from "@/data/site";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const LIMITS = { name: 120, email: 200, phone: 40, message: 5000 };
@@ -52,6 +52,8 @@ export async function POST(req: Request) {
   const phone = asText(body.phone);
   const message = asText(body.message);
   const service = labelFor(SERVICE_CHOICES, asText(body.service));
+  const countryInput = asText(body.country);
+  const country = (COUNTRY_CHOICES as readonly string[]).includes(countryInput) ? countryInput : "Non spécifié";
   const budget = labelFor(BUDGETS, asText(body.budget));
 
   if (!name || name.length > LIMITS.name) return fail("Veuillez indiquer votre nom complet.", 400);
@@ -76,8 +78,8 @@ export async function POST(req: Request) {
     from: process.env.RESEND_FROM || "NetWave Studio <onboarding@resend.dev>",
     to: [process.env.CONTACT_NOTIFICATION_EMAIL || CONTACT.email],
     replyTo: email,
-    subject: `[Devis] ${name} — ${service}`,
-    html: renderEmail({ name, email, phone, service, budget, message }),
+    subject: `[Devis] ${name} (${country}) — ${service}`,
+    html: renderEmail({ name, email, phone, country, service, budget, message }),
   });
 
   if (error) {
@@ -97,7 +99,7 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
-function renderEmail(fields: Record<"name" | "email" | "phone" | "service" | "budget" | "message", string>) {
+function renderEmail(fields: Record<"name" | "email" | "phone" | "country" | "service" | "budget" | "message", string>) {
   const f = Object.fromEntries(Object.entries(fields).map(([k, v]) => [k, escapeHtml(v)])) as typeof fields;
   const row = (label: string, value: string) => `
     <tr><td style="padding:10px 0;border-bottom:1px solid #E7E4EE">
@@ -116,6 +118,7 @@ function renderEmail(fields: Record<"name" | "email" | "phone" | "service" | "bu
         ${row("Nom", f.name)}
         ${row("Email", `<a href="mailto:${f.email}" style="color:#08745D">${f.email}</a>`)}
         ${f.phone ? row("WhatsApp", f.phone) : ""}
+        ${row("Pays", f.country)}
         ${row("Besoin", f.service)}
         ${row("Budget", f.budget)}
         <tr><td style="padding-top:16px">

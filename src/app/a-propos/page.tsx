@@ -35,7 +35,7 @@ export default function StudioPage() {
       <Container className="flex flex-col gap-7 pb-24 pt-16 md:pt-26">
         <Eyebrow>Le studio · Cotonou, depuis 2023</Eyebrow>
         <h1 className="max-w-[1040px] font-display text-[clamp(36px,5vw,68px)] font-[750] leading-[1.05] tracking-[-0.035em]">
-          Les entreprises d&apos;ici méritent des outils aussi solides que ceux des grandes agences.{" "}
+          Les entreprises africaines méritent des outils aussi solides que ceux des grandes agences.{" "}
           <span className="text-faint">Pensés pour le réseau mobile, le Mobile Money et la réalité du terrain.</span>
         </h1>
       </Container>
