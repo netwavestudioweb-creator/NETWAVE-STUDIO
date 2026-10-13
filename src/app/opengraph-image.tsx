@@ -47,7 +47,7 @@ export default async function Image() {
         </div>
 
         <div style={{ display: "flex", gap: 32, fontSize: 24, color: "#CFC9DC" }}>
-          <span>Afrique francophone</span>
+          <span>Partout dans le monde</span>
           <span>·</span>
           <span>Boutique en 10 jours</span>
           <span>·</span>

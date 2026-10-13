@@ -52,7 +52,7 @@ export default function TarifsPage() {
             {[
               ["Au démarrage", "50 %"],
               ["À la livraison, après vos tests", "50 %"],
-              ["Moyens acceptés", "Virement · MTN · Moov"],
+              ["Moyens acceptés", "Carte · virement · Mobile Money"],
             ].map(([label, value]) => (
               <div key={label} className="flex justify-between gap-4 border-b border-line py-4.5">
                 <dt>{label}</dt>
@@ -60,7 +60,7 @@ export default function TarifsPage() {
               </div>
             ))}
           </dl>
-          <p className="text-sm leading-relaxed text-muted">Prix en euros. Devis en FCFA sur demande.</p>
+          <p className="text-sm leading-relaxed text-muted">Prix en euros. Devis possible en dollars, en FCFA ou dans votre monnaie locale.</p>
         </div>
         <div className="min-w-0 flex-[1.4_1_480px]">
           <Faq items={PRICING_FAQ} />

@@ -1,10 +1,10 @@
 # Plan de contenu — 30 jours
 
-*Cible : commerçants et PME de Côte d'Ivoire, du Gabon et du Cameroun (voir `marches-cibles.md`). Offre mise en avant : la boutique en ligne en 10 jours, ou 20 % remboursés.*
+*Cible : commerces et PME qui vendent sur les réseaux sans site, dans les pays où le web est encore peu développé (voir `marches-cibles.md`). Premières villes test : Libreville, Abidjan, Douala, Port-au-Prince, Casablanca. Offre mise en avant : la boutique en ligne en 10 jours, ou 20 % remboursés.*
 
 ## Le dispositif
 
-- **Réseau principal : Facebook.** C'est là que se trouvent les commerçants d'Abidjan, de Libreville et de Douala, et c'est le seul réseau où l'on peut cibler une publicité par ville pour quelques euros. Une page NetWave Studio, plus la participation aux groupes d'entrepreneurs de chaque pays.
+- **Réseau principal : Facebook.** C'est le réseau dominant dans la plupart des pays visés (Afrique, Haïti, Madagascar, Maghreb), et c'est le seul où l'on peut cibler une publicité par ville pour quelques euros. Une page NetWave Studio, plus la participation aux groupes d'entrepreneurs de chaque ville test.
 - **Recyclage gratuit** : chaque vidéo est aussi publiée en statut WhatsApp et en Reel Instagram. Les posts « logiciel métier » sont repostés sur LinkedIn.
 - **Rythme tenable** : 4 publications par semaine, plus 10 messages de prospection par jour ouvré. Mieux vaut 30 jours réguliers que 10 jours intenses.
 - **Visage pas obligatoire** : écran filmé, voix off, captures avant/après suffisent.
@@ -16,7 +16,7 @@
 | **Avant / après** | Le compte Instagram d'un commerce, puis sa boutique en ligne (maquette) | Le client se projette immédiatement |
 | **Chrono 10 jours** | Une boutique filmée de J1 à J10, un court extrait par jour | Rend la promesse crédible et crée un feuilleton |
 | **Le test qui fait mal** | Tester la vitesse d'un site sur PageSpeed, expliquer en 30 s ce qui fait fuir les clients | Montre l'expertise sans jargon |
-| **Réponse à une objection** | « Je vends déjà sur WhatsApp, pourquoi un site ? », « Vous êtes au Bénin, ça marche à distance ? » | Lève les freins avant le premier message |
+| **Réponse à une objection** | « Je vends déjà sur WhatsApp, pourquoi un site ? », « Vous n'êtes pas dans mon pays, ça marche à distance ? » | Lève les freins avant le premier message |
 | **Preuve** | Al Kareem : chiffres PageSpeed, captures, puis témoignages clients dès qu'ils arrivent | Rassure les indécis |
 
 ## Calendrier
@@ -35,9 +35,9 @@
 | Jour | Publication | Accroche |
 | --- | --- | --- |
 | J8 | Vidéo objection : « Je vends déjà sur Instagram, pourquoi un site ? » | « Instagram peut fermer votre compte demain. Votre boutique, non. » |
-| J9 | Avant / après n°1 (maquette pour un commerce d'Abidjan, avec son accord) | « On a transformé la page Instagram de [commerce] en vraie boutique. » |
+| J9 | Avant / après n°1 (maquette pour un commerce d'une ville test, avec son accord) | « On a transformé la page Instagram de [commerce] en vraie boutique. » |
 | J11 | Carrousel : combien coûte un client perdu à cause d'un site lent | « Un site lent ne coûte pas rien. Il coûte des ventes. » |
-| J13 | Vidéo objection : « Vous êtes au Bénin, comment ça marche à distance ? » | « Libreville, Douala, Abidjan : voilà comment on travaille sans se déplacer. » |
+| J13 | Vidéo objection : « Vous n'êtes pas dans mon pays, comment ça marche ? » | « Libreville, Port-au-Prince, Casablanca : voilà comment on travaille sans se déplacer. » |
 
 ### Semaine 3 — L'offre en action
 
@@ -52,21 +52,21 @@
 | Jour | Publication | Accroche |
 | --- | --- | --- |
 | J22 | Post : la garantie expliquée simplement, avec ses conditions | « Si on est en retard, vous payez 20 % de moins. Point. » |
-| J23 | Avant / après n°2 (commerce de Douala ou Libreville) | « Ce que ça change, une vraie boutique, pour un commerce de Douala. » |
+| J23 | Avant / après n°2 (commerce d'une autre région) | « Ce que ça change, une vraie boutique, pour un commerce de [ville]. » |
 | J25 | Vidéo : les autres services (logiciel de gestion, visibilité Google, maintenance) | « On ne fait pas que des sites. Voilà ce qu'on fait après la mise en ligne. » |
 | J27 | Témoignage client (ou, à défaut, coulisses d'un projet en cours) | « Ce que [client] dit après 30 jours. » |
 | J29 | Post récapitulatif + appel à l'action | « 3 créneaux disponibles ce mois-ci pour une boutique en 10 jours. » (seulement si c'est vrai) |
 
 ## Publicité (petit budget test)
 
-- **Semaines 1 et 2** : booster la vidéo Al Kareem (J2) avec 5 € par jour, ciblée sur Abidjan, objectif « messages WhatsApp ».
-- **Semaine 3** : même annonce, même budget, sur Libreville puis Douala.
+- **Semaines 1 et 2** : booster la vidéo Al Kareem (J2) avec 5 € par jour, ciblée sur Libreville et Abidjan, objectif « messages WhatsApp ».
+- **Semaine 3** : même annonce, même budget, sur Port-au-Prince puis Casablanca.
 - **Semaine 4** : garder la ville qui donne le coût par conversation le plus bas.
 - Total : 100 à 150 € sur le mois. Noter chaque conversation obtenue et son pays dans un tableau.
 
 ## Prospection directe (chaque jour ouvré)
 
-1. Trouver 10 commerces actifs sur Facebook ou Instagram, sans site, dans le pays de la semaine.
+1. Trouver 10 commerces actifs sur Facebook ou Instagram, sans site, dans la ville test de la semaine.
 2. Envoyer un message court et personnalisé :
 
 > Bonjour [prénom], j'ai vu vos [produits] sur Instagram, ils sont superbes. Vos clients doivent vous écrire pour chaque prix ? On crée des boutiques en ligne où ils commandent directement sur votre WhatsApp, en 10 jours. Je peux vous montrer à quoi ressemblerait la vôtre, sans engagement ?

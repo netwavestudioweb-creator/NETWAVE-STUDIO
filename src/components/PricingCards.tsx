@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { PACKS, formatEur, formatFcfa } from "@/data/site";
+import { PACKS, formatEur } from "@/data/site";
 import { CheckIcon } from "@/components/ui";
 
 export default function PricingCards() {
@@ -57,9 +57,7 @@ export default function PricingCards() {
                   {split ? monthly : total}
                 </p>
                 <p className={`mt-2 text-sm ${dark ? "text-on-dark" : "text-muted"}`}>
-                  {split
-                    ? `soit ${total} au total (≈ ${formatFcfa(pack.price)})`
-                    : `≈ ${formatFcfa(pack.price)} · ou ${monthly} sans frais`}
+                  {split ? `soit ${total} au total` : `ou ${monthly} sans frais`}
                   {pack.fromPrefix && ", selon étude"}
                 </p>
               </div>

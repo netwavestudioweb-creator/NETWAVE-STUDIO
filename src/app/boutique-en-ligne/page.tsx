@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { ALKAREEM, FLAGSHIP, TARGET_MARKETS, formatEur, formatFcfa } from "@/data/site";
+import { ALKAREEM, FLAGSHIP, PAYMENT_METHODS, formatEur } from "@/data/site";
 import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow, Faq, PhoneFrame, Stripes } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Boutique en ligne en 10 jours, ou 20 % remboursés",
   description:
-    "Votre boutique en ligne prête en 10 jours ouvrés : commandes WhatsApp, Mobile Money, paiement à la livraison. 449 € (≈ 294 500 FCFA). Pour la Côte d'Ivoire, le Gabon, le Cameroun, le Sénégal et toute l'Afrique francophone.",
+    "Votre boutique en ligne prête en 10 jours ouvrés, ou 20 % remboursés : catalogue, commandes WhatsApp, paiement en ligne ou à la livraison. 449 €, payable dans votre monnaie, où que vous soyez.",
   alternates: { canonical: "/boutique-en-ligne" },
 };
 
@@ -15,8 +15,8 @@ const FAQ = [
     a: "Votre logo (ou nous en créons un simple), des photos de vos produits, leurs prix et une courte description. Une liste sur WhatsApp ou un fichier Excel suffit.",
   },
   {
-    q: "Je suis à Abidjan, Libreville ou Douala : comment ça se passe ?",
-    a: "Tout se fait à distance : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre l'avancement, et le paiement par Mobile Money, carte ou virement.",
+    q: "Je ne suis pas au Bénin : comment ça se passe ?",
+    a: "Tout se fait à distance, quel que soit votre pays : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre l'avancement, et le paiement par carte, virement international ou Mobile Money.",
   },
   {
     q: "Combien de produits puis-je mettre en ligne ?",
@@ -35,7 +35,7 @@ export default function FlagshipPage() {
       <section className="border-b border-line">
         <Container className="flex flex-wrap items-center gap-14 py-16 md:py-24">
           <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-7">
-            <Eyebrow>Offre phare · Afrique francophone</Eyebrow>
+            <Eyebrow>Offre phare · Partout dans le monde</Eyebrow>
             <h1 className="font-display text-[clamp(40px,5.4vw,72px)] font-[750] leading-[1.02] tracking-[-0.035em]">
               Votre boutique en ligne en {FLAGSHIP.days} jours.{" "}
               <span className="text-emerald">Ou {FLAGSHIP.refundPercent} % remboursés.</span>
@@ -44,7 +44,7 @@ export default function FlagshipPage() {
             <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
               <p className="font-display text-[56px] font-[750] leading-none tracking-[-0.035em]">{formatEur(FLAGSHIP.price)}</p>
               <p className="pb-1.5 text-base text-muted">
-                ≈ {formatFcfa(FLAGSHIP.price)} · ou 3 × {formatEur(149)} sans frais
+                ou 3 × {formatEur(149)} sans frais · payable dans votre monnaie
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -133,13 +133,17 @@ export default function FlagshipPage() {
       {/* PAYS */}
       <section className="border-y border-line bg-mist">
         <Container className="py-20 md:py-24">
-          <h2 className="h-display mb-10 text-[clamp(28px,3.4vw,40px)]">Paiement local accepté dans chaque pays</h2>
-          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {TARGET_MARKETS.map((m) => (
-              <li key={m.country} className="flex flex-col gap-1.5 rounded-2xl border border-line bg-white p-6">
-                <span className="font-display text-xl font-bold">{m.country}</span>
-                <span className="text-sm text-muted">{m.city}</span>
-                <span className="mt-2 text-sm font-semibold text-emerald">{m.payments}</span>
+          <div className="mb-10 flex max-w-[720px] flex-col gap-3">
+            <h2 className="h-display text-[clamp(28px,3.4vw,40px)]">Où que vous soyez, dans votre monnaie</h2>
+            <p className="text-base leading-relaxed text-body">
+              Le prix est fixé en euros ; le devis peut être établi en dollars, en FCFA ou dans votre monnaie locale.
+            </p>
+          </div>
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {PAYMENT_METHODS.map((method) => (
+              <li key={method} className="flex items-center gap-3 rounded-2xl border border-line bg-white p-6 font-semibold">
+                <CheckIcon className="h-5 w-5 text-emerald" />
+                {method}
               </li>
             ))}
           </ul>

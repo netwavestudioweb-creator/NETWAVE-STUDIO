@@ -1,72 +1,68 @@
 # Marchés cibles — NetWave Studio
 
-*Octobre 2026. Objectif : vendre création de sites, boutiques en ligne, logiciels et services associés hors du Bénin, dans des pays où les entreprises ont un meilleur pouvoir d'achat et une vraie demande.*
+*Octobre 2026. Cible : **l'international**, en priorité les pays où le web est encore peu développé, où peu d'entreprises ont un site correct et où elles ont besoin de visibilité. La monnaie n'est pas un critère. L'Afrique est une priorité parmi d'autres, pas la seule.*
 
-## Méthode
+## Le client idéal, quel que soit le pays
 
-Trois critères, faute d'étude publique sur la demande de sites web pays par pays :
+- Il **vend déjà** : sur Instagram, Facebook, WhatsApp, en boutique.
+- Il **n'a pas de site**, ou un site lent, daté, qui ne vend rien.
+- Il vit dans un pays où **peu de concurrents ont un bon site** : être le premier visible sur Google fait une vraie différence.
+- Il a **assez de moyens** pour payer 149 à 990 € (ou l'équivalent dans sa monnaie).
 
-1. **Pouvoir d'achat** : PIB par habitant 2025 (FMI, *World Economic Outlook*, avril 2026), nominal et en parité de pouvoir d'achat.
-2. **Connexion** : taux de pénétration d'internet (DataReportal via Statista, janvier 2024, quand disponible).
-3. **Accessibilité pour NetWave** : langue française, même monnaie (FCFA, parité fixe avec l'euro), paiement mobile répandu, concurrence locale plus ou moins forte.
+C'est ce profil qu'il faut chercher, ville par ville, plutôt qu'un pays entier.
 
-Le critère « demande forte » est une **déduction** à partir de ces signaux, pas une mesure. À valider sur le terrain (voir « Comment vérifier » plus bas).
+## Trois critères pour choisir où chercher
 
-## Données clés
+1. **Maturité du web faible** : peu d'entreprises locales bien référencées, peu d'agences sérieuses.
+2. **Pouvoir d'achat suffisant** chez les commerçants et PME (PIB par habitant, présence d'une classe moyenne urbaine).
+3. **Langue** : le site est en français. Les pays francophones sont accessibles tout de suite ; les pays anglophones demandent une version anglaise du site (étape suivante recommandée).
 
-| Pays | PIB/hab. nominal 2025 | PIB/hab. PPA 2025 | Internet | Monnaie | Langue |
-| --- | ---: | ---: | ---: | --- | --- |
-| Gabon | 9 376 $ | 25 000 $ | 73,7 % | FCFA (XAF) | FR |
-| Maroc | 4 842 $ | 11 538 $ | ~91 % | Dirham | FR / AR |
-| Tunisie | 4 664 $ | 15 154 $ | 79,6 % | Dinar | FR / AR |
-| Djibouti | 4 145 $ | 9 436 $ | n.d. | Franc Djibouti | FR / AR |
-| Côte d'Ivoire | 3 006 $ | 8 165 $ | n.d. | FCFA (XOF) | FR |
-| Congo (Brazzaville) | 2 404 $ | 6 523 $ | n.d. | FCFA (XAF) | FR |
-| Cameroun | 1 984 $ | 5 783 $ | n.d. | FCFA (XAF) | FR / EN |
-| Sénégal | 1 936 $ | 5 441 $ | ~60 % (est.) | FCFA (XOF) | FR |
-| *Bénin (référence)* | *1 634 $* | *4 758 $* | | *FCFA (XOF)* | *FR* |
-| Maurice | 12 977 $ | 33 491 $ | 75,5 % | Roupie | EN / FR |
+## Les régions, par priorité
 
-## Priorités recommandées
+### Priorité 1 — francophones, web peu développé, pouvoir d'achat correct
 
-### Priorité 1 — à attaquer tout de suite
+| Région | Pays et villes à viser | Pourquoi |
+| --- | --- | --- |
+| Afrique centrale | Gabon (Libreville), Cameroun (Douala), Congo (Brazzaville, Pointe-Noire) | Gabon : PIB/hab. 9 376 $, le plus élevé d'Afrique francophone subsaharienne. Peu d'agences locales, prix acceptés élevés |
+| Afrique de l'Ouest | Côte d'Ivoire (Abidjan), Sénégal (Dakar) | Côte d'Ivoire : PIB/hab. 3 006 $, très grand nombre de commerces actifs sur les réseaux sans site |
+| Caraïbes | Haïti (Port-au-Prince, Pétion-Ville) | Francophone, très peu de sites professionnels, diaspora importante qui finance des commerces |
+| Océan Indien | Madagascar (Antananarivo), Comores, Djibouti | Francophones, web très peu développé. Djibouti : PIB/hab. 4 145 $ |
 
-- **Côte d'Ivoire (Abidjan).** Première économie de l'UEMOA, pouvoir d'achat près de deux fois celui du Bénin, très grand nombre de commerces actifs sur Facebook, Instagram et WhatsApp. Même monnaie que le Bénin, paiement Orange Money, Wave, MTN. C'est le plus gros volume de clients potentiels.
-- **Gabon (Libreville).** Plus haut pouvoir d'achat d'Afrique francophone subsaharienne (5,7× le Bénin en nominal), 74 % d'internautes, peu d'agences locales : les prix acceptés sont plus élevés. Marché plus petit, mais chaque client rapporte plus.
-- **Cameroun (Douala, Yaoundé).** Première économie de la CEMAC, beaucoup de PME et de commerçants, culture entrepreneuriale forte. Pouvoir d'achat proche du Sénégal mais marché bien plus large.
+### Priorité 2 — francophones, plus concurrentiels
 
-### Priorité 2 — à ouvrir après les premiers clients
+| Région | Pays | Comment s'y placer |
+| --- | --- | --- |
+| Maghreb | Maroc, Algérie, Tunisie | Bon pouvoir d'achat (Maroc 4 842 $, Algérie 6 047 $, Tunisie 4 664 $) mais beaucoup de développeurs locaux à bas prix : vendre la rapidité, la boutique WhatsApp et les logiciels métiers, pas le site vitrine bon marché |
+| Moyen-Orient | Liban | Forte culture commerciale francophone ; marché à tester |
+| RD Congo | Kinshasa, Lubumbashi | Énorme population, web très peu développé, mais pouvoir d'achat faible en moyenne (871 $) : viser uniquement les entreprises établies |
 
-- **Sénégal (Dakar).** Écosystème numérique dynamique et Wave très répandu, mais pouvoir d'achat moyen et forte part d'économie informelle : beaucoup de commerces vendent sans budget pour un site. À viser sur les entreprises déjà structurées.
-- **Congo (Brazzaville, Pointe-Noire).** Revenus pétroliers, peu d'offre locale de qualité, même monnaie (XAF). Petit marché, prix acceptés plutôt hauts.
+### Priorité 3 — après une version anglaise du site
 
-### Priorité 3 — niches seulement
+Pays anglophones où le web des petites entreprises reste peu développé et le marché est vaste : Nigeria, Ghana, Kenya en Afrique ; Philippines, Pakistan, Bangladesh, Sri Lanka en Asie ; une partie de l'Amérique latine nécessiterait l'espagnol.
 
-- **Maroc et Tunisie.** Bon pouvoir d'achat et excellente connexion, mais beaucoup de développeurs locaux à bas prix. Se placer sur les boutiques en ligne rapides et les logiciels métiers, pas sur le site vitrine bon marché.
-- **Maurice et Djibouti.** Pouvoir d'achat élevé, mais petits marchés (Maurice est surtout anglophone pour les affaires).
+### En complément — Europe et Amérique du Nord
 
-### En dehors de l'Afrique
+Indépendants, petits commerces et entrepreneurs de la diaspora en France, Belgique, Suisse et au Canada : le web y est mature, mais vos prix sont très compétitifs pour eux et vous avez déjà des références (L'Osthof, restaurants). Source de revenus en euros stable.
 
-- **Diaspora et petites entreprises francophones en Europe** (France, Belgique, Suisse) : prix en euros acceptés sans négociation, et vous avez déjà des références (L'Osthof, restaurants). À garder comme deuxième source de revenus.
+## Ce qui est déjà en place sur le site
 
-## Ce que cela change pour l'offre
+- Positionnement « clients dans le monde entier », sans pays imposé.
+- Prix en euros, **payables dans n'importe quelle monnaie** (dollars, FCFA, monnaie locale).
+- Paiement par carte, virement international ou Mobile Money.
+- Champ « Pays » libre dans le formulaire, avec suggestions : chaque demande vous dira d'où viennent vos clients.
 
-- Prix affichés en **euros + équivalent FCFA** (1 € = 655,957 FCFA, valable en zone UEMOA et CEMAC) : c'est déjà sur le site.
-- **Paiement local** dans chaque pays : Orange Money, Wave, MTN MoMo, Airtel Money, carte, virement.
-- **Tout à distance** : visio, WhatsApp, lien de suivi privé. À répéter partout dans la communication, c'est la première objection d'un client qui ne vous connaît pas.
-- Les numéros WhatsApp locaux rassurent : à terme, un numéro ivoirien ou une adresse de contact à Abidjan peut lever des freins.
+## Comment vérifier la demande avant d'investir
 
-## Comment vérifier la demande (avant d'investir en publicité)
-
-1. **Compter les commerces sans site** : dans la Bibliothèque publicitaire de Meta, filtrez par pays (Côte d'Ivoire, Gabon, Cameroun) et notez combien de commerces font de la pub en renvoyant vers WhatsApp au lieu d'un site.
-2. **Regarder les agences locales** : leurs prix affichés, leurs délais, leurs avis Google. Si elles sont chères, lentes ou mal notées, c'est votre ouverture.
-3. **Tester par 20 messages** : contactez 20 commerces d'un même pays avec une maquette rapide de leur futur site. Le taux de réponse vous dira plus que n'importe quelle statistique.
-4. **Petit budget test** : 30 à 50 € de publicité Facebook ciblée sur Abidjan, puis Libreville, puis Douala, avec la même annonce. Comparez le coût par conversation WhatsApp.
+1. **Bibliothèque publicitaire de Meta** : filtrez par pays et regardez combien de commerces font de la publicité en renvoyant vers WhatsApp ou Instagram au lieu d'un site. Plus il y en a, plus il y a de clients potentiels.
+2. **Recherche Google locale** : tapez « boutique vêtements Douala », « parfumerie Port-au-Prince », etc. Si les premiers résultats sont des pages Facebook ou des annuaires, la place est libre.
+3. **20 messages par pays** : contactez 20 commerces d'une même ville avec une maquette rapide de leur futur site. Le taux de réponse est le meilleur indicateur.
+4. **Petit budget test** : la même annonce Facebook, 30 à 50 € par ville, sur 3 ou 4 villes de régions différentes. Gardez celle qui donne le coût par conversation le plus bas.
 
 ## Sources
 
 - FMI, *World Economic Outlook* (avril 2026), via [StatisticsTimes](https://www.statisticstimes.com/m/economy/african-countries-by-gdp-per-capita.php)
 - [Financial Afrik, classement CEMAC du PIB par habitant (mai 2026)](https://www.financialafrik.com/en/2026/05/16/central-africa-franc-cfa-countries-dominate-gdp-per-capita-ranking/)
-- DataReportal via [Statista, pénétration d'internet en Afrique](https://statista.com/statistics/505883/number-of-internet-users-in-african-countries)
-- [Casa África, intervention sur le numérique au Sénégal](https://www.casafrica.es/sites/default/files/contents/document/Intervention-table-ronde-Awa%20G.B.pdf)
+- DataReportal via [Statista, internautes en Afrique](https://statista.com/statistics/505883/number-of-internet-users-in-african-countries)
 - [Brands.ng, état du e-commerce africain 2026](https://brands.ng/blog/state-of-african-e-commerce-2026/)
+
+*Les appréciations sur Haïti, Madagascar, les Comores, le Liban et les pays anglophones sont qualitatives : aucune donnée comparable sur la maturité du web n'a été trouvée. À confirmer avec les tests ci-dessus.*

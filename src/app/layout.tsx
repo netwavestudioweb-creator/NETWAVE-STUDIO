@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CONTACT, PACKS, SITE_URL, TARGET_MARKETS } from "@/data/site";
+import { CONTACT, PACKS, REGIONS, SITE_URL } from "@/data/site";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -27,12 +27,12 @@ const jetbrains = JetBrains_Mono({
 });
 
 const DESCRIPTION =
-  "NetWave Studio, studio web et logiciel pour l'Afrique francophone : boutiques en ligne livrées en 10 jours, sites, logiciels métiers, assistants WhatsApp et visibilité Google. Côte d'Ivoire, Gabon, Cameroun, Sénégal. Prix affichés dès 149 €.";
+  "NetWave Studio, studio web et logiciel international : boutiques en ligne livrées en 10 jours, sites, logiciels métiers, assistants WhatsApp et visibilité Google pour les entreprises qui ne sont pas encore visibles en ligne, où qu'elles soient. Prix affichés dès 149 €.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "NetWave Studio — Sites, boutiques en ligne et logiciels pour l’Afrique francophone",
+    default: "NetWave Studio — Sites, boutiques en ligne et logiciels, partout dans le monde",
     template: "%s | NetWave Studio",
   },
   description: DESCRIPTION,
@@ -46,12 +46,12 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE_URL,
     siteName: "NetWave Studio",
-    title: "NetWave Studio — Sites, boutiques en ligne et logiciels pour l’Afrique francophone",
+    title: "NetWave Studio — Sites, boutiques en ligne et logiciels, partout dans le monde",
     description: DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "NetWave Studio — Sites, boutiques en ligne et logiciels pour l’Afrique francophone",
+    title: "NetWave Studio — Sites, boutiques en ligne et logiciels, partout dans le monde",
     description: DESCRIPTION,
   },
   robots: {
@@ -84,11 +84,7 @@ const jsonLd = {
         addressRegion: "Littoral",
         addressCountry: "BJ",
       },
-      areaServed: [
-        ...TARGET_MARKETS.map((m) => ({ "@type": "Country", name: m.country })),
-        { "@type": "Country", name: "Bénin" },
-        { "@type": "Country", name: "France" },
-      ],
+      areaServed: REGIONS.map((r) => ({ "@type": "Place", name: r.name })),
       contactPoint: {
         "@type": "ContactPoint",
         telephone: CONTACT.phoneE164,

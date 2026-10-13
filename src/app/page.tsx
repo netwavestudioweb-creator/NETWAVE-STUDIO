@@ -8,11 +8,10 @@ import {
   METHOD_STEPS,
   PACKS,
   PROJECTS,
+  REGIONS,
   SERVICES,
-  TARGET_MARKETS,
   TESTIMONIALS,
   formatEur,
-  formatFcfa,
 } from "@/data/site";
 import {
   ArrowIcon,
@@ -39,7 +38,7 @@ export default function HomePage() {
           <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-7">
             <Eyebrow className="flex items-start gap-2.5">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-logo" aria-hidden="true" />
-              Studio web &amp; logiciel · Afrique francophone &amp; Europe
+              Studio web &amp; logiciel · Clients dans le monde entier
             </Eyebrow>
             <h1 className="font-display text-[clamp(40px,5.6vw,76px)] font-[750] leading-[1.02] tracking-[-0.035em]">
               Des sites et des logiciels qui font tourner votre activité.{" "}
@@ -47,8 +46,8 @@ export default function HomePage() {
             </h1>
             <p className="max-w-[560px] text-lg leading-relaxed text-body sm:text-[19px]">
               Boutiques en ligne, sites, logiciels de gestion, assistants WhatsApp et visibilité Google pour les
-              entreprises de Côte d&apos;Ivoire, du Gabon, du Cameroun, du Sénégal et d&apos;ailleurs. À distance,
-              rapides, livrés à la date prévue.
+              entreprises qui vendent déjà sur les réseaux mais restent introuvables sur internet. Où que vous
+              soyez, à distance, livré à la date prévue.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact">
@@ -119,9 +118,7 @@ export default function HomePage() {
             </h2>
             <p className="text-[17px] leading-relaxed text-body">
               Catalogue, commandes sur WhatsApp, Mobile Money ou paiement à la livraison.{" "}
-              <strong className="text-ink">
-                {formatEur(FLAGSHIP.price)} · ≈ {formatFcfa(FLAGSHIP.price)}
-              </strong>
+              <strong className="text-ink">{formatEur(FLAGSHIP.price)}, payable dans votre monnaie.</strong>
             </p>
           </div>
           <ButtonLink href="/boutique-en-ligne">
@@ -274,19 +271,17 @@ export default function HomePage() {
         <Container className="flex flex-wrap gap-12 py-20 md:py-28">
           <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-5">
             <Eyebrow tone="mint">Où nous travaillons</Eyebrow>
-            <h2 className="h-display text-[clamp(32px,4vw,48px)]">De Cotonou à toute l&apos;Afrique francophone.</h2>
+            <h2 className="h-display text-[clamp(32px,4vw,48px)]">Partout où les entreprises manquent encore de visibilité.</h2>
             <p className="text-[17px] leading-relaxed text-on-dark">
-              Tout se fait à distance : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre votre projet,
-              et le moyen de paiement de votre pays.
+              Tout se fait à distance : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre votre projet.
+              Paiement par carte, virement international ou Mobile Money, dans la monnaie de votre choix.
             </p>
           </div>
           <ul className="grid min-w-0 flex-[1.4_1_520px] grid-cols-1 gap-3 sm:grid-cols-2">
-            {TARGET_MARKETS.map((m) => (
-              <li key={m.country} className="flex flex-col gap-1 rounded-2xl border border-white/14 px-5 py-4">
-                <span className="font-display text-lg font-bold">{m.country}</span>
-                <span className="text-sm text-on-dark">
-                  {m.city} · <span className="text-mint">{m.payments}</span>
-                </span>
+            {REGIONS.map((r) => (
+              <li key={r.name} className="flex flex-col gap-1 rounded-2xl border border-white/14 px-5 py-4">
+                <span className="font-display text-lg font-bold">{r.name}</span>
+                <span className="text-sm text-on-dark">{r.examples}</span>
               </li>
             ))}
           </ul>
@@ -326,7 +321,7 @@ export default function HomePage() {
                   {formatEur(pack.price)}
                 </span>
                 <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
-                  ≈ {formatFcfa(pack.price)} · ou 3 × {formatEur(pack.installment)}
+                  ou 3 × {formatEur(pack.installment)} sans frais
                 </span>
               </Link>
             ))}

@@ -23,27 +23,43 @@ export const NAV_LINKS = [
   { href: "/a-propos", label: "Le studio" },
 ] as const;
 
-/** Parité fixe de l'euro avec le franc CFA (XOF et XAF). */
-export const EUR_TO_FCFA = 655.957;
-
-export const formatFcfa = (eur: number) =>
-  `${(Math.round((eur * EUR_TO_FCFA) / 100) * 100).toLocaleString("fr-FR")} FCFA`;
-
-/** Pays visés en priorité (voir docs/marches-cibles.md pour la justification). */
-export const TARGET_MARKETS = [
-  { country: "Côte d'Ivoire", city: "Abidjan", payments: "Orange Money · Wave · MTN" },
-  { country: "Gabon", city: "Libreville", payments: "Airtel Money · Moov Money" },
-  { country: "Cameroun", city: "Douala · Yaoundé", payments: "Orange Money · MTN MoMo" },
-  { country: "Sénégal", city: "Dakar", payments: "Wave · Orange Money" },
-  { country: "Congo", city: "Brazzaville · Pointe-Noire", payments: "MTN MoMo · Airtel Money" },
-  { country: "Maroc", city: "Casablanca", payments: "Carte · virement" },
+/** Régions visées : là où le web est encore peu développé (voir docs/marches-cibles.md). */
+export const REGIONS = [
+  { name: "Afrique de l'Ouest & centrale", examples: "Côte d'Ivoire, Cameroun, Gabon, Sénégal, RD Congo…" },
+  { name: "Maghreb", examples: "Maroc, Algérie, Tunisie…" },
+  { name: "Caraïbes", examples: "Haïti, République dominicaine…" },
+  { name: "Océan Indien", examples: "Madagascar, Comores, Djibouti…" },
+  { name: "Moyen-Orient francophone", examples: "Liban…" },
+  { name: "Europe & Amérique du Nord", examples: "Indépendants, diaspora, petites entreprises" },
 ] as const;
 
-export const COUNTRY_CHOICES = [
-  ...TARGET_MARKETS.map((m) => m.country),
+/** Moyens de paiement acceptés, quelle que soit la monnaie du client. */
+export const PAYMENT_METHODS = [
+  "Carte bancaire",
+  "Virement international",
+  "Mobile Money (Orange, MTN, Wave, Airtel…)",
+] as const;
+
+/** Suggestions du champ Pays du formulaire (saisie libre acceptée). */
+export const COUNTRY_SUGGESTIONS = [
+  "Côte d'Ivoire",
+  "Cameroun",
+  "Gabon",
+  "Sénégal",
+  "RD Congo",
+  "Congo",
+  "Guinée",
+  "Madagascar",
+  "Haïti",
+  "Maroc",
+  "Algérie",
+  "Tunisie",
   "Bénin",
-  "France / Europe",
-  "Autre pays",
+  "Togo",
+  "France",
+  "Belgique",
+  "Suisse",
+  "Canada",
 ] as const;
 
 export const FLAGSHIP = {
@@ -55,7 +71,7 @@ export const FLAGSHIP = {
     "Votre boutique en ligne prête en 10 jours ouvrés : vos clients choisissent, commandent sur WhatsApp et paient comme ils veulent.",
   conditions: [
     "Le délai court à partir de la réception de vos contenus complets (logo, photos, textes, liste des produits) et de la validation de la maquette.",
-    "Chaque jour ouvré de retard de notre fait au-delà du 10e jour déclenche le remboursement de 20 % du prix, une seule fois.",
+    "Si la boutique n'est pas en ligne au 10e jour ouvré et que le retard vient de nous, nous vous remboursons 20 % du prix.",
     "Les modifications demandées après validation de la maquette peuvent décaler la date de livraison, avec votre accord écrit.",
   ],
   included: [
@@ -67,7 +83,7 @@ export const FLAGSHIP = {
     "Hébergement, nom de domaine et SSL la première année",
   ],
   timeline: [
-    { day: "J1", title: "Cadrage", text: "Appel visio ou WhatsApp : vos produits, vos clients, vos moyens de paiement." },
+    { day: "J1", title: "Cadrage", text: "Appel visio ou WhatsApp, où que vous soyez : vos produits, vos clients, vos moyens de paiement." },
     { day: "J2–3", title: "Maquette", text: "Vous validez l'apparence de l'accueil et d'une fiche produit." },
     { day: "J4–8", title: "Construction", text: "Catalogue, commande WhatsApp, paiements. Lien de suivi privé." },
     { day: "J9", title: "Tests", text: "Vous testez une vraie commande ; nous corrigeons." },
@@ -351,8 +367,8 @@ export const PROJECTS = [
 
 export const HOME_FAQ = [
   {
-    q: "Vous travaillez avec des entreprises hors du Bénin ?",
-    a: "Oui : Côte d'Ivoire, Gabon, Cameroun, Sénégal, Congo, Maroc, Europe. Tout se fait à distance, par visio et WhatsApp, avec un lien de suivi privé pour voir votre projet avancer, et un paiement par Mobile Money, carte ou virement.",
+    q: "Vous travaillez avec des entreprises de mon pays ?",
+    a: "Oui, où que vous soyez. Tout se fait à distance, par visio et WhatsApp, avec un lien de suivi privé pour voir votre projet avancer. Vous payez par carte, virement international ou Mobile Money.",
   },
   {
     q: "Combien de temps prend un projet ?",
@@ -360,7 +376,7 @@ export const HOME_FAQ = [
   },
   {
     q: "Comment se passe le paiement ?",
-    a: "50 % au démarrage, 50 % à la livraison après vos tests, ou en 3 fois sans frais. Virement, carte ou Mobile Money. Prix affichés en euros, devis en FCFA sur demande.",
+    a: "50 % au démarrage, 50 % à la livraison après vos tests, ou en 3 fois sans frais. Carte, virement ou Mobile Money. Prix affichés en euros, devis possible dans votre monnaie.",
   },
   {
     q: "Mon site sera-t-il rapide en 3G/4G ?",
@@ -382,8 +398,8 @@ export const PRICING_FAQ = [
     a: "C'est fréquent. Décrivez votre besoin, nous revenons avec un devis détaillé et gratuit.",
   },
   {
-    q: "Puis-je payer en FCFA ?",
-    a: "Oui. Les prix sont affichés en euros avec leur équivalent en FCFA (parité fixe : 1 € = 655,957 FCFA) ; le devis peut être établi en FCFA, en zone UEMOA comme CEMAC.",
+    q: "Puis-je payer dans ma monnaie ?",
+    a: "Oui. Les prix sont affichés en euros ; le devis peut être établi en dollars, en FCFA ou dans votre monnaie locale, au taux du jour. Paiement par carte, virement international ou Mobile Money.",
   },
 ];
 

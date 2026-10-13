@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { BUDGETS, CONTACT, COUNTRY_CHOICES, SERVICE_CHOICES } from "@/data/site";
+import { BUDGETS, CONTACT, SERVICE_CHOICES } from "@/data/site";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const LIMITS = { name: 120, email: 200, phone: 40, message: 5000 };
+const LIMITS = { name: 120, email: 200, phone: 40, country: 80, message: 5000 };
 
 // Limite simple par IP : 5 envois / 10 min. La mémoire est propre à chaque instance
 // serverless, c'est un premier filtre, pas une protection absolue.
@@ -52,8 +52,7 @@ export async function POST(req: Request) {
   const phone = asText(body.phone);
   const message = asText(body.message);
   const service = labelFor(SERVICE_CHOICES, asText(body.service));
-  const countryInput = asText(body.country);
-  const country = (COUNTRY_CHOICES as readonly string[]).includes(countryInput) ? countryInput : "Non spécifié";
+  const country = asText(body.country).slice(0, LIMITS.country) || "Non spécifié";
   const budget = labelFor(BUDGETS, asText(body.budget));
 
   if (!name || name.length > LIMITS.name) return fail("Veuillez indiquer votre nom complet.", 400);
