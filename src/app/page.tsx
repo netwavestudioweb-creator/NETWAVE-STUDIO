@@ -45,9 +45,9 @@ export default function HomePage() {
               <span className="text-emerald">Même en 3G.</span>
             </h1>
             <p className="max-w-[560px] text-lg leading-relaxed text-body sm:text-[19px]">
-              Boutiques en ligne, sites, logiciels de gestion, assistants WhatsApp et visibilité Google pour les
-              entreprises qui vendent déjà sur les réseaux mais restent introuvables sur internet. Où que vous
-              soyez, à distance, livré à la date prévue.
+              Sites web, logiciels de gestion, assistants WhatsApp et visibilité Google pour les restaurants,
+              commerces et entreprises qui restent introuvables sur internet. Moins cher qu&apos;une agence, aussi
+              efficace, où que vous soyez.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact">
@@ -58,7 +58,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-muted">
-              {["Délai garanti par écrit", "Paiement en 3 fois sans frais", "Mobile Money, carte ou virement"].map((item) => (
+              {["Sites dès 149 €", "Livrés en 10 jours ou 20 % remboursés", "Paiement en 3 fois sans frais"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckIcon className="h-4 w-4 text-emerald" />
                   {item}
@@ -113,15 +113,16 @@ export default function HomePage() {
           <div className="flex min-w-0 max-w-[700px] flex-col gap-4">
             <Eyebrow>Offre phare</Eyebrow>
             <h2 className="h-display text-[clamp(30px,3.8vw,48px)]">
-              Votre boutique en ligne en {FLAGSHIP.days} jours.{" "}
+              Votre site web en {FLAGSHIP.days} jours.{" "}
               <span className="text-emerald">Ou {FLAGSHIP.refundPercent} % remboursés.</span>
             </h2>
             <p className="text-[17px] leading-relaxed text-body">
-              Catalogue, commandes sur WhatsApp, Mobile Money ou paiement à la livraison.{" "}
-              <strong className="text-ink">{formatEur(FLAGSHIP.price)}, payable dans votre monnaie.</strong>
+              Restaurant, commerce, cabinet ou entreprise : un site professionnel, moins cher qu&apos;une agence et
+              aussi efficace.{" "}
+              <strong className="text-ink">Dès {formatEur(FLAGSHIP.fromPrice)}, payable dans votre monnaie.</strong>
             </p>
           </div>
-          <ButtonLink href="/boutique-en-ligne">
+          <ButtonLink href={FLAGSHIP.href}>
             Voir l&apos;offre <ArrowIcon />
           </ButtonLink>
         </div>
@@ -255,10 +256,10 @@ export default function HomePage() {
         </ol>
         <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 text-[15px] text-ink-2">
           <span>
-            <strong className="text-ink">10 jours ouvrés garantis</strong> pour une boutique en ligne
+            <strong className="text-ink">10 jours ouvrés garantis</strong> pour un site web
           </span>
           <span>
-            <strong className="text-ink">7 à 14 jours</strong> pour un site vitrine
+            <strong className="text-ink">Sur devis</strong> pour une application sur mesure
           </span>
           <span>
             <strong className="text-ink">2 à 4 semaines</strong> pour un logiciel métier

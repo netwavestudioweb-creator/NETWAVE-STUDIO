@@ -49,7 +49,7 @@ export default async function Image() {
         <div style={{ display: "flex", gap: 32, fontSize: 24, color: "#CFC9DC" }}>
           <span>Partout dans le monde</span>
           <span>·</span>
-          <span>Boutique en 10 jours</span>
+          <span>Site web en 10 jours, dès 149 €</span>
           <span>·</span>
           <span>netwave-studio.company</span>
         </div>

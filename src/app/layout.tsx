@@ -27,12 +27,12 @@ const jetbrains = JetBrains_Mono({
 });
 
 const DESCRIPTION =
-  "NetWave Studio, studio web et logiciel international : boutiques en ligne livrées en 10 jours, sites, logiciels métiers, assistants WhatsApp et visibilité Google pour les entreprises qui ne sont pas encore visibles en ligne, où qu'elles soient. Prix affichés dès 149 €.";
+  "NetWave Studio, studio web et logiciel international : sites web livrés en 10 jours dès 149 €, logiciels métiers, assistants WhatsApp et visibilité Google pour les restaurants, commerces et entreprises qui veulent être visibles en ligne, où qu’ils soient. Moins cher qu’une agence, aussi efficace.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "NetWave Studio — Sites, boutiques en ligne et logiciels, partout dans le monde",
+    default: "NetWave Studio — Sites web et logiciels, moins chers qu’une agence, partout dans le monde",
     template: "%s | NetWave Studio",
   },
   description: DESCRIPTION,
@@ -46,12 +46,12 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE_URL,
     siteName: "NetWave Studio",
-    title: "NetWave Studio — Sites, boutiques en ligne et logiciels, partout dans le monde",
+    title: "NetWave Studio — Sites web et logiciels, moins chers qu’une agence, partout dans le monde",
     description: DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "NetWave Studio — Sites, boutiques en ligne et logiciels, partout dans le monde",
+    title: "NetWave Studio — Sites web et logiciels, moins chers qu’une agence, partout dans le monde",
     description: DESCRIPTION,
   },
   robots: {

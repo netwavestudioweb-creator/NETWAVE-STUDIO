@@ -1,6 +1,6 @@
 # Plan de contenu — 30 jours
 
-*Cible : commerces et PME qui vendent sur les réseaux sans site, dans les pays où le web est encore peu développé (voir `marches-cibles.md`). Premières villes test : Libreville, Abidjan, Douala, Port-au-Prince, Casablanca. Offre mise en avant : la boutique en ligne en 10 jours, ou 20 % remboursés.*
+*Cible : commerces et PME qui vendent sur les réseaux sans site, dans les pays où le web est encore peu développé (voir `marches-cibles.md`). Premières villes test : Libreville, Abidjan, Douala, Port-au-Prince, Casablanca. Offre mise en avant : votre site web en 10 jours, dès 149 €, ou 20 % remboursés. Message clé : moins cher qu'une agence, aussi efficace.*
 
 ## Le dispositif
 
@@ -13,8 +13,8 @@
 
 | Format | Ce que c'est | Pourquoi ça marche |
 | --- | --- | --- |
-| **Avant / après** | Le compte Instagram d'un commerce, puis sa boutique en ligne (maquette) | Le client se projette immédiatement |
-| **Chrono 10 jours** | Une boutique filmée de J1 à J10, un court extrait par jour | Rend la promesse crédible et crée un feuilleton |
+| **Avant / après** | Le compte Instagram d'un restaurant ou d'un commerce, puis son site (maquette) | Le client se projette immédiatement |
+| **Chrono 10 jours** | Un site filmé de J1 à J10, un court extrait par jour | Rend la promesse crédible et crée un feuilleton |
 | **Le test qui fait mal** | Tester la vitesse d'un site sur PageSpeed, expliquer en 30 s ce qui fait fuir les clients | Montre l'expertise sans jargon |
 | **Réponse à une objection** | « Je vends déjà sur WhatsApp, pourquoi un site ? », « Vous n'êtes pas dans mon pays, ça marche à distance ? » | Lève les freins avant le premier message |
 | **Preuve** | Al Kareem : chiffres PageSpeed, captures, puis témoignages clients dès qu'ils arrivent | Rassure les indécis |
@@ -25,7 +25,7 @@
 
 | Jour | Publication | Accroche (premières secondes) |
 | --- | --- | --- |
-| J1 | Post fixe : qui est NetWave, pour qui, l'offre 10 jours | « Votre boutique en ligne en 10 jours. Sinon, on vous rembourse 20 %. » |
+| J1 | Post fixe : qui est NetWave, pour qui, l'offre 10 jours | « Votre site web en 10 jours, dès 149 €. Sinon, on vous rembourse 20 %. » |
 | J2 | Vidéo : Al Kareem avant / après en 30 s | « Cette parfumerie perdait des clients à cause de son site. Voilà ce qu'on a changé. » |
 | J4 | Carrousel : 5 signes qu'un commerce perd des ventes sur WhatsApp | « Vous répondez encore “c'est combien ?” 50 fois par jour ? » |
 | J6 | Vidéo : test PageSpeed en direct d'un site lent (sans nommer le commerce) | « 8 secondes pour s'afficher. La moitié des clients sont déjà partis. » |
@@ -34,8 +34,8 @@
 
 | Jour | Publication | Accroche |
 | --- | --- | --- |
-| J8 | Vidéo objection : « Je vends déjà sur Instagram, pourquoi un site ? » | « Instagram peut fermer votre compte demain. Votre boutique, non. » |
-| J9 | Avant / après n°1 (maquette pour un commerce d'une ville test, avec son accord) | « On a transformé la page Instagram de [commerce] en vraie boutique. » |
+| J8 | Vidéo objection : « Je vends déjà sur Instagram, pourquoi un site ? » | « Instagram peut fermer votre compte demain. Votre site, non. » |
+| J9 | Avant / après n°1 (maquette pour un commerce d'une ville test, avec son accord) | « On a transformé la page Instagram de [commerce] en vrai site. » |
 | J11 | Carrousel : combien coûte un client perdu à cause d'un site lent | « Un site lent ne coûte pas rien. Il coûte des ventes. » |
 | J13 | Vidéo objection : « Vous n'êtes pas dans mon pays, comment ça marche ? » | « Libreville, Port-au-Prince, Casablanca : voilà comment on travaille sans se déplacer. » |
 
@@ -43,19 +43,19 @@
 
 | Jour | Publication | Accroche |
 | --- | --- | --- |
-| J15 | Lancement du feuilleton « Chrono 10 jours » (J1 : appel de cadrage) | « On construit une boutique en 10 jours. Suivez chaque étape. » |
+| J15 | Lancement du feuilleton « Chrono 10 jours » (J1 : appel de cadrage) | « On construit un site en 10 jours. Suivez chaque étape. » |
 | J16–J19 | Un court extrait par jour (maquette, catalogue, paiement, test) | « Jour 3 : le client valide la maquette. » |
-| J20 | Vidéo : livraison et première commande reçue | « Jour 10 : boutique en ligne, première commande sur WhatsApp. » |
+| J20 | Vidéo : livraison et premier client reçu via le site | « Jour 10 : le site est en ligne, premier message client sur WhatsApp. » |
 
 ### Semaine 4 — Confiance et passage à l'action
 
 | Jour | Publication | Accroche |
 | --- | --- | --- |
 | J22 | Post : la garantie expliquée simplement, avec ses conditions | « Si on est en retard, vous payez 20 % de moins. Point. » |
-| J23 | Avant / après n°2 (commerce d'une autre région) | « Ce que ça change, une vraie boutique, pour un commerce de [ville]. » |
+| J23 | Avant / après n°2 (commerce d'une autre région) | « Ce que ça change, un vrai site, pour un restaurant de [ville]. » |
 | J25 | Vidéo : les autres services (logiciel de gestion, visibilité Google, maintenance) | « On ne fait pas que des sites. Voilà ce qu'on fait après la mise en ligne. » |
 | J27 | Témoignage client (ou, à défaut, coulisses d'un projet en cours) | « Ce que [client] dit après 30 jours. » |
-| J29 | Post récapitulatif + appel à l'action | « 3 créneaux disponibles ce mois-ci pour une boutique en 10 jours. » (seulement si c'est vrai) |
+| J29 | Post récapitulatif + appel à l'action | « 3 créneaux disponibles ce mois-ci pour un site en 10 jours. » (seulement si c'est vrai) |
 
 ## Publicité (petit budget test)
 
@@ -69,15 +69,15 @@
 1. Trouver 10 commerces actifs sur Facebook ou Instagram, sans site, dans la ville test de la semaine.
 2. Envoyer un message court et personnalisé :
 
-> Bonjour [prénom], j'ai vu vos [produits] sur Instagram, ils sont superbes. Vos clients doivent vous écrire pour chaque prix ? On crée des boutiques en ligne où ils commandent directement sur votre WhatsApp, en 10 jours. Je peux vous montrer à quoi ressemblerait la vôtre, sans engagement ?
+> Bonjour [prénom], j'ai vu vos [produits] sur Instagram, ils sont superbes. Vos clients doivent vous écrire pour chaque prix ? On crée des sites professionnels en 10 jours, bien moins chers qu'une agence, où vos clients vous trouvent sur Google et vous écrivent directement sur WhatsApp. Je peux vous montrer à quoi ressemblerait la vôtre, sans engagement ?
 
-3. Aux réponses positives, envoyer une maquette rapide de l'accueil de leur boutique. C'est elle qui convainc.
+3. Aux réponses positives, envoyer une maquette rapide de l'accueil de leur futur site. C'est elle qui convainc.
 
 ## Récolter les preuves (à chaque livraison)
 
 Message à envoyer 7 jours après la mise en ligne :
 
-> Bonjour [prénom], votre boutique tourne depuis une semaine. Est-ce que vous auriez 2 minutes pour nous laisser un avis Google ([lien]) ? Et si vous êtes d'accord, une phrase sur ce qui a changé pour vous, qu'on pourrait afficher sur notre site ? Merci beaucoup.
+> Bonjour [prénom], votre site est en ligne depuis une semaine. Est-ce que vous auriez 2 minutes pour nous laisser un avis Google ([lien]) ? Et si vous êtes d'accord, une phrase sur ce qui a changé pour vous, qu'on pourrait afficher sur notre site ? Merci beaucoup.
 
 Chaque témoignage reçu s'ajoute dans `src/data/site.ts` (tableau `TESTIMONIALS`) : la section « Ce que disent nos clients » apparaît automatiquement sur l'accueil.
 

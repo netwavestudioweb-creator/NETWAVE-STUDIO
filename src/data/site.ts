@@ -17,7 +17,7 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { href: "/services", label: "Services" },
-  { href: "/boutique-en-ligne", label: "Boutique en 10 jours" },
+  { href: "/site-web-10-jours", label: "Site en 10 jours" },
   { href: "/realisations", label: "Réalisations" },
   { href: "/tarifs", label: "Tarifs" },
   { href: "/a-propos", label: "Le studio" },
@@ -63,31 +63,54 @@ export const COUNTRY_SUGGESTIONS = [
 ] as const;
 
 export const FLAGSHIP = {
-  name: "Boutique en ligne en 10 jours",
-  price: 449,
+  name: "Site web en 10 jours",
+  href: "/site-web-10-jours",
+  /** Prix d'entrée : la formule Essentiel. */
+  fromPrice: 149,
   days: 10,
   refundPercent: 20,
   promise:
-    "Votre boutique en ligne prête en 10 jours ouvrés : vos clients choisissent, commandent sur WhatsApp et paient comme ils veulent.",
+    "Un site professionnel prêt en 10 jours ouvrés, pour votre restaurant, votre commerce, votre cabinet ou votre entreprise. Moins cher qu'une agence, aussi efficace.",
+  sectors: [
+    { title: "Restaurants & hôtels", text: "Menu, photos, réservation, itinéraire." },
+    { title: "Commerces & boutiques", text: "Catalogue, commande WhatsApp, paiement en ligne." },
+    { title: "Prestataires & cabinets", text: "Services, prise de rendez-vous, avis clients." },
+    { title: "PME & artisans", text: "Présentation, réalisations, demande de devis." },
+  ],
+  whyCheaper: [
+    {
+      title: "Pas d'intermédiaire",
+      text: "Pas de commercial, pas de chef de projet entre vous et le développeur : vous parlez directement à celui qui construit votre site.",
+    },
+    {
+      title: "Une méthode rodée",
+      text: "Des outils modernes et un processus éprouvé : moins d'heures facturées, pas moins de qualité.",
+    },
+    {
+      title: "Des formules claires",
+      text: "Vous payez les pages et fonctionnalités dont votre activité a besoin, rien de plus.",
+    },
+  ],
   conditions: [
-    "Le délai court à partir de la réception de vos contenus complets (logo, photos, textes, liste des produits) et de la validation de la maquette.",
-    "Si la boutique n'est pas en ligne au 10e jour ouvré et que le retard vient de nous, nous vous remboursons 20 % du prix.",
+    "Le délai court à partir de la réception de vos contenus complets (logo, photos, textes, menu, produits ou services) et de la validation de la maquette.",
+    "Si votre site n'est pas en ligne au 10e jour ouvré et que le retard vient de nous, nous vous remboursons 20 % du prix.",
     "Les modifications demandées après validation de la maquette peuvent décaler la date de livraison, avec votre accord écrit.",
+    "La garantie s'applique aux formules Essentiel et Croissance ; les projets sur mesure ont leur propre calendrier, fixé par écrit.",
   ],
   included: [
-    "Catalogue produits avec recherche et filtres",
-    "Commande en un clic vers votre WhatsApp",
-    "Paiement Mobile Money, carte ou à la livraison",
-    "Espace d'administration : produits, stock, commandes",
-    "Version mobile rapide, testée sur PageSpeed",
-    "Hébergement, nom de domaine et SSL la première année",
+    "Design sur mesure, pensé d'abord pour le mobile",
+    "Les pages dont votre activité a besoin",
+    "Bouton WhatsApp et formulaire de contact",
+    "Réservation, commande ou prise de rendez-vous selon votre métier",
+    "Référencement Google de base",
+    "Hébergement et certificat SSL la première année",
   ],
   timeline: [
-    { day: "J1", title: "Cadrage", text: "Appel visio ou WhatsApp, où que vous soyez : vos produits, vos clients, vos moyens de paiement." },
-    { day: "J2–3", title: "Maquette", text: "Vous validez l'apparence de l'accueil et d'une fiche produit." },
-    { day: "J4–8", title: "Construction", text: "Catalogue, commande WhatsApp, paiements. Lien de suivi privé." },
-    { day: "J9", title: "Tests", text: "Vous testez une vraie commande ; nous corrigeons." },
-    { day: "J10", title: "Mise en ligne", text: "Votre boutique est publique, avec une formation vidéo à la prise en main." },
+    { day: "J1", title: "Cadrage", text: "Appel visio ou WhatsApp, où que vous soyez : votre activité, vos clients, vos objectifs." },
+    { day: "J2–3", title: "Maquette", text: "Vous validez l'apparence de l'accueil et d'une page type." },
+    { day: "J4–8", title: "Construction", text: "Pages, contenus, réservation ou contact selon votre métier. Lien de suivi privé." },
+    { day: "J9", title: "Tests", text: "Vous testez tout depuis votre téléphone ; nous corrigeons." },
+    { day: "J10", title: "Mise en ligne", text: "Votre site est public, avec une formation vidéo à la prise en main." },
   ],
 } as const;
 
@@ -112,17 +135,17 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     id: "web",
-    title: "Sites web & e-commerce",
+    title: "Sites web",
     fromPrice: 149,
     tone: "emerald",
     summary:
-      "Sites vitrines et boutiques pensés pour le mobile, avec paiement Mobile Money et commande WhatsApp.",
+      "Restaurant, commerce, cabinet, entreprise : un site professionnel en 10 jours, moins cher qu'une agence.",
     description:
-      "Des sites vitrines et des boutiques en ligne pensés pour le mobile et les connexions 3G/4G. Vos clients découvrent votre offre sans attendre, commandent en un clic et paient comme ils en ont l'habitude.",
+      "Des sites pensés pour le mobile et les connexions lentes, quel que soit votre métier : menu et réservation pour un restaurant, catalogue et commande pour un commerce, rendez-vous pour un cabinet. Livrés en 10 jours ouvrés, ou 20 % remboursés.",
     points: [
-      "Sites vitrines et boutiques complètes",
-      "Paiement Orange Money, MTN, Wave, Moov et carte",
-      "Commande et discussion WhatsApp",
+      "Sites vitrines, restaurants, boutiques, prise de rendez-vous",
+      "Réservation, commande ou contact par WhatsApp",
+      "Paiement en ligne : carte et Mobile Money",
       "Chargement sous 1,5 s, référencement Google",
     ],
   },
@@ -237,6 +260,7 @@ export const PACKS: Pack[] = [
       "Formulaire de contact et bouton WhatsApp",
       "Hébergement et certificat SSL 1 an",
       "Référencement Google de base",
+      "Livré en 10 jours ouvrés, ou 20 % remboursés",
     ],
   },
   {
@@ -250,8 +274,8 @@ export const PACKS: Pack[] = [
     cta: "Choisir Croissance",
     features: [
       "Tout Essentiel, plus :",
-      "Site multi-pages ou boutique en ligne",
-      "Boutique livrée en 10 jours ou 20 % remboursés",
+      "Site multi-pages : restaurant, boutique, réservation…",
+      "Livré en 10 jours ouvrés, ou 20 % remboursés",
       "Paiement Mobile Money et carte",
       "Assistant WhatsApp 24 h/24 (RDV, questions)",
       "Espace d'administration (stock, commandes)",
@@ -289,7 +313,7 @@ export const BUDGETS = [
 ] as const;
 
 export const SERVICE_CHOICES = [
-  { id: "web", label: "Site web / boutique" },
+  { id: "web", label: "Site web" },
   { id: "logiciel", label: "Logiciel métier" },
   { id: "reseaux", label: "Réseau & télécoms" },
   { id: "ia", label: "IA & WhatsApp" },
@@ -372,7 +396,7 @@ export const HOME_FAQ = [
   },
   {
     q: "Combien de temps prend un projet ?",
-    a: "10 jours ouvrés garantis pour une boutique en ligne, 7 à 14 jours pour un site vitrine, 2 à 4 semaines pour un logiciel métier. Le calendrier est fixé dès la validation de la maquette.",
+    a: "10 jours ouvrés garantis pour un site web (formules Essentiel et Croissance), 2 à 4 semaines pour un logiciel métier. Le calendrier est fixé dès la validation de la maquette.",
   },
   {
     q: "Comment se passe le paiement ?",
