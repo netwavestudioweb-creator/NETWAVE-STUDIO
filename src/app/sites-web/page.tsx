@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ALKAREEM, FLAGSHIP, PACKS, PAYMENT_METHODS, PROJECTS, formatEur } from "@/data/site";
+import { SECTORS } from "@/data/sectors";
 import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow, Faq, PhoneFrame } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -89,17 +91,26 @@ export default function FlagshipPage() {
         </Container>
       </section>
 
-      {/* POUR QUI */}
-      <Container className="py-20 md:py-28">
+      {/* PAR MÉTIER */}
+      <Container className="py-20 md:py-28" id="metiers">
         <div className="mb-12 flex max-w-[720px] flex-col gap-4">
-          <Eyebrow>Pour qui</Eyebrow>
+          <Eyebrow>Votre métier</Eyebrow>
           <h2 className="h-display text-[clamp(32px,4vw,52px)]">Un site adapté à votre métier, pas un modèle générique.</h2>
+          <p className="text-[17px] leading-relaxed text-body">
+            Choisissez votre activité : pages livrées, outils inclus et formules détaillées.
+          </p>
         </div>
-        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {FLAGSHIP.sectors.map((s) => (
-            <li key={s.title} className="flex flex-col gap-2 rounded-[20px] border border-line p-7">
-              <h3 className="font-display text-xl font-bold">{s.title}</h3>
-              <p className="text-[15px] leading-relaxed text-body">{s.text}</p>
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SECTORS.map((s) => (
+            <li key={s.slug}>
+              <Link
+                href={`/sites-web/${s.slug}`}
+                className="group flex h-full flex-col gap-3 rounded-[20px] border border-line p-7 transition-colors hover:border-emerald"
+              >
+                <h3 className="font-display text-xl font-bold group-hover:text-emerald">{s.name}</h3>
+                <p className="text-[15px] leading-relaxed text-body">{s.short}</p>
+                <span className="mt-auto pt-2 text-sm font-semibold text-emerald">Voir l&apos;offre →</span>
+              </Link>
             </li>
           ))}
         </ul>

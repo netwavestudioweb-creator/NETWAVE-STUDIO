@@ -20,7 +20,7 @@ export default function Navbar() {
 
         <nav aria-label="Navigation principale" className="hidden items-center gap-6 text-[15px] font-medium lg:flex">
           {NAV_LINKS.map((link) => {
-            const active = pathname === link.href;
+            const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <Link
                 key={link.href}

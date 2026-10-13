@@ -17,7 +17,7 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { href: "/services", label: "Services" },
-  { href: "/site-web-10-jours", label: "Site en 10 jours" },
+  { href: "/sites-web", label: "Sites web" },
   { href: "/realisations", label: "Réalisations" },
   { href: "/tarifs", label: "Tarifs" },
   { href: "/a-propos", label: "Le studio" },
@@ -64,19 +64,13 @@ export const COUNTRY_SUGGESTIONS = [
 
 export const FLAGSHIP = {
   name: "Site web en 10 jours",
-  href: "/site-web-10-jours",
+  href: "/sites-web",
   /** Prix d'entrée : la formule Essentiel. */
   fromPrice: 149,
   days: 10,
   refundPercent: 20,
   promise:
     "Un site professionnel prêt en 10 jours ouvrés, pour votre restaurant, votre commerce, votre cabinet ou votre entreprise. Moins cher qu'une agence, aussi efficace.",
-  sectors: [
-    { title: "Restaurants & hôtels", text: "Menu, photos, réservation, itinéraire." },
-    { title: "Commerces & boutiques", text: "Catalogue, commande WhatsApp, paiement en ligne." },
-    { title: "Prestataires & cabinets", text: "Services, prise de rendez-vous, avis clients." },
-    { title: "PME & artisans", text: "Présentation, réalisations, demande de devis." },
-  ],
   whyCheaper: [
     {
       title: "Pas d'intermédiaire",

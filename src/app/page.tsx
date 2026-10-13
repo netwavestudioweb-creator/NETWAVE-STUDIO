@@ -13,6 +13,7 @@ import {
   TESTIMONIALS,
   formatEur,
 } from "@/data/site";
+import { SECTORS } from "@/data/sectors";
 import {
   ArrowIcon,
   ButtonLink,
@@ -121,6 +122,18 @@ export default function HomePage() {
               aussi efficace.{" "}
               <strong className="text-ink">Dès {formatEur(FLAGSHIP.fromPrice)}, payable dans votre monnaie.</strong>
             </p>
+            <ul aria-label="Offres par métier" className="flex flex-wrap gap-2">
+              {SECTORS.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/sites-web/${s.slug}`}
+                    className="inline-flex min-h-10 items-center rounded-full border border-emerald/30 bg-white px-3.5 text-sm font-semibold text-ink hover:border-emerald hover:text-emerald"
+                  >
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
           <ButtonLink href={FLAGSHIP.href}>
             Voir l&apos;offre <ArrowIcon />

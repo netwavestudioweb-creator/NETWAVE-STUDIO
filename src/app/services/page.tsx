@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { METHOD_STEPS, SERVICES } from "@/data/site";
+import { SECTORS } from "@/data/sectors";
 import { ButtonLink, CheckIcon, Container, Eyebrow, PriceTag } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -62,6 +64,23 @@ export default function ServicesPage() {
                   <PriceTag price={s.fromPrice} tone={s.tone} />
                 </div>
                 <p className="max-w-[560px] text-[17px] leading-relaxed text-body">{s.description}</p>
+                {s.id === "web" && (
+                  <div className="flex flex-col gap-3">
+                    <p className="text-sm font-semibold text-ink">L&apos;offre détaillée selon votre métier :</p>
+                    <ul className="flex flex-wrap gap-2">
+                      {SECTORS.map((sector) => (
+                        <li key={sector.slug}>
+                          <Link
+                            href={`/sites-web/${sector.slug}`}
+                            className="inline-flex min-h-10 items-center rounded-full border border-line-strong px-3.5 text-sm font-semibold hover:border-emerald hover:text-emerald"
+                          >
+                            {sector.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
               <ul className="flex flex-[1_1_320px] flex-col gap-3.5 text-base text-ink-2">
                 {s.points.map((point) => (
