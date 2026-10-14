@@ -17,7 +17,8 @@ import {
 } from "@/data/site";
 import { SECTORS } from "@/data/sectors";
 import { DiagnosticBand, TrustCharter } from "@/components/Offer";
-import {
+
+import JsonLd from "@/components/JsonLd";import {
   ArrowIcon,
   ButtonLink,
   CheckIcon,
@@ -36,6 +37,13 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: HOME_FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        }}
+      />
       {/* HERO */}
       <section className="border-b border-line">
         <Container className="flex flex-wrap items-center gap-14 py-16 md:py-24">

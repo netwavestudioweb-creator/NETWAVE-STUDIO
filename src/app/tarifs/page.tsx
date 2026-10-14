@@ -3,6 +3,7 @@ import PricingCards from "@/components/PricingCards";
 import { ComparisonTable, DiagnosticBand, OptionsGrid, Subscriptions, TrustCharter } from "@/components/Offer";
 import { PRICING_FAQ } from "@/data/site";
 import { Container, Eyebrow, Faq } from "@/components/ui";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Tarifs : site, logo, affiches et vidéo dès 199 €",
@@ -14,6 +15,13 @@ export const metadata: Metadata = {
 export default function TarifsPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: PRICING_FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        }}
+      />
       <Container className="pb-20 pt-16 md:pt-24">
         <div className="mb-10 flex max-w-[900px] flex-col gap-6">
           <Eyebrow>Tarifs</Eyebrow>

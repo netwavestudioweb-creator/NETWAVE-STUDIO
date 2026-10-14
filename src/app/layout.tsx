@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CONTACT, PACKS, REGIONS, SITE_URL } from "@/data/site";
+import { CONTACT, PACKS, REGIONS, SERVICES, SITE_URL } from "@/data/site";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -26,14 +26,22 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+// SEO : description courte (≈ 155 caractères) pour ne pas être coupée dans les résultats Google.
 const DESCRIPTION =
-  "NetWave Studio, studio web et logiciel international : sites web livrés en 10 jours dès 199 € avec logo et affiche, logiciels métiers, assistants WhatsApp et visibilité Google pour les restaurants, commerces et entreprises qui veulent être visibles en ligne, où qu’ils soient. Moins cher qu’une agence, aussi efficace.";
+  "Création de site web en 10 jours dès 199 € : site, logo, affiches et vidéo. Restaurants, commerces, cabinets, PME. Moins cher qu’une agence. Diagnostic gratuit.";
+
+const HOME_TITLE = "NetWave Studio — Création de site web dès 199 € : site, logo, vidéo en 10 jours";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "NetWave Studio — Sites web et logiciels, moins chers qu’une agence, partout dans le monde",
+    default: HOME_TITLE,
     template: "%s | NetWave Studio",
+  },
+  // Codes de vérification Google Search Console et Bing Webmaster Tools (variables d'environnement Vercel).
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
   },
   description: DESCRIPTION,
   authors: [{ name: "NetWave Studio", url: SITE_URL }],
@@ -46,12 +54,12 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE_URL,
     siteName: "NetWave Studio",
-    title: "NetWave Studio — Sites web et logiciels, moins chers qu’une agence, partout dans le monde",
+    title: HOME_TITLE,
     description: DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "NetWave Studio — Sites web et logiciels, moins chers qu’une agence, partout dans le monde",
+    title: HOME_TITLE,
     description: DESCRIPTION,
   },
   robots: {
@@ -72,6 +80,24 @@ const jsonLd = {
       "@type": ["Organization", "ProfessionalService"],
       "@id": `${SITE_URL}/#organization`,
       name: "NetWave Studio",
+      // Aide Google à distinguer la marque des homonymes (nWave Studios, Net-Wave…).
+      alternateName: ["NetWave Studio Cotonou", "netwave-studio.company"],
+      slogan: "Votre site web en 10 jours, moins cher qu'une agence.",
+      description: DESCRIPTION,
+      knowsAbout: [
+        "Création de site web",
+        "Site e-commerce",
+        "Référencement local (SEO)",
+        "Création de logo",
+        "Motion design",
+        "Logiciel de gestion",
+        "Automatisation WhatsApp",
+      ],
+      makesOffer: SERVICES.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.title, description: s.summary },
+        ...(s.fromPrice ? { price: s.fromPrice.toFixed(2), priceCurrency: "EUR" } : {}),
+      })),
       url: SITE_URL,
       logo: `${SITE_URL}/icon-512.png`,
       image: `${SITE_URL}/icon-512.png`,

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FLAGSHIP, formatEur } from "@/data/site";
+import { FLAGSHIP, SITE_URL, formatEur } from "@/data/site";
 import { SECTORS, getSector, sectorPacks } from "@/data/sectors";
 import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow, PhoneFrame } from "@/components/ui";
+import JsonLd from "@/components/JsonLd";
 
 type Props = { params: Promise<{ secteur: string }> };
 
@@ -36,6 +37,36 @@ export default async function SectorPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Accueil", item: SITE_URL },
+                { "@type": "ListItem", position: 2, name: "Sites web", item: `${SITE_URL}/sites-web` },
+                { "@type": "ListItem", position: 3, name: sector.name, item: `${SITE_URL}/sites-web/${sector.slug}` },
+              ],
+            },
+            {
+              "@type": "Service",
+              name: `Création de site web pour ${sector.name.toLowerCase()}`,
+              description: `${sector.headline} ${sector.intro}`,
+              serviceType: "Création de site web",
+              provider: { "@id": `${SITE_URL}/#organization` },
+              areaServed: "Monde",
+              offers: packs.map((p) => ({
+                "@type": "Offer",
+                name: p.name,
+                price: p.price.toFixed(2),
+                priceCurrency: "EUR",
+                description: p.sectorFeatures.join(", "),
+              })),
+            },
+          ],
+        }}
+      />
       {/* HERO */}
       <section className="border-b border-line">
         <Container className="flex flex-wrap items-center gap-14 py-16 md:py-24">
