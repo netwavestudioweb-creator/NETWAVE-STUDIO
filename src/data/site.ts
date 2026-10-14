@@ -65,8 +65,8 @@ export const COUNTRY_SUGGESTIONS = [
 export const FLAGSHIP = {
   name: "Site web en 10 jours",
   href: "/sites-web",
-  /** Prix d'entrée : la formule Essentiel. */
-  fromPrice: 149,
+  /** Prix d'entrée : la formule Lancement. */
+  fromPrice: 199,
   days: 10,
   refundPercent: 20,
   promise:
@@ -89,7 +89,8 @@ export const FLAGSHIP = {
     "Le délai court à partir de la réception de vos contenus complets (logo, photos, textes, menu, produits ou services) et de la validation de la maquette.",
     "Si votre site n'est pas en ligne au 10e jour ouvré et que le retard vient de nous, nous vous remboursons 20 % du prix.",
     "Les modifications demandées après validation de la maquette peuvent décaler la date de livraison, avec votre accord écrit.",
-    "La garantie s'applique aux formules Essentiel et Croissance ; les projets sur mesure ont leur propre calendrier, fixé par écrit.",
+    "La garantie s'applique aux formules Lancement, Essentiel+ et Croissance (site, logo et visuels) ; la vidéo et les projets Prestige ont leur propre délai, fixé par écrit.",
+    "Logo : 2 propositions et 2 séries de retouches ; chaque autre élément : 2 séries de modifications.",
   ],
   included: [
     "Design sur mesure, pensé d'abord pour le mobile",
@@ -130,7 +131,7 @@ export const SERVICES: Service[] = [
   {
     id: "web",
     title: "Sites web",
-    fromPrice: 149,
+    fromPrice: 199,
     tone: "emerald",
     summary:
       "Restaurant, commerce, cabinet, entreprise : un site professionnel en 10 jours, moins cher qu'une agence.",
@@ -225,8 +226,10 @@ export const SERVICES: Service[] = [
   },
 ];
 
+export type PackId = "lancement" | "essentiel-plus" | "croissance" | "prestige";
+
 export type Pack = {
-  id: "essentiel" | "croissance" | "sur-mesure";
+  id: PackId;
   name: string;
   tagline: string;
   price: number;
@@ -235,78 +238,191 @@ export type Pack = {
   featured: boolean;
   cta: string;
   features: string[];
-  gifts?: string;
+  /** Bonus inclus (peu coûteux à produire, forte valeur perçue). */
+  bonuses: string[];
 };
 
+/*
+ * Stratégie « pop-corn » (docs/strategie-offres-par-profil.md § 9) : trois tailles.
+ * Essentiel+ sert de point de comparaison : pour 100 € de plus, Croissance ajoute
+ * la vidéo, le SEO local, la charte et le paiement en ligne.
+ */
 export const PACKS: Pack[] = [
   {
-    id: "essentiel",
-    name: "Essentiel",
-    tagline: "Pour exister en ligne rapidement, avec un site professionnel.",
-    price: 149,
-    installment: 49,
+    id: "lancement",
+    name: "Lancement",
+    tagline: "Pour exister en ligne avec une image professionnelle.",
+    price: 199,
+    installment: 69,
     fromPrefix: false,
     featured: false,
-    cta: "Choisir Essentiel",
+    cta: "Choisir Lancement",
     features: [
       "Site vitrine de 1 à 3 pages",
-      "Design adapté au mobile",
-      "Formulaire de contact et bouton WhatsApp",
-      "Hébergement et certificat SSL 1 an",
-      "Référencement Google de base",
+      "Logo simple (2 propositions, 2 retouches)",
+      "Fiche Google créée",
+      "1 affiche ou flyer",
+      "3 visuels réseaux sociaux",
       "Livré en 10 jours ouvrés, ou 20 % remboursés",
     ],
+    bonuses: ["QR codes imprimables", "Page « lien en bio »", "Guide « 10 façons d'avoir des clients »"],
+  },
+  {
+    id: "essentiel-plus",
+    name: "Essentiel+",
+    tagline: "Pour une présence complète, sans vidéo ni vente en ligne.",
+    price: 449,
+    installment: 150,
+    fromPrefix: false,
+    featured: false,
+    cta: "Choisir Essentiel+",
+    features: [
+      "Site multi-pages",
+      "Logo simple (2 propositions, 2 retouches)",
+      "Fiche Google créée",
+      "1 affiche + 1 flyer",
+      "6 visuels réseaux sociaux",
+      "Livré en 10 jours ouvrés, ou 20 % remboursés",
+    ],
+    bonuses: ["QR codes et page « lien en bio »", "WhatsApp Business configuré", "Adresse email professionnelle"],
   },
   {
     id: "croissance",
     name: "Croissance",
-    tagline: "Pour vendre en ligne et automatiser la relation client.",
-    price: 449,
-    installment: 149,
+    tagline: "Pour vendre, être trouvé sur Google et se montrer partout.",
+    price: 549,
+    installment: 183,
     fromPrefix: false,
     featured: true,
     cta: "Choisir Croissance",
     features: [
-      "Tout Essentiel, plus :",
       "Site multi-pages : restaurant, boutique, réservation…",
-      "Livré en 10 jours ouvrés, ou 20 % remboursés",
+      "Logo + mini charte graphique",
+      "SEO local : fiche Google optimisée, 5 mots-clés de votre ville",
+      "Vidéo motion 15 – 20 s pour les réseaux",
+      "1 affiche + 1 flyer (ou un menu)",
+      "6 visuels + kit de modèles réutilisables",
       "Paiement Mobile Money et carte",
-      "Assistant WhatsApp 24 h/24 (RDV, questions)",
-      "Espace d'administration (stock, commandes)",
-      "Référencement avancé",
+      "Assistant WhatsApp 24 h/24",
+      "Rapport de statistiques à 30 jours",
+      "Site et visuels en 10 jours ouvrés, ou 20 % remboursés",
     ],
-    gifts:
-      "kit logo & charte express, formation vidéo à la prise en main, 30 jours d'assistance prioritaire.",
+    bonuses: [
+      "Tous les bonus Essentiel+",
+      "Carte de visite numérique",
+      "Statut WhatsApp animé tiré de la vidéo",
+      "30 jours d'assistance prioritaire",
+    ],
   },
   {
-    id: "sur-mesure",
-    name: "Sur-mesure",
-    tagline: "Pour les projets métiers, réseau ou IA qui demandent une étude.",
-    price: 990,
-    installment: 330,
+    id: "prestige",
+    name: "Prestige",
+    tagline: "Pour une image et des outils de grande marque.",
+    price: 1290,
+    installment: 430,
     fromPrefix: true,
     featured: false,
     cta: "Demander une étude",
     features: [
-      "Tout Croissance, plus :",
-      "Application métier sur mesure",
-      "Réseau et téléphonie (audit, câblage, VoIP)",
-      "Assistant IA entraîné sur vos documents",
-      "Maquettes interactives avant développement",
-      "Point d'avancement chaque semaine",
+      "Site ou application sur mesure (réservation, espace client, catalogue)",
+      "Identité visuelle complète (logo, charte, papeterie)",
+      "Vidéo promo 30 – 45 s avec voix off + 2 déclinaisons",
+      "3 mois de SEO mensuel inclus",
+      "Kit d'impression complet",
+      "Tableau de bord des statistiques",
+      "Point d'avancement chaque semaine, calendrier écrit",
     ],
+    bonuses: ["Tous les bonus Croissance"],
   },
 ];
 
+/** Les trois tailles comparées côte à côte ; Prestige s'affiche à part, comme ancre haute. */
+export const MAIN_PACKS = PACKS.filter((p) => p.id !== "prestige");
+export const PRESTIGE = PACKS.find((p) => p.id === "prestige")!;
+
+/** Tableau comparatif des trois tailles (true = inclus, chaîne = détail). */
+export const PACK_COMPARISON: { label: string; values: [string | boolean, string | boolean, string | boolean] }[] = [
+  { label: "Site", values: ["1 à 3 pages", "Multi-pages", "Multi-pages, boutique, réservation"] },
+  { label: "Logo", values: ["Logo simple", "Logo simple", "Logo + mini charte"] },
+  { label: "Fiche Google", values: ["Créée", "Créée", "Optimisée + SEO local"] },
+  { label: "Impression", values: ["1 affiche", "Affiche + flyer", "Affiche + flyer (ou menu)"] },
+  { label: "Visuels réseaux sociaux", values: ["3", "6", "6 + kit de modèles"] },
+  { label: "Vidéo motion 15 – 20 s", values: [false, false, true] },
+  { label: "Paiement Mobile Money et carte", values: [false, false, true] },
+  { label: "Assistant WhatsApp 24 h/24", values: [false, false, true] },
+  { label: "WhatsApp Business configuré", values: [false, true, true] },
+  { label: "Adresse email professionnelle", values: [false, true, true] },
+  { label: "Rapport de statistiques", values: [false, false, true] },
+  { label: "QR codes, page « lien en bio », guide", values: [true, true, true] },
+];
+
+/** Options à ajouter au moment de la commande (« le pop-corn »). */
+export const OPTIONS = [
+  { name: "Vidéo motion supplémentaire 15 – 20 s", price: 129, note: "Une vidéo par produit ou par offre" },
+  { name: "Vidéo promo 30 s avec voix off", price: 249, note: "Prête pour la publicité" },
+  { name: "Version anglaise du site", price: 79, note: "Hôtels, export, diaspora" },
+  { name: "Retouche de 10 photos", price: 29, note: "Des photos nettes et lumineuses" },
+  { name: "Campagne Facebook / Instagram lancée et suivie 30 jours", price: 99, note: "Budget publicitaire en plus" },
+  { name: "Pack 10 visuels réseaux sociaux", price: 59, note: "Du contenu pour un mois" },
+  { name: "Menu, carte de fidélité ou dépliant", price: 49, note: "Pour le commerce physique" },
+  { name: "Adresse email professionnelle supplémentaire", price: 19, note: "Par an" },
+] as const;
+
+/** Abonnements mensuels, sans engagement ; à l'année, 2 mois offerts. */
+export const SUBSCRIPTIONS = [
+  {
+    name: "Présence",
+    monthly: 39,
+    yearly: 390,
+    features: ["Hébergement, sauvegardes et mises à jour", "Fiche Google suivie, réponses aux avis", "1 publication Google par mois", "Petites modifications incluses"],
+  },
+  {
+    name: "Visibilité",
+    monthly: 129,
+    yearly: 1290,
+    features: ["Tout Présence", "4 visuels réseaux sociaux par mois", "1 vidéo courte par mois", "1 article pour le référencement", "Rapport mensuel des statistiques"],
+  },
+] as const;
+
+/** Combo pack + abonnement (« ticket + pop-corn + boisson »). */
+export const COMBO = {
+  name: "Combo Croissance + 3 mois Visibilité",
+  regular: 549 + 3 * 129,
+  price: 799,
+} as const;
+
+/** Le « ticket d'entrée » gratuit. */
+export const DIAGNOSTIC = {
+  title: "Diagnostic visibilité offert",
+  points: [
+    "Ce que voient vos clients quand ils vous cherchent sur Google et Google Maps",
+    "La comparaison avec 2 concurrents de votre ville",
+    "Une image de l'accueil de votre futur site, à votre nom et à vos couleurs",
+  ],
+  cta: "Recevoir mon diagnostic gratuit",
+  href: "/contact?sujet=diagnostic",
+} as const;
+
+/** Charte de confiance : répond aux plaintes les plus fréquentes contre les prestataires web. */
+export const TRUST_CHARTER = [
+  { title: "Prix tout compris, écrit avant de commencer", text: "Aucun frais caché, aucune surprise à la livraison." },
+  { title: "Le nom de domaine est à votre nom", text: "Toujours. Vous restez propriétaire de votre adresse web." },
+  { title: "Tous les accès et fichiers vous sont remis", text: "Site, logo, affiches, vidéos : tout vous appartient." },
+  { title: "Abonnements sans engagement", text: "Résiliables chaque mois, sans frais de sortie." },
+  { title: "Vos données protégées", text: "Mentions légales, confidentialité et consentement mis en place sur chaque site." },
+  { title: "On s'occupe de tout", text: "Textes, mise en ligne, fiche Google, formation vidéo : pas besoin d'être technicien." },
+] as const;
+
 export const BUDGETS = [
   { id: "undetermined", label: "À définir ensemble" },
-  { id: "base", label: "149 – 449 €" },
-  { id: "intermediaire", label: "449 – 990 €" },
-  { id: "avance", label: "990 – 2 500 €" },
+  { id: "base", label: "199 – 449 €" },
+  { id: "intermediaire", label: "449 – 1 290 €" },
+  { id: "avance", label: "1 290 – 2 500 €" },
   { id: "surmesure", label: "Plus de 2 500 €" },
 ] as const;
 
 export const SERVICE_CHOICES = [
+  { id: "diagnostic", label: "Diagnostic gratuit" },
   { id: "web", label: "Site web" },
   { id: "logiciel", label: "Logiciel métier" },
   { id: "reseaux", label: "Réseau & télécoms" },
@@ -390,7 +506,7 @@ export const HOME_FAQ = [
   },
   {
     q: "Combien de temps prend un projet ?",
-    a: "10 jours ouvrés garantis pour un site web (formules Essentiel et Croissance), 2 à 4 semaines pour un logiciel métier. Le calendrier est fixé dès la validation de la maquette.",
+    a: "10 jours ouvrés garantis pour un site web (formules Lancement, Essentiel+ et Croissance), 2 à 4 semaines pour un logiciel métier. Le calendrier est fixé dès la validation de la maquette.",
   },
   {
     q: "Comment se passe le paiement ?",
@@ -402,7 +518,7 @@ export const HOME_FAQ = [
   },
   {
     q: "Que se passe-t-il après la mise en ligne ?",
-    a: "30 jours de garantie écrite pour tout réajustement, puis un contrat de maintenance si vous le souhaitez.",
+    a: "30 jours de garantie écrite pour tout réajustement, puis, si vous le souhaitez, un abonnement sans engagement : Présence à 39 € par mois ou Visibilité à 129 € par mois.",
   },
 ];
 
@@ -410,6 +526,18 @@ export const PRICING_FAQ = [
   {
     q: "Le paiement en 3 fois a-t-il un coût ?",
     a: "Non. Le total est le même qu'au comptant, réparti sur trois mois.",
+  },
+  {
+    q: "Pourquoi choisir Croissance plutôt qu'Essentiel+ ?",
+    a: "Pour 100 € de plus, Croissance ajoute la vidéo motion, le référencement local, la charte graphique, le paiement en ligne, l'assistant WhatsApp et le rapport de statistiques. C'est la formule que nous recommandons à la plupart des commerces.",
+  },
+  {
+    q: "Le nom de domaine et le site m'appartiennent-ils ?",
+    a: "Oui. Le nom de domaine est enregistré à votre nom et vous recevez tous les accès et fichiers à la livraison. Aucune location, aucun engagement de durée.",
+  },
+  {
+    q: "Qu'est-ce que le diagnostic gratuit ?",
+    a: "Nous regardons ce que voient vos clients quand ils vous cherchent sur Google, nous vous comparons à 2 concurrents de votre ville et nous vous envoyons une image de l'accueil de votre futur site. Gratuit et sans engagement.",
   },
   {
     q: "Mon projet ne correspond à aucune formule.",

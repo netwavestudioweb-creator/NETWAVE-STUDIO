@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ALKAREEM, FLAGSHIP, PACKS, PAYMENT_METHODS, PROJECTS, formatEur } from "@/data/site";
+import { ALKAREEM, FLAGSHIP, MAIN_PACKS, PAYMENT_METHODS, PROJECTS, formatEur } from "@/data/site";
 import { SECTORS } from "@/data/sectors";
 import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow, Faq, PhoneFrame } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Votre site web en 10 jours, dès 149 €",
+  title: `Votre site web en 10 jours, dès ${formatEur(FLAGSHIP.fromPrice)}`,
   description:
-    "Un site professionnel en 10 jours ouvrés pour votre restaurant, commerce, cabinet ou entreprise, ou 20 % remboursés. Moins cher qu'une agence, aussi efficace. Dès 149 €, payable dans votre monnaie.",
+    "Un site professionnel en 10 jours ouvrés pour votre restaurant, commerce, cabinet ou entreprise, ou 20 % remboursés. Moins cher qu’une agence, aussi efficace. Dès 199 €, logo et affiche inclus, payable dans votre monnaie.",
   alternates: { canonical: FLAGSHIP.href },
 };
 
-const ELIGIBLE = PACKS.filter((p) => p.id !== "sur-mesure");
+const ELIGIBLE = MAIN_PACKS;
 
 const FAQ = [
   {
@@ -130,11 +130,13 @@ export default function FlagshipPage() {
 
       {/* PRIX */}
       <section className="border-y border-line bg-mist">
-        <Container className="flex flex-wrap gap-12 py-20 md:py-28">
-          <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-5">
-            <Eyebrow>Le prix</Eyebrow>
-            <h2 className="h-display text-[clamp(32px,4vw,48px)]">Moins cher qu&apos;une agence. Aussi efficace.</h2>
-            <ul className="mt-2 flex flex-col gap-5">
+        <Container className="flex flex-col gap-12 py-20 md:py-28">
+          <div className="flex flex-wrap gap-x-14 gap-y-6">
+            <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-5">
+              <Eyebrow>Le prix</Eyebrow>
+              <h2 className="h-display text-[clamp(32px,4vw,48px)]">Moins cher qu&apos;une agence. Aussi efficace.</h2>
+            </div>
+            <ul className="flex min-w-0 flex-[1.3_1_480px] flex-col gap-5">
               {FLAGSHIP.whyCheaper.map((r) => (
                 <li key={r.title} className="flex flex-col gap-1">
                   <strong className="text-lg">{r.title}</strong>
@@ -143,13 +145,16 @@ export default function FlagshipPage() {
               ))}
             </ul>
           </div>
-          <div className="grid min-w-0 flex-[1_1_440px] grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             {ELIGIBLE.map((pack) => (
               <div
                 key={pack.id}
                 className={`flex flex-col gap-3 rounded-3xl p-8 ${pack.featured ? "bg-ink text-white" : "border border-line bg-white"}`}
               >
-                <span className="font-display text-[22px] font-bold">{pack.name}</span>
+                <span className="flex items-center justify-between gap-3">
+                  <span className="font-display text-[22px] font-bold">{pack.name}</span>
+                  {pack.featured && <span className="eyebrow rounded-full bg-mint px-2.5 py-1 text-[11px] text-ink">Recommandée</span>}
+                </span>
                 <span className={`text-[15px] ${pack.featured ? "text-on-dark" : "text-body"}`}>{pack.tagline}</span>
                 <span className="font-display text-5xl font-[750] tracking-[-0.03em]">{formatEur(pack.price)}</span>
                 <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
@@ -157,10 +162,10 @@ export default function FlagshipPage() {
                 </span>
               </div>
             ))}
-            <ButtonLink href="/tarifs" variant="secondary" size="md" className="sm:col-span-2">
-              Comparer le détail des formules
-            </ButtonLink>
           </div>
+          <ButtonLink href="/tarifs" variant="secondary" size="md" className="self-start">
+            Comparer le détail des formules
+          </ButtonLink>
         </Container>
       </section>
 

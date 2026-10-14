@@ -27,7 +27,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 const DESCRIPTION =
-  "NetWave Studio, studio web et logiciel international : sites web livrés en 10 jours dès 149 €, logiciels métiers, assistants WhatsApp et visibilité Google pour les restaurants, commerces et entreprises qui veulent être visibles en ligne, où qu’ils soient. Moins cher qu’une agence, aussi efficace.";
+  "NetWave Studio, studio web et logiciel international : sites web livrés en 10 jours dès 199 € avec logo et affiche, logiciels métiers, assistants WhatsApp et visibilité Google pour les restaurants, commerces et entreprises qui veulent être visibles en ligne, où qu’ils soient. Moins cher qu’une agence, aussi efficace.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

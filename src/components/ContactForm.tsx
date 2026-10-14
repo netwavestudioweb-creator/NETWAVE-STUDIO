@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
 import { BUDGETS, CONTACT, COUNTRY_SUGGESTIONS, SERVICE_CHOICES } from "@/data/site";
 import { ArrowIcon } from "@/components/ui";
 
@@ -11,6 +12,9 @@ type Status = { kind: "idle" } | { kind: "sending" } | { kind: "sent" } | { kind
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  // « ?sujet=diagnostic » (boutons Diagnostic gratuit) présélectionne la demande de diagnostic.
+  const isDiagnostic = useSearchParams().get("sujet") === "diagnostic";
+  const defaultService = isDiagnostic ? "diagnostic" : "web";
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -66,12 +70,12 @@ export default function ContactForm() {
       <fieldset className="flex flex-col gap-3">
         <legend className="mb-3 font-bold">Votre besoin</legend>
         <div className="flex flex-wrap gap-2.5">
-          {SERVICE_CHOICES.map((choice, i) => (
+          {SERVICE_CHOICES.map((choice) => (
             <label
               key={choice.id}
               className="inline-flex min-h-11 cursor-pointer items-center rounded-full border border-line-strong bg-white px-4 text-sm font-semibold has-checked:border-ink has-checked:bg-ink has-checked:text-white has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-emerald"
             >
-              <input type="radio" name="service" value={choice.id} defaultChecked={i === 0} className="sr-only" />
+              <input type="radio" name="service" value={choice.id} defaultChecked={choice.id === defaultService} className="sr-only" />
               {choice.label}
             </label>
           ))}
@@ -130,7 +134,7 @@ export default function ContactForm() {
           minLength={10}
           maxLength={5000}
           rows={5}
-          placeholder="Votre activité, ce que vous voulez obtenir, une échéance éventuelle…"
+          placeholder={isDiagnostic ? "Votre activité, votre ville, le lien de votre page Facebook ou Instagram…" : "Votre activité, ce que vous voulez obtenir, une échéance éventuelle…"}
           className={`${FIELD} resize-y py-3.5 leading-normal`}
         />
       </div>

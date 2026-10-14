@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
 import { CONTACT } from "@/data/site";
 import { Container, Eyebrow } from "@/components/ui";
@@ -56,7 +57,10 @@ export default function ContactPage() {
       </div>
 
       <div className="relative min-w-0 flex-[1.25_1_480px]">
-        <ContactForm />
+        {/* Suspense : le formulaire lit « ?sujet= » dans l’adresse. */}
+        <Suspense fallback={null}>
+          <ContactForm />
+        </Suspense>
       </div>
     </Container>
   );

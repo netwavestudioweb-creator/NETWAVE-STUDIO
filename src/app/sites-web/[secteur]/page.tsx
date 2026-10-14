@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const sector = getSector((await params).secteur);
   if (!sector) return {};
   return {
-    title: `Site web pour ${sector.name.toLowerCase()} : en 10 jours, dès 149 €`,
+    title: `Site web pour ${sector.name.toLowerCase()} : en 10 jours, dès ${formatEur(FLAGSHIP.fromPrice)}`,
     description: `${sector.headline} ${sector.short} Livré en 10 jours ouvrés ou 20 % remboursés, moins cher qu'une agence.`,
     alternates: { canonical: `/sites-web/${sector.slug}` },
   };
@@ -30,6 +30,8 @@ export default async function SectorPage({ params }: Props) {
   if (!sector) notFound();
 
   const packs = sectorPacks(sector);
+  const mainPacks = packs.filter((p) => p.id !== "prestige");
+  const prestige = packs.find((p) => p.id === "prestige")!;
   const others = SECTORS.filter((s) => s.slug !== sector.slug);
 
   return (
@@ -158,13 +160,13 @@ export default async function SectorPage({ params }: Props) {
         <Container className="py-20 md:py-28">
           <div className="mb-12 flex max-w-[760px] flex-col gap-4">
             <Eyebrow>Les formules</Eyebrow>
-            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Trois formules pour {sector.name.toLowerCase()}.</h2>
+            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Les formules pour {sector.name.toLowerCase()}.</h2>
             <p className="text-[17px] leading-relaxed text-body">
               Prix fixes, payables en 3 fois sans frais et dans votre monnaie.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-            {packs.map((pack) => {
+            {mainPacks.map((pack) => {
               const dark = pack.featured;
               return (
                 <article
@@ -212,6 +214,37 @@ export default async function SectorPage({ params }: Props) {
               );
             })}
           </div>
+
+          {/* Prestige à part : l'ancre haute. */}
+          <article className="mt-10 flex flex-wrap items-start justify-between gap-8 rounded-3xl border border-line bg-white px-8 py-9 sm:px-10">
+            <div className="flex min-w-0 max-w-[680px] flex-col gap-3">
+              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <h3 className="font-display text-[26px] font-bold">{prestige.name}</h3>
+                <p className="font-display text-3xl font-[750] tracking-[-0.03em]">
+                  <span className="text-lg font-semibold tracking-normal">dès </span>
+                  {formatEur(prestige.price)}
+                </p>
+              </div>
+              <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-2">
+                {[...prestige.sectorFeatures, ...prestige.commonFeatures].map((f) => (
+                  <li key={f} className="flex gap-2">
+                    <CheckIcon className="mt-0.5 h-4 w-4 text-emerald" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex min-h-[50px] items-center justify-center rounded-xl border-[1.5px] border-ink px-6 text-[15px] font-semibold text-ink transition-colors hover:bg-ink hover:text-white"
+            >
+              {prestige.cta}
+            </Link>
+          </article>
+          <p className="mt-6 text-[15px] text-body">
+            Options, abonnements sans engagement et combo :{" "}
+            <Link href="/tarifs" className="font-semibold text-ink underline underline-offset-4">voir tous les tarifs</Link>.
+          </p>
         </Container>
       </section>
 

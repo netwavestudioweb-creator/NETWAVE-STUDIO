@@ -1,16 +1,11 @@
 // Offre « site web » détaillée par métier : ce que le client reçoit, les outils inclus et les formules.
 // Les prix reprennent les formules générales (PACKS) ; seul le contenu change selon le métier.
 
-import { PACKS, PROJECTS, ALKAREEM } from "@/data/site";
+import { PACKS, PROJECTS, ALKAREEM, type PackId } from "@/data/site";
 
 export type SectorTool = { name: string; text: string };
 
-export type SectorPackContent = {
-  /** Fonctionnalités propres au métier pour chaque formule. */
-  essentiel: string[];
-  croissance: string[];
-  "sur-mesure": string[];
-};
+export type SectorPackContent = Record<PackId, string[]>;
 
 export type Sector = {
   slug: string;
@@ -48,17 +43,28 @@ export const SECTORS: Sector[] = [
       { name: "Avis clients", text: "Vos meilleurs avis Google affichés sur le site." },
     ],
     packs: {
-      essentiel: ["Accueil, menu, accès et horaires", "Bouton réservation WhatsApp", "Fiche Google Maps intégrée"],
+      lancement: [
+        "Accueil, menu et prix, accès et horaires",
+        "Bouton « réserver sur WhatsApp »",
+        "Affiche du menu ou du plat phare",
+      ],
+      "essentiel-plus": [
+        "Toutes les pages : menu, galerie, avis, accès",
+        "Bouton « réserver sur WhatsApp »",
+        "Affiche + flyer du menu",
+      ],
       croissance: [
         "Menu complet avec photos, modifiable par vous",
-        "Formulaire de réservation avec date et nombre de couverts",
+        "Réservation en ligne (date, couverts)",
         "Commande à emporter vers WhatsApp",
-        "Galerie et avis clients",
+        "Menu imprimable + affiche",
+        "Vidéo 20 s : l'ambiance et les plats",
       ],
-      "sur-mesure": [
+      prestige: [
         "Commande et paiement en ligne avec livraison",
-        "Plusieurs établissements ou franchises",
+        "Plusieurs établissements",
         "Programme de fidélité",
+        "Kit : menus, cartes, bâche, chevalets QR code",
       ],
     },
     example: {
@@ -89,17 +95,27 @@ export const SECTORS: Sector[] = [
       { name: "Avis clients", text: "Vos avis Google et plateformes mis en avant." },
     ],
     packs: {
-      essentiel: ["Accueil, chambres, accès et contact", "Bouton réservation WhatsApp", "Galerie photos"],
+      lancement: [
+        "Accueil, chambres, accès, contact",
+        "Bouton « réserver sur WhatsApp »",
+        "Galerie photos + 1 affiche",
+      ],
+      "essentiel-plus": [
+        "Une page par type de chambre",
+        "Bouton « réserver sur WhatsApp »",
+        "Affiche + flyer",
+      ],
       croissance: [
         "Fiche détaillée par type de chambre",
-        "Formulaire de réservation avec dates",
+        "Demande de réservation avec dates",
         "Version anglaise",
-        "Avis clients et services",
+        "Vidéo 20 s : visite de l'établissement",
       ],
-      "sur-mesure": [
+      prestige: [
         "Calendrier de disponibilités en temps réel",
         "Paiement d'acompte en ligne",
         "Connexion aux plateformes de réservation",
+        "Vidéo promo avec voix off FR / EN",
       ],
     },
   },
@@ -124,17 +140,28 @@ export const SECTORS: Sector[] = [
       { name: "Référencement", text: "Chaque produit peut être trouvé sur Google." },
     ],
     packs: {
-      essentiel: ["Vitrine avec vos produits phares", "Bouton commande WhatsApp", "Accès et contact"],
+      lancement: [
+        "Vitrine de vos produits phares",
+        "Bouton « commander sur WhatsApp »",
+        "1 affiche promo",
+      ],
+      "essentiel-plus": [
+        "Catalogue de vos produits par catégorie",
+        "Bouton « commander sur WhatsApp »",
+        "Affiche + flyer promo",
+      ],
       croissance: [
         "Catalogue complet avec recherche et filtres",
         "Panier envoyé sur WhatsApp",
         "Paiement Mobile Money et carte",
         "Espace d'administration produits et commandes",
+        "Vidéo 20 s : vos produits en mouvement",
       ],
-      "sur-mesure": [
-        "Boutique e-commerce complète avec livraison",
-        "Comptes clients et historique de commandes",
-        "Connexion à votre logiciel de caisse ou de stock",
+      prestige: [
+        "Boutique complète avec livraison et comptes clients",
+        "Connexion caisse ou stock",
+        "Relance des paniers abandonnés",
+        "Kit : étiquettes, sacs, cartes",
       ],
     },
     example: {
@@ -166,17 +193,27 @@ export const SECTORS: Sector[] = [
       { name: "Google Maps", text: "Votre salon trouvé dans le quartier." },
     ],
     packs: {
-      essentiel: ["Accueil, prestations et prix, contact", "Bouton rendez-vous WhatsApp", "Galerie de réalisations"],
+      lancement: [
+        "Prestations et prix, contact",
+        "Bouton « rendez-vous WhatsApp »",
+        "Affiche des tarifs",
+      ],
+      "essentiel-plus": [
+        "Prestations, galerie, équipe, contact",
+        "Bouton « rendez-vous WhatsApp »",
+        "Affiche des tarifs + flyer d'offre",
+      ],
       croissance: [
-        "Formulaire de rendez-vous avec date et prestation",
+        "Formulaire de rendez-vous (date, prestation)",
         "Galerie avant / après",
         "Présentation de l'équipe",
-        "Avis clients",
+        "Vidéo 20 s : avant / après en mouvement",
       ],
-      "sur-mesure": [
-        "Agenda en ligne avec créneaux disponibles en temps réel",
+      prestige: [
+        "Agenda en ligne avec créneaux en temps réel",
         "Rappels automatiques par SMS ou WhatsApp",
         "Vente de produits et cartes cadeaux",
+        "Cartes de fidélité et de visite",
       ],
     },
   },
@@ -201,17 +238,27 @@ export const SECTORS: Sector[] = [
       { name: "Contact sécurisé", text: "Formulaire protégé contre le spam." },
     ],
     packs: {
-      essentiel: ["Accueil, domaines d'intervention, contact", "Bouton rendez-vous", "Fiche Google intégrée"],
-      croissance: [
-        "Pages détaillées par domaine d'intervention",
-        "Formulaire de rendez-vous qualifié",
-        "Présentation de l'équipe",
-        "Espace articles et conseils",
+      lancement: [
+        "Domaines d'intervention, contact",
+        "Bouton « prendre rendez-vous »",
+        "Cartes de visite (au lieu de l'affiche)",
       ],
-      "sur-mesure": [
+      "essentiel-plus": [
+        "Une page par domaine d'intervention",
+        "Présentation de l'équipe",
+        "Cartes de visite + plaquette",
+      ],
+      croissance: [
+        "Formulaire de rendez-vous qualifié",
+        "Espace articles et conseils",
+        "Politique de confidentialité renforcée",
+        "Vidéo 20 s : « qui sommes-nous »",
+      ],
+      prestige: [
         "Agenda en ligne connecté à votre calendrier",
-        "Espace client pour l'échange de documents",
+        "Espace client sécurisé (échange de documents)",
         "Paiement des consultations en ligne",
+        "Identité complète et papeterie",
       ],
     },
   },
@@ -236,17 +283,27 @@ export const SECTORS: Sector[] = [
       { name: "Plaquette téléchargeable", text: "Votre présentation en PDF pour vos prospects." },
     ],
     packs: {
-      essentiel: ["Accueil, services, contact", "Bouton devis WhatsApp", "Galerie de réalisations"],
-      croissance: [
-        "Une page par service",
-        "Réalisations détaillées",
-        "Formulaire de demande de devis",
-        "Plaquette PDF téléchargeable",
+      lancement: [
+        "Services, contact",
+        "Bouton « devis sur WhatsApp »",
+        "Galerie de réalisations + 1 flyer",
       ],
-      "sur-mesure": [
+      "essentiel-plus": [
+        "Une page par service",
+        "Galerie de réalisations",
+        "Flyer + affiche",
+      ],
+      croissance: [
+        "Réalisations détaillées (photos, résultats)",
+        "Formulaire de demande de devis détaillé",
+        "Plaquette PDF de présentation",
+        "Vidéo 20 s : vos chantiers ou votre activité",
+      ],
+      prestige: [
         "Espace client et suivi de chantier",
-        "Outil de devis et facturation intégré",
+        "Outil de devis et facturation",
         "Site multilingue",
+        "Kit : plaquette, bâche, véhicule, tenues",
       ],
     },
   },
@@ -254,23 +311,29 @@ export const SECTORS: Sector[] = [
 
 /** Ce que chaque formule inclut, quel que soit le métier. */
 export const COMMON_PACK_FEATURES: SectorPackContent = {
-  essentiel: [
-    "Design sur mesure, adapté au mobile",
-    "Hébergement et certificat SSL 1 an",
-    "Référencement Google de base",
-    "Livré en 10 jours ouvrés, ou 20 % remboursés",
+  lancement: [
+    "Logo simple, fiche Google, 3 visuels réseaux sociaux",
+    "Hébergement, SSL et nom de domaine à votre nom",
+    "QR codes, page « lien en bio », guide offert",
+    "En 10 jours ouvrés, ou 20 % remboursés",
+  ],
+  "essentiel-plus": [
+    "Logo simple, fiche Google, 6 visuels réseaux sociaux",
+    "WhatsApp Business configuré, adresse email professionnelle",
+    "Hébergement, SSL et nom de domaine à votre nom",
+    "En 10 jours ouvrés, ou 20 % remboursés",
   ],
   croissance: [
-    "Tout Essentiel",
-    "Assistant WhatsApp 24 h/24 (questions, rendez-vous)",
-    "Référencement avancé",
-    "Livré en 10 jours ouvrés, ou 20 % remboursés",
+    "Logo + mini charte, SEO local (5 mots-clés de votre ville)",
+    "6 visuels + kit de modèles, assistant WhatsApp 24 h/24",
+    "Rapport de statistiques, 30 jours d'assistance prioritaire",
+    "En 10 jours ouvrés, ou 20 % remboursés",
   ],
-  "sur-mesure": [
-    "Tout Croissance",
-    "Maquettes interactives avant développement",
-    "Point d'avancement chaque semaine",
-    "Calendrier fixé par écrit",
+  prestige: [
+    "Identité visuelle complète",
+    "Vidéo promo avec voix off + 2 déclinaisons",
+    "3 mois de SEO mensuel inclus",
+    "Point chaque semaine, calendrier écrit",
   ],
 };
 

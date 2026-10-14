@@ -7,7 +7,7 @@ import { ButtonLink, CheckIcon, Container, Eyebrow, PriceTag } from "@/component
 export const metadata: Metadata = {
   title: "Services : sites web, logiciels, réseaux & IA",
   description:
-    "Sites web et e-commerce dès 149 €, logiciels métiers dès 290 €, réseaux et télécoms, assistants IA WhatsApp. Une méthode en 4 étapes avec un calendrier fixé dès le départ.",
+    "Sites web avec logo et affiche dès 199 €, logiciels métiers dès 290 €, réseaux et télécoms, assistants IA WhatsApp. Une méthode en 4 étapes avec un calendrier fixé dès le départ.",
   alternates: { canonical: "/services" },
 };
 

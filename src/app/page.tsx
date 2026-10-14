@@ -6,7 +6,9 @@ import {
   FLAGSHIP,
   HOME_FAQ,
   METHOD_STEPS,
-  PACKS,
+  MAIN_PACKS,
+  PRESTIGE,
+  DIAGNOSTIC,
   PROJECTS,
   REGIONS,
   SERVICES,
@@ -14,6 +16,7 @@ import {
   formatEur,
 } from "@/data/site";
 import { SECTORS } from "@/data/sectors";
+import { DiagnosticBand, TrustCharter } from "@/components/Offer";
 import {
   ArrowIcon,
   ButtonLink,
@@ -54,12 +57,12 @@ export default function HomePage() {
               <ButtonLink href="/contact">
                 Démarrer un projet <ArrowIcon />
               </ButtonLink>
-              <ButtonLink href="/tarifs" variant="secondary">
-                Voir les tarifs
+              <ButtonLink href={DIAGNOSTIC.href} variant="secondary">
+                Diagnostic gratuit
               </ButtonLink>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-muted">
-              {["Sites dès 149 €", "Livrés en 10 jours ou 20 % remboursés", "Paiement en 3 fois sans frais"].map((item) => (
+              {[`Site + logo + affiches dès ${formatEur(FLAGSHIP.fromPrice)}`, "Livrés en 10 jours ou 20 % remboursés", "Paiement en 3 fois sans frais"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckIcon className="h-4 w-4 text-emerald" />
                   {item}
@@ -308,14 +311,14 @@ export default function HomePage() {
           <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
             <div className="flex max-w-[680px] flex-col gap-4">
               <Eyebrow>04 — Tarifs</Eyebrow>
-              <h2 className="h-display text-[clamp(32px,4vw,52px)]">Des prix affichés. Payables en trois fois.</h2>
+              <h2 className="h-display text-[clamp(32px,4vw,52px)]">Site, logo, affiches et vidéo. Prix fixes.</h2>
             </div>
             <Link href="/tarifs" className="font-semibold text-ink underline-offset-4 hover:underline">
               Comparer les formules →
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {PACKS.map((pack) => (
+            {MAIN_PACKS.map((pack) => (
               <Link
                 key={pack.id}
                 href="/tarifs"
@@ -337,11 +340,21 @@ export default function HomePage() {
                 <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
                   ou 3 × {formatEur(pack.installment)} sans frais
                 </span>
+                {pack.featured && (
+                  <span className="text-sm font-semibold text-mint">Avec la vidéo, le SEO local et le paiement en ligne</span>
+                )}
               </Link>
             ))}
           </div>
+          <p className="mt-6 text-[15px] text-body">
+            Projet sur mesure : <strong className="text-ink">Prestige dès {formatEur(PRESTIGE.price)}</strong>. Abonnements sans engagement dès 39 € par mois.
+          </p>
         </Container>
       </section>
+
+      <TrustCharter />
+
+      <DiagnosticBand />
 
       {/* FAQ */}
       <Container className="flex flex-wrap gap-12 py-20 md:py-30">
