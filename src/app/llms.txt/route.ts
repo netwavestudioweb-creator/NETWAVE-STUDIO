@@ -9,7 +9,7 @@ export function GET() {
   const lines = [
     "# NetWave Studio",
     "",
-    "> Studio de création de sites web et de logiciels basé à Cotonou (Bénin), qui travaille à distance pour des entreprises du monde entier, en priorité là où les entreprises manquent encore de visibilité en ligne. Sites livrés en 10 jours ouvrés, ou 20 % remboursés, pour moins cher qu'une agence.",
+    "> Studio de présence en ligne basé à Cotonou (Bénin), qui travaille à distance pour les petites entreprises du monde entier (Royaume-Uni, France, Belgique, Canada, Suisse…) : site web, fiche Google Maps, réseaux sociaux et WhatsApp Business. Livré en 10 jours ouvrés, ou 20 % remboursés. Nom de domaine et accès toujours au nom du client, abonnements sans engagement.",
     "",
     "## Formules",
     ...MAIN_PACKS.map((p) => `- ${p.name} : ${formatEur(p.price)} (ou 3 × ${formatEur(p.installment)}). ${p.features.join(", ")}.`),

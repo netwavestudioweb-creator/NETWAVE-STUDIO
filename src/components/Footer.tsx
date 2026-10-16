@@ -10,8 +10,8 @@ export default function Footer() {
           <div className="flex max-w-[360px] flex-col gap-4">
             <Logo variant="dark" />
             <p className="text-[15px] leading-relaxed">
-              Studio d&apos;ingénierie web, logicielle et réseaux, basé à Cotonou. Pour les entreprises du monde
-              entier qui veulent enfin être visibles en ligne.
+              Studio de présence en ligne : site web, Google Maps, réseaux sociaux et WhatsApp. Basé à Cotonou, pour les
+              petites entreprises du monde entier qui veulent enfin être trouvées.
             </p>
           </div>
 

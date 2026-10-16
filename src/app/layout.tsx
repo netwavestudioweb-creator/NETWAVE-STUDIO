@@ -28,9 +28,9 @@ const jetbrains = JetBrains_Mono({
 
 // SEO : description courte (≈ 155 caractères) pour ne pas être coupée dans les résultats Google.
 const DESCRIPTION =
-  "Création de site web en 10 jours dès 199 € : site, logo, affiches et vidéo. Restaurants, commerces, cabinets, PME. Moins cher qu’une agence. Diagnostic gratuit.";
+  "Présence en ligne en 10 jours dès 199 € : site web, fiche Google Maps, réseaux sociaux et WhatsApp. Restaurants, commerces, salons. Tout à votre nom. Diagnostic gratuit.";
 
-const HOME_TITLE = "NetWave Studio — Création de site web dès 199 € : site, logo, vidéo en 10 jours";
+const HOME_TITLE = "NetWave Studio — Présence en ligne dès 199 € : site, Google Maps et WhatsApp en 10 jours";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -82,7 +82,7 @@ const jsonLd = {
       name: "NetWave Studio",
       // Aide Google à distinguer la marque des homonymes (nWave Studios, Net-Wave…).
       alternateName: ["NetWave Studio Cotonou", "netwave-studio.company"],
-      slogan: "Votre site web en 10 jours, moins cher qu'une agence.",
+      slogan: "Trouvé sur Google, contacté sur WhatsApp, en 10 jours.",
       description: DESCRIPTION,
       knowsAbout: [
         "Création de site web",
@@ -90,7 +90,8 @@ const jsonLd = {
         "Référencement local (SEO)",
         "Création de logo",
         "Motion design",
-        "Logiciel de gestion",
+        "Google Business Profile",
+        "Réseaux sociaux",
         "Automatisation WhatsApp",
       ],
       makesOffer: SERVICES.map((s) => ({

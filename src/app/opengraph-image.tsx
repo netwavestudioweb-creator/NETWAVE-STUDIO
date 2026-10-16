@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "NetWave Studio — Sites web et logiciels qui restent rapides, même en 3G";
+export const alt = "NetWave Studio — Trouvé sur Google, contacté sur WhatsApp, en 10 jours";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -39,17 +39,17 @@ export default async function Image() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 820 }}>
           <div style={{ fontSize: 68, fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em" }}>
-            Des sites et des logiciels qui font tourner votre activité.
+            Trouvé sur Google, contacté sur WhatsApp.
           </div>
           <div style={{ fontSize: 68, fontWeight: 800, lineHeight: 1.05, color: "#3DDBB0", letterSpacing: "-0.03em" }}>
-            Même en 3G.
+            En 10 jours, ou 20 % remboursés.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: 32, fontSize: 24, color: "#CFC9DC" }}>
           <span>Partout dans le monde</span>
           <span>·</span>
-          <span>Site + logo + vidéo, dès 199 €</span>
+          <span>Site + Google Maps + WhatsApp, dès 199 €</span>
           <span>·</span>
           <span>netwave-studio.company</span>
         </div>

@@ -1,4 +1,4 @@
-// Offre « site web » détaillée par métier : ce que le client reçoit, les outils inclus et les formules.
+// Offre « site web » détaillée par métier : ce que le client reçoit, les outils inclus et les formules.
 // Les prix reprennent les formules générales (PACKS) ; seul le contenu change selon le métier.
 
 import { PACKS, PROJECTS, ALKAREEM, type PackId } from "@/data/site";
@@ -31,7 +31,7 @@ export const SECTORS: Sector[] = [
       "Vos clients regardent votre menu et vos photos avant de choisir où manger. Sans site, ils choisissent le restaurant d'à côté qui en a un.",
     problems: [
       "Les clients vous demandent le menu et les prix sur WhatsApp, un par un.",
-      "Vous n'apparaissez pas sur Google quand on cherche « restaurant » dans votre quartier.",
+      "Vous n'apparaissez pas sur Google quand on cherche « restaurant » dans votre quartier.",
       "Les réservations arrivent par téléphone, à n'importe quelle heure.",
     ],
     pages: ["Accueil avec photos", "Menu et prix", "Réservation", "Galerie", "Avis clients", "Accès et horaires"],
@@ -45,12 +45,12 @@ export const SECTORS: Sector[] = [
     packs: {
       lancement: [
         "Accueil, menu et prix, accès et horaires",
-        "Bouton « réserver sur WhatsApp »",
+        "Bouton « réserver sur WhatsApp »",
         "Affiche du menu ou du plat phare",
       ],
       "essentiel-plus": [
         "Toutes les pages : menu, galerie, avis, accès",
-        "Bouton « réserver sur WhatsApp »",
+        "Bouton « réserver sur WhatsApp »",
         "Affiche + flyer du menu",
       ],
       croissance: [
@@ -97,12 +97,12 @@ export const SECTORS: Sector[] = [
     packs: {
       lancement: [
         "Accueil, chambres, accès, contact",
-        "Bouton « réserver sur WhatsApp »",
+        "Bouton « réserver sur WhatsApp »",
         "Galerie photos + 1 affiche",
       ],
       "essentiel-plus": [
         "Une page par type de chambre",
-        "Bouton « réserver sur WhatsApp »",
+        "Bouton « réserver sur WhatsApp »",
         "Affiche + flyer",
       ],
       croissance: [
@@ -127,7 +127,7 @@ export const SECTORS: Sector[] = [
     intro:
       "Vous vendez déjà sur Instagram et WhatsApp. Un site vous donne un vrai catalogue, une image professionnelle, et des clients qui vous trouvent sur Google.",
     problems: [
-      "Vous répondez « c'est combien ? » des dizaines de fois par jour.",
+      "Vous répondez « c'est combien ? » des dizaines de fois par jour.",
       "Vos produits se perdent dans le fil Instagram.",
       "Les nouveaux clients hésitent à commander à un compte sans site.",
     ],
@@ -135,25 +135,25 @@ export const SECTORS: Sector[] = [
     tools: [
       { name: "Catalogue", text: "Produits, prix, photos, catégories et recherche." },
       { name: "Commande WhatsApp", text: "Le client envoie son panier complet sur votre WhatsApp en un clic." },
-      { name: "Paiement en ligne", text: "Carte bancaire et Mobile Money, ou paiement à la livraison." },
+      { name: "Paiement en ligne", text: "Carte bancaire, ou paiement à la livraison ou au retrait." },
       { name: "Gestion du stock", text: "Espace d'administration pour vos produits et commandes." },
       { name: "Référencement", text: "Chaque produit peut être trouvé sur Google." },
     ],
     packs: {
       lancement: [
         "Vitrine de vos produits phares",
-        "Bouton « commander sur WhatsApp »",
+        "Bouton « commander sur WhatsApp »",
         "1 affiche promo",
       ],
       "essentiel-plus": [
         "Catalogue de vos produits par catégorie",
-        "Bouton « commander sur WhatsApp »",
+        "Bouton « commander sur WhatsApp »",
         "Affiche + flyer promo",
       ],
       croissance: [
         "Catalogue complet avec recherche et filtres",
         "Panier envoyé sur WhatsApp",
-        "Paiement Mobile Money et carte",
+        "Paiement en ligne par carte",
         "Espace d'administration produits et commandes",
         "Vidéo 20 s : vos produits en mouvement",
       ],
@@ -195,12 +195,12 @@ export const SECTORS: Sector[] = [
     packs: {
       lancement: [
         "Prestations et prix, contact",
-        "Bouton « rendez-vous WhatsApp »",
+        "Bouton « rendez-vous WhatsApp »",
         "Affiche des tarifs",
       ],
       "essentiel-plus": [
         "Prestations, galerie, équipe, contact",
-        "Bouton « rendez-vous WhatsApp »",
+        "Bouton « rendez-vous WhatsApp »",
         "Affiche des tarifs + flyer d'offre",
       ],
       croissance: [
@@ -240,7 +240,7 @@ export const SECTORS: Sector[] = [
     packs: {
       lancement: [
         "Domaines d'intervention, contact",
-        "Bouton « prendre rendez-vous »",
+        "Bouton « prendre rendez-vous »",
         "Cartes de visite (au lieu de l'affiche)",
       ],
       "essentiel-plus": [
@@ -252,7 +252,7 @@ export const SECTORS: Sector[] = [
         "Formulaire de rendez-vous qualifié",
         "Espace articles et conseils",
         "Politique de confidentialité renforcée",
-        "Vidéo 20 s : « qui sommes-nous »",
+        "Vidéo 20 s : « qui sommes-nous »",
       ],
       prestige: [
         "Agenda en ligne connecté à votre calendrier",
@@ -285,7 +285,7 @@ export const SECTORS: Sector[] = [
     packs: {
       lancement: [
         "Services, contact",
-        "Bouton « devis sur WhatsApp »",
+        "Bouton « devis sur WhatsApp »",
         "Galerie de réalisations + 1 flyer",
       ],
       "essentiel-plus": [
@@ -314,7 +314,7 @@ export const COMMON_PACK_FEATURES: SectorPackContent = {
   lancement: [
     "Logo simple, fiche Google, 3 visuels réseaux sociaux",
     "Hébergement, SSL et nom de domaine à votre nom",
-    "QR codes, page « lien en bio », guide offert",
+    "QR codes, page « lien en bio », guide offert",
     "En 10 jours ouvrés, ou 20 % remboursés",
   ],
   "essentiel-plus": [

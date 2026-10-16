@@ -50,27 +50,28 @@ export default function HomePage() {
           <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-7">
             <Eyebrow className="flex items-start gap-2.5">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-logo" aria-hidden="true" />
-              Studio web &amp; logiciel · Clients dans le monde entier
+              Présence en ligne · Petites entreprises du monde entier
             </Eyebrow>
             <h1 className="font-display text-[clamp(40px,5.6vw,76px)] font-[750] leading-[1.02] tracking-[-0.035em]">
-              Des sites et des logiciels qui font tourner votre activité.{" "}
-              <span className="text-emerald">Même en 3G.</span>
+              Trouvé sur Google, contacté sur WhatsApp.{" "}
+              <span className="text-emerald">
+                En {FLAGSHIP.days} jours, ou {FLAGSHIP.refundPercent}&nbsp;% remboursés.
+              </span>
             </h1>
             <p className="max-w-[560px] text-lg leading-relaxed text-body sm:text-[19px]">
-              Sites web, logiciels de gestion, assistants WhatsApp et visibilité Google pour les restaurants,
-              commerces et entreprises qui restent introuvables sur internet. Moins cher qu&apos;une agence, aussi
-              efficace, où que vous soyez.
+              Site web, fiche Google Maps, réseaux sociaux et WhatsApp Business pour les restaurants, commerces,
+              salons et cabinets qu&apos;on ne trouve pas encore en ligne. Un prix fixe écrit, et tout est à votre nom.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/contact">
-                Démarrer un projet <ArrowIcon />
+              <ButtonLink href={DIAGNOSTIC.href}>
+                Êtes-vous visible ? Diagnostic gratuit <ArrowIcon />
               </ButtonLink>
-              <ButtonLink href={DIAGNOSTIC.href} variant="secondary">
-                Diagnostic gratuit
+              <ButtonLink href="/tarifs" variant="secondary">
+                Voir les tarifs
               </ButtonLink>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-muted">
-              {[`Site + logo + affiches dès ${formatEur(FLAGSHIP.fromPrice)}`, "Livrés en 10 jours ou 20 % remboursés", "Paiement en 3 fois sans frais"].map((item) => (
+              {[`Dès ${formatEur(FLAGSHIP.fromPrice)}, prix écrit`, "Domaine et accès à votre nom", "Sans engagement"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckIcon className="h-4 w-4 text-emerald" />
                   {item}
@@ -126,7 +127,7 @@ export default function HomePage() {
             <Eyebrow>Offre phare</Eyebrow>
             <h2 className="h-display text-[clamp(30px,3.8vw,48px)]">
               Votre site web en {FLAGSHIP.days} jours.{" "}
-              <span className="text-emerald">Ou {FLAGSHIP.refundPercent} % remboursés.</span>
+              <span className="text-emerald">Ou {FLAGSHIP.refundPercent}&nbsp;% remboursés.</span>
             </h2>
             <p className="text-[17px] leading-relaxed text-body">
               Restaurant, commerce, cabinet ou entreprise : un site professionnel, moins cher qu&apos;une agence et
@@ -157,13 +158,13 @@ export default function HomePage() {
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div className="flex max-w-[680px] flex-col gap-4">
             <Eyebrow>01 — Ce que nous faisons</Eyebrow>
-            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Bien plus que des sites. Un seul interlocuteur.</h2>
+            <h2 className="h-display text-[clamp(32px,4vw,52px)]">Tout ce qu&apos;il faut pour être trouvé. Un seul interlocuteur.</h2>
           </div>
           <Link href="/services" className="font-semibold text-ink underline-offset-4 hover:underline">
             Tous les services →
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {SERVICES.map((service, i) => (
             <article key={service.id} className="flex flex-col gap-4.5 rounded-[20px] border border-line p-7 sm:px-7 sm:py-8">
               <div className="flex items-center justify-between">
@@ -280,13 +281,10 @@ export default function HomePage() {
         </ol>
         <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 text-[15px] text-ink-2">
           <span>
-            <strong className="text-ink">10 jours ouvrés garantis</strong> pour un site web
+            <strong className="text-ink">10 jours ouvrés garantis</strong> pour votre site, votre logo et vos visuels
           </span>
           <span>
-            <strong className="text-ink">Sur devis</strong> pour une application sur mesure
-          </span>
-          <span>
-            <strong className="text-ink">2 à 4 semaines</strong> pour un logiciel métier
+            <strong className="text-ink">30 jours</strong> de garantie écrite après la mise en ligne
           </span>
         </div>
       </Container>
@@ -299,7 +297,7 @@ export default function HomePage() {
             <h2 className="h-display text-[clamp(32px,4vw,48px)]">Partout où les entreprises manquent encore de visibilité.</h2>
             <p className="text-[17px] leading-relaxed text-on-dark">
               Tout se fait à distance : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre votre projet.
-              Paiement par carte, virement international ou Mobile Money, dans la monnaie de votre choix.
+              Paiement par carte ou virement international, dans la monnaie de votre choix.
             </p>
           </div>
           <ul className="grid min-w-0 flex-[1.4_1_520px] grid-cols-1 gap-3 sm:grid-cols-2">
@@ -380,14 +378,14 @@ export default function HomePage() {
         <div className="relative mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-8 overflow-hidden rounded-[32px] bg-emerald px-7 py-14 text-white sm:px-14 sm:py-18">
           <Stripes variant="cta" />
           <div className="relative flex max-w-[620px] flex-col gap-3.5">
-            <h2 className="h-display text-[clamp(34px,4.4vw,56px)]">Parlons de votre projet.</h2>
+            <h2 className="h-display text-[clamp(34px,4.4vw,56px)]">Vos clients vous cherchent déjà.</h2>
             <p className="text-lg leading-relaxed text-[#E3F5F0]">
-              Décrivez votre besoin en quelques lignes : vous recevez un devis clair, sans engagement.
+              Recevez gratuitement ce qu&apos;ils voient quand ils tapent votre métier et votre ville, comparé à 3 concurrents.
             </p>
           </div>
           <div className="relative flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/contact" variant="light">
-              Demander un devis
+            <ButtonLink href={DIAGNOSTIC.href} variant="light">
+              Diagnostic gratuit
             </ButtonLink>
             <ButtonLink href={CONTACT.whatsappUrl} variant="outline-light">
               WhatsApp

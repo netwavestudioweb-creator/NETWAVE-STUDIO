@@ -5,9 +5,9 @@ import { SECTORS } from "@/data/sectors";
 import { ButtonLink, CheckIcon, Container, Eyebrow, PriceTag } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Services : sites web, logiciels, réseaux & IA",
+  title: "Services : site web, Google Maps, réseaux sociaux et WhatsApp",
   description:
-    "Sites web avec logo et affiche dès 199 €, logiciels métiers dès 290 €, réseaux et télécoms, assistants IA WhatsApp. Une méthode en 4 étapes avec un calendrier fixé dès le départ.",
+    "Votre présence en ligne complète : site web dès 199 €, fiche Google Maps, réseaux sociaux et WhatsApp Business. Livré en 10 jours ouvrés ou 20 % remboursés, tout à votre nom.",
   alternates: { canonical: "/services" },
 };
 
@@ -19,12 +19,12 @@ export default function ServicesPage() {
           <div className="flex min-w-0 flex-[1_1_600px] flex-col gap-6">
             <Eyebrow>Services</Eyebrow>
             <h1 className="font-display text-[clamp(40px,5.4vw,72px)] font-[750] leading-[1.02] tracking-[-0.035em]">
-              Du site vitrine au réseau d&apos;entreprise, conçu par la même équipe.
+              Être trouvé, puis être contacté. Tout au même endroit.
             </h1>
           </div>
           <p className="flex-[0_1_380px] text-lg leading-relaxed text-body">
-            Web, logiciel, réseau, automatisation, visibilité, maintenance : des métiers qui se parlent, pour éviter de multiplier les
-            prestataires.
+            Site web, fiche Google Maps, réseaux sociaux et WhatsApp Business : les quatre pièces de votre présence en ligne,
+            faites par la même équipe, à votre nom.
           </p>
         </Container>
         <Container className="pb-10">
@@ -127,11 +127,11 @@ export default function ServicesPage() {
 
       <Container className="flex flex-wrap items-center justify-between gap-8 py-20 md:py-30">
         <h2 className="h-display flex-[1_1_520px] text-[clamp(32px,4vw,52px)]">
-          Un besoin qui ne rentre dans aucune case ?{" "}
-          <span className="text-emerald">C&apos;est souvent là qu&apos;on est utiles.</span>
+          Vous ne savez pas par où commencer ?{" "}
+          <span className="text-emerald">Le diagnostic gratuit vous le dit.</span>
         </h2>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/contact">Demander une étude gratuite</ButtonLink>
+          <ButtonLink href="/contact?sujet=diagnostic">Recevoir mon diagnostic</ButtonLink>
           <ButtonLink href="/tarifs" variant="secondary">
             Voir les tarifs
           </ButtonLink>

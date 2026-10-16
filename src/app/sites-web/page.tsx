@@ -25,7 +25,7 @@ const FAQ = [
   },
   {
     q: "Je ne suis pas au Bénin : comment ça se passe ?",
-    a: "Tout se fait à distance, quel que soit votre pays : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre l'avancement, et le paiement par carte, virement international ou Mobile Money.",
+    a: "Tout se fait à distance, quel que soit votre pays : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre l'avancement, et le paiement par carte ou virement international.",
   },
   {
     q: "Et après les 10 jours ?",
@@ -45,7 +45,7 @@ export default function FlagshipPage() {
             <Eyebrow>Offre phare · Tous les métiers, partout dans le monde</Eyebrow>
             <h1 className="font-display text-[clamp(40px,5.4vw,72px)] font-[750] leading-[1.02] tracking-[-0.035em]">
               Votre site web en {FLAGSHIP.days} jours.{" "}
-              <span className="text-emerald">Ou {FLAGSHIP.refundPercent} % remboursés.</span>
+              <span className="text-emerald">Ou {FLAGSHIP.refundPercent}&nbsp;% remboursés.</span>
             </h1>
             <p className="max-w-[560px] text-lg leading-relaxed text-body sm:text-[19px]">{FLAGSHIP.promise}</p>
             <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
@@ -193,7 +193,7 @@ export default function FlagshipPage() {
         <div className="flex flex-[1_1_340px] flex-col gap-5">
           <Eyebrow>La garantie</Eyebrow>
           <h2 className="h-display text-[clamp(32px,4vw,48px)]">
-            {FLAGSHIP.days} jours ouvrés, ou {FLAGSHIP.refundPercent} % du prix remboursés.
+            {FLAGSHIP.days} jours ouvrés, ou {FLAGSHIP.refundPercent}&nbsp;% du prix remboursés.
           </h2>
           <p className="text-base leading-relaxed text-body">
             Nous fixons la date de livraison par écrit avant de commencer. Si nous la dépassons, vous êtes remboursé,
