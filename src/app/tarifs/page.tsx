@@ -6,9 +6,9 @@ import { Container, Eyebrow, Faq } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Tarifs : site, logo, affiches et vidéo dès 199 €",
+  title: "Tarifs : site web, fiche Google Maps & WhatsApp dès 199 €",
   description:
-    "Lancement 199 €, Essentiel+ 449 €, Croissance 549 € (site, logo, SEO local, vidéo motion, affiches), Prestige dès 1 290 €. Paiement en 3 fois sans frais, abonnements sans engagement, diagnostic gratuit.",
+    "Lancement 199 €, Essentiel+ 449 €, Croissance 549 € (site jusqu'à 8 pages, SEO local, 10 annuaires, paiement par carte), Prestige dès 1 290 €. Paiement en 3 fois sans frais, abonnements sans engagement, diagnostic gratuit.",
   alternates: { canonical: "/tarifs" },
 };
 
@@ -26,10 +26,10 @@ export default function TarifsPage() {
         <div className="mb-10 flex max-w-[900px] flex-col gap-6">
           <Eyebrow>Tarifs</Eyebrow>
           <h1 className="font-display text-[clamp(40px,5.4vw,72px)] font-[750] leading-[1.02] tracking-[-0.035em]">
-            Votre site, votre logo, vos affiches et votre vidéo. Prix fixes.
+            Votre site web, Google Maps et WhatsApp Business. Prix fixes.
           </h1>
           <p className="max-w-[640px] text-lg leading-relaxed text-body">
-            Tout ce qu&apos;il faut pour être visible, en 10 jours, pour moins cher qu&apos;un freelance. Payable en 3 fois et dans votre monnaie.
+            Tout ce qu&apos;il faut pour être trouvable et contacté, en 10 jours ouvrés, pour moins cher qu&apos;une agence. Payable en 3 fois et dans votre monnaie.
           </p>
         </div>
         <PricingCards />

@@ -8,7 +8,7 @@ import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow, Faq, PhoneFrame }
 export const metadata: Metadata = {
   title: `Votre site web en 10 jours, dès ${formatEur(FLAGSHIP.fromPrice)}`,
   description:
-    "Un site professionnel en 10 jours ouvrés pour votre restaurant, commerce, cabinet ou entreprise, ou 20 % remboursés. Moins cher qu’une agence, aussi efficace. Dès 199 €, logo et affiche inclus, payable dans votre monnaie.",
+    "Un site professionnel en 10 jours ouvrés pour votre restaurant, commerce, cabinet ou entreprise, ou 20 % remboursés. Moins cher qu’une agence, aussi efficace. Dès 199 €, fiche Google et WhatsApp inclus, payable dans votre monnaie.",
   alternates: { canonical: FLAGSHIP.href },
 };
 

@@ -57,7 +57,7 @@ export default function PricingCards() {
 
               {dark && (
                 <p className="rounded-[14px] bg-mint/12 px-4.5 py-3.5 text-sm leading-normal text-[#E3F5F0]">
-                  <strong className="text-mint">Pour 100 € de plus qu&apos;Essentiel+ :</strong> la vidéo, le SEO local, la charte et le paiement en ligne.
+                  <strong className="text-mint">Pour 100 € de plus qu&apos;Essentiel+ :</strong> le module métier, le SEO local (10 annuaires), le paiement en ligne et le suivi des avis.
                 </p>
               )}
 
