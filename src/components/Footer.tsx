@@ -1,8 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
 import { CONTACT, NAV_LINKS } from "@/data/site";
+import { NAV_LINKS_EN } from "@/data/site-en";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isEn = pathname.startsWith("/en");
+  const links = isEn ? NAV_LINKS_EN : NAV_LINKS;
+
   return (
     <footer className="bg-ink text-on-dark">
       <div className="mx-auto flex max-w-[1200px] flex-col gap-14 px-4 pb-8 pt-18 sm:px-6">
@@ -10,15 +18,16 @@ export default function Footer() {
           <div className="flex max-w-[360px] flex-col gap-4">
             <Logo variant="dark" />
             <p className="text-[15px] leading-relaxed">
-              Studio de présence en ligne : site web, Google Maps, réseaux sociaux et WhatsApp. Basé à Cotonou, pour les
-              petites entreprises du monde entier qui veulent enfin être trouvées.
+              {isEn
+                ? "Turnkey online presence studio: website, Google Business Profile, local SEO and WhatsApp Business. Helping local trades and independent businesses turn searchers into loyal customers."
+                : "Studio de présence en ligne : site web, Google Maps, réseaux sociaux et WhatsApp. Pour les petites entreprises et commerces indépendants qui veulent enfin être trouvés."}
             </p>
           </div>
 
-          <nav aria-label="Pied de page" className="flex flex-wrap gap-12 text-[15px]">
+          <nav aria-label={isEn ? "Footer navigation" : "Pied de page"} className="flex flex-wrap gap-12 text-[15px]">
             <div className="flex flex-col gap-3">
-              <p className="eyebrow text-on-dark-faint">Studio</p>
-              {NAV_LINKS.map((link) => (
+              <p className="eyebrow text-on-dark-faint">{isEn ? "Studio" : "Studio"}</p>
+              {links.map((link) => (
                 <Link key={link.href} href={link.href} className="text-white hover:text-mint">
                   {link.label}
                 </Link>
@@ -32,7 +41,16 @@ export default function Footer() {
               <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:text-mint">
                 {CONTACT.phoneDisplay}
               </a>
-              <span>{CONTACT.city}</span>
+              <span>{isEn ? "Timezone: GMT (UK hours)" : CONTACT.city}</span>
+            </div>
+            <div className="flex flex-col gap-3">
+              <p className="eyebrow text-on-dark-faint">Language</p>
+              <Link href="/" className={`hover:text-mint ${!isEn ? "font-bold text-mint" : "text-white"}`}>
+                Français (FR)
+              </Link>
+              <Link href="/en" className={`hover:text-mint ${isEn ? "font-bold text-mint" : "text-white"}`}>
+                English (UK)
+              </Link>
             </div>
           </nav>
         </div>
