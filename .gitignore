@@ -48,6 +48,7 @@ Netwave studio/
 
 # fichiers privés : prospects, captures, vidéos (le dépôt GitHub est public)
 prospects-top50.xlsx
+prospects-france-desaturee.xlsx
 docs/messages-prospection-top50.md
 scripts/prospect_agent.py
 Recherche/

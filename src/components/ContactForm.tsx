@@ -156,7 +156,10 @@ export default function ContactForm() {
 
       <div className="flex flex-wrap items-center justify-between gap-4">
         <p className="flex-[1_1_240px] text-[13px] leading-normal text-muted">
-          Vos informations servent uniquement à vous répondre. Aucune revente, aucune newsletter imposée.
+          Vos informations servent uniquement à vous répondre. Aucune revente, aucune newsletter imposée.{" "}
+          <a href="/confidentialite" className="underline hover:text-emerald">
+            Confidentialité
+          </a>
         </p>
         <button
           type="submit"

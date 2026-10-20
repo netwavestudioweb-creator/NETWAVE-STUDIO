@@ -5,11 +5,13 @@ import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
 import { CONTACT, NAV_LINKS } from "@/data/site";
 import { NAV_LINKS_EN } from "@/data/site-en";
+import { LEGAL_LINKS, LEGAL_LINKS_EN } from "@/data/legal";
 
 export default function Footer() {
   const pathname = usePathname();
   const isEn = pathname.startsWith("/en");
   const links = isEn ? NAV_LINKS_EN : NAV_LINKS;
+  const legalLinks = isEn ? LEGAL_LINKS_EN : LEGAL_LINKS;
 
   return (
     <footer className="bg-ink text-on-dark">
@@ -56,7 +58,14 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-between gap-3 border-t border-white/12 pt-6 text-[13px] text-on-dark-faint">
-          <span>© {new Date().getFullYear()} NetWave Studio</span>
+          <span className="flex flex-wrap gap-x-4 gap-y-2">
+            <span>© {new Date().getFullYear()} NetWave Studio</span>
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-white">
+                {link.label}
+              </Link>
+            ))}
+          </span>
           <span className="flex gap-4">
             <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white">
               LinkedIn

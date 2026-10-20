@@ -11,6 +11,9 @@ const ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "mon
   { path: "/tarifs", priority: 0.9, changeFrequency: "monthly" },
   { path: "/a-propos", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/mentions-legales", priority: 0.3, changeFrequency: "monthly" },
+  { path: "/confidentialite", priority: 0.3, changeFrequency: "monthly" },
+  { path: "/cgv", priority: 0.3, changeFrequency: "monthly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

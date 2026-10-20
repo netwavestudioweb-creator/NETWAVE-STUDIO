@@ -84,7 +84,7 @@ export default function TarifsPage() {
               </div>
             ))}
           </dl>
-          <p className="text-sm leading-relaxed text-muted">Prix en euros. Devis possible en livres, en dollars, en francs suisses ou dans votre monnaie.</p>
+          <p className="text-sm leading-relaxed text-muted">Prix en euros, hors taxes (HT). Devis possible en livres, en dollars, en francs suisses ou dans votre monnaie.</p>
         </div>
         <div className="min-w-0 flex-[1.4_1_480px]">
           <Faq items={PRICING_FAQ} />

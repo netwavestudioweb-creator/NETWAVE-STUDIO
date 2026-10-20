@@ -91,7 +91,7 @@ export default function PricingPageEn() {
             ))}
           </dl>
           <p className="text-sm leading-relaxed text-muted">
-            Invoices issued in GBP (£), EUR (€), USD ($) or CHF. Transparent international payment by bank transfer.
+            Prices exclude VAT. Invoices issued in GBP (£), EUR (€), USD ($) or CHF. Transparent international payment by bank transfer.
           </p>
         </div>
         <div className="min-w-0 flex-[1.4_1_480px]">

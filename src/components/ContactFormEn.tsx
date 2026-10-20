@@ -165,7 +165,10 @@ export default function ContactFormEn() {
 
       <div className="flex flex-wrap items-center justify-between gap-4">
         <p className="flex-[1_1_240px] text-[13px] leading-normal text-muted">
-          Your details are strictly used to reply to your inquiry. No marketing spam, ever.
+          Your details are strictly used to reply to your inquiry. No marketing spam, ever.{" "}
+          <a href="/en/privacy" className="underline hover:text-emerald">
+            Privacy policy
+          </a>
         </p>
         <button
           type="submit"

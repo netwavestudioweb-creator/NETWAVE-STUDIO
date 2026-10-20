@@ -50,8 +50,8 @@ export default function ContactPage() {
             <dd className="text-[15px] font-semibold">{CONTACT.city}</dd>
           </div>
           <div className="flex flex-wrap justify-between gap-x-4 gap-y-2 border-b border-line py-4.5">
-            <dt className="text-[15px] text-muted">Clients</dt>
-            <dd className="text-[15px] font-semibold">Afrique, Maghreb, Caraïbes, océan Indien, Europe</dd>
+            <dt className="text-[15px] text-muted">Nous travaillons avec</dt>
+            <dd className="text-[15px] font-semibold">France, Belgique, Royaume-Uni, à distance</dd>
           </div>
         </dl>
       </div>
