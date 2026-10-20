@@ -26,7 +26,7 @@ import {
 } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "NetWave Studio — Found on Google, Contacted on WhatsApp in 10 Days",
+  title: { absolute: "NetWave Studio — Found on Google, Contacted on WhatsApp in 10 Days" },
   description:
     "We deliver a complete online presence for local businesses in 10 working days, or 20% refunded. Website, Google Business Profile, WhatsApp Business & social setup. Fixed pricing from £299.",
   alternates: { canonical: "/en" },

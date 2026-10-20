@@ -4,7 +4,7 @@ import { CONTACT } from "@/data/site-en";
 import { ButtonLink, Container, Eyebrow } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "About the Studio: Founder, Mission & Standards | NetWave Studio",
+  title: "About the Studio: Founder, Mission & Standards",
   description:
     "Founded in 2023 by DODO Albéric Mantey Adriano, full-stack engineer and network specialist. A single dedicated interlocutor from initial scope to final live launch.",
   alternates: { canonical: "/en/about" },

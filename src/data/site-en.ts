@@ -37,11 +37,13 @@ export const FLAGSHIP_EN = {
     },
   ],
   conditions: [
-    "The 10-day timeline begins once we receive all your initial assets (photos, menu or service list) and after your sign-off on the project scope.",
+    "Day 1 is the kickoff call, once we have received all your initial assets (photos, menu or service list).",
+    "Your wireframe is presented on Day 2–3: we allow 1 working day for your approval; beyond that, each day of waiting moves the go-live date by the same amount.",
     "If your website is not live by the 10th working day due to a delay on our end, we refund 20% of your package price in writing.",
     "Scope modifications requested after wireframe sign-off may adjust the delivery date with your written approval.",
     "The guarantee applies to Launch, Essential+, and Growth packages. Custom enterprise setups have their own agreed schedule.",
     "Third-party turnaround times (such as Google postcard/video profile verification or registrar DNS propagation) are independent of our 10-day guarantee.",
+    "Hosting is managed by the studio; the code and the domain name are yours.",
   ],
   timeline: [
     { day: "Day 1", title: "Kickoff", text: "Video or WhatsApp call: your trade, your local area, your competitors, and targets." },
@@ -77,7 +79,7 @@ export const PACKS_EN: PackEn[] = [
     cta: "Choose Launch",
     features: [
       "One-page sectional website (ultra-fast mobile-first design)",
-      "Domain name, hosting & SSL in your name (1st year included)",
+      "Domain name in your name, hosting & SSL included (1st year)",
       "Google Business Profile created or verified (10 photos)",
       "Direct Call & WhatsApp chat buttons",
       "Google Search Console & LocalBusiness schema markup",
@@ -101,7 +103,7 @@ export const PACKS_EN: PackEn[] = [
       "WhatsApp Business setup with 10-item product/service catalogue",
       "Facebook & Instagram profiles secured (2FA) and aligned",
       "1 professional business email address",
-      "All Launch deliverables (domain, hosting, SSL, ownership)",
+      "All Launch deliverables (domain and logins in your name, hosting, SSL)",
       "Live in 10 working days, or 20% refunded",
     ],
     bonuses: [
@@ -164,7 +166,7 @@ export const PRESTIGE_EN = PACKS_EN.find((p) => p.id === "prestige")!;
 
 export const PACK_COMPARISON_EN: { label: string; values: [string | boolean, string | boolean, string | boolean] }[] = [
   { label: "Website", values: ["1-page sectional", "Up to 5 pages", "Up to 8 pages + booking/ordering"] },
-  { label: "Domain, hosting, SSL & logins in your name", values: [true, true, true] },
+  { label: "Domain & logins in your name, hosting & SSL included", values: [true, true, true] },
   { label: "Google Business Profile & Maps", values: ["Completed, 10 photos", "Optimized, 20 photos", "Optimized + 4 posts"] },
   { label: "Direct Call & WhatsApp buttons", values: [true, true, true] },
   { label: "WhatsApp Business & catalogue", values: [false, "Setup + 10 items", "Setup + 10 items"] },
@@ -283,7 +285,7 @@ export const HOME_FAQ_EN = [
   },
   {
     q: "Do I truly own my website and domain name?",
-    a: "Yes, 100%. The domain is registered in your name, and you receive full administrator access to your website, Google Business Profile, and social media. If you cancel maintenance, you keep everything.",
+    a: "Yes, 100%. The domain is registered in your name, and you receive full administrator access to your website, Google Business Profile, and social media. If you cancel maintenance, you keep everything. Hosting is managed by the studio; the code and the domain name are yours.",
   },
   {
     q: "Are you Google?",
@@ -306,7 +308,7 @@ export const PRICING_FAQ_EN = [
   },
   {
     q: "How do I pay?",
-    a: "We accept international bank transfers (SWIFT / IBAN) and secure online payment links (card / Wise / Payoneer). 50% deposit at project kickoff, 50% upon final delivery after your smartphone tests.",
+    a: "We accept international bank transfers (SWIFT / IBAN). 50% deposit at project kickoff, 50% upon final delivery after your smartphone tests.",
   },
   {
     q: "What is the total cost over 12 months?",

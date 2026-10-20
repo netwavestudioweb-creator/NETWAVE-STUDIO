@@ -25,7 +25,7 @@ const FAQ = [
   },
   {
     q: "Je ne suis pas au Bénin : comment ça se passe ?",
-    a: "Tout se fait à distance, quel que soit votre pays : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre l'avancement, et le paiement par carte ou virement international.",
+    a: "Tout se fait à distance, quel que soit votre pays : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre l'avancement, et le paiement par virement bancaire international.",
   },
   {
     q: "Et après les 10 jours ?",

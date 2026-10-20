@@ -12,7 +12,7 @@ import { Container, Eyebrow, Faq } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Pricing: Local Online Presence from £299 | NetWave Studio",
+  title: "Pricing: Local Online Presence from £299",
   description:
     "Launch £299, Essential+ £649, Growth £799 (up to 8 pages, local SEO, 10 directories, Google Profile, card payments), Prestige from £1,690. 10-day guarantee or 20% back.",
   alternates: { canonical: "/en/pricing" },
@@ -82,7 +82,7 @@ export default function PricingPageEn() {
               ["At kickoff (scope approval)", "50% deposit"],
               ["At final delivery (after your tests)", "50% balance"],
               ["Or split in 3 installments", "0% interest"],
-              ["Accepted methods", "Bank transfer (SWIFT) · Online card link"],
+              ["Accepted method", "International bank transfer (SWIFT / IBAN)"],
             ].map(([label, value]) => (
               <div key={label} className="flex justify-between gap-4 border-b border-line py-4.5">
                 <dt>{label}</dt>
@@ -91,7 +91,7 @@ export default function PricingPageEn() {
             ))}
           </dl>
           <p className="text-sm leading-relaxed text-muted">
-            Invoices issued in GBP (£), EUR (€), USD ($) or CHF. Transparent international payment via transfer or card link.
+            Invoices issued in GBP (£), EUR (€), USD ($) or CHF. Transparent international payment by bank transfer.
           </p>
         </div>
         <div className="min-w-0 flex-[1.4_1_480px]">

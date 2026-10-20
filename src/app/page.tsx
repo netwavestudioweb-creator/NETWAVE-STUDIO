@@ -297,7 +297,7 @@ export default function HomePage() {
             <h2 className="h-display text-[clamp(32px,4vw,48px)]">Partout où les entreprises manquent encore de visibilité.</h2>
             <p className="text-[17px] leading-relaxed text-on-dark">
               Tout se fait à distance : un appel visio ou WhatsApp pour démarrer, un lien privé pour suivre votre projet.
-              Paiement par carte ou virement international, dans la monnaie de votre choix.
+              Paiement par virement bancaire international, dans la monnaie de votre choix.
             </p>
           </div>
           <ul className="grid min-w-0 flex-[1.4_1_520px] grid-cols-1 gap-3 sm:grid-cols-2">

@@ -34,7 +34,7 @@ export const REGIONS = [
 ] as const;
 
 /** Moyens de paiement acceptés, quelle que soit la monnaie du client. */
-export const PAYMENT_METHODS = ["Carte bancaire", "Virement international"] as const;
+export const PAYMENT_METHODS = ["Virement bancaire international (IBAN / SWIFT)"] as const;
 
 /** Suggestions du champ Pays du formulaire (saisie libre acceptée). */
 export const COUNTRY_SUGGESTIONS = [
@@ -73,11 +73,13 @@ export const FLAGSHIP = {
     },
   ],
   conditions: [
-    "Le délai court à partir de la réception de vos contenus complets (photos, textes, menu, produits ou services) et de la validation du cadrage.",
+    "Le jour 1 est celui de l'appel de cadrage, une fois vos contenus complets reçus (photos, textes, menu, produits ou services).",
+    "La maquette vous est présentée à J2–3 : nous comptons 1 jour ouvré pour votre validation ; au-delà, chaque jour d'attente décale d'autant la mise en ligne.",
     "Si votre site n'est pas en ligne au 10e jour ouvré et que le retard vient de nous, nous vous remboursons 20 % du prix par écrit.",
     "Les modifications demandées après validation de la maquette peuvent décaler la date de livraison, avec votre accord écrit.",
     "La garantie s'applique aux formules Lancement, Essentiel+ et Croissance ; les options vidéo, les développements spécifiques et les projets Prestige ont leur propre délai fixé par écrit.",
     "Sont exclus du décompte des 10 jours les délais imposés par des tiers : vérification postale ou vidéo de la fiche par Google, et propagation DNS du registrar.",
+    "L'hébergement est assuré par le studio ; le code et le nom de domaine sont à vous.",
   ],
   included: [
     "Design sur mesure, pensé d'abord pour le mobile",
@@ -214,7 +216,7 @@ export const PACKS: Pack[] = [
     cta: "Choisir Lancement",
     features: [
       "Site d'une page à sections (mobile-first)",
-      "Nom de domaine, hébergement & SSL à votre nom (1 an)",
+      "Nom de domaine à votre nom, hébergement & SSL inclus (1 an)",
       "Fiche Google créée ou complétée (10 photos)",
       "Boutons d'appel et WhatsApp directs",
       "Search Console & balisage LocalBusiness",
@@ -238,7 +240,7 @@ export const PACKS: Pack[] = [
       "WhatsApp Business configuré avec catalogue (10 articles)",
       "Facebook et Instagram harmonisés et sécurisés (2FA)",
       "1 adresse e-mail professionnelle",
-      "Tout Lancement (domaine, hébergement, SSL, accès à votre nom)",
+      "Tout Lancement (domaine et accès à votre nom, hébergement, SSL)",
       "En ligne en 10 jours ouvrés, ou 20 % remboursés",
     ],
     bonuses: [
@@ -303,7 +305,7 @@ export const PRESTIGE = PACKS.find((p) => p.id === "prestige")!;
 /** Tableau comparatif des trois tailles (true = inclus, chaîne = détail). */
 export const PACK_COMPARISON: { label: string; values: [string | boolean, string | boolean, string | boolean] }[] = [
   { label: "Site web", values: ["1 page à sections", "Jusqu'à 5 pages", "Jusqu'à 8 pages + module métier"] },
-  { label: "Domaine, hébergement, SSL & accès à votre nom", values: [true, true, true] },
+  { label: "Domaine et accès à votre nom, hébergement & SSL inclus", values: [true, true, true] },
   { label: "Fiche Google & Maps", values: ["Complétée, 10 photos", "Optimisée, 20 photos", "Optimisée + 4 publications"] },
   { label: "Boutons d'appel et WhatsApp directs", values: [true, true, true] },
   { label: "WhatsApp Business & catalogue", values: [false, "Configuré + 10 articles", "Configuré + 10 articles"] },
@@ -487,7 +489,7 @@ export const HOME_FAQ = [
   },
   {
     q: "Vous travaillez avec des entreprises de mon pays ?",
-    a: "Oui, où que vous soyez. Tout se fait à distance, par visio et WhatsApp, avec un lien de suivi privé pour voir votre projet avancer. Vous payez par carte ou virement international.",
+    a: "Oui, où que vous soyez. Tout se fait à distance, par visio et WhatsApp, avec un lien de suivi privé pour voir votre projet avancer. Vous payez par virement bancaire international.",
   },
   {
     q: "Combien de temps prend un projet ?",
@@ -495,7 +497,7 @@ export const HOME_FAQ = [
   },
   {
     q: "Le site et le nom de domaine m'appartiennent-ils ?",
-    a: "Oui, toujours. Le nom de domaine est enregistré à votre nom, et vous recevez par écrit les accès au site, à la fiche Google et aux comptes réseaux. Si vous arrêtez l'abonnement, vous partez avec tout.",
+    a: "Oui, toujours. Le nom de domaine est enregistré à votre nom, et vous recevez par écrit les accès au site, à la fiche Google et aux comptes réseaux. Si vous arrêtez l'abonnement, vous partez avec tout. L'hébergement est assuré par le studio ; le code et le nom de domaine sont à vous.",
   },
   {
     q: "Vous travaillez pour Google ?",
@@ -534,7 +536,7 @@ export const PRICING_FAQ = [
   },
   {
     q: "Puis-je payer dans ma monnaie ?",
-    a: "Oui. Les prix sont affichés en euros ; le devis peut être établi en livres, en dollars, en francs suisses ou dans votre monnaie, au taux du jour. Paiement par carte ou virement international.",
+    a: "Oui. Les prix sont affichés en euros ; le devis peut être établi en livres, en dollars, en francs suisses ou dans votre monnaie, au taux du jour. Paiement par virement bancaire international.",
   },
 ];
 

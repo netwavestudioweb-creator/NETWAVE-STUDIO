@@ -5,7 +5,7 @@ import { CONTACT } from "@/data/site-en";
 import { Container, Eyebrow } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Contact & Free Quote | NetWave Studio",
+  title: "Contact & Free Quote",
   description:
     "Tell us about your business and receive a clear, fixed-price quote or free local audit within 24 business hours. Direct WhatsApp available.",
   alternates: { canonical: "/en/contact" },

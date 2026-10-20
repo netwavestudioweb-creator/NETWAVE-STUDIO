@@ -4,7 +4,7 @@ import { FLAGSHIP_EN } from "@/data/site-en";
 import { ButtonLink, CheckIcon, Container, Eyebrow, PriceTag } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Services: Website, Google Maps, Social & WhatsApp Setup | NetWave Studio",
+  title: "Services: Website, Google Maps, Social & WhatsApp Setup",
   description:
     "Four core pillars of local business presence: high-speed mobile website, optimized Google Business Profile, WhatsApp Business catalogue and social media branding. Delivered in 10 working days.",
   alternates: { canonical: "/en/services" },
@@ -22,7 +22,7 @@ const SERVICES_EN = [
     points: [
       "Bespoke mobile-first design, fast page load speeds",
       "Direct WhatsApp and Click-to-Call inquiry buttons",
-      "Domain name, cloud hosting & SSL certificate in your name",
+      "Domain name in your name, cloud hosting & SSL certificate included",
       "Found on Google with local structured schema data",
     ],
   },

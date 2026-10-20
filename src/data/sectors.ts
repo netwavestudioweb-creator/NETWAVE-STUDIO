@@ -312,14 +312,14 @@ export const SECTORS: Sector[] = [
 export const COMMON_PACK_FEATURES: SectorPackContent = {
   lancement: [
     "Fiche Google complétée, boutons appel & WhatsApp",
-    "Hébergement, SSL et nom de domaine à votre nom",
+    "Nom de domaine à votre nom, hébergement et SSL inclus",
     "Logo typo, QR code d'avis, page « lien en bio »",
     "En 10 jours ouvrés, ou 20 % remboursés",
   ],
   "essentiel-plus": [
     "Fiche Google optimisée (20 photos), WhatsApp Business (10 articles)",
     "Facebook & Instagram harmonisés et sécurisés (2FA), e-mail pro",
-    "Hébergement, SSL et nom de domaine à votre nom",
+    "Nom de domaine à votre nom, hébergement et SSL inclus",
     "En 10 jours ouvrés, ou 20 % remboursés",
   ],
   croissance: [

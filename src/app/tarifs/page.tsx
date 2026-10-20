@@ -76,7 +76,7 @@ export default function TarifsPage() {
               ["Au démarrage", "50 %"],
               ["À la livraison, après vos tests", "50 %"],
               ["Ou en 3 fois", "Sans frais"],
-              ["Moyens acceptés", "Carte · virement international"],
+              ["Moyen accepté", "Virement bancaire international"],
             ].map(([label, value]) => (
               <div key={label} className="flex justify-between gap-4 border-b border-line py-4.5">
                 <dt>{label}</dt>
