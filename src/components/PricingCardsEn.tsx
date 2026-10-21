@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { MAIN_PACKS_EN, PRESTIGE_EN, formatGbp } from "@/data/site-en";
+import { MAIN_PACKS_EN, PRESTIGE_EN, formatEur } from "@/data/site-en";
 import { CheckIcon } from "@/components/ui";
 
 export default function PricingCardsEn() {
   const [split, setSplit] = useState(false);
-  const price = (p: { price: number; installment: number }) => (split ? `3 × ${formatGbp(p.installment)}` : formatGbp(p.price));
+  const price = (p: { price: number; installment: number }) => (split ? `3 × ${formatEur(p.installment)}` : formatEur(p.price));
   const sub = (p: { price: number; installment: number }) =>
-    split ? `total of ${formatGbp(p.price)}` : `or 3 × ${formatGbp(p.installment)} interest-free`;
+    split ? `total of ${formatEur(p.price)}` : `or 3 × ${formatEur(p.installment)} interest-free`;
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function PricingCardsEn() {
 
               {dark && (
                 <p className="rounded-[14px] bg-mint/12 px-4.5 py-3.5 text-sm leading-normal text-[#E3F5F0]">
-                  <strong className="text-mint">For £150 more than Essential+ :</strong> trade module, local SEO (10 directories), card payments & review handling.
+                  <strong className="text-mint">For €500 more than Essential+:</strong> trade module, local SEO (10 directories), card payments & review handling.
                 </p>
               )}
 
@@ -95,7 +95,7 @@ export default function PricingCardsEn() {
             <h2 className="font-display text-[26px] font-bold">{PRESTIGE_EN.name}</h2>
             <p className="font-display text-3xl font-[750] tracking-[-0.03em]">
               <span className="text-lg font-semibold tracking-normal">from </span>
-              {split ? `3 × ${formatGbp(PRESTIGE_EN.installment)}` : formatGbp(PRESTIGE_EN.price)}
+              {split ? `3 × ${formatEur(PRESTIGE_EN.installment)}` : formatEur(PRESTIGE_EN.price)}
             </p>
           </div>
           <p className="text-[15px] leading-relaxed text-body">{PRESTIGE_EN.tagline}</p>

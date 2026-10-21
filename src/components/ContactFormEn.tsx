@@ -12,18 +12,18 @@ type Status = { kind: "idle" } | { kind: "sending" } | { kind: "sent" } | { kind
 
 const SERVICE_CHOICES_EN = [
   { id: "audit", label: "Free Local Audit" },
-  { id: "launch", label: "Launch (£299)" },
-  { id: "essential", label: "Essential+ (£649)" },
-  { id: "growth", label: "Growth (£799)" },
-  { id: "prestige", label: "Prestige (from £1,690)" },
+  { id: "launch", label: "Launch (€490)" },
+  { id: "essential", label: "Essential+ (€990)" },
+  { id: "growth", label: "Growth (€1,490)" },
+  { id: "prestige", label: "Prestige (from €2,900)" },
   { id: "custom", label: "Custom / Not Sure" },
 ] as const;
 
 const BUDGETS_EN = [
   { id: "undetermined", label: "To be discussed" },
-  { id: "launch", label: "£299 – £649" },
-  { id: "growth", label: "£649 – £1,000" },
-  { id: "prestige", label: "£1,000 – £2,500+" },
+  { id: "launch", label: "€490 – €990" },
+  { id: "growth", label: "€990 – €1,500" },
+  { id: "prestige", label: "€1,500 – €3,000+" },
 ] as const;
 
 export default function ContactFormEn() {
@@ -120,7 +120,7 @@ export default function ContactFormEn() {
             type="text"
             maxLength={80}
             autoComplete="country-name"
-            placeholder="e.g. Leeds, United Kingdom"
+            placeholder="e.g. Killarney, Ireland"
             className={FIELD}
           />
         </div>

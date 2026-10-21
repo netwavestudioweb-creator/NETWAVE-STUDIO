@@ -14,7 +14,7 @@ const SERVICES_EN = [
   {
     id: "web",
     title: "Websites for Local Trades",
-    fromPrice: 299,
+    fromPrice: 490,
     tone: "emerald" as const,
     summary: "Restaurant, salon, retail, or clinic: a bespoke high-speed site in 10 days, or 20% refunded.",
     description:
@@ -59,7 +59,7 @@ const SERVICES_EN = [
   {
     id: "maintenance",
     title: "Monthly Maintenance & SEO",
-    fromPrice: 49,
+    fromPrice: 59,
     tone: "violet" as const,
     summary: "Keep your presence fresh, backed up, and actively growing on Google Maps. No contract.",
     description:
@@ -106,7 +106,7 @@ export default function ServicesPageEn() {
               <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-4.5">
                 <div className="flex flex-wrap items-center gap-3.5">
                   <h2 className="font-display text-4xl font-bold tracking-[-0.025em]">{s.title}</h2>
-                  {s.fromPrice && <PriceTag price={s.fromPrice} tone={s.tone} />}
+                  {s.fromPrice && <PriceTag price={s.fromPrice} tone={s.tone} lang="en" />}
                 </div>
                 <p className="max-w-[560px] text-[17px] leading-relaxed text-body">{s.description}</p>
                 <Link

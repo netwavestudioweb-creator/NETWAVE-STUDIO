@@ -141,11 +141,19 @@ export function Faq({ items, defaultOpen = 0 }: { items: { q: string; a: string 
   );
 }
 
-export function PriceTag({ price, tone }: { price: number | null; tone: "emerald" | "violet" }) {
+export function PriceTag({
+  price,
+  tone,
+  lang = "fr",
+}: {
+  price: number | null;
+  tone: "emerald" | "violet";
+  lang?: "fr" | "en";
+}) {
   const styles = tone === "emerald" ? "bg-emerald-soft text-emerald" : "bg-violet-soft text-violet-mid";
   return (
     <span className={`rounded-full px-3 py-1.5 text-[13px] font-semibold ${styles}`}>
-      {price === null ? "Sur devis" : `Dès ${price} €`}
+      {lang === "en" ? (price === null ? "On quote" : `From €${price}`) : price === null ? "Sur devis" : `Dès ${price} €`}
     </span>
   );
 }

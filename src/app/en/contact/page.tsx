@@ -47,7 +47,7 @@ export default function ContactPageEn() {
           </div>
           <div className="flex flex-wrap justify-between gap-x-4 gap-y-2 border-b border-line py-4.5">
             <dt className="text-[15px] text-muted">Working Timezone</dt>
-            <dd className="text-[15px] font-semibold">GMT (Aligned with UK business hours)</dd>
+            <dd className="text-[15px] font-semibold">Irish & UK business hours (UTC+1)</dd>
           </div>
           <div className="flex flex-wrap justify-between gap-x-4 gap-y-2 border-b border-line py-4.5">
             <dt className="text-[15px] text-muted">Client Guarantee</dt>

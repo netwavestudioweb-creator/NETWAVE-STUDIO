@@ -7,7 +7,7 @@ import {
   PACK_COMPARISON_EN,
   SUBSCRIPTIONS_EN,
   TRUST_CHARTER_EN,
-  formatGbp,
+  formatEur,
 } from "@/data/site-en";
 import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow } from "@/components/ui";
 
@@ -74,7 +74,7 @@ export function ComparisonTableEn() {
             {MAIN_PACKS_EN.map((p) => (
               <th key={p.id} scope="col" className={`px-5 py-4 text-center ${p.featured ? "bg-ink text-white" : ""}`}>
                 <span className="block font-display text-lg font-bold">{p.name}</span>
-                <span className={`block text-sm ${p.featured ? "text-mint" : "text-muted"}`}>{formatGbp(p.price)}</span>
+                <span className={`block text-sm ${p.featured ? "text-mint" : "text-muted"}`}>{formatEur(p.price)}</span>
               </th>
             ))}
           </tr>
@@ -104,7 +104,7 @@ export function OptionsGridEn() {
           <div className="flex flex-col gap-1.5">
             <div className="flex items-baseline justify-between gap-3">
               <h3 className="font-display text-lg font-bold">{o.name}</h3>
-              <span className="font-mono text-base font-bold text-emerald">{formatGbp(o.price)}</span>
+              <span className="font-mono text-base font-bold text-emerald">{formatEur(o.price)}</span>
             </div>
             <p className="text-sm text-body">{o.note}</p>
           </div>
@@ -123,9 +123,9 @@ export function SubscriptionsEn() {
             <div className="flex flex-col gap-2">
               <h3 className="font-display text-2xl font-bold">{s.name}</h3>
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                <span className="font-display text-4xl font-[750]">{formatGbp(s.monthly)}</span>
+                <span className="font-display text-4xl font-[750]">{formatEur(s.monthly)}</span>
                 <span className="text-sm text-muted">/ month, cancel anytime</span>
-                <span className="text-sm font-semibold text-emerald">or {formatGbp(s.yearly)} / year (2 months free)</span>
+                <span className="text-sm font-semibold text-emerald">or {formatEur(s.yearly)} / year (2 months free)</span>
               </div>
             </div>
             <ul className="flex flex-col gap-3 border-t border-line pt-6 text-[15px]">
@@ -146,8 +146,8 @@ export function SubscriptionsEn() {
           <h3 className="font-display text-xl font-bold">{COMBO_EN.name}</h3>
           <p className="text-sm text-muted">
             Growth Package + 3 months of Visibility maintenance:{" "}
-            <del className="text-faint">{formatGbp(COMBO_EN.regular)}</del>{" "}
-            <strong className="text-ink">{formatGbp(COMBO_EN.price)}</strong> (save {formatGbp(COMBO_EN.regular - COMBO_EN.price)}).
+            <del className="text-faint">{formatEur(COMBO_EN.regular)}</del>{" "}
+            <strong className="text-ink">{formatEur(COMBO_EN.price)}</strong> (save {formatEur(COMBO_EN.regular - COMBO_EN.price)}).
           </p>
         </div>
         <ButtonLink href="/en/contact">Claim This Offer</ButtonLink>

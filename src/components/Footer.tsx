@@ -43,7 +43,7 @@ export default function Footer() {
               <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:text-mint">
                 {CONTACT.phoneDisplay}
               </a>
-              <span>{isEn ? "Timezone: GMT (UK hours)" : CONTACT.city}</span>
+              <span>{isEn ? "Irish & UK business hours" : CONTACT.city}</span>
             </div>
             <div className="flex flex-col gap-3">
               <p className="eyebrow text-on-dark-faint">Language</p>
@@ -51,7 +51,7 @@ export default function Footer() {
                 Français (FR)
               </Link>
               <Link href="/en" className={`hover:text-mint ${isEn ? "font-bold text-mint" : "text-white"}`}>
-                English (UK)
+                English
               </Link>
             </div>
           </nav>

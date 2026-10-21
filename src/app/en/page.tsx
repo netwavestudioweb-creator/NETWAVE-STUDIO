@@ -7,7 +7,7 @@ import {
   MAIN_PACKS_EN,
   PRESTIGE_EN,
   DIAGNOSTIC_EN,
-  formatGbp,
+  formatEur,
 } from "@/data/site-en";
 import { ALKAREEM, PROJECTS } from "@/data/site";
 import { SECTORS } from "@/data/sectors";
@@ -28,7 +28,7 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "NetWave Studio — Found on Google, Contacted on WhatsApp in 10 Days" },
   description:
-    "We deliver a complete online presence for local businesses in 10 working days, or 20% refunded. Website, Google Business Profile, WhatsApp Business & social setup. Fixed pricing from £299.",
+    "We deliver a complete online presence for local businesses in 10 working days, or 20% refunded. Website, Google Business Profile, WhatsApp Business & social setup. Fixed pricing from €490.",
   alternates: { canonical: "/en" },
 };
 
@@ -62,7 +62,7 @@ export default function EnglishHomePage() {
             <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
               <p className="font-display text-[56px] font-[750] leading-none tracking-[-0.035em]">
                 <span className="text-xl font-semibold tracking-normal">from </span>
-                {formatGbp(FLAGSHIP_EN.fromPrice)}
+                {formatEur(FLAGSHIP_EN.fromPrice)}
               </p>
               <p className="pb-1.5 text-base text-muted">Fixed price, split in 3 installments interest-free</p>
             </div>
@@ -159,9 +159,9 @@ export default function EnglishHomePage() {
                   <p className={`text-sm ${pack.featured ? "text-on-dark" : "text-body"}`}>{pack.tagline}</p>
                 </div>
                 <div>
-                  <p className="font-display text-5xl font-[750]">{formatGbp(pack.price)}</p>
+                  <p className="font-display text-5xl font-[750]">{formatEur(pack.price)}</p>
                   <p className={`mt-1 text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
-                    or 3 × {formatGbp(pack.installment)} interest-free
+                    or 3 × {formatEur(pack.installment)} interest-free
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2.5 text-sm">

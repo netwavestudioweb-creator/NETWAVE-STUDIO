@@ -7,14 +7,14 @@ import {
   SubscriptionsEn,
   TrustCharterEn,
 } from "@/components/OfferEn";
-import { PRICING_FAQ_EN } from "@/data/site-en";
+import { MARKET_PRICES_EN, PRICING_FAQ_EN } from "@/data/site-en";
 import { Container, Eyebrow, Faq } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Pricing: Local Online Presence from £299",
+  title: "Pricing: Local Online Presence from €490",
   description:
-    "Launch £299, Essential+ £649, Growth £799 (up to 8 pages, local SEO, 10 directories, Google Profile, card payments), Prestige from £1,690. 10-day guarantee or 20% back.",
+    "Launch €490, Essential+ €990, Growth €1,490 (up to 8 pages, local SEO, 10 directories, Google Profile, card payments), Prestige from €2,900. UK and Australian prices on the page. 10-day guarantee or 20% back.",
   alternates: { canonical: "/en/pricing" },
 };
 
@@ -35,10 +35,38 @@ export default function PricingPageEn() {
             Website, Google Maps &amp; WhatsApp Business. Fixed pricing.
           </h1>
           <p className="max-w-[640px] text-lg leading-relaxed text-body">
-            Everything your trade needs to get found and contacted locally, ready in 10 working days for less than half the cost of an agency.
+            Everything your trade needs to get found and contacted locally, ready in 10 working days, at a fixed price well below typical agency quotes.
           </p>
         </div>
         <PricingCardsEn />
+        <div className="mt-14 flex flex-col gap-4">
+          <h2 className="text-xl font-bold">Prices in your country</h2>
+          <p className="max-w-[640px] text-[15px] leading-relaxed text-muted">
+            Same packages everywhere. Prices above are for Ireland and the EU; UK and Australian businesses are quoted in their own currency.
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-line">
+            <table className="w-full min-w-[520px] text-left text-[15px]">
+              <thead className="bg-mist">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">Package</th>
+                  <th className="px-4 py-3 font-semibold">Ireland &amp; EU</th>
+                  <th className="px-4 py-3 font-semibold">United Kingdom</th>
+                  <th className="px-4 py-3 font-semibold">Australia</th>
+                </tr>
+              </thead>
+              <tbody>
+                {MARKET_PRICES_EN.map((row) => (
+                  <tr key={row.label} className="border-t border-line">
+                    <td className="px-4 py-3 font-semibold">{row.label}</td>
+                    <td className="px-4 py-3">{row.eur}</td>
+                    <td className="px-4 py-3">{row.gbp}</td>
+                    <td className="px-4 py-3">{row.aud}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </Container>
 
       <section className="border-y border-line bg-mist">
@@ -91,7 +119,7 @@ export default function PricingPageEn() {
             ))}
           </dl>
           <p className="text-sm leading-relaxed text-muted">
-            Prices exclude VAT. Invoices issued in GBP (£), EUR (€), USD ($) or CHF. Transparent international payment by bank transfer.
+            Prices in euros for Ireland and the EU, excluding VAT. UK and Australian clients are quoted and invoiced in GBP and AUD (see the table above). Payment by international bank transfer.
           </p>
         </div>
         <div className="min-w-0 flex-[1.4_1_480px]">

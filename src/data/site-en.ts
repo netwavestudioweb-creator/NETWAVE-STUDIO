@@ -1,4 +1,5 @@
-// English data source for UK & International market (pricing in GBP £)
+// English data source. Main market: Ireland (prices in EUR). UK (GBP) and Australia (AUD) prices in MARKET_PRICES_EN.
+// Grid validated by the founder on 21/10/2026: docs/strategie-pays-et-prix.md
 // Matches the strategy defined in docs/plan-presence-en-ligne.md and docs/recherche-presence/6-packs.md
 
 import { CONTACT } from "./site";
@@ -12,12 +13,14 @@ export const NAV_LINKS_EN = [
   { href: "/en/about", label: "The Studio" },
 ] as const;
 
+export const formatEur = (n: number) => `€${n.toLocaleString("en-IE")}`;
 export const formatGbp = (n: number) => `£${n.toLocaleString("en-GB")}`;
+export const formatAud = (n: number) => `A$${n.toLocaleString("en-AU")}`;
 
 export const FLAGSHIP_EN = {
   name: "Online Presence in 10 Days",
   href: "/en/pricing",
-  fromPrice: 299,
+  fromPrice: 490,
   days: 10,
   refundPercent: 20,
   promise:
@@ -72,8 +75,8 @@ export const PACKS_EN: PackEn[] = [
     id: "launch",
     name: "Launch",
     tagline: "Be easily found on Google & Google Maps with a sharp, mobile-first presence.",
-    price: 299,
-    installment: 105,
+    price: 490,
+    installment: 164,
     fromPrefix: false,
     featured: false,
     cta: "Choose Launch",
@@ -92,8 +95,8 @@ export const PACKS_EN: PackEn[] = [
     id: "essential-plus",
     name: "Essential+",
     tagline: "Complete local presence with WhatsApp catalogue and harmonized social profiles.",
-    price: 649,
-    installment: 225,
+    price: 990,
+    installment: 330,
     fromPrefix: false,
     featured: false,
     cta: "Choose Essential+",
@@ -116,8 +119,8 @@ export const PACKS_EN: PackEn[] = [
     id: "growth",
     name: "Growth",
     tagline: "Our recommended setup: found on Maps, receiving orders/bookings, and measured.",
-    price: 799,
-    installment: 275,
+    price: 1490,
+    installment: 497,
     fromPrefix: false,
     featured: true,
     cta: "Choose Growth",
@@ -143,8 +146,8 @@ export const PACKS_EN: PackEn[] = [
     id: "prestige",
     name: "Prestige",
     tagline: "For established brands, multi-location businesses, or bespoke online systems.",
-    price: 1690,
-    installment: 580,
+    price: 2900,
+    installment: 967,
     fromPrefix: true,
     featured: false,
     cta: "Request a Quote",
@@ -182,27 +185,27 @@ export const PACK_COMPARISON_EN: { label: string; values: [string | boolean, str
 ];
 
 export const OPTIONS_EN = [
-  { name: "Simple typographic logo (2 options, 2 rounds)", price: 69, note: "Start with a clean, modern mark" },
-  { name: "Logo + mini brand guideline", price: 129, note: "Colour palette, typography & rules" },
-  { name: "15–20s motion video for social media", price: 119, note: "Independent of the 10-day guarantee" },
-  { name: "Printable flyer, poster or menu layout", price: 45, note: "Ready for your physical venue" },
-  { name: "Extra webpage", price: 35, note: "Dedicated service or location page" },
-  { name: "Second language translation", price: 89, note: "Reach international & expat clientele" },
-  { name: "10 extra local directory citations", price: 45, note: "Boost local search visibility" },
-  { name: "2nd Google Business location", price: 89, note: "Setup & local optimization" },
-  { name: "Old website migration (301 redirects)", price: 69, note: "Preserves your search rankings" },
-  { name: "24/7 AI WhatsApp assistant", price: 189, note: "From £189 + Meta API fees" },
-  { name: "10 photos enhancement & retouching", price: 25, note: "Crisp, bright and professional" },
-  { name: "Meta ad campaign launch (30 days)", price: 89, note: "Ad budget separate" },
-  { name: "Pack of 10 social media branded templates", price: 55, note: "Ready to post" },
-  { name: "Additional business email inbox", price: 18, note: "Per year" },
+  { name: "Simple typographic logo (2 options, 2 rounds)", price: 79, note: "Start with a clean, modern mark" },
+  { name: "Logo + mini brand guideline", price: 149, note: "Colour palette, typography & rules" },
+  { name: "15–20s motion video for social media", price: 129, note: "Independent of the 10-day guarantee" },
+  { name: "Printable flyer, poster or menu layout", price: 49, note: "Ready for your physical venue" },
+  { name: "Extra webpage", price: 39, note: "Dedicated service or location page" },
+  { name: "Second language translation", price: 99, note: "Reach international & expat clientele" },
+  { name: "10 extra local directory citations", price: 49, note: "Boost local search visibility" },
+  { name: "2nd Google Business location", price: 99, note: "Setup & local optimization" },
+  { name: "Old website migration (301 redirects)", price: 79, note: "Preserves your search rankings" },
+  { name: "24/7 AI WhatsApp assistant", price: 199, note: "From €199 + Meta API fees" },
+  { name: "10 photos enhancement & retouching", price: 29, note: "Crisp, bright and professional" },
+  { name: "Meta ad campaign launch (30 days)", price: 99, note: "Ad budget separate" },
+  { name: "Pack of 10 social media branded templates", price: 59, note: "Ready to post" },
+  { name: "Additional business email inbox", price: 19, note: "Per year" },
 ] as const;
 
 export const SUBSCRIPTIONS_EN = [
   {
     name: "Presence",
-    monthly: 49,
-    yearly: 490,
+    monthly: 59,
+    yearly: 590,
     features: [
       "Fast cloud hosting, backups & updates",
       "Google Profile monitoring & review responses",
@@ -213,8 +216,8 @@ export const SUBSCRIPTIONS_EN = [
   },
   {
     name: "Visibility",
-    monthly: 149,
-    yearly: 1490,
+    monthly: 179,
+    yearly: 1790,
     features: [
       "Everything in Presence included",
       "4 Google Business posts per month",
@@ -228,8 +231,8 @@ export const SUBSCRIPTIONS_EN = [
 
 export const COMBO_EN = {
   name: "Growth Pack + 3 Months Visibility",
-  regular: 799 + 3 * 149,
-  price: 1099,
+  regular: 1490 + 3 * 179,
+  price: 1749,
 } as const;
 
 export const TRUST_CHARTER_EN = [
@@ -276,8 +279,8 @@ export const HOME_FAQ_EN = [
     a: "It means being found whenever someone in your town searches for your trade on Google, Maps, and social media, and being immediately contactable via phone or WhatsApp. We set up all four pillars: website, Google profile, social channels, and WhatsApp Business.",
   },
   {
-    q: "Do you work with businesses in the UK and internationally?",
-    a: "Yes, worldwide. Everything is handled smoothly remotely via video and WhatsApp, with a private preview link to watch your site progress in real time. We operate on GMT, matching UK business hours.",
+    q: "Do you work with businesses in Ireland, the UK and further afield?",
+    a: "Yes, worldwide. Everything is handled smoothly remotely via video and WhatsApp, with a private preview link to watch your site progress in real time. Our studio is on UTC+1, so we work Irish and UK business hours.",
   },
   {
     q: "How long does a project take?",
@@ -293,7 +296,7 @@ export const HOME_FAQ_EN = [
   },
   {
     q: "What happens after the 10 days?",
-    a: "You get 30 days of written post-launch warranty for any adjustments. Afterwards, you can optionally subscribe to our flexible monthly maintenance: Presence at £49/mo or Visibility at £149/mo, with no lock-in.",
+    a: "You get 30 days of written post-launch warranty for any adjustments. Afterwards, you can optionally subscribe to our flexible monthly maintenance: Presence at €59/mo or Visibility at €179/mo, with no lock-in.",
   },
 ];
 
@@ -304,7 +307,7 @@ export const PRICING_FAQ_EN = [
   },
   {
     q: "Why choose Growth over Essential+?",
-    a: "For £150 more, Growth adds your trade-specific module (table booking, takeaway ordering or appointment scheduler), online card payment integration, local SEO across 10 business directories, 4 Google posts, first-month review management, and an analytics report at 30 days. It is the turnkey option we recommend to most local businesses.",
+    a: "For €500 more, Growth adds your trade-specific module (table booking, takeaway ordering or appointment scheduler), online card payment integration, local SEO across 10 business directories, 4 Google posts, first-month review management, and an analytics report at 30 days. It is the turnkey option we recommend to most local businesses.",
   },
   {
     q: "How do I pay?",
@@ -312,6 +315,16 @@ export const PRICING_FAQ_EN = [
   },
   {
     q: "What is the total cost over 12 months?",
-    a: "Example with the Growth package (£799) and the Presence maintenance (£49/mo): £799 + 12 × £49 = £1,387 for the entire first year (or £1,289 if paying maintenance annually with 2 months free). Year 2 renews at the exact same monthly rate.",
+    a: "Example with the Growth package (€1,490) and the Presence maintenance (€59/mo): €1,490 + 12 × €59 = €2,198 for the entire first year (or €2,080 if paying maintenance annually with 2 months free). Year 2 renews at the exact same monthly rate.",
   },
+];
+
+/** Same packs, priced per country (grid validated on 21/10/2026). Ireland & EU is the default shown across the site. */
+export const MARKET_PRICES_EN: { label: string; eur: string; gbp: string; aud: string }[] = [
+  { label: "Launch", eur: formatEur(490), gbp: formatGbp(449), aud: formatAud(790) },
+  { label: "Essential+", eur: formatEur(990), gbp: formatGbp(849), aud: formatAud(1490) },
+  { label: "Growth (recommended)", eur: formatEur(1490), gbp: formatGbp(1290), aud: formatAud(2290) },
+  { label: "Prestige", eur: `from ${formatEur(2900)}`, gbp: `from ${formatGbp(2490)}`, aud: `from ${formatAud(4500)}` },
+  { label: "Presence care plan", eur: `${formatEur(59)}/mo`, gbp: `${formatGbp(55)}/mo`, aud: `${formatAud(89)}/mo` },
+  { label: "Visibility care plan", eur: `${formatEur(179)}/mo`, gbp: `${formatGbp(159)}/mo`, aud: `${formatAud(279)}/mo` },
 ];
