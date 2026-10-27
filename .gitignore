@@ -57,3 +57,6 @@ brag-output/
 
 # fichiers temporaires d'Excel et de Word
 ~$*
+
+# chaîne de prospection : données privées (prospects, réponses)
+/prospection/
