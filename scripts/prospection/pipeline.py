@@ -39,6 +39,10 @@ WORKDIR = ROOT / "prospection"
 BOOK = WORKDIR / "prospects.xlsx"
 LOTS_DIR = WORKDIR / "lots"
 
+# Types d'adresse admis (décision du fondateur, 27/10/2026, « option A ») :
+#   générique : info@, hello@, bookings@… ;
+#   enseigne  : adresse au nom du commerce (ex. sneembridgebistro@gmail.com), publiée par le
+#               commerce lui-même, page notée dans « verification ». Jamais une adresse au prénom.
 # --- Colonnes de l'onglet Prospects (l'ordre est celui du fichier) ---------------------------
 COLUMNS = [
     ("id", 8), ("entreprise", 30), ("pays", 6), ("ville", 16), ("secteur", 18),
@@ -247,8 +251,11 @@ def eligibility(p: dict, ex: set) -> str | None:
         return "Pas d'adresse e-mail."
     if is_excluded(p["email"], ex):
         return "Adresse ou domaine dans la liste d'exclusion."
-    if rule["generic_only"] and (p["email_type"] or email_kind(p["email"])) != "générique":
-        return "Adresse nominative : seule une adresse générique d'entreprise est admise."
+    kind = p["email_type"] or email_kind(p["email"])
+    if rule["generic_only"] and kind not in ("générique", "enseigne"):
+        return "Adresse nominative : seule une adresse générique ou au nom de l'enseigne est admise."
+    if kind == "enseigne" and not p["verification"]:
+        return "Adresse « enseigne » sans preuve : noter dans verification la page où le commerce la publie."
     form = re.sub(r"[^a-z]", "", str(p["forme_juridique"] or "").lower())
     if rule["forms"] is not None and form not in rule["forms"]:
         return "Forme juridique non confirmée comme société (Ltd, DAC, LLP…) : risque d'indépendant."
@@ -762,6 +769,98 @@ def cmd_health(args) -> None:
          "compteurs": {"prospects": len(ps), "envoyes": len(sent), "rebonds": len(bounces),
                        "reponses_a_classer": len(pending), "envoyes_aujourdhui": sent_today(ws)}})
 
+
+# --- Commande : liste d'appels -------------------------------------------------------------------
+CALL_SCRIPT = [
+    ("Ouverture", "Hi, is this [business]? My name is Albéric, I run NetWave Studio, a small web studio. "
+                  "I'm not Google and this isn't a sales call. Do you have 30 seconds?"),
+    ("Constat", "I noticed [constat vérifié, colonne F : e.g. you don't have a website of your own, "
+                "people find you through Facebook or Booksy]."),
+    ("Proposition", "I make free one-page visibility checks for local businesses: how you show up on Google Maps "
+                    "compared with three places nearby, plus three things you can fix yourself. Can I email it to you?"),
+    ("Si oui", "Great, what's the best email address? I'll send it within 24 working hours. "
+               "→ Noter l'adresse et « accord par téléphone le [date] » : il a demandé l'e-mail, ce n'est plus de la prospection à froid."),
+    ("« No time »", "Totally fine, it's just an email, you read it whenever you want."),
+    ("« Facebook is enough »", "Facebook is great for regulars. New customers usually search Google Maps first, "
+                               "and the check shows exactly what they see."),
+    ("« How much? »", "The check is free. If you want us to fix things, prices are fixed and written: "
+                      "from €490, delivered in 10 working days or 20% back."),
+    ("« Not interested »", "No problem at all, I won't call again. Have a good day. → Résultat « Ne plus appeler »."),
+]
+CALL_RESULTS = ["Pas de réponse", "Rappeler", "Intéressé : envoyer le diagnostic", "Pas intéressé",
+                "Ne plus appeler", "Mauvais numéro"]
+
+
+def cmd_call_list(args) -> None:
+    """Fabrique prospection/liste-appels.xlsx à partir des prospects « manuel » (téléphone d'abord)."""
+    from openpyxl.worksheet.datavalidation import DataValidation
+    wb = open_book()
+    ps = [p for _, p in rows(wb["Prospects"]) if p["statut"] == "manuel"]
+    phone = sorted([p for p in ps if p["telephone"]], key=lambda p: -int(p["score"] or 0))
+    other = sorted([p for p in ps if not p["telephone"]], key=lambda p: -int(p["score"] or 0))
+
+    book = openpyxl.Workbook()
+    ws = book.active
+    ws.title = "Appels"
+    cols = [("Priorité", 9), ("ID", 8), ("Commerce", 30), ("Ville", 14), ("Téléphone", 18),
+            ("Constat vérifié (à citer)", 46), ("Vérification et autres numéros", 46),
+            ("Appelé le", 12), ("Résultat", 26), ("Rappeler le", 12), ("E-mail obtenu", 26), ("Notes", 30)]
+    for i, (name, width) in enumerate(cols, start=1):
+        header_style(ws.cell(row=1, column=i, value=name))
+        ws.column_dimensions[openpyxl.utils.get_column_letter(i)].width = width
+    for n, p in enumerate(phone, start=1):
+        ws.append([n, p["id"], p["entreprise"], p["ville"], p["telephone"], p["presence_actuelle"],
+                   p["verification"], None, None, None, None, None])
+    wrap = Alignment(wrap_text=True, vertical="top")
+    for row in ws.iter_rows(min_row=2):
+        for cell in row:
+            cell.alignment = wrap
+    dv = DataValidation(type="list", formula1='"' + ",".join(CALL_RESULTS) + '"', allow_blank=True)
+    ws.add_data_validation(dv)
+    dv.add(f"I2:I{max(ws.max_row, 2)}")
+    ws.freeze_panes = "D2"
+    ws.auto_filter.ref = f"A1:L{max(ws.max_row, 1)}"
+
+    so = book.create_sheet("Facebook et autres")
+    for i, (name, width) in enumerate([("ID", 8), ("Commerce", 30), ("Ville", 14), ("Canal", 12),
+                                       ("Vérification", 60), ("Contacté le", 12), ("Résultat", 26)], start=1):
+        header_style(so.cell(row=1, column=i, value=name))
+        so.column_dimensions[openpyxl.utils.get_column_letter(i)].width = width
+    for p in other:
+        so.append([p["id"], p["entreprise"], p["ville"], p["canal"], p["verification"], None, None])
+
+    sc = book.create_sheet("Script d'appel")
+    sc.column_dimensions["A"].width = 24
+    sc.column_dimensions["B"].width = 110
+    lines = [("Script de 30 secondes (anglais)", "")] + CALL_SCRIPT + [
+        ("", ""),
+        ("Quand appeler", "L'Irlande a 1 heure de retard sur Cotonou en hiver (depuis le 25/10/2026). Conseil : du mardi au jeudi, "
+                          "10 h–11 h 30 et 14 h 30–16 h 30 heure irlandaise (11 h–12 h 30 et 15 h 30–17 h 30 à Cotonou). "
+                          "Jamais pendant le service des restaurants (12 h–14 h, après 17 h)."),
+        ("Avant chaque appel", "Vérifier en 1 minute sur Google Maps, en navigation privée, que le commerce est ouvert et que le constat "
+                               "est toujours vrai. Ne jamais citer un nombre d'avis non revérifié."),
+        ("Règles", "Se présenter clairement (nom, NetWave Studio). Si la personne dit stop : ne plus jamais rappeler. "
+                   "Une seule tentative de rappel si pas de réponse. Jamais de WhatsApp sans accord."),
+        ("À faire confirmer", "Irlande : les appels de prospection vers un numéro professionnel sont admis sauf opposition inscrite "
+                              "(National Directory Database) ou refus exprimé ; les mobiles (08…) de particuliers demandent un accord. "
+                              "Règle à faire confirmer par un juriste avant d'appeler en volume."),
+        ("Après l'appel", "Si e-mail obtenu : le noter ici, puis demander à l'agent « prospection » de l'ajouter au prospect "
+                          "(email_type=enseigne ou générique, verification=« accord par téléphone le … »)."),
+    ]
+    for a, b in lines:
+        sc.append([a, b])
+    for row in sc.iter_rows():
+        row[0].font = Font(bold=True)
+        row[1].alignment = Alignment(wrap_text=True, vertical="top")
+    sc.cell(row=1, column=1).font = Font(bold=True, size=13, color="08745D")
+
+    target = WORKDIR / "liste-appels.xlsx"
+    try:
+        book.save(target)
+    except PermissionError:
+        sys.exit(f"{target.name} est ouvert dans Excel : fermez-le et relancez.")
+    out({"fichier": str(target), "appels": len(phone), "facebook_et_autres": len(other)})
+
 # --- Point d'entrée -----------------------------------------------------------------------------
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -789,6 +888,7 @@ def main() -> None:
     p.add_argument("reponse_id"); p.add_argument("categorie"); p.add_argument("--travail", default="")
     p.set_defaults(fn=cmd_classify)
     sub.add_parser("report", help="bilan : qui a répondu, travail à faire").set_defaults(fn=cmd_report)
+    sub.add_parser("call-list", help="fabrique prospection/liste-appels.xlsx").set_defaults(fn=cmd_call_list)
     p = sub.add_parser("health", help="contrôle de santé (--reseau : teste aussi Resend et Gmail)")
     p.add_argument("--reseau", action="store_true"); p.set_defaults(fn=cmd_health)
     args = ap.parse_args()
