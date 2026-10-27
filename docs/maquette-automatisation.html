@@ -1,0 +1,270 @@
+<title>Prospection NetWave</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,750&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  /* Layout : une toile d'automatisation façon n8n (quatre flux en rangées de blocs reliés), un téléphone à droite qui montre ce que le fondateur reçoit. */
+  :root {
+    --canvas: #120A22;
+    --canvas-dot: #2A1E45;
+    --panel: #1C1233;
+    --panel-2: #24183F;
+    --line: #3A2B5E;
+    --fg: #F4F1FA;
+    --muted: #B6ADCB;
+    --faint: #8579A0;
+    --mint: #3DDBB0;
+    --emerald: #08745D;
+    --violet: #8E65D8;
+    --amber: #F2B84B;
+    --danger: #FF7A7A;
+    --phone-bg: #0E0A17;
+    --bubble: #2B1F47;
+    --bubble-me: #08745D;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--canvas);
+    background-image: radial-gradient(var(--canvas-dot) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+    color: var(--fg);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 28px 56px;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  header { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mint); }
+  h1 { font-family: var(--display); font-weight: 750; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.04; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+  h1 em { font-style: normal; color: var(--mint); }
+  .lede { color: var(--muted); font-size: 17px; margin: 0; max-width: 64ch; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 13px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+  .chip.pc { background: rgba(142,101,216,0.18); color: #C9B4F2; }
+  .chip.cloud { background: rgba(61,219,176,0.14); color: var(--mint); }
+  .chip.built { background: rgba(61,219,176,0.14); color: var(--mint); }
+  .chip.todo { background: rgba(242,184,75,0.16); color: var(--amber); }
+  .chip.phone { background: rgba(255,255,255,0.08); color: var(--fg); }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 28px; align-items: start; }
+  @media (max-width: 1020px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+
+  .flows { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+  .flow { background: rgba(28,18,51,0.78); border: 1px solid var(--line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .flow-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+  .flow-head h2 { font-family: var(--display); font-weight: 650; font-size: 21px; letter-spacing: -0.015em; margin: 0; }
+  .flow-head .when { color: var(--faint); font-size: 13px; margin-left: auto; }
+  .flow-note { color: var(--muted); font-size: 14px; margin: 0; max-width: 72ch; }
+
+  /* Rangée de blocs reliés ; défile horizontalement dans son propre conteneur sur petit écran. */
+  .track { overflow-x: auto; padding-bottom: 4px; }
+  .nodes { display: flex; align-items: stretch; gap: 26px; min-width: max-content; padding: 4px 2px; }
+  .node {
+    position: relative; width: 158px; flex: none;
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 14px;
+    padding: 12px 12px 13px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .node:not(:last-child)::after {
+    content: ""; position: absolute; top: 31px; right: -27px; width: 26px; height: 2px;
+    background: linear-gradient(90deg, var(--line), var(--mint));
+  }
+  .node:not(:last-child)::before {
+    content: ""; position: absolute; top: 27px; right: -29px; width: 0; height: 0;
+    border-left: 7px solid var(--mint); border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+  }
+  .node.trigger { border-color: rgba(242,184,75,0.55); }
+  .node.human { border-color: rgba(142,101,216,0.7); background: #2A1B4A; }
+  .node.alert { border-color: rgba(255,122,122,0.55); }
+  .ico { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--panel); border: 1px solid var(--line); }
+  .ico svg { width: 19px; height: 19px; fill: none; stroke: var(--mint); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .trigger .ico svg { stroke: var(--amber); }
+  .human .ico svg { stroke: #C9B4F2; }
+  .alert .ico svg { stroke: var(--danger); }
+  .node b { font-weight: 600; font-size: 14px; line-height: 1.25; }
+  .node small { color: var(--muted); font-size: 12.5px; line-height: 1.35; }
+  .node .tag { font-family: var(--mono); font-size: 10.5px; color: var(--faint); letter-spacing: 0.03em; }
+
+  /* Téléphone */
+  .phone-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); display: flex; flex-direction: column; gap: 12px; }
+  @media (max-width: 1020px) { .phone-col { position: static; align-items: center; } }
+  .phone { width: 100%; max-width: 330px; background: var(--phone-bg); border: 10px solid #000; border-radius: 40px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.55); }
+  .tg-bar { display: flex; align-items: center; gap: 10px; padding: 14px 14px 12px; background: #1A1230; border-bottom: 1px solid var(--line); }
+  .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--emerald); display: grid; place-items: center; font-family: var(--display); font-weight: 750; font-size: 13px; color: #fff; flex: none; }
+  .tg-bar b { display: block; font-size: 14px; }
+  .tg-bar span { color: var(--faint); font-size: 12px; }
+  .chat { display: flex; flex-direction: column; gap: 10px; padding: 14px 12px 18px; }
+  .day { align-self: center; font-family: var(--mono); font-size: 10.5px; color: var(--faint); background: rgba(255,255,255,0.05); padding: 3px 10px; border-radius: 999px; }
+  .msg { background: var(--bubble); border-radius: 14px 14px 14px 4px; padding: 10px 12px; font-size: 13.5px; line-height: 1.42; max-width: 94%; }
+  .msg .t { display: block; font-family: var(--mono); font-size: 10px; color: var(--faint); margin-top: 6px; text-align: right; }
+  .msg strong { color: #fff; }
+  .msg.ok { border-left: 3px solid var(--mint); }
+  .msg.warn { border-left: 3px solid var(--danger); }
+  .msg.me { align-self: flex-end; background: var(--bubble-me); border-radius: 14px 14px 4px 14px; }
+  .btns { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 6px; margin-top: 9px; }
+  .btns button { font: 600 12.5px var(--body); color: var(--mint); background: rgba(61,219,176,0.1); border: 1px solid rgba(61,219,176,0.35); border-radius: 9px; padding: 7px 6px; cursor: pointer; }
+  .btns button:hover, .btns button:focus-visible { background: rgba(61,219,176,0.2); outline: none; }
+  .btns button.go { background: var(--mint); color: #120A22; border-color: var(--mint); }
+  .phone-cap { color: var(--faint); font-size: 12.5px; text-align: center; max-width: 330px; margin: 0; }
+  #toast { min-height: 1.4em; color: var(--mint); font-size: 13px; text-align: center; margin: 0; }
+
+  /* Bas de page */
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .box { background: rgba(28,18,51,0.82); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  .box h3 { font-family: var(--display); font-weight: 650; font-size: 19px; margin: 0; letter-spacing: -0.01em; }
+  .box ul, .box ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 7px; color: var(--muted); }
+  .box li strong { color: var(--fg); font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
+  td:first-child { color: var(--fg); font-weight: 600; white-space: nowrap; }
+  td { color: var(--muted); }
+  .foot { color: var(--faint); font-size: 13px; margin: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .node { transition: transform .15s ease, border-color .15s ease; }
+    .node:hover { transform: translateY(-2px); border-color: var(--mint); }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">NetWave Studio · maquette d'automatisation</p>
+    <h1>La prospection tourne seule. <em>Vous décidez depuis votre téléphone.</em></h1>
+    <p class="lede">Quatre flux reliés, comme dans n8n. La recherche se fait avec Claude quand votre PC est allumé ; la surveillance, les réponses et les alertes tournent dans le cloud, jour et nuit. Rien ne part sans votre accord.</p>
+    <div class="legend">
+      <span><span class="chip pc">PC · Claude</span> quand vous êtes là</span>
+      <span><span class="chip cloud">Cloud · n8n</span> 24 h/24, PC éteint</span>
+      <span><span class="chip phone">Téléphone</span> notifications Telegram</span>
+      <span><span class="chip built">Construit</span> <span class="chip todo">À construire</span></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="flows">
+
+      <section class="flow" aria-labelledby="f1">
+        <div class="flow-head">
+          <h2 id="f1">1 · Prospection</h2>
+          <span class="chip pc">PC · Claude</span><span class="chip built">Construit</span>
+          <span class="when">Quand vous le demandez</span>
+        </div>
+        <div class="track"><div class="nodes">
+          <div class="node trigger"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div><b>Registre CRO</b><small>Sociétés actives : restauration, coiffure</small><span class="tag">opendata.cro.ie</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.2-4.2"/></svg></div><b>Recherche web</b><small>Maps, Facebook, Booksy, annuaires</small><span class="tag">mode approfondi</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><b>Vérification</b><small>Existe, société, e-mail générique, source</small><span class="tag">sinon : « manuel »</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/></svg></div><b>Rédaction</b><small>Constat vrai, 3 conseils, diagnostic offert</small><span class="tag">note sur 100</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg></div><b>Fichier Prospects</b><small>Aujourd'hui Excel sur le PC ; demain Google Sheets</small><span class="tag">prospects.xlsx</span></div>
+        </div></div>
+      </section>
+
+      <section class="flow" aria-labelledby="f2">
+        <div class="flow-head">
+          <h2 id="f2">2 · Lancer</h2>
+          <span class="chip pc">PC</span><span class="chip cloud">+ cloud</span><span class="chip built">Construit sur PC</span>
+          <span class="when">Un lot par jour ouvré</span>
+        </div>
+        <div class="track"><div class="nodes">
+          <div class="node trigger"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg></div><b>Prospects vérifiés</b><small>Triés par note</small><span class="tag">statut « vérifié »</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V7l8-4z"/></svg></div><b>Contrôles légaux</b><small>Sociétés seulement, pays autorisés, exclusions</small><span class="tag">plafond 30 / jour</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M9 12h6M9 16h4"/></svg></div><b>Lot préparé</b><small>20 e-mails, aperçu complet, code de validation</small><span class="tag">L20261028-0900</span></div>
+          <div class="node human"><div class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></div><b>Votre accord</b><small>Bouton « Envoyer » sur Telegram, ou réponse avec le code</small><span class="tag">vous seul</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div><b>Envoi Resend</b><small>Depuis hello@netwave-studio.company</small><span class="tag">pied de page légal auto</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><b>Relance J+5</b><small>Une seule, sur nouvel accord</small><span class="tag">jamais deux</span></div>
+        </div></div>
+      </section>
+
+      <section class="flow" aria-labelledby="f3">
+        <div class="flow-head">
+          <h2 id="f3">3 · Réponses</h2>
+          <span class="chip cloud">Cloud · n8n</span><span class="chip todo">À construire</span>
+          <span class="when">À chaque nouvel e-mail</span>
+        </div>
+        <p class="flow-note">Aujourd'hui, l'agent « réponses » fait ce travail sur le PC quand vous le lancez. Dans n8n, il tourne même PC éteint.</p>
+        <div class="track"><div class="nodes">
+          <div class="node trigger"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><b>Nouvel e-mail</b><small>Gmail, lecture seule</small><span class="tag">déclencheur</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg></div><b>Rattacher</b><small>Au bon prospect par l'adresse</small><span class="tag">sinon ignoré</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg></div><b>Claude classe</b><small>Intéressé, question, refus, STOP, rebond</small><span class="tag">+ brouillon de réponse</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg></div><b>Mise à jour</b><small>Statut, travail à faire, liste d'exclusion</small><span class="tag">Google Sheets</span></div>
+          <div class="node human"><div class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></div><b>Notification</b><small>Seulement les intéressés et les questions</small><span class="tag">Telegram</span></div>
+        </div></div>
+      </section>
+
+      <section class="flow" aria-labelledby="f4">
+        <div class="flow-head">
+          <h2 id="f4">4 · Surveillance</h2>
+          <span class="chip cloud">Cloud · n8n</span><span class="chip todo">À construire</span>
+          <span class="when">Chaque matin à 8 h, heure de Cotonou</span>
+        </div>
+        <p class="flow-note">L'agent « surveillance » existe déjà sur le PC (même liste de contrôles). n8n le lance tout seul chaque matin et vous écrit seulement s'il y a un souci, plus un bilan court.</p>
+        <div class="track"><div class="nodes">
+          <div class="node trigger"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><b>Tous les jours 8 h</b><small>Déclencheur horaire</small><span class="tag">cron</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V7l8-4z"/></svg></div><b>Contrôles</b><small>Domaine vérifié, Gmail joignable, envois en échec</small><span class="tag">health</span></div>
+          <div class="node"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19h16M7 16V9M12 16V5M17 16v-4"/></svg></div><b>Seuils</b><small>Rebonds &gt; 5 %, réponse &gt; 24 h, lot oublié</small><span class="tag">charte : 24 h ouvrées</span></div>
+          <div class="node alert"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><b>Alerte ou bilan</b><small>Bloqué, à surveiller, ou tout va bien</small><span class="tag">Telegram</span></div>
+        </div></div>
+      </section>
+    </div>
+
+    <aside class="phone-col" aria-label="Ce que vous recevez sur votre téléphone">
+      <div class="phone">
+        <div class="tg-bar"><div class="avatar">NW</div><div><b>NetWave Prospection</b><span>robot Telegram privé</span></div></div>
+        <div class="chat">
+          <span class="day">EXEMPLE · mardi</span>
+          <div class="msg ok"><strong>🟢 Bilan 8 h</strong><br>Tout fonctionne. 18 prospects vérifiés, 0 rebond, 0 réponse en attente.<span class="t">08:00</span></div>
+          <div class="msg"><strong>Lot prêt</strong> · 20 e-mails, Irlande (Kerry, Mayo)<br>Exemple : « Chopshop Barbershop on Google Maps in Ardee »
+            <div class="btns"><button type="button" data-say="Aperçu ouvert : les 20 e-mails complets.">Voir</button><button type="button" class="go" data-say="Lot envoyé : 20 e-mails partis, statut mis à jour.">Envoyer</button><button type="button" data-say="Lot annulé : les prospects restent « vérifiés ».">Annuler</button></div>
+            <span class="t">09:12</span></div>
+          <div class="msg me">Envoyer<span class="t">09:20</span></div>
+          <div class="msg ok"><strong>Réponse : intéressé</strong><br>Café de Dundalk : « Yes please, send the check. »<br>À faire : diagnostic d'une page sous 24 h.
+            <div class="btns"><button type="button" data-say="Brouillon affiché : vous le relisez puis l'envoyez vous-même.">Brouillon</button><button type="button" data-say="Marqué comme traité.">Fait</button></div>
+            <span class="t">14:47</span></div>
+          <div class="msg warn"><strong>🔴 Alerte</strong><br>3 adresses en échec sur 40 envois (7,5 %). Envois suspendus jusqu'à vérification.<span class="t">16:05</span></div>
+        </div>
+      </div>
+      <p id="toast" role="status" aria-live="polite"></p>
+      <p class="phone-cap">Messages d'exemple. Les boutons de cette maquette ne font que simuler l'action.</p>
+    </aside>
+  </div>
+
+  <div class="grid2">
+    <section class="box" aria-labelledby="b1">
+      <h3 id="b1">Pourquoi ce découpage</h3>
+      <ul>
+        <li><strong>PC éteint = agents locaux arrêtés.</strong> Ce qui doit tourner la nuit (réponses, surveillance, alertes) part dans le cloud.</li>
+        <li><strong>La recherche reste avec Claude</strong> : c'est le travail qui demande du jugement, et il peut attendre que vous soyez là.</li>
+        <li><strong>Le fichier passe sur Google Sheets</strong>, privé : le cloud ne peut pas lire un Excel resté sur votre PC.</li>
+        <li><strong>Votre accord reste obligatoire</strong> pour chaque lot, même depuis le téléphone.</li>
+      </ul>
+    </section>
+    <section class="box" aria-labelledby="b2">
+      <h3 id="b2">Ce qu'il faut pour la partie cloud</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Outil</th><th>Rôle</th><th>Coût</th></tr></thead>
+        <tbody>
+          <tr><td>n8n</td><td>Les flux 3 et 4, et l'envoi après votre accord</td><td>Abonnement n8n Cloud, ou auto-hébergé : à vérifier</td></tr>
+          <tr><td>Telegram</td><td>Notifications et boutons sur le téléphone</td><td>Gratuit</td></tr>
+          <tr><td>Google Sheets</td><td>Fichier des prospects partagé PC et cloud</td><td>Gratuit</td></tr>
+          <tr><td>API Claude</td><td>Classer les réponses, rédiger les brouillons</td><td>Paiement à l'usage, faible pour ces volumes</td></tr>
+          <tr><td>Resend, Gmail</td><td>Envoi et lecture des e-mails</td><td>Déjà en place</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+  </div>
+  <p class="foot">Les flux 1 et 2 et les agents « réponses » et « surveillance » fonctionnent déjà sur le PC (scripts/prospection/pipeline.py). La partie n8n est une proposition à valider.</p>
+</div>
+
+<script>
+  const toast = document.getElementById("toast");
+  document.querySelectorAll(".btns button").forEach((b) =>
+    b.addEventListener("click", () => { toast.textContent = "Simulation : " + b.dataset.say; })
+  );
+</script>

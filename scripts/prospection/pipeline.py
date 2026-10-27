@@ -668,6 +668,100 @@ def cmd_report(_args) -> None:
          "envoyes_aujourdhui": sent_today(ws), "plafond_quotidien": DAILY_CAP})
 
 
+
+# --- Commande : surveillance ---------------------------------------------------------------------
+def resend_domains(env: dict) -> list:
+    req = urllib.request.Request("https://api.resend.com/domains", headers={
+        "Authorization": f"Bearer {env['RESEND_API_KEY']}", "User-Agent": "netwave-prospection/1.0"})
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        return json.loads(resp.read()).get("data", [])
+
+
+def cmd_health(args) -> None:
+    """Contrôle de santé : renvoie des alertes classées (erreur, attention, info)."""
+    env = load_env()
+    alerts = []
+
+    def alert(level, sujet, detail, action):
+        alerts.append({"niveau": level, "sujet": sujet, "detail": detail, "action": action})
+
+    guide = "docs/agents-prospection.md, section « Mise en route »"
+    for keys, role in [(("PROSPECTION_POSTAL_ADDRESS",), "de préparer un lot"),
+                       (("RESEND_API_KEY", "PROSPECTION_FROM", "PROSPECTION_REPLY_TO"), "d'envoyer"),
+                       (("IMAP_USER", "IMAP_APP_PASSWORD"), "de lire les réponses")]:
+        missing = [k for k in keys if not env.get(k)]
+        if missing:
+            alert("erreur", "Réglages manquants", f"Impossible {role} : {', '.join(missing)} absent(s) de .env.local.", f"Compléter .env.local ({guide}).")
+
+    if BOOK.exists():
+        try:
+            with open(BOOK, "a+b"):
+                pass
+        except PermissionError:
+            alert("erreur", "Fichier bloqué", "prospects.xlsx est ouvert dans Excel.", "Fermer le fichier dans Excel.")
+    wb = open_book()
+    ws = wb["Prospects"]
+    ps = [p for _, p in rows(ws)]
+    sent = [p for p in ps if p["envoye_le"]]
+    bounces = [p for p in ps if p["statut"] == "rebond"]
+    if sent and len(bounces) / len(sent) > 0.05:
+        alert("erreur", "Trop d'adresses en échec",
+              f"{len(bounces)} rebonds sur {len(sent)} envois ({len(bounces) * 100 // len(sent)} %). Au-delà de 5 %, le domaine risque d'être classé comme spam.",
+              "Suspendre les envois ; faire revérifier les adresses par l'agent « prospection ».")
+    for row in wb["Lots"].iter_rows(min_row=2, values_only=True):
+        if row[0] and row[5] == "en attente d'accord" and str(row[1]) != iso(today()):
+            alert("attention", "Lot oublié", f"Le lot {row[0]} ({row[3]} e-mails) attend depuis le {row[1]} ; il ne peut plus partir.",
+                  f"Annuler le lot (« annule le lot {row[0]} ») puis en préparer un nouveau.")
+        if row[0] and str(row[5]).startswith("envoyé (") and str(row[6] or "")[:10] >= iso(today() - dt.timedelta(days=7)):
+            alert("erreur", "Échecs d'envoi", f"Lot {row[0]} : {row[5]}.", "Lire le Journal du fichier ; souvent une clé Resend ou un domaine non vérifié.")
+    pending = [r for r in wb["Réponses"].iter_rows(min_row=2, values_only=True) if r[0] and r[8] == "non"]
+    old = [r for r in pending if str(r[1]) < iso(today() - dt.timedelta(days=1))]
+    if old:
+        alert("erreur", "Réponses non traitées", f"{len(old)} réponse(s) de plus de 24 h pas encore classées. La charte promet une réponse sous 24 h ouvrées.",
+              "Lancer l'agent « réponses ».")
+    hot = [p for p in ps if p["statut"] == "intéressé"]
+    if hot:
+        alert("attention", "Prospects intéressés", f"{len(hot)} prospect(s) intéressé(s) : " + ", ".join(str(p["entreprise"]) for p in hot[:5]),
+              "Envoyer le diagnostic promis ; voir la colonne travail_a_faire.")
+    due = [p for p in ps if p["statut"] == "envoyé" and p["envoye_le"] and not p["relance_le"]
+           and today() >= add_workdays(dt.date.fromisoformat(str(p["envoye_le"])), FOLLOW_UP_WORKDAYS)]
+    if due:
+        alert("info", "Relances dues", f"{len(due)} prospect(s) à relancer.", "« Agent lancer : prépare les relances ».")
+    if sent:
+        fetches = [r for r in wb["Journal"].iter_rows(min_row=2, values_only=True) if r[1] == "fetch-replies"]
+        last = str(fetches[-1][0])[:10] if fetches else None
+        if not last or last < iso(today() - dt.timedelta(days=2)):
+            alert("attention", "Boîte mail non relevée", f"Dernier relevé : {last or 'jamais'}.", "Lancer l'agent « réponses ».")
+    manual = [p for p in ps if p["statut"] == "manuel"]
+    if manual:
+        alert("info", "À contacter vous-même", f"{len(manual)} prospect(s) sans e-mail (téléphone, Facebook).", "Voir le statut « manuel » dans le fichier.")
+
+    if args.reseau and env.get("RESEND_API_KEY"):
+        try:
+            doms = resend_domains(env)
+            sender = email.utils.parseaddr(env.get("PROSPECTION_FROM", ""))[1].split("@")[-1]
+            match = [d for d in doms if d.get("name") == sender]
+            if not match:
+                alert("erreur", "Domaine absent de Resend", f"{sender or '?'} n'est pas ajouté dans Resend.", f"Ajouter et vérifier le domaine ({guide}).")
+            elif match[0].get("status") != "verified":
+                alert("erreur", "Domaine non vérifié", f"{sender} : statut « {match[0].get('status')} » chez Resend.", "Ajouter les enregistrements DNS affichés par Resend, puis Verify.")
+        except Exception as e:  # noqa: BLE001
+            alert("erreur", "Resend injoignable", str(e)[:200], "Vérifier la clé RESEND_API_KEY et la connexion.")
+    if args.reseau and env.get("IMAP_USER") and env.get("IMAP_APP_PASSWORD"):
+        try:
+            imap = imaplib.IMAP4_SSL(env.get("IMAP_HOST", "imap.gmail.com"))
+            imap.login(env["IMAP_USER"], env["IMAP_APP_PASSWORD"])
+            imap.logout()
+        except Exception as e:  # noqa: BLE001
+            alert("erreur", "Connexion Gmail impossible", str(e)[:200], "Recréer le mot de passe d'application et vérifier qu'IMAP est activé.")
+
+    order = {"erreur": 0, "attention": 1, "info": 2}
+    alerts.sort(key=lambda a: order[a["niveau"]])
+    etat = "erreur" if any(a["niveau"] == "erreur" for a in alerts) else ("attention" if alerts else "ok")
+    out({"etat": etat, "date": dt.datetime.now().isoformat(timespec="minutes"), "alertes": alerts,
+         "compteurs": {"prospects": len(ps), "envoyes": len(sent), "rebonds": len(bounces),
+                       "reponses_a_classer": len(pending), "envoyes_aujourdhui": sent_today(ws)}})
+
 # --- Point d'entrée -----------------------------------------------------------------------------
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -695,6 +789,8 @@ def main() -> None:
     p.add_argument("reponse_id"); p.add_argument("categorie"); p.add_argument("--travail", default="")
     p.set_defaults(fn=cmd_classify)
     sub.add_parser("report", help="bilan : qui a répondu, travail à faire").set_defaults(fn=cmd_report)
+    p = sub.add_parser("health", help="contrôle de santé (--reseau : teste aussi Resend et Gmail)")
+    p.add_argument("--reseau", action="store_true"); p.set_defaults(fn=cmd_health)
     args = ap.parse_args()
     args.fn(args)
 
