@@ -384,12 +384,11 @@ def cmd_import_irlande(args) -> None:
 
 # --- Commandes : lancer -------------------------------------------------------------------------
 def footer(env: dict, lang: str) -> str:
-    who = env.get("PROSPECTION_SENDER_NAME", "NetWave Studio")
     addr = env["PROSPECTION_POSTAL_ADDRESS"]
     if lang == "fr":
-        return (f"\n\n--\n{who}, NetWave Studio · {addr}\nhttps://www.netwave-studio.company\n"
+        return (f"\n\n--\nNetWave Studio · {addr}\nhttps://www.netwave-studio.company\n"
                 "Nous ne sommes pas Google. Pour ne plus recevoir de message, répondez simplement « STOP ».")
-    return (f"\n\n--\n{who}, NetWave Studio · {addr}\nhttps://www.netwave-studio.company/en\n"
+    return (f"\n\n--\nNetWave Studio · {addr}\nhttps://www.netwave-studio.company/en\n"
             "We are not Google. To stop receiving emails from us, just reply \"STOP\".")
 
 
