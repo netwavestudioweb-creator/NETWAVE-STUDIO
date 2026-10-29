@@ -752,8 +752,15 @@ def cmd_health(args) -> None:
                 alert("erreur", "Domaine absent de Resend", f"{sender or '?'} n'est pas ajouté dans Resend.", f"Ajouter et vérifier le domaine ({guide}).")
             elif match[0].get("status") != "verified":
                 alert("erreur", "Domaine non vérifié", f"{sender} : statut « {match[0].get('status')} » chez Resend.", "Ajouter les enregistrements DNS affichés par Resend, puis Verify.")
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", "replace")
+            if e.code == 401 and "restricted_api_key" in body:
+                # Clé « Sending access » : valide, mais sans droit de lecture des domaines (réglage conseillé).
+                pass
+            else:
+                alert("erreur", "Clé Resend refusée", f"HTTP {e.code} : {body[:160]}", "Recréer une clé dans Resend (API Keys) et la recopier dans .env.local.")
         except Exception as e:  # noqa: BLE001
-            alert("erreur", "Resend injoignable", str(e)[:200], "Vérifier la clé RESEND_API_KEY et la connexion.")
+            alert("erreur", "Resend injoignable", str(e)[:200], "Vérifier la connexion Internet.")
     if args.reseau and env.get("IMAP_USER") and env.get("IMAP_APP_PASSWORD"):
         try:
             imap = imaplib.IMAP4_SSL(env.get("IMAP_HOST", "imap.gmail.com"))
