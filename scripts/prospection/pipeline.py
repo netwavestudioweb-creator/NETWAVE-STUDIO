@@ -85,6 +85,10 @@ BLOCKED_REASON = {
 GENERIC_PREFIXES = ("info", "hello", "contact", "bookings", "booking", "reservations", "enquiries",
                     "enquiry", "office", "admin", "sales", "team", "shop", "orders", "studio", "salon")
 
+FREE_MAIL_DOMAINS = {"gmail.com", "googlemail.com", "yahoo.com", "yahoo.ie", "yahoo.co.uk", "hotmail.com",
+                     "hotmail.co.uk", "outlook.com", "outlook.ie", "live.com", "live.ie", "icloud.com",
+                     "me.com", "aol.com", "eircom.net", "gmx.com", "proton.me", "protonmail.com"}
+
 DAILY_CAP = 30            # e-mails par jour, toutes boîtes confondues (réputation du domaine)
 LOT_MAX = 25
 FOLLOW_UP_WORKDAYS = 5    # relance unique, 5 jours ouvrés après l'envoi
@@ -573,7 +577,10 @@ def cmd_fetch_replies(args) -> None:
         if p["email"] and p["statut"] in ("envoyé", "relancé", "répondu", "intéressé", "pas_intéressé"):
             addr = str(p["email"]).lower()
             by_email[addr] = (r, p)
-            by_domain.setdefault(addr.split("@")[-1], (r, p))
+            # Rattachement par domaine seulement pour un domaine privé : sur gmail.com ou yahoo.com,
+            # n'importe quel inconnu tomberait sur le premier prospect du fichier.
+            if addr.split("@")[-1] not in FREE_MAIL_DOMAINS:
+                by_domain.setdefault(addr.split("@")[-1], (r, p))
     known = {str(row[9]) for row in rep.iter_rows(min_row=2, values_only=True) if len(row) > 9 and row[9]}
     since = (today() - dt.timedelta(days=args.jours)).strftime("%d-%b-%Y")
 
@@ -604,8 +611,10 @@ def cmd_fetch_replies(args) -> None:
             if not match:
                 continue
             r, p = match
-            rid = f"R{rep.max_row:04d}"
             received = email.utils.parsedate_to_datetime(msg.get("Date")).date().isoformat() if msg.get("Date") else iso(today())
+            if p["envoye_le"] and received < str(p["envoye_le"]):
+                continue  # antérieur à notre premier e-mail : ce n'est pas une réponse
+            rid = f"R{rep.max_row:04d}"
             rep.append([rid, received, p["id"], sender, subject, text[:1500], "rebond" if bounce else None, None,
                         "oui" if bounce else "non", mid])
             known.add(mid)
