@@ -122,7 +122,7 @@ export const CGV: LegalDoc = {
   title: "Conditions générales de vente",
   intro:
     "Conditions applicables aux prestations de NetWave Studio : création de présence en ligne (site, fiche Google, réseaux sociaux, WhatsApp Business) et abonnements de suivi. Elles s'adressent aux professionnels.",
-  updated: LEGAL_UPDATED,
+  updated: "30/10/2026",
   sections: [
     {
       title: "1. Commande",
@@ -136,7 +136,7 @@ export const CGV: LegalDoc = {
       paragraphs: [
         "Les prix sont exprimés hors taxes, en euros ou dans la monnaie indiquée sur le devis, au taux du jour.",
         "NetWave Studio est établi hors de l'Union européenne : la TVA éventuellement due sur la prestation est déclarée par le client professionnel selon le mécanisme d'autoliquidation applicable dans son pays.",
-        "Les noms de domaine, licences ou frais de tiers (par exemple l'API WhatsApp) sont indiqués à part sur le devis.",
+        "Le nom de domaine est inclus la première année dans les formules Lancement, Essentiel+ et Croissance. Les licences et frais de tiers (par exemple l'API WhatsApp) sont indiqués à part sur le devis.",
       ],
     },
     {
@@ -287,7 +287,7 @@ export const TERMS_EN: LegalDoc = {
   title: "Terms of business",
   intro:
     "Terms for NetWave Studio services: online presence setup (website, Google Business Profile, social media, WhatsApp Business) and monthly care plans. They apply to business customers.",
-  updated: UPDATED_EN,
+  updated: "30 October 2026",
   sections: [
     {
       title: "1. Orders",
@@ -301,7 +301,7 @@ export const TERMS_EN: LegalDoc = {
       paragraphs: [
         "Prices exclude VAT and are stated in pounds sterling or the currency shown on the quote.",
         "NetWave Studio is established outside the UK and EU: any VAT due on the service is accounted for by the business customer under the reverse charge applicable in its country.",
-        "Domain names, licences and third-party fees (such as the WhatsApp API) are shown separately on the quote.",
+        "The domain name is included for the first year in the Launch, Essential+ and Growth packs. Licences and third-party fees (such as the WhatsApp API) are shown separately on the quote.",
       ],
     },
     {

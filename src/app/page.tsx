@@ -344,7 +344,7 @@ export default function HomePage() {
                   {formatEur(pack.price)}
                 </span>
                 <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
-                  ou 3 × {formatEur(pack.installment)} sans frais
+                  ou {pack.installmentLabel} sans frais
                 </span>
                 {pack.featured && (
                   <span className="text-sm font-semibold text-mint">Avec la vidéo, le SEO local et le paiement en ligne</span>

@@ -161,7 +161,7 @@ export default function EnglishHomePage() {
                 <div>
                   <p className="font-display text-5xl font-[750]">{formatEur(pack.price)}</p>
                   <p className={`mt-1 text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
-                    or 3 × {formatEur(pack.installment)} interest-free
+                    or {pack.installmentLabel} interest-free
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2.5 text-sm">

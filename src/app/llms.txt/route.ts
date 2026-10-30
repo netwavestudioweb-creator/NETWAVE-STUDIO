@@ -12,7 +12,7 @@ export function GET() {
     "> Studio de présence en ligne basé à Cotonou (Bénin), qui travaille à distance pour les petites entreprises du monde entier (Royaume-Uni, France, Belgique, Canada, Suisse…) : site web, fiche Google Maps, réseaux sociaux et WhatsApp Business. Livré en 10 jours ouvrés, ou 20 % remboursés. Nom de domaine et accès toujours au nom du client, abonnements sans engagement.",
     "",
     "## Formules",
-    ...MAIN_PACKS.map((p) => `- ${p.name} : ${formatEur(p.price)} (ou 3 × ${formatEur(p.installment)}). ${p.features.join(", ")}.`),
+    ...MAIN_PACKS.map((p) => `- ${p.name} : ${formatEur(p.price)} (ou ${p.installmentLabel}). ${p.features.join(", ")}.`),
     `- ${PRESTIGE.name} : dès ${formatEur(PRESTIGE.price)}. ${PRESTIGE.features.join(", ")}.`,
     ...SUBSCRIPTIONS.map((s) => `- Abonnement ${s.name} : ${formatEur(s.monthly)} par mois, sans engagement. ${s.features.join(", ")}.`),
     "",

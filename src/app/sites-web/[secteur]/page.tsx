@@ -214,7 +214,7 @@ export default async function SectorPage({ params }: Props) {
                       {formatEur(pack.price)}
                     </p>
                     <p className={`mt-2 text-sm ${dark ? "text-on-dark" : "text-muted"}`}>
-                      ou 3 × {formatEur(pack.installment)} sans frais
+                      ou {pack.installmentLabel} sans frais
                     </p>
                   </div>
                   <div className="flex flex-col gap-3">

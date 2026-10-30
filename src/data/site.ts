@@ -190,7 +190,8 @@ export type Pack = {
   name: string;
   tagline: string;
   price: number;
-  installment: number;
+  /** Échéancier en 3 fois, dont le total égale exactement le prix comptant. */
+  installmentLabel: string;
   fromPrefix: boolean;
   featured: boolean;
   cta: string;
@@ -210,7 +211,7 @@ export const PACKS: Pack[] = [
     name: "Lancement",
     tagline: "Pour être trouvable sur Google et Maps avec une présence propre.",
     price: 199,
-    installment: 69,
+    installmentLabel: "67 € puis 2 × 66 €",
     fromPrefix: false,
     featured: false,
     cta: "Choisir Lancement",
@@ -230,7 +231,7 @@ export const PACKS: Pack[] = [
     name: "Essentiel+",
     tagline: "Pour une présence complète avec catalogue WhatsApp et réseaux sociaux.",
     price: 449,
-    installment: 150,
+    installmentLabel: "2 × 150 € puis 149 €",
     fromPrefix: false,
     featured: false,
     cta: "Choisir Essentiel+",
@@ -254,7 +255,7 @@ export const PACKS: Pack[] = [
     name: "Croissance",
     tagline: "Pour être trouvé, recevoir des commandes ou réservations et mesurer vos résultats.",
     price: 549,
-    installment: 183,
+    installmentLabel: "3 × 183 €",
     fromPrefix: false,
     featured: true,
     cta: "Choisir Croissance",
@@ -281,7 +282,7 @@ export const PACKS: Pack[] = [
     name: "Prestige",
     tagline: "Pour une image de grande marque, du sur-mesure ou plusieurs établissements.",
     price: 1290,
-    installment: 430,
+    installmentLabel: "3 × 430 €",
     fromPrefix: true,
     featured: false,
     cta: "Demander une étude",

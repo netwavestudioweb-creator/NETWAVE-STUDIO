@@ -62,7 +62,8 @@ export type PackEn = {
   name: string;
   tagline: string;
   price: number;
-  installment: number;
+  /** Three-part schedule whose total is exactly the upfront price. */
+  installmentLabel: string;
   fromPrefix: boolean;
   featured: boolean;
   cta: string;
@@ -76,7 +77,7 @@ export const PACKS_EN: PackEn[] = [
     name: "Launch",
     tagline: "Be easily found on Google & Google Maps with a sharp, mobile-first presence.",
     price: 490,
-    installment: 164,
+    installmentLabel: "€164 then 2 × €163",
     fromPrefix: false,
     featured: false,
     cta: "Choose Launch",
@@ -96,7 +97,7 @@ export const PACKS_EN: PackEn[] = [
     name: "Essential+",
     tagline: "Complete local presence with WhatsApp catalogue and harmonized social profiles.",
     price: 990,
-    installment: 330,
+    installmentLabel: "3 × €330",
     fromPrefix: false,
     featured: false,
     cta: "Choose Essential+",
@@ -120,7 +121,7 @@ export const PACKS_EN: PackEn[] = [
     name: "Growth",
     tagline: "Our recommended setup: found on Maps, receiving orders/bookings, and measured.",
     price: 1490,
-    installment: 497,
+    installmentLabel: "2 × €497 then €496",
     fromPrefix: false,
     featured: true,
     cta: "Choose Growth",
@@ -147,7 +148,7 @@ export const PACKS_EN: PackEn[] = [
     name: "Prestige",
     tagline: "For established brands, multi-location businesses, or bespoke online systems.",
     price: 2900,
-    installment: 967,
+    installmentLabel: "2 × €967 then €966",
     fromPrefix: true,
     featured: false,
     cta: "Request a Quote",

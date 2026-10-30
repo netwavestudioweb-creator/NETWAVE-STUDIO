@@ -7,9 +7,9 @@ import { CheckIcon } from "@/components/ui";
 
 export default function PricingCardsEn() {
   const [split, setSplit] = useState(false);
-  const price = (p: { price: number; installment: number }) => (split ? `3 × ${formatEur(p.installment)}` : formatEur(p.price));
-  const sub = (p: { price: number; installment: number }) =>
-    split ? `total of ${formatEur(p.price)}` : `or 3 × ${formatEur(p.installment)} interest-free`;
+  const price = (p: { price: number; installmentLabel: string }) => (split ? p.installmentLabel : formatEur(p.price));
+  const sub = (p: { price: number; installmentLabel: string }) =>
+    split ? `total of ${formatEur(p.price)}` : `or ${p.installmentLabel} interest-free`;
 
   return (
     <>
@@ -95,7 +95,7 @@ export default function PricingCardsEn() {
             <h2 className="font-display text-[26px] font-bold">{PRESTIGE_EN.name}</h2>
             <p className="font-display text-3xl font-[750] tracking-[-0.03em]">
               <span className="text-lg font-semibold tracking-normal">from </span>
-              {split ? `3 × ${formatEur(PRESTIGE_EN.installment)}` : formatEur(PRESTIGE_EN.price)}
+              {split ? PRESTIGE_EN.installmentLabel : formatEur(PRESTIGE_EN.price)}
             </p>
           </div>
           <p className="text-[15px] leading-relaxed text-body">{PRESTIGE_EN.tagline}</p>

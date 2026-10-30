@@ -158,7 +158,7 @@ export default function FlagshipPage() {
                 <span className={`text-[15px] ${pack.featured ? "text-on-dark" : "text-body"}`}>{pack.tagline}</span>
                 <span className="font-display text-5xl font-[750] tracking-[-0.03em]">{formatEur(pack.price)}</span>
                 <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
-                  ou 3 × {formatEur(pack.installment)} sans frais
+                  ou {pack.installmentLabel} sans frais
                 </span>
               </div>
             ))}
