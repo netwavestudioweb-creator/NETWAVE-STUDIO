@@ -332,7 +332,7 @@ export const OPTIONS = [
   { name: "10 annuaires locaux supplémentaires", price: 49, note: "Renforce votre référencement Google" },
   { name: "2e fiche Google (deuxième adresse)", price: 99, note: "Création et optimisation complète" },
   { name: "Reprise d'un ancien site (redirections 301)", price: 79, note: "Conserve votre historique et vos liens" },
-  { name: "Assistant WhatsApp 24 h/24", price: 199, note: "Dès 199 € + frais API Meta (délai de validation Meta)" },
+  { name: "Assistant WhatsApp 24 h/24", price: 199, note: "Sur devis + frais API Meta (délai de validation Meta)" },
   { name: "Retouche de 10 photos", price: 29, note: "Des photos nettes et lumineuses" },
   { name: "Campagne Facebook / Instagram suivie 30 jours", price: 99, note: "Budget publicitaire en plus" },
   { name: "Pack 10 visuels pour réseaux sociaux", price: 59, note: "Contenu prêt à publier" },
@@ -399,10 +399,10 @@ export const TRUST_CHARTER = [
 
 export const BUDGETS = [
   { id: "undetermined", label: "À définir ensemble" },
-  { id: "base", label: "199 – 449 €" },
-  { id: "intermediaire", label: "449 – 1 290 €" },
-  { id: "avance", label: "1 290 – 2 500 €" },
-  { id: "surmesure", label: "Plus de 2 500 €" },
+  { id: "base", label: "Moins de 1 000 €" },
+  { id: "intermediaire", label: "1 000 – 2 500 €" },
+  { id: "avance", label: "2 500 – 5 000 €" },
+  { id: "surmesure", label: "Plus de 5 000 €" },
 ] as const;
 
 export const SERVICE_CHOICES = [
@@ -506,7 +506,7 @@ export const HOME_FAQ = [
   },
   {
     q: "Que se passe-t-il après la mise en ligne ?",
-    a: "30 jours de garantie écrite pour tout réajustement, puis, si vous le souhaitez, un abonnement sans engagement : Présence à 39 € par mois ou Visibilité à 129 € par mois, au même prix la deuxième année.",
+    a: "30 jours de garantie écrite pour tout réajustement, puis, si vous le souhaitez, un abonnement sans engagement : Présence ou Visibilité, au même prix la deuxième année, indiqué dans votre devis.",
   },
 ];
 
@@ -517,7 +517,7 @@ export const PRICING_FAQ = [
   },
   {
     q: "Pourquoi choisir Croissance plutôt qu'Essentiel+ ?",
-    a: "Pour 100 € de plus, Croissance ajoute le module adapté à votre métier (menu/réservation, commande ou rendez-vous), le paiement en ligne, le SEO local (5 mots-clés + 10 annuaires), 4 publications programmées sur Google, la réponse à vos avis le premier mois, vos avis affichés sur votre site et un rapport de résultats à 30 jours. C'est la formule clé-en-main que nous recommandons.",
+    a: "En plus d'Essentiel+, Croissance ajoute le module adapté à votre métier (menu/réservation, commande ou rendez-vous), le paiement en ligne, le SEO local (5 mots-clés + 10 annuaires), 4 publications programmées sur Google, la réponse à vos avis le premier mois, vos avis affichés sur votre site et un rapport de résultats à 30 jours. C'est la formule clé-en-main que nous recommandons.",
   },
   {
     q: "Le nom de domaine et le site m'appartiennent-ils ?",
@@ -533,7 +533,7 @@ export const PRICING_FAQ = [
   },
   {
     q: "Combien vais-je payer sur 12 mois ?",
-    a: "Exemple avec Croissance et l'abonnement Présence : 549 € + 12 × 39 € = 1 017 € la première année, ou 939 € avec l'abonnement à l'année (390 €). La deuxième année, l'abonnement garde le même prix.",
+    a: "Votre devis écrit indique le prix du site et celui de l'abonnement, mois par mois ou à l'année (2 mois offerts). Il n'y a aucun frais caché, et la deuxième année, l'abonnement garde le même prix.",
   },
   {
     q: "Puis-je payer dans ma monnaie ?",

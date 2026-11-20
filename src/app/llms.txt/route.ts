@@ -1,4 +1,4 @@
-import { CONTACT, MAIN_PACKS, PRESTIGE, SERVICES, SITE_URL, SUBSCRIPTIONS, TRUST_CHARTER, formatEur } from "@/data/site";
+import { CONTACT, MAIN_PACKS, PRESTIGE, SERVICES, SITE_URL, SUBSCRIPTIONS, TRUST_CHARTER } from "@/data/site";
 import { SECTORS } from "@/data/sectors";
 
 // Résumé du site pour les assistants IA (ChatGPT, Perplexity, Gemini…), au format llms.txt.
@@ -12,12 +12,12 @@ export function GET() {
     "> Studio de présence en ligne basé à Cotonou (Bénin), qui travaille à distance pour les petites entreprises du monde entier (Royaume-Uni, France, Belgique, Canada, Suisse…) : site web, fiche Google Maps, réseaux sociaux et WhatsApp Business. Livré en 10 jours ouvrés, ou 20 % remboursés. Nom de domaine et accès toujours au nom du client, abonnements sans engagement.",
     "",
     "## Formules",
-    ...MAIN_PACKS.map((p) => `- ${p.name} : ${formatEur(p.price)} (ou ${p.installmentLabel}). ${p.features.join(", ")}.`),
-    `- ${PRESTIGE.name} : dès ${formatEur(PRESTIGE.price)}. ${PRESTIGE.features.join(", ")}.`,
-    ...SUBSCRIPTIONS.map((s) => `- Abonnement ${s.name} : ${formatEur(s.monthly)} par mois, sans engagement. ${s.features.join(", ")}.`),
+    ...MAIN_PACKS.map((p) => `- ${p.name} : sur devis (paiement en 3 fois possible). ${p.features.join(", ")}.`),
+    `- ${PRESTIGE.name} : sur devis. ${PRESTIGE.features.join(", ")}.`,
+    ...SUBSCRIPTIONS.map((s) => `- Abonnement ${s.name} : sur devis, sans engagement. ${s.features.join(", ")}.`),
     "",
     "## Services",
-    ...SERVICES.map((s) => `- ${s.title}${s.fromPrice ? ` (dès ${formatEur(s.fromPrice)})` : " (sur devis)"} : ${s.summary}`),
+    ...SERVICES.map((s) => `- ${s.title} (sur devis) : ${s.summary}`),
     "",
     "## Métiers accompagnés",
     ...SECTORS.map((s) => `- [${s.name}](${SITE_URL}/sites-web/${s.slug}) : ${s.short}`),

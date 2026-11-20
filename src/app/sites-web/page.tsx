@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ALKAREEM, FLAGSHIP, MAIN_PACKS, PAYMENT_METHODS, PROJECTS, formatEur } from "@/data/site";
+import { ALKAREEM, FLAGSHIP, MAIN_PACKS, PAYMENT_METHODS, PROJECTS } from "@/data/site";
 import { SECTORS } from "@/data/sectors";
 import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow, Faq, PhoneFrame } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: `Votre site web en 10 jours, dès ${formatEur(FLAGSHIP.fromPrice)}`,
+  title: "Votre site web en 10 jours, sur devis",
   description:
-    "Un site professionnel en 10 jours ouvrés pour votre restaurant, commerce, cabinet ou entreprise, ou 20 % remboursés. Moins cher qu’une agence, aussi efficace. Dès 199 €, fiche Google et WhatsApp inclus, payable dans votre monnaie.",
+    "Un site professionnel en 10 jours ouvrés pour votre restaurant, commerce, cabinet ou entreprise, ou 20 % remboursés. Moins cher qu’une agence, aussi efficace. Fiche Google et WhatsApp inclus, devis gratuit, payable dans votre monnaie.",
   alternates: { canonical: FLAGSHIP.href },
 };
 
@@ -50,10 +50,9 @@ export default function FlagshipPage() {
             <p className="max-w-[560px] text-lg leading-relaxed text-body sm:text-[19px]">{FLAGSHIP.promise}</p>
             <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
               <p className="font-display text-[56px] font-[750] leading-none tracking-[-0.035em]">
-                <span className="text-xl font-semibold tracking-normal">dès </span>
-                {formatEur(FLAGSHIP.fromPrice)}
+                Sur devis
               </p>
-              <p className="pb-1.5 text-base text-muted">payable en 3 fois et dans votre monnaie</p>
+              <p className="pb-1.5 text-base text-muted">devis gratuit, payable en 3 fois et dans votre monnaie</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact">
@@ -156,9 +155,9 @@ export default function FlagshipPage() {
                   {pack.featured && <span className="eyebrow rounded-full bg-mint px-2.5 py-1 text-[11px] text-ink">Recommandée</span>}
                 </span>
                 <span className={`text-[15px] ${pack.featured ? "text-on-dark" : "text-body"}`}>{pack.tagline}</span>
-                <span className="font-display text-5xl font-[750] tracking-[-0.03em]">{formatEur(pack.price)}</span>
+                <span className="font-display text-5xl font-[750] tracking-[-0.03em]">Sur devis</span>
                 <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
-                  ou {pack.installmentLabel} sans frais
+                  Prix écrit après un diagnostic gratuit
                 </span>
               </div>
             ))}

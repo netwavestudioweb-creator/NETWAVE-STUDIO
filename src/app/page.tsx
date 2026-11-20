@@ -7,13 +7,11 @@ import {
   HOME_FAQ,
   METHOD_STEPS,
   MAIN_PACKS,
-  PRESTIGE,
   DIAGNOSTIC,
   PROJECTS,
   REGIONS,
   SERVICES,
   TESTIMONIALS,
-  formatEur,
 } from "@/data/site";
 import { SECTORS } from "@/data/sectors";
 import { DiagnosticBand, TrustCharter } from "@/components/Offer";
@@ -71,7 +69,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-muted">
-              {[`Dès ${formatEur(FLAGSHIP.fromPrice)}, prix écrit`, "Domaine et accès à votre nom", "Sans engagement"].map((item) => (
+              {["Devis gratuit et prix écrit", "Domaine et accès à votre nom", "Sans engagement"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckIcon className="h-4 w-4 text-emerald" />
                   {item}
@@ -132,7 +130,7 @@ export default function HomePage() {
             <p className="text-[17px] leading-relaxed text-body">
               Restaurant, commerce, cabinet ou entreprise : un site professionnel, moins cher qu&apos;une agence et
               aussi efficace.{" "}
-              <strong className="text-ink">Dès {formatEur(FLAGSHIP.fromPrice)}, payable dans votre monnaie.</strong>
+              <strong className="text-ink">Sur devis, payable dans votre monnaie.</strong>
             </p>
             <ul aria-label="Offres par métier" className="flex flex-wrap gap-2">
               {SECTORS.map((s) => (
@@ -340,11 +338,10 @@ export default function HomePage() {
                 </span>
                 <span className={`text-[15px] ${pack.featured ? "text-on-dark" : "text-body"}`}>{pack.tagline}</span>
                 <span className="font-display text-[52px] font-[750] tracking-[-0.03em]">
-                  {pack.fromPrefix && <span className="text-xl font-semibold tracking-normal">dès </span>}
-                  {formatEur(pack.price)}
+                  Sur devis
                 </span>
                 <span className={`text-sm ${pack.featured ? "text-on-dark" : "text-muted"}`}>
-                  ou {pack.installmentLabel} sans frais
+                  Prix écrit après un diagnostic gratuit
                 </span>
                 {pack.featured && (
                   <span className="text-sm font-semibold text-mint">Avec la vidéo, le SEO local et le paiement en ligne</span>
@@ -353,7 +350,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-6 text-[15px] text-body">
-            Projet sur mesure : <strong className="text-ink">Prestige dès {formatEur(PRESTIGE.price)}</strong>. Abonnements sans engagement dès 39 € par mois.
+            Projet sur mesure : <strong className="text-ink">Prestige sur devis</strong>. Abonnements mensuels sans engagement, sur devis.
           </p>
         </Container>
       </section>

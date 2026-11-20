@@ -6,9 +6,9 @@ import { Container, Eyebrow, Faq } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Tarifs : site web, fiche Google Maps & WhatsApp dès 199 €",
+  title: "Tarifs : site web, fiche Google Maps et WhatsApp, sur devis",
   description:
-    "Lancement 199 €, Essentiel+ 449 €, Croissance 549 € (site jusqu'à 8 pages, SEO local, 10 annuaires, paiement par carte), Prestige dès 1 290 €. Paiement en 3 fois sans frais, abonnements sans engagement, diagnostic gratuit.",
+    "Lancement, Essentiel+, Croissance (site jusqu'à 8 pages, SEO local, 10 annuaires, paiement par carte) et Prestige : prix sur devis, écrit après un diagnostic gratuit. Paiement en 3 fois sans frais, abonnements sans engagement.",
   alternates: { canonical: "/tarifs" },
 };
 

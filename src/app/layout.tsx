@@ -28,9 +28,9 @@ const jetbrains = JetBrains_Mono({
 
 // SEO : description courte (≈ 155 caractères) pour ne pas être coupée dans les résultats Google.
 const DESCRIPTION =
-  "Présence en ligne en 10 jours dès 199 € : site web, fiche Google Maps, réseaux sociaux et WhatsApp. Restaurants, commerces, salons. Tout à votre nom. Diagnostic gratuit.";
+  "Présence en ligne en 10 jours : site web, fiche Google Maps, réseaux sociaux et WhatsApp. Restaurants, commerces, salons. Tout à votre nom. Devis gratuit.";
 
-const HOME_TITLE = "NetWave Studio — Présence en ligne dès 199 € : site, Google Maps et WhatsApp en 10 jours";
+const HOME_TITLE = "NetWave Studio — Présence en ligne : site, Google Maps et WhatsApp en 10 jours";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -97,7 +97,6 @@ const jsonLd = {
       makesOffer: SERVICES.map((s) => ({
         "@type": "Offer",
         itemOffered: { "@type": "Service", name: s.title, description: s.summary },
-        ...(s.fromPrice ? { price: s.fromPrice.toFixed(2), priceCurrency: "EUR" } : {}),
       })),
       url: SITE_URL,
       logo: `${SITE_URL}/icon-512.png`,
@@ -128,8 +127,6 @@ const jsonLd = {
           "@type": "Offer",
           name: pack.name,
           description: pack.tagline,
-          price: pack.price.toFixed(2),
-          priceCurrency: "EUR",
         })),
       },
     },

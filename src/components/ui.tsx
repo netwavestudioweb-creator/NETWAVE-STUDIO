@@ -153,7 +153,7 @@ export function PriceTag({
   const styles = tone === "emerald" ? "bg-emerald-soft text-emerald" : "bg-violet-soft text-violet-mid";
   return (
     <span className={`rounded-full px-3 py-1.5 text-[13px] font-semibold ${styles}`}>
-      {lang === "en" ? (price === null ? "On quote" : `From €${price}`) : price === null ? "Sur devis" : `Dès ${price} €`}
+      {lang === "en" ? (price === null ? "On quote" : `From €${price}`) : "Sur devis"}
     </span>
   );
 }
