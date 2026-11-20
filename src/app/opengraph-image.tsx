@@ -49,7 +49,7 @@ export default async function Image() {
         <div style={{ display: "flex", gap: 32, fontSize: 24, color: "#CFC9DC" }}>
           <span>Partout dans le monde</span>
           <span>·</span>
-          <span>Site + Google Maps + WhatsApp, dès 199 €</span>
+          <span>Site + Google Maps + WhatsApp, sur devis</span>
           <span>·</span>
           <span>netwave-studio.company</span>
         </div>

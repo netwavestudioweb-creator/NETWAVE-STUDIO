@@ -71,10 +71,10 @@ COMPANY_FORMS = {"ltd", "limited", "dac", "plc", "llp", "clg", "uc", "ulc", "teo
 EMAIL_RULES = {
     "IE": {"forms": COMPANY_FORMS, "generic_only": True},
     "GB": {"forms": COMPANY_FORMS, "generic_only": True},
-    "FR": {"forms": None, "generic_only": True},
     "BE": {"forms": None, "generic_only": True},
 }
 BLOCKED_REASON = {
+    "FR": "France : marché évité (décision du fondateur du 18/11/2026) ; la marque NETWAVE y est déposée par un tiers (INPI FR3666702, valable jusqu'en 2029).",
     "DE": "Allemagne : e-mail de prospection interdit sans consentement, même entre entreprises.",
     "AT": "Autriche : consentement exigé.",
     "CA": "Canada : loi CASL, consentement exigé.",

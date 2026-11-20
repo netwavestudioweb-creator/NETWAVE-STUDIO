@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FLAGSHIP, SITE_URL, formatEur } from "@/data/site";
+import { FLAGSHIP, SITE_URL } from "@/data/site";
 import { SECTORS, getSector, sectorPacks } from "@/data/sectors";
 import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow, PhoneFrame } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const sector = getSector((await params).secteur);
   if (!sector) return {};
   return {
-    title: `Site web pour ${sector.name.toLowerCase()} : en 10 jours, dès ${formatEur(FLAGSHIP.fromPrice)}`,
+    title: `Site web pour ${sector.name.toLowerCase()} : en 10 jours, sur devis`,
     description: `${sector.headline} ${sector.short} Livré en 10 jours ouvrés ou 20 % remboursés, moins cher qu'une agence.`,
     alternates: { canonical: `/sites-web/${sector.slug}` },
   };
@@ -59,8 +59,6 @@ export default async function SectorPage({ params }: Props) {
               offers: packs.map((p) => ({
                 "@type": "Offer",
                 name: p.name,
-                price: p.price.toFixed(2),
-                priceCurrency: "EUR",
                 description: p.sectorFeatures.join(", "),
               })),
             },
@@ -82,7 +80,7 @@ export default async function SectorPage({ params }: Props) {
             </h1>
             <p className="max-w-[580px] text-lg leading-relaxed text-body">{sector.intro}</p>
             <ul className="flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-muted">
-              {[`Dès ${formatEur(FLAGSHIP.fromPrice)}`, "En 10 jours ou 20 % remboursés", "Moins cher qu'une agence"].map((item) => (
+              {["Devis gratuit", "En 10 jours ou 20 % remboursés", "Moins cher qu'une agence"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckIcon className="h-4 w-4 text-emerald" />
                   {item}
@@ -210,11 +208,10 @@ export default async function SectorPage({ params }: Props) {
                   </div>
                   <div>
                     <p className="font-display text-[clamp(44px,5vw,56px)] font-[750] leading-none tracking-[-0.035em]">
-                      {pack.fromPrefix && <span className="text-xl font-semibold tracking-normal">dès </span>}
-                      {formatEur(pack.price)}
+                      Sur devis
                     </p>
                     <p className={`mt-2 text-sm ${dark ? "text-on-dark" : "text-muted"}`}>
-                      ou {pack.installmentLabel} sans frais
+                      Prix écrit après un diagnostic gratuit
                     </p>
                   </div>
                   <div className="flex flex-col gap-3">
@@ -252,8 +249,7 @@ export default async function SectorPage({ params }: Props) {
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                 <h3 className="font-display text-[26px] font-bold">{prestige.name}</h3>
                 <p className="font-display text-3xl font-[750] tracking-[-0.03em]">
-                  <span className="text-lg font-semibold tracking-normal">dès </span>
-                  {formatEur(prestige.price)}
+                  Sur devis
                 </p>
               </div>
               <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-2">

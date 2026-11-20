@@ -7,7 +7,7 @@ import { ButtonLink, CheckIcon, Container, Eyebrow, PriceTag } from "@/component
 export const metadata: Metadata = {
   title: "Services : site web, Google Maps, réseaux sociaux et WhatsApp",
   description:
-    "Votre présence en ligne complète : site web dès 199 €, fiche Google Maps, réseaux sociaux et WhatsApp Business. Livré en 10 jours ouvrés ou 20 % remboursés, tout à votre nom.",
+    "Votre présence en ligne complète : site web sur devis, fiche Google Maps, réseaux sociaux et WhatsApp Business. Livré en 10 jours ouvrés ou 20 % remboursés, tout à votre nom.",
   alternates: { canonical: "/services" },
 };
 

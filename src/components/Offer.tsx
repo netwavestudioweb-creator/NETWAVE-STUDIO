@@ -7,7 +7,6 @@ import {
   PACK_COMPARISON,
   SUBSCRIPTIONS,
   TRUST_CHARTER,
-  formatEur,
 } from "@/data/site";
 import { ArrowIcon, ButtonLink, CheckIcon, Container, Eyebrow } from "@/components/ui";
 
@@ -77,7 +76,7 @@ export function ComparisonTable() {
             {MAIN_PACKS.map((p) => (
               <th key={p.id} scope="col" className={`px-5 py-4 text-center ${p.featured ? "bg-ink text-white" : ""}`}>
                 <span className="block font-display text-lg font-bold">{p.name}</span>
-                <span className={`block text-sm ${p.featured ? "text-mint" : "text-muted"}`}>{formatEur(p.price)}</span>
+                <span className={`block text-sm ${p.featured ? "text-mint" : "text-muted"}`}>Sur devis</span>
               </th>
             ))}
           </tr>
@@ -105,7 +104,7 @@ export function OptionsGrid() {
     <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {OPTIONS.map((o) => (
         <li key={o.name} className="flex flex-col gap-2 rounded-[20px] border border-line bg-white p-6">
-          <p className="font-display text-3xl font-[750] tracking-[-0.03em]">+{formatEur(o.price)}</p>
+          <p className="font-display text-3xl font-[750] tracking-[-0.03em]">Sur devis</p>
           <p className="font-semibold leading-snug">{o.name}</p>
           <p className="text-sm text-muted">{o.note}</p>
         </li>
@@ -122,10 +121,9 @@ export function Subscriptions() {
         <article key={s.name} className="flex flex-col gap-4 rounded-3xl border border-line bg-white p-8">
           <h3 className="font-display text-2xl font-bold">{s.name}</h3>
           <p className="font-display text-5xl font-[750] tracking-[-0.03em]">
-            {formatEur(s.monthly)}
-            <span className="text-lg font-semibold tracking-normal text-muted"> / mois</span>
+            Sur devis
           </p>
-          <p className="text-sm text-muted">ou {formatEur(s.yearly)} par an, 2 mois offerts · sans engagement</p>
+          <p className="text-sm text-muted">Chaque mois ou à l&apos;année (2 mois offerts) · sans engagement</p>
           <ul className="flex flex-col gap-2.5 border-t border-line pt-5 text-[15px] text-ink-2">
             {s.features.map((f) => (
               <li key={f} className="flex gap-2.5">
@@ -140,9 +138,9 @@ export function Subscriptions() {
         <div className="flex flex-col gap-3">
           <p className="eyebrow text-mint">Le combo</p>
           <h3 className="font-display text-2xl font-bold">{COMBO.name}</h3>
-          <p className="font-display text-5xl font-[750] tracking-[-0.03em]">{formatEur(COMBO.price)}</p>
+          <p className="font-display text-5xl font-[750] tracking-[-0.03em]">Sur devis</p>
           <p className="text-sm text-on-dark">
-            au lieu de {formatEur(COMBO.regular)} séparément : vous économisez {formatEur(COMBO.regular - COMBO.price)}.
+            Moins cher que les deux séparément, prix écrit dans votre devis.
           </p>
         </div>
         <Link

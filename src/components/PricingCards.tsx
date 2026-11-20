@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { MAIN_PACKS, PRESTIGE, formatEur } from "@/data/site";
+import { MAIN_PACKS, PRESTIGE } from "@/data/site";
 import { CheckIcon } from "@/components/ui";
 
 export default function PricingCards() {
   const [split, setSplit] = useState(false);
-  const price = (p: { price: number; installmentLabel: string }) => (split ? p.installmentLabel : formatEur(p.price));
-  const sub = (p: { price: number; installmentLabel: string }) =>
-    split ? `soit ${formatEur(p.price)} au total` : `ou ${p.installmentLabel} sans frais`;
+  const price = () => "Sur devis";
+  const sub = () =>
+    split ? "payable en 3 fois sans frais" : "Prix écrit après un diagnostic gratuit";
 
   return (
     <>
@@ -51,13 +51,13 @@ export default function PricingCards() {
               </div>
 
               <div aria-live="polite">
-                <p className="font-display text-[clamp(44px,5vw,60px)] font-[750] leading-none tracking-[-0.035em]">{price(pack)}</p>
-                <p className={`mt-2 text-sm ${dark ? "text-on-dark" : "text-muted"}`}>{sub(pack)}</p>
+                <p className="font-display text-[clamp(44px,5vw,60px)] font-[750] leading-none tracking-[-0.035em]">{price()}</p>
+                <p className={`mt-2 text-sm ${dark ? "text-on-dark" : "text-muted"}`}>{sub()}</p>
               </div>
 
               {dark && (
                 <p className="rounded-[14px] bg-mint/12 px-4.5 py-3.5 text-sm leading-normal text-[#E3F5F0]">
-                  <strong className="text-mint">Pour 100 € de plus qu&apos;Essentiel+ :</strong> le module métier, le SEO local (10 annuaires), le paiement en ligne et le suivi des avis.
+                  <strong className="text-mint">En plus d&apos;Essentiel+ :</strong> le module métier, le SEO local (10 annuaires), le paiement en ligne et le suivi des avis.
                 </p>
               )}
 
@@ -94,8 +94,7 @@ export default function PricingCards() {
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <h2 className="font-display text-[26px] font-bold">{PRESTIGE.name}</h2>
             <p className="font-display text-3xl font-[750] tracking-[-0.03em]">
-              <span className="text-lg font-semibold tracking-normal">dès </span>
-              {split ? PRESTIGE.installmentLabel : formatEur(PRESTIGE.price)}
+              Sur devis
             </p>
           </div>
           <p className="text-[15px] text-body">{PRESTIGE.tagline}</p>
